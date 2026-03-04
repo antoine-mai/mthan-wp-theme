@@ -67,9 +67,12 @@ if (class_exists('CSF')) {
         'icon' => 'fas fa-layer-group',
         'fields' => array(
                 array(
+                'type' => 'subheading',
+                'content' => 'Before Content',
+            ),
+                array(
                 'id' => 'page_before_content',
                 'type' => 'sorter',
-                'title' => 'Before Content',
                 'desc' => 'Order the sections to display before the page content.',
                 'default' => array(
                     'enabled' => array(),
@@ -77,9 +80,12 @@ if (class_exists('CSF')) {
                 ),
             ),
                 array(
+                'type' => 'subheading',
+                'content' => 'After Content',
+            ),
+                array(
                 'id' => 'page_after_content',
                 'type' => 'sorter',
-                'title' => 'After Content',
                 'desc' => 'Order the sections to display after the page content.',
                 'default' => array(
                     'enabled' => array(),

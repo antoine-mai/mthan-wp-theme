@@ -39,9 +39,12 @@ CSF::createSection($prefix, array(
                     'icon' => 'fas fa-home',
                     'fields' => array(
                             array(
+                            'type' => 'subheading',
+                            'content' => 'Before Content',
+                        ),
+                            array(
                             'id' => 'main_layout_before_content',
                             'type' => 'group',
-                            'title' => 'Before Content',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => false,
                             'accordion_title_prefix' => 'Section: ',
@@ -56,9 +59,12 @@ CSF::createSection($prefix, array(
                             )
                         ),
                             array(
+                            'type' => 'subheading',
+                            'content' => 'After Content',
+                        ),
+                            array(
                             'id' => 'main_layout_after_content',
                             'type' => 'group',
-                            'title' => 'After Content',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => false,
                             'accordion_title_prefix' => 'Section: ',
@@ -79,9 +85,12 @@ CSF::createSection($prefix, array(
                     'icon' => 'fas fa-blog',
                     'fields' => array(
                             array(
+                            'type' => 'subheading',
+                            'content' => 'Before Content',
+                        ),
+                            array(
                             'id' => 'blog_layout_before_content',
                             'type' => 'group',
-                            'title' => 'Before Content',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => false,
                             'accordion_title_prefix' => 'Section: ',
@@ -96,9 +105,12 @@ CSF::createSection($prefix, array(
                             )
                         ),
                             array(
+                            'type' => 'subheading',
+                            'content' => 'After Content',
+                        ),
+                            array(
                             'id' => 'blog_layout_after_content',
                             'type' => 'group',
-                            'title' => 'After Content',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => false,
                             'accordion_title_prefix' => 'Section: ',
@@ -115,5 +127,4 @@ CSF::createSection($prefix, array(
                     ),
                 ),
             ),
-        ), )
-));
+   
