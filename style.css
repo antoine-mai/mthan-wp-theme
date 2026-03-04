@@ -1,0 +1,13 @@
+/*
+Theme Name: My Theme
+Theme URI: https://example.com/
+Author: Your Name
+Description: A starter WordPress theme created by Copilot.
+Version: 1.0
+License: GNU General Public License v2 or later
+Text Domain: my-theme
+*/
+
+html, body { margin: 0; padding: 0; }
+
+/* Import main stylesheet if needed */
