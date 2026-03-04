@@ -36,34 +36,3 @@ if (file_exists(get_template_directory() . '/incs/codestar/codestar-framework.ph
 if (file_exists(get_template_directory() . '/incs/theme-options.php')) {
     require_once get_template_directory() . '/incs/theme-options.php';
 }
-
-// Git Pull AJAX handler
-add_action('wp_ajax_mthan_git_pull', 'mthan_ajax_git_pull_handler');
-function mthan_ajax_git_pull_handler()
-{
-    // Basic security check - only admins can pull
-    if (!current_user_can('manage_options')) {
-        wp_send_json_error('You do not have permission to perform this action.');
-    }
-
-    $theme_dir = get_template_directory();
-
-    // Execute git pull in the theme directory
-    // Note: requires the web server user to have git access and correct permissions
-    $command = "cd " . escapeshellarg($theme_dir) . " && git pull 2>&1";
-    $output = shell_exec($command);
-
-    if ($output === null) {
-        wp_send_json_error('Could not execute git command.');
-    }
-
-    wp_send_json_success($output);
-}
-
-// Enqueue admin scripts for theme options
-add_action('admin_enqueue_scripts', 'mthan_admin_enqueue_scripts');
-function mthan_admin_enqueue_scripts($hook)
-{
-    // Only load on theme options page if possible, or globally in admin
-    wp_enqueue_script('mthan-admin-git-pull', get_template_directory_uri() . '/assets/js/admin-git-pull.js', array('jquery'), filemtime(get_template_directory() . '/assets/js/admin-git-pull.js'), true);
-}

@@ -25,7 +25,6 @@ if (class_exists('CSF')) {
         'blog.php',
         'social.php',
         'sections-toggle.php',
-        'system.php',
     );
 
     foreach ($sections as $section) {
