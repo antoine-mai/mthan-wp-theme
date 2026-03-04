@@ -19,7 +19,7 @@ $theme_options = get_option('mthan_theme_options');
                                     <?php if (!empty($theme_options['footer_2_logo']['url'])) : ?>
                                         <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_2_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
                                     <?php else : ?>
-                                        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/footer-logo-two.png" alt="<?php bloginfo('name'); ?>"></a>
+                                        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-logo-two.png" alt="<?php bloginfo('name'); ?>"></a>
                                     <?php endif; ?>
                                 </div>
                                 <div class="text-box">

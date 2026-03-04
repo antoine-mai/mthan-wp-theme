@@ -6,8 +6,8 @@ $theme_options = get_option('mthan_theme_options');
 
         <!--Upper Section-->
         <div class="upper-section">
-            <div class="left-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/resource/footer-left-image.png" alt=""></div>
-            <div class="right-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/resource/footer-right-image.png" alt=""></div>
+            <div class="left-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/resource/footer-left-image.png" alt=""></div>
+            <div class="right-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/resource/footer-right-image.png" alt=""></div>
             
             <div class="auto-container">
 
@@ -17,7 +17,7 @@ $theme_options = get_option('mthan_theme_options');
                             <?php if (!empty($theme_options['footer_1_logo']['url'])) : ?>
                                 <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_1_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
                             <?php else : ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/footer-logo.png" alt="<?php bloginfo('name'); ?>"></a>
+                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-logo.png" alt="<?php bloginfo('name'); ?>"></a>
                             <?php endif; ?>
                         </div>
                         <div class="clearfix">

@@ -39,13 +39,13 @@ $theme_options = get_option('mthan_theme_options');
                             <?php if (has_custom_logo()) : ?>
                                 <?php echo get_custom_logo(); ?>
                             <?php else : ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>"></a>
+                                <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>"></a>
                             <?php endif; ?>
                         </div>
                     </div>
                     
                     <div class="iso">
-                        <div class="iso-icon"><span class="icon"><img src="<?php echo !empty($theme_options['header_2_iso_image']['url']) ? esc_url($theme_options['header_2_iso_image']['url']) : esc_url(get_template_directory_uri() . '/images/icons/iso-icon.png'); ?>" alt=""></span></div>
+                        <div class="iso-icon"><span class="icon"><img src="<?php echo !empty($theme_options['header_2_iso_image']['url']) ? esc_url($theme_options['header_2_iso_image']['url']) : esc_url(get_template_directory_uri() . '/assets/images/icons/iso-icon.png'); ?>" alt=""></span></div>
                         <div class="number"><?php echo esc_html($theme_options['header_2_iso_title'] ?? 'ISO 9001:2015'); ?></div>
                         <div class="txt"><?php echo esc_html($theme_options['header_2_iso_text'] ?? 'Certified Landscape Designer'); ?></div>
                     </div>
@@ -107,7 +107,7 @@ $theme_options = get_option('mthan_theme_options');
             <div class="auto-container clearfix">
                 <!--Logo-->
                 <div class="logo pull-left">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/sticky-logo.png" alt="<?php bloginfo('name'); ?>"></a>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/sticky-logo.png" alt="<?php bloginfo('name'); ?>"></a>
                 </div>
                 <!--Right Col-->
                 <div class="pull-right clearfix">
@@ -133,7 +133,7 @@ $theme_options = get_option('mthan_theme_options');
             <div class="close-btn"><span class="icon flaticon-letter-x"></span></div>
             
             <nav class="menu-box">
-                <div class="nav-logo"><a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/nav-logo.png" alt="" title=""></a></div>
+                <div class="nav-logo"><a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/nav-logo.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
 				<!--Social Links-->
 				<div class="social-links">
