@@ -79,6 +79,12 @@ if (class_exists('CSF')) {
                 'accordion_title_number' => true,
                 'fields' => array(
                         array(
+                        'id' => 'name',
+                        'type' => 'text',
+                        'title' => 'Name',
+                        'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name'),
+                    ),
+                        array(
                         'id' => 'section_template',
                         'type' => 'select',
                         'title' => 'Select Template',
@@ -98,6 +104,12 @@ if (class_exists('CSF')) {
                 'accordion_title_prefix' => 'Section: ',
                 'accordion_title_number' => true,
                 'fields' => array(
+                        array(
+                        'id' => 'name',
+                        'type' => 'text',
+                        'title' => 'Name',
+                        'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name'),
+                    ),
                         array(
                         'id' => 'section_template',
                         'type' => 'select',
