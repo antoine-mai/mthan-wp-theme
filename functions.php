@@ -23,8 +23,10 @@ add_action('after_setup_theme', 'mthan_setup');
 function mthan_enqueue_assets()
 {
     // Vendor CSS
+    wp_enqueue_style('mthan-fontawesome', get_template_directory_uri() . '/assets/css/fontawesome-all.css', array(), '1.0');
+    wp_enqueue_style('mthan-flaticon', get_template_directory_uri() . '/assets/css/flaticon.css', array(), '1.0');
     wp_enqueue_style('mthan-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '1.0');
-    wp_enqueue_style('mthan-style-main', get_template_directory_uri() . '/assets/css/style.css', array('mthan-bootstrap'), '1.0');
+    wp_enqueue_style('mthan-style-main', get_template_directory_uri() . '/assets/css/style.css', array('mthan-bootstrap', 'mthan-fontawesome', 'mthan-flaticon'), '1.0');
     wp_enqueue_style('mthan-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array('mthan-style-main'), '1.0');
 
     // Theme CSS
