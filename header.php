@@ -4,6 +4,13 @@
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
+    <?php
+$theme_options = get_option('mthan_theme_options');
+if (!empty($theme_options['favicon']['url'])) {
+    echo '<link rel="shortcut icon" href="' . esc_url($theme_options['favicon']['url']) . '" type="image/x-icon">';
+    echo '<link rel="icon" href="' . esc_url($theme_options['favicon']['url']) . '" type="image/x-icon">';
+}
+?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <?php wp_head(); ?>
 </head>
@@ -27,6 +34,4 @@ if (is_singular()) {
     if (!empty($post_meta['custom_header_layout']) && $post_meta['custom_header_layout'] != 'default') {
         $header_layout = $post_meta['custom_header_layout'];
     }
-}
-
-get_template_part('template-parts/header', $header_layout);
+}et_template_part('template-parts/header', $header_layout);

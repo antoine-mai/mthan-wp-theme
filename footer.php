@@ -7,9 +7,7 @@ if (empty($post_options) && is_single()) {
 }
 
 // Determine footer layout configuration
-$footer_layout = !empty($post_options['custom_footer_layout'])
-    ? $post_options['custom_footer_layout']
-    : (!empty($theme_options['footer_layout']) ? $theme_options['footer_layout'] : 'style-1');
+$footer_layout = !empty($post_options['custom_footer_layout']) ? $post_options['custom_footer_layout'] : 'style-1';
 
 // Load the selected footer style template
 get_template_part('template-parts/footer', $footer_layout);
