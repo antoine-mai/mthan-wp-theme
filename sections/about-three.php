@@ -7,8 +7,8 @@
                     <div class="inner">
                         <div class="sec-title">
                             <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                            <div class="subtitle">About Us</div>
-                            <h2>Professional Gardener</h2>
+                            <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                            <h2><?php echo $sec_title; ?></h2>
                         </div>
                         <div class="text">
                             <p class="bigger-text">Leader in landscaping, lawn care, and irrigation services in Los Angeles since 2004.</p> 

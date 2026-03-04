@@ -6,8 +6,8 @@
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
                             <div class="title-icon"><span class="icon"><img src="images/icons/leaf-four.png" alt="" title=""></span></div>
-                            <div class="subtitle">Pricing & Plans</div>
-                            <h2>Maintenance Cost</h2>
+                            <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                            <h2><?php echo $sec_title; ?></h2>
                         </div>
                     </div>
                     <div class="right-col col-xl-6 col-lg-12 col-md-12">

@@ -8,8 +8,8 @@
                 <div class="carousel-col col-lg-6 col-md-12 col-sm-12">
                     <div class="sec-title">
                         <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                        <div class="subtitle">Testimonials</div>
-                        <h2>Customer Words</h2>
+                        <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                        <h2><?php echo $sec_title; ?></h2>
                     </div>
                     <div class="carousel-box">
                         <div class="testimonial-carousel-two owl-theme owl-carousel">

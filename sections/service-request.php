@@ -6,8 +6,8 @@
                 <div class="content-box">
                     <div class="sec-title">
                         <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                        <div class="subtitle">Get In Touch</div>
-                        <h2>Request for Free Quote</h2>
+                        <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                        <h2><?php echo $sec_title; ?></h2>
                         <div class="sub-text">Get free estimates from lander lawn care and gardening professionals in your city.</div>
                     </div>
                     <div class="form-outer">

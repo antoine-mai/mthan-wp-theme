@@ -5,8 +5,8 @@
             <div class="upper-box clearfix">
                 <div class="sec-title">
                     <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                    <div class="subtitle">Appointments</div>
-                    <h2>Appointment Schedule</h2>
+                    <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                    <h2><?php echo $sec_title; ?></h2>
                 </div>
                 <div class="link-box">
                     <a href="#" class="theme-btn"><span class="btn-title">Request Job Estimate <i class="arrow flaticon-play-button-1"></i></span></a>

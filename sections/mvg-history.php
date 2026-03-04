@@ -17,7 +17,7 @@
                                             <img src="images/resource/mission-image.jpg" alt="" title="">
                                         </div>
                                         <div class="lower-box">
-                                            <div class="subtitle"><span>Pruners</span></div>
+                                            <div class="subtitle"><?php echo $sec_subtitle; ?></div>
                                             <h5>Our Mission</h5>
                                             <div class="letter">M</div>
                                         </div>

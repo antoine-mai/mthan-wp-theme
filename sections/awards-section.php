@@ -12,7 +12,7 @@
                             <div class="content">
                                 <div class="title-box">
                                     <div class="icon-box"><span class="icon flaticon-guarantee-3"></span></div>
-                                    <div class="subtitle">Awards & Recognition</div>
+                                    <div class="subtitle"><?php echo $sec_subtitle; ?></div>
                                     <h4>Most Awards Won <br>By a Company in <br>USA - <span class="theme_color">Pruners&CO</span></h4>
                                 </div>
                                 <div class="text">It is a long established fact that a reader will distracted by the readable content.</div>

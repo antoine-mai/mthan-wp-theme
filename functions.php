@@ -60,7 +60,9 @@ if (file_exists(get_template_directory() . '/incs/theme-options.php')) {
 
 /**
  * Helper: include a list of section items.
- * Each template has access to $section_data (the item's saved options).
+ * Each template has access to:
+ *   - $section_data — the raw item array
+ *   - mthan_sec_val($field, $default) — convenient reader for per-instance options
  */
 function mthan_include_section_items($items)
 {
@@ -71,10 +73,27 @@ function mthan_include_section_items($items)
         }
         $file = $sections_dir . $item['section_template'] . '.php';
         if (file_exists($file)) {
-            $section_data = $item; // Available as $section_data inside the template
+            $section_data = $item;
+            $GLOBALS['_mthan_current_section'] = $item; // for mthan_sec_val()
             include $file;
         }
     }
+}
+
+/**
+ * Read a per-instance field value from the current section.
+ * In templates: mthan_sec_val('subtitle', 'Default Text')
+ *
+ * @param string $field   Field suffix, e.g. 'subtitle', 'title', 'text'
+ * @param string $default Fallback if field is empty
+ * @return string
+ */
+function mthan_sec_val($field, $default = '')
+{
+    $sd = isset($GLOBALS['_mthan_current_section']) ? $GLOBALS['_mthan_current_section'] : array();
+    $slug = !empty($sd['section_template']) ? $sd['section_template'] : '';
+    $key = $slug . '_' . $field;
+    return !empty($sd[$key]) ? $sd[$key] : $default;
 }
 
 /**
@@ -126,7 +145,7 @@ function mthan_admin_section_autofill_js()
             }
         }
         // On change
-        $(document).on('change', ' se lect' ,  functi on  () {
+        $(doc um ent).on('change', ' se lect' ,  functi on  () {
             var $select = $(this);
             // Only target selects inside group items that have a data-section-name input nearby
             var $group = $select.closest('.csf-field-group-item, .csf-group-item');
@@ -135,13 +154,13 @@ function mthan_admin_section_autofill_js()
             }
         });
         // On cloning (when new group item is added)
-        $(document).on('csf:group-added csf:re peater-ad  ded', func  tion (e, $ item) {
+        $(document).on( 'csf:group -added csf:re peater-ad  ded', func  tion (e, $  it em) {
             $item .f ind('sele ct ').each(fu nc tion () {
                 var $s = $(this);
                 var $g = $s.closest('.csf-field-group-item, .csf-group-item');
                 if ($g.length && $g.find('input[data-section-name]').length) {
                     syncSectionName($s);
-                }
+            }
          );
       ;
     })(jy);

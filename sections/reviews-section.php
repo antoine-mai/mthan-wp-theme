@@ -41,8 +41,8 @@
             <div class="title-box clearfix">
                 <div class="sec-title">
                     <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                    <div class="subtitle">Testimonials</div>
-                    <h2>Look at Company Reviews</h2>
+                    <div class="subtitle"><?php echo $sec_subtitle; ?></div>
+                    <h2><?php echo $sec_title; ?></h2>
                 </div>
                 <div class="review-info">
                     <div class="count">4.5</div>

@@ -7,7 +7,7 @@
                 <div class="map-column col-xl-7 col-lg-12 col-md-12 col-sm-12">
                     <div class="inner">
                         <div class="title">
-                            <h2>Do You Need Our Landscaping Service? Make an Appointment.</h2>
+                            <h2><?php echo $sec_title; ?></h2>
                         </div>
                         <div class="map-outer">
                             <div class="map-box">
