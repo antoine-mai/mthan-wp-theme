@@ -131,4 +131,8 @@ if (class_exists('CSF')) {
                     'style-1' => 'Style 1',
                     'style-2' => 'Style 2',
                 ),
- 
+            ),
+        )
+    ));
+
+}
