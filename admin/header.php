@@ -23,6 +23,24 @@ CSF::createSection($prefix, array(
             'default' => 'style-1',
         ),
             array(
+            'id' => 'header_logo',
+            'type' => 'media',
+            'title' => 'Header Logo',
+            'desc' => 'Upload a custom logo for the header.',
+        ),
+            array(
+            'id' => 'header_sticky_logo',
+            'type' => 'media',
+            'title' => 'Sticky Header Logo',
+            'desc' => 'Upload a custom logo for the sticky header.',
+        ),
+            array(
+            'id' => 'header_nav_logo',
+            'type' => 'media',
+            'title' => 'Mobile/Nav Header Logo',
+            'desc' => 'Upload a custom logo for the mobile navigation menu.',
+        ),
+            array(
             'id' => 'header_topbar',
             'type' => 'switcher',
             'title' => 'Enable Topbar',
