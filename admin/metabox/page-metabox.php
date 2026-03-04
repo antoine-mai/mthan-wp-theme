@@ -72,12 +72,19 @@ if (class_exists('CSF')) {
             ),
                 array(
                 'id' => 'page_before_content',
-                'type' => 'sorter',
-                'desc' => 'Order the sections to display before the page content.',
-                'default' => array(
-                    'enabled' => array(),
-                    'disabled' => $available_sections,
-                ),
+                'type' => 'group',
+                'button_title' => 'Add New Section',
+                'accordion_title_auto' => false,
+                'accordion_title_prefix' => 'Section: ',
+                'accordion_title_number' => true,
+                'fields' => array(
+                        array(
+                        'id' => 'section_template',
+                        'type' => 'select',
+                        'title' => 'Select Template',
+                        'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                    ),
+                )
             ),
                 array(
                 'type' => 'subheading',
@@ -85,12 +92,19 @@ if (class_exists('CSF')) {
             ),
                 array(
                 'id' => 'page_after_content',
-                'type' => 'sorter',
-                'desc' => 'Order the sections to display after the page content.',
-                'default' => array(
-                    'enabled' => array(),
-                    'disabled' => $available_sections,
-                ),
+                'type' => 'group',
+                'button_title' => 'Add New Section',
+                'accordion_title_auto' => false,
+                'accordion_title_prefix' => 'Section: ',
+                'accordion_title_number' => true,
+                'fields' => array(
+                        array(
+                        'id' => 'section_template',
+                        'type' => 'select',
+                        'title' => 'Select Template',
+                        'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                    ),
+                )
             ),
         )
     ));
