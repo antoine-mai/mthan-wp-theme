@@ -67,21 +67,25 @@ if (class_exists('CSF')) {
         'icon' => 'fas fa-layer-group',
         'fields' => array(
                 array(
-                'id' => 'post_sections',
-                'type' => 'group',
-                'button_title' => 'Add New Section',
-                'accordion_title_auto' => false,
-                'accordion_title_prefix' => 'Section: ',
-                'accordion_title_number' => true,
-                'fields' => array(
-                        array(
-                        'id' => 'section_template',
-                        'type' => 'select',
-                        'title' => 'Select Template',
-                        'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
-                    ),
-                )
-            )
+                'id' => 'post_before_content',
+                'type' => 'sorter',
+                'title' => 'Before Content',
+                'desc' => 'Order the sections to display before the post content.',
+                'default' => array(
+                    'enabled' => array(),
+                    'disabled' => $available_sections,
+                ),
+            ),
+                array(
+                'id' => 'post_after_content',
+                'type' => 'sorter',
+                'title' => 'After Content',
+                'desc' => 'Order the sections to display after the post content.',
+                'default' => array(
+                    'enabled' => array(),
+                    'disabled' => $available_sections,
+                ),
+            ),
         )
     ));
 
@@ -127,8 +131,4 @@ if (class_exists('CSF')) {
                     'style-1' => 'Style 1',
                     'style-2' => 'Style 2',
                 ),
-            ),
-        )
-    ));
-
-}
+ 

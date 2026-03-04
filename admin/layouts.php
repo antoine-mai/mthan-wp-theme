@@ -34,55 +34,83 @@ CSF::createSection($prefix, array(
             'type' => 'tabbed',
             'title' => 'Layout Sections',
             'tabs' => array(
-                    array(
+                array(
                     'title' => 'Main Layout',
                     'icon' => 'fas fa-home',
                     'fields' => array(
                             array(
                             'id' => 'main_layout_before_content',
-                            'type' => 'sorter',
+                            'type' => 'group',
                             'title' => 'Before Content',
-                            'desc' => 'Order the sections to display before the main content.',
-                            'default' => array(
-                                'enabled' => array(),
-                                'disabled' => $available_sections,
-                            ),
+                            'button_title' => 'Add New Section',
+                            'accordion_title_auto' => false,
+                            'accordion_title_prefix' => 'Section: ',
+                            'accordion_title_number' => true,
+                            'fields' => array(
+                                    array(
+                                    'id' => 'section_template',
+                                    'type' => 'select',
+                                    'title' => 'Select Template',
+                                    'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                                ),
+                            )
                         ),
                             array(
                             'id' => 'main_layout_after_content',
-                            'type' => 'sorter',
+                            'type' => 'group',
                             'title' => 'After Content',
-                            'desc' => 'Order the sections to display after the main content.',
-                            'default' => array(
-                                'enabled' => array(),
-                                'disabled' => $available_sections,
-                            ),
+                            'button_title' => 'Add New Section',
+                            'accordion_title_auto' => false,
+                            'accordion_title_prefix' => 'Section: ',
+                            'accordion_title_number' => true,
+                            'fields' => array(
+                                    array(
+                                    'id' => 'section_template',
+                                    'type' => 'select',
+                                    'title' => 'Select Template',
+                                    'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                                ),
+                            )
                         ),
                     ),
                 ),
-                    array(
+                array(
                     'title' => 'Blog Layout',
                     'icon' => 'fas fa-blog',
                     'fields' => array(
                             array(
                             'id' => 'blog_layout_before_content',
-                            'type' => 'sorter',
+                            'type' => 'group',
                             'title' => 'Before Content',
-                            'desc' => 'Order the sections to display before the blog content.',
-                            'default' => array(
-                                'enabled' => array(),
-                                'disabled' => $available_sections,
-                            ),
+                            'button_title' => 'Add New Section',
+                            'accordion_title_auto' => false,
+                            'accordion_title_prefix' => 'Section: ',
+                            'accordion_title_number' => true,
+                            'fields' => array(
+                                    array(
+                                    'id' => 'section_template',
+                                    'type' => 'select',
+                                    'title' => 'Select Template',
+                                    'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                                ),
+                            )
                         ),
                             array(
                             'id' => 'blog_layout_after_content',
-                            'type' => 'sorter',
+                            'type' => 'group',
                             'title' => 'After Content',
-                            'desc' => 'Order the sections to display after the blog content.',
-                            'default' => array(
-                                'enabled' => array(),
-                                'disabled' => $available_sections,
-                            ),
+                            'button_title' => 'Add New Section',
+                            'accordion_title_auto' => false,
+                            'accordion_title_prefix' => 'Section: ',
+                            'accordion_title_number' => true,
+                            'fields' => array(
+                                    array(
+                                    'id' => 'section_template',
+                                    'type' => 'select',
+                                    'title' => 'Select Template',
+                                    'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
+                                ),
+                            )
                         ),
                     ),
                 ),
@@ -118,5 +146,4 @@ CSF::createSection($prefix, array(
             'default' => 'style-1',
         ),
 
-    )
-));
+   
