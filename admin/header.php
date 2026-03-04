@@ -12,17 +12,6 @@ CSF::createSection($prefix, array(
             'content' => 'Layout Settings',
         ),
             array(
-            'id' => 'header_layout',
-            'type' => 'select',
-            'title' => 'Header Layout',
-            'desc' => 'Select the header style for your site.',
-            'options' => array(
-                'style-1' => 'Style 1 - Default Header',
-                'style-2' => 'Style 2 - Alternative Header',
-            ),
-            'default' => 'style-1',
-        ),
-            array(
             'id' => 'header_logo',
             'type' => 'media',
             'title' => 'Header Logo',

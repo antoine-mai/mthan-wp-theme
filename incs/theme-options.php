@@ -20,6 +20,7 @@ if (class_exists('CSF')) {
     $admin_dir = get_template_directory() . '/admin/';
     $sections = array(
         'general.php',
+        'layouts.php',
         'header.php',
         'footer.php',
         'blog.php',
