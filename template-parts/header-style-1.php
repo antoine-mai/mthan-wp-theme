@@ -40,7 +40,7 @@ $theme_options = get_option('mthan_theme_options');
                     <div class="logo-box">
                         <div class="logo">
                             <?php if (has_custom_logo()) : ?>
-                                <?php the_custom_logo(); ?>
+                                <?php echo get_custom_logo(); ?>
                             <?php else : ?>
                                 <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>"></a>
                             <?php endif; ?>

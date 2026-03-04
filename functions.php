@@ -29,7 +29,6 @@ function mthan_enqueue_assets()
 
     // Theme CSS
     wp_enqueue_style('mthan-style', get_stylesheet_uri(), array('mthan-style-main'), wp_get_theme()->get('Version'));
-    wp_enqueue_style('mthan-main-custom', get_template_directory_uri() . '/assets/css/main.css', array('mthan-style'), '1.0');
 
     // Vendor Scripts
     wp_enqueue_script('mthan-popper', get_template_directory_uri() . '/assets/js/popper.min.js', array('jquery'), '1.0', true);

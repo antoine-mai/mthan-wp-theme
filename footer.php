@@ -15,6 +15,12 @@ $footer_layout = !empty($post_options['custom_footer_layout'])
 get_template_part('template-parts/footer', $footer_layout);
 ?>
 
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-arrows"></span></div>
+
 <?php wp_footer(); ?>
 </body>
 

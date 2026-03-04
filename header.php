@@ -8,7 +8,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> >
+<body <?php body_class('hidden-bar-wrapper'); ?> >
     <?php wp_body_open(); ?>
 
     <div class="page-wrapper">
@@ -30,4 +30,3 @@ if (is_singular()) {
 }
 
 get_template_part('template-parts/header', $header_layout);
-?>
