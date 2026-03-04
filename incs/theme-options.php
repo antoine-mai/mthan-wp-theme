@@ -32,4 +32,17 @@ if (class_exists('CSF')) {
         }
     }
 
+    // Include all metabox files from the admin/metabox folder
+    $metabox_dir = get_template_directory() . '/admin/metabox/';
+    $metaboxes = array(
+        'page-metabox.php',
+        'post-metabox.php',
+    );
+
+    foreach ($metaboxes as $metabox) {
+        if (file_exists($metabox_dir . $metabox)) {
+            require_once $metabox_dir . $metabox;
+        }
+    }
+
 }

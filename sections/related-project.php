@@ -1,0 +1,73 @@
+<section class="related-project">
+            <div class="auto-container">
+                <div class="title">
+                    <h3>Related Projects</h3>
+                </div>
+                <div class="row clearfix">
+
+                    <!-- Gallery Item -->
+                    <div class="gallery-item-three col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <img src="images/gallery/25.jpg" alt="" title="">
+                            </div>
+                            <div class="link-box"><a href="#"><span class="icon flaticon-right-arrow-1"></span></a></div>
+                            <div class="hover-box">
+                                <div class="hvr-content">
+                                    <div class="cat"><a href="#">Lawn Care</a></div>
+                                    <h5><a href="#">Sprinkler Irrigation</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <!-- Gallery Item -->
+                    <div class="gallery-item-three col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <img src="images/gallery/26.jpg" alt="" title="">
+                            </div>
+                            <div class="link-box"><a href="#"><span class="icon flaticon-right-arrow-1"></span></a></div>
+                            <div class="hover-box">
+                                <div class="hvr-content">
+                                    <div class="cat"><a href="#">Garden Care</a></div>
+                                    <h5><a href="#">Communual Garden</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item -->
+                    <div class="gallery-item-three col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <img src="images/gallery/27.jpg" alt="" title="">
+                            </div>
+                            <div class="link-box"><a href="#"><span class="icon flaticon-right-arrow-1"></span></a></div>
+                            <div class="hover-box">
+                                <div class="hvr-content">
+                                    <div class="cat"><a href="#">Pathways</a></div>
+                                    <h5><a href="#">Rubbish Removal</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item -->
+                    <div class="gallery-item-three col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <img src="images/gallery/28.jpg" alt="" title="">
+                            </div>
+                             <div class="link-box"><a href="#"><span class="icon flaticon-right-arrow-1"></span></a></div>
+                            <div class="hover-box">
+                                <div class="hvr-content">
+                                    <div class="cat"><a href="#">Pathways</a></div>
+                                    <h5><a href="#">Rubbish Removal</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

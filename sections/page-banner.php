@@ -1,0 +1,18 @@
+<section class="page-banner">
+        <div class="image-layer" style="background-image:url(images/background/banner-image-1.jpg);"></div>
+        <div class="banner-bottom-pattern"></div>
+
+        <div class="banner-inner">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <h1>About Company</h1>
+                    <div class="page-nav">
+                        <ul class="bread-crumb clearfix">
+                            <li><a href="index.html"><span class="fa fa-home"></span></a></li>
+                            <li class="active">About</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
