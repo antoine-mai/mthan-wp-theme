@@ -74,7 +74,7 @@ if (class_exists('CSF')) {
                 'id' => 'page_before_content',
                 'type' => 'group',
                 'button_title' => 'Add New Section',
-                'accordion_title_auto' => false,
+                'accordion_title_auto' => true,
                 'accordion_title_prefix' => 'Section: ',
                 'accordion_title_number' => true,
                 'fields' => array(
@@ -94,7 +94,7 @@ if (class_exists('CSF')) {
                 'id' => 'page_after_content',
                 'type' => 'group',
                 'button_title' => 'Add New Section',
-                'accordion_title_auto' => false,
+                'accordion_title_auto' => true,
                 'accordion_title_prefix' => 'Section: ',
                 'accordion_title_number' => true,
                 'fields' => array(

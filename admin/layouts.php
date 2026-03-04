@@ -45,7 +45,7 @@ CSF::createSection($prefix, array(
                             'id' => 'main_layout_before_content',
                             'type' => 'group',
                             'button_title' => 'Add New Section',
-                            'accordion_title_auto' => false,
+                            'accordion_title_auto' => true,
                             'accordion_title_prefix' => 'Section: ',
                             'accordion_title_number' => true,
                             'fields' => array(
@@ -65,7 +65,7 @@ CSF::createSection($prefix, array(
                             'id' => 'main_layout_after_content',
                             'type' => 'group',
                             'button_title' => 'Add New Section',
-                            'accordion_title_auto' => false,
+                            'accordion_title_auto' => true,
                             'accordion_title_prefix' => 'Section: ',
                             'accordion_title_number' => true,
                             'fields' => array(
