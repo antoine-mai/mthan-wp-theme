@@ -77,20 +77,13 @@ if (class_exists('CSF')) {
                 'accordion_title_auto' => true,
                 'accordion_title_prefix' => 'Section: ',
                 'accordion_title_number' => true,
-                'fields' => array(
-                        array(
-                        'id' => 'name',
-                        'type' => 'text',
-                        'title' => 'Name',
-                        'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name'),
-                    ),
-                        array(
-                        'id' => 'section_template',
-                        'type' => 'select',
-                        'title' => 'Select Template',
-                        'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
-                    ),
-                )
+                'fields' => array_merge(
+                    array(
+                        array('id' => 'name', 'type' => 'text', 'title' => 'Name', 'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name')),
+                        array('id' => 'section_template', 'type' => 'select', 'title' => 'Select Template', 'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections),
+                ),
+                mthan_get_section_instance_fields()
+            )
             ),
                 array(
                 'type' => 'subheading',
@@ -103,20 +96,13 @@ if (class_exists('CSF')) {
                 'accordion_title_auto' => true,
                 'accordion_title_prefix' => 'Section: ',
                 'accordion_title_number' => true,
-                'fields' => array(
-                        array(
-                        'id' => 'name',
-                        'type' => 'text',
-                        'title' => 'Name',
-                        'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name'),
-                    ),
-                        array(
-                        'id' => 'section_template',
-                        'type' => 'select',
-                        'title' => 'Select Template',
-                        'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections,
-                    ),
-                )
+                'fields' => array_merge(
+                    array(
+                        array('id' => 'name', 'type' => 'text', 'title' => 'Name', 'attributes' => array('data-section-name' => '1', 'placeholder' => 'Section name')),
+                        array('id' => 'section_template', 'type' => 'select', 'title' => 'Select Template', 'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections),
+                ),
+                mthan_get_section_instance_fields()
+            )
             ),
         )
     ));

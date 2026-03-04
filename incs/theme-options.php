@@ -18,6 +18,9 @@ if (class_exists('CSF')) {
 
     // Include all section files from the admin folder
     $admin_dir = get_template_directory() . '/admin/';
+
+    // Load per-instance section fields helper (used by layouts.php and metaboxes)
+    require_once $admin_dir . 'section-instance-fields.php';
     $sections = array(
         'general.php',
         'layouts.php',
