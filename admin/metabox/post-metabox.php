@@ -11,27 +11,8 @@ if (class_exists('CSF')) {
         'context' => 'normal',
     ));
 
-    // Fetch available sections
-    $available_sections = array();
-    $theme_options = get_option('mthan_theme_options');
-    $sections_path = get_template_directory() . '/sections/';
-
-    if (is_dir($sections_path)) {
-        $files = glob($sections_path . '*.php');
-        if ($files) {
-            foreach ($files as $file) {
-                $filename = basename($file, '.php');
-                $option_id = 'enable_section_' . str_replace('-', '_', $filename);
-
-                // Defaults to true
-                $is_enabled = isset($theme_options[$option_id]) ? $theme_options[$option_id] : true;
-
-                if ($is_enabled) {
-                    $available_sections[$filename] = ucwords(str_replace('-', ' ', $filename));
-                }
-            }
-        }
-    }
+    // Fetch available base sections (variant slugs like about-two are excluded)
+    $available_sections = mthan_get_available_base_sections();
 
     // Create a section
     CSF::createSection($prefix, array(

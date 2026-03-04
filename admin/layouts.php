@@ -1,26 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 
-// Get all sections for the sorter options
-$available_sections = array();
-$sections_path = get_template_directory() . '/sections/';
-if (is_dir($sections_path)) {
-    $files = glob($sections_path . '*.php');
-    if ($files) {
-        foreach ($files as $file) {
-            $filename = basename($file, '.php');
-            $section_name = ucwords(str_replace('-', ' ', $filename));
-            $available_sections['section_' . str_replace('-', '_', $filename)] = $section_name . ' Section';
-        }
-    }
-}
-
-// Fallback if no sections
-if (empty($available_sections)) {
-    $available_sections = array(
-        'section_dummy_1' => 'Dummy Section 1',
-        'section_dummy_2' => 'Dummy Section 2',
-    );
-}
+// Get base sections only (variant slugs like about-two/about-three are excluded)
+$available_sections = mthan_get_available_base_sections();
 
 // Layouts Settings
 CSF::createSection($prefix, array(

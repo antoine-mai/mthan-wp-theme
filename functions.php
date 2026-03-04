@@ -59,19 +59,103 @@ if (file_exists(get_template_directory() . '/incs/theme-options.php')) {
 }
 
 /**
+ * Returns list of sections that have style variants.
+ * Key = base section slug (used in dropdown), value = array of file slugs (index = style number - 1).
+ */
+function mthan_get_section_style_map()
+{
+    return array(
+        'about-section' => array('about-section', 'about-two', 'about-three'),
+        'call-to-action' => array('call-to-action', 'call-to-two'),
+        'contact-section' => array('contact-section', 'contact-two', 'contact-three'),
+        'facts-section' => array('facts-section', 'facts-two'),
+        'projects-section' => array('projects-section', 'projects-two'),
+        'team-section' => array('team-section', 'team-two'),
+        'testimonials-one' => array('testimonials-one', 'testimonials-two'),
+        'why-us' => array('why-us', 'why-us-two', 'why-us-three'),
+        'work-process' => array('work-process', 'work-process-two'),
+    );
+}
+
+/**
+ * Returns the flat list of slugs that are STYLE VARIANTS (not base sections).
+ * These are hidden from the section dropdown.
+ */
+function mthan_get_section_variant_slugs()
+{
+    $variants = array();
+    foreach (mthan_get_section_style_map() as $base => $styles) {
+        foreach (array_slice($styles, 1) as $variant) {
+            $variants[] = $variant;
+        }
+    }
+    return $variants;
+}
+
+/**
+ * Returns the $available_sections array for dropdowns (base sections only, toggled on in settings).
+ */
+function mthan_get_available_base_sections()
+{
+    $theme_options = get_option('mthan_theme_options');
+    $sections_path = get_template_directory() . '/sections/';
+    $variant_slugs = mthan_get_section_variant_slugs();
+    $result = array('' => '— Select Section —');
+
+    if (is_dir($sections_path)) {
+        foreach (glob($sections_path . '*.php') as $file) {
+            $slug = basename($file, '.php');
+            // Skip style variants — they're accessible via the Style selector
+            if (in_array($slug, $variant_slugs)) {
+                continue;
+            }
+            // Check enabled toggle
+            $toggle_key = 'enable_section_' . str_replace('-', '_', $slug);
+            if (isset($theme_options[$toggle_key]) && $theme_options[$toggle_key] === false) {
+                continue;
+            }
+            // Build label
+            $style_map = mthan_get_section_style_map();
+            $style_count = isset($style_map[$slug]) ? count($style_map[$slug]) : 1;
+            $label = ucwords(str_replace('-', ' ', $slug));
+            if ($style_count > 1) {
+                $label .= " ({$style_count} styles)";
+            }
+            $result[$slug] = $label;
+        }
+    }
+    return $result;
+}
+
+/**
  * Helper: include a list of section items.
  * Each template has access to:
  *   - $section_data — the raw item array
  *   - mthan_sec_val($field, $default) — convenient reader for per-instance options
+ * Resolves style variants: base slug + style number → correct file.
  */
 function mthan_include_section_items($items)
 {
     $sections_dir = get_template_directory() . '/sections/';
+    $style_map    = mthan_get_section_style_map();
+
     foreach ((array)$items as $item) {
         if (!is_array($item) || empty($item['section_template'])) {
             continue;
         }
-        $file = $sections_dir . $item['section_template'] . '.php';
+
+        $base_slug = $item['section_template'];
+        $style_num = !empty($item['section_style']) ? (int)$item['section_style'] : 1;
+
+        // Resolve to actual template file using style map
+        if (isset($style_map[$base_slug])) {
+            $style_files = $style_map[$base_slug];
+            $actual_slug = $style_files[$style_num - 1] ?? $style_files[0];
+        } else {
+            $actual_slug = $base_slug;
+        }
+
+        $file = $sections_dir . $actual_slug . '.php';
         if (file_exists($file)) {
             $section_data = $item;
             $GLOBALS['_mthan_current_section'] = $item; // for mthan_sec_val()
@@ -141,8 +225,8 @@ function mthan_admin_section_autofill_js()
             var $group = $select.closest('.csf-field-group-item, .csf-group-item');
             var $nameField = $group.find('input[data-section-name]');
             if ($nameField.length && label) {
-                $nameField.val(label).trigger('input').trigger('change');
-            }
+                $nameField.val(label).trigger('input').trigger('change') ;
+             }
         }
         // On change
         $(doc um ent).on('change', ' se lect' ,  functi on  () {
@@ -153,14 +237,12 @@ function mthan_admin_section_autofill_js()
                 syncSectionName($select);
             }
         });
-        // On cloning (when new group item is added)
-        $(document).on( 'csf:group -added csf:re peater-ad  ded', func  tion (e, $  it em) {
+        // On  cloning (w hen new group item is added)
+        $(document) .o n( 'csf:group -added csf:re peater-ad  ded', func  tion (e, $  it em) {
             $item .f ind('sele ct ').each(fu nc tion () {
                 var $s = $(this);
                 var $g = $s.closest('.csf-field-group-item, .csf-group-item');
-                if ($g.length && $g.find('input[data-section-name]').length) {
-                    syncSectionName($s);
-            }
+                if ($g.length && $g.find('input[data-son-         }
          );
       ;
     })(jy);

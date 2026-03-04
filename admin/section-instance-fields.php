@@ -6,53 +6,67 @@
  */
 function mthan_get_section_instance_fields()
 {
+    // Style map: sections with multiple styles
+    $style_map = mthan_get_section_style_map();
 
-    // Helper: generate a common sec-title fields group for one section slug
-    // Fields: subtitle, title (h2), description
+    // Base sections that have a standard subtitle/title/description header
     $sections_with_header = array(
-        'about-section', 'about-two', 'about-three',
-        'blog-section', 'call-to-two', 'contact-section', 'contact-two', 'contact-three',
-        'faqs-section', 'gallery-section', 'main-services', 'pricing-section',
-        'projects-section', 'projects-two',
-        'reviews-section', 'service-request',
-        'team-section', 'team-two',
-        'testimonials-one', 'testimonials-two',
-        'what-we-do', 'why-us', 'why-us-two', 'why-us-three',
-        'work-process', 'work-process-two',
-        'appoint-section', 'areas-section', 'awards-section',
-        'mvg-history', 'sponsors-section',
+        'about-section',
+        'blog-section',
+        'call-to-action',
+        'contact-section',
+        'faqs-section',
+        'gallery-section',
+        'main-services',
+        'pricing-section',
+        'projects-section',
+        'reviews-section',
+        'service-request',
+        'team-section',
+        'testimonials-one',
+        'what-we-do',
+        'why-us',
+        'work-process',
+        'appoint-section',
+        'areas-section',
+        'awards-section',
+        'mvg-history',
+        'sponsors-section',
     );
 
     $fields = array();
 
     // ──────────────────────────────────────────────────────────────────
-    // Common header fields (subtitle + title + description) for sections
-    // that follow the standard sec-title layout
+    // Style selector — only shown for sections that have variants
+    // ──────────────────────────────────────────────────────────────────
+    foreach ($style_map as $base_slug => $style_files) {
+        $style_count = count($style_files);
+        if ($style_count <= 1) {
+            continue;
+        }
+        $options = array();
+        for ($s = 1; $s <= $style_count; $s++) {
+            $options[$s] = "Style {$s}";
+        }
+        $fields[] = array(
+            'id' => 'section_style',
+            'type' => 'select',
+            'title' => 'Style Variant',
+            'options' => $options,
+            'default' => '1',
+            'dependency' => array('section_template', '==', $base_slug),
+        );
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Common header fields (subtitle + title + description)
     // ──────────────────────────────────────────────────────────────────
     foreach ($sections_with_header as $slug) {
-        $fields[] = array(
-            'type' => 'subheading',
-            'content' => ucwords(str_replace('-', ' ', $slug)) . ' Options',
-            'dependency' => array('section_template', '==', $slug),
-        );
-        $fields[] = array(
-            'id' => "{$slug}_subtitle",
-            'type' => 'text',
-            'title' => 'Subtitle (small label)',
-            'dependency' => array('section_template', '==', $slug),
-        );
-        $fields[] = array(
-            'id' => "{$slug}_title",
-            'type' => 'text',
-            'title' => 'Section Title (H2)',
-            'dependency' => array('section_template', '==', $slug),
-        );
-        $fields[] = array(
-            'id' => "{$slug}_text",
-            'type' => 'textarea',
-            'title' => 'Description',
-            'dependency' => array('section_template', '==', $slug),
-        );
+        $label = ucwords(str_replace('-', ' ', $slug));
+        $fields[] = array('type' => 'subheading', 'content' => $label . ' Options', 'dependency' => array('section_template', '==', $slug));
+        $fields[] = array('id' => "{$slug}_subtitle", 'type' => 'text', 'title' => 'Subtitle (small label)', 'dependency' => array('section_template', '==', $slug));
+        $fields[] = array('id' => "{$slug}_title", 'type' => 'text', 'title' => 'Section Title (H2)', 'dependency' => array('section_template', '==', $slug));
+        $fields[] = array('id' => "{$slug}_text", 'type' => 'textarea', 'title' => 'Description', 'dependency' => array('section_template', '==', $slug));
     }
 
     // ──────────────────────────────────────────────────────────────────
@@ -106,11 +120,11 @@ function mthan_get_section_instance_fields()
     }
 
     // ──────────────────────────────────────────────────────────────────
-    // Error / Coming Soon
+    // Error Section
     // ──────────────────────────────────────────────────────────────────
     $fields[] = array('type' => 'subheading', 'content' => 'Error Section Options', 'dependency' => array('section_template', '==', 'error-section'));
     $fields[] = array('id' => 'error_title', 'type' => 'text', 'title' => 'Error Code (e.g. 404)', 'default' => '404', 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_heading', 'type' => 'text', 'title' => 'Heading', 'default' => 'Oops! That page can\'t be found', 'dependency' => array('section_template', '==', 'error-section'));
+    $fields[] = array('id' => 'error_heading', 'type' => 'text', 'title' => 'Heading', 'default' => "Oops! That page can't be found", 'dependency' => array('section_template', '==', 'error-section'));
     $fields[] = array('id' => 'error_text', 'type' => 'textarea', 'title' => 'Description', 'dependency' => array('section_template', '==', 'error-section'));
     $fields[] = array('id' => 'error_btn_text', 'type' => 'text', 'title' => 'Button Text', 'default' => 'Back To Home', 'dependency' => array('section_template', '==', 'error-section'));
     $fields[] = array('id' => 'error_btn_link', 'type' => 'text', 'title' => 'Button Link', 'default' => '/', 'dependency' => array('section_template', '==', 'error-section'));
