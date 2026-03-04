@@ -60,6 +60,7 @@ if (file_exists(get_template_directory() . '/incs/theme-options.php')) {
 
 /**
  * Helper: include a list of section items.
+ * Each template has access to $section_data (the item's saved options).
  */
 function mthan_include_section_items($items)
 {
@@ -70,6 +71,7 @@ function mthan_include_section_items($items)
         }
         $file = $sections_dir . $item['section_template'] . '.php';
         if (file_exists($file)) {
+            $section_data = $item; // Available as $section_data inside the template
             include $file;
         }
     }
@@ -114,7 +116,7 @@ function mthan_admin_section_autofill_js()
 {
 ?>
 <script>
-    (fu nct ion  ($ ) {
+     ( fu nct ion  ($ ) {
         function syncSectionName($select) {
             var label = $select.find('option:selected').text().trim();
             var $group = $select.closest('.csf-field-group-item, .csf-group-item');
@@ -124,7 +126,7 @@ function mthan_admin_section_autofill_js()
             }
         }
         // On change
-        $(document).on('change', 'select' ,  functi on  () {
+        $(document).on('change', ' se lect' ,  functi on  () {
             var $select = $(this);
             // Only target selects inside group items that have a data-section-name input nearby
             var $group = $select.closest('.csf-field-group-item, .csf-group-item');
@@ -133,14 +135,14 @@ function mthan_admin_section_autofill_js()
             }
         });
         // On cloning (when new group item is added)
-        $(document).on('csf:group-added csf:repeater-ad ded', func  tion (e, $ item) {
-            $item.find('sele ct ').each(fu nc tion () {
+        $(document).on('csf:group-added csf:re peater-ad  ded', func  tion (e, $ item) {
+            $item .f ind('sele ct ').each(fu nc tion () {
                 var $s = $(this);
                 var $g = $s.closest('.csf-field-group-item, .csf-group-item');
                 if ($g.length && $g.find('input[data-section-name]').length) {
                     syncSectionName($s);
                 }
-            });
+         );
       ;
     })(jy);
 </script>
