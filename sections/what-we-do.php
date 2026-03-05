@@ -37,6 +37,7 @@ function mthan_section_what_we_do_options()
                     'id' => 'bg_image',
                     'type' => 'media',
                     'library' => 'image',
+                    'preview' => false,
                     'title' => 'Background Image (Left)',
                 ),
                     array(
@@ -83,6 +84,7 @@ function mthan_section_what_we_do_options()
                     'id' => 'bro_thumb',
                     'type' => 'media',
                     'library' => 'image',
+                    'preview' => false,
                     'title' => 'Brochure Thumb',
                 ),
                     array(
