@@ -80,13 +80,13 @@ function mthan_section_process_options()
                 array(
                     'title'      => 'Design & Plan',
                     'step_label' => 'Step Two',
-                    'icon'       => 'flaticon-notes',
+                    'icon'       => 'flaticon-blueprint',
                     'text'       => 'Nor again is there anyone who loves or pursues or desires to obtain pain.',
                 ),
                 array(
                     'title'      => 'Start Working',
                     'step_label' => 'Step Three',
-                    'icon'       => 'flaticon-worker',
+                    'icon'       => 'flaticon-gardener-2',
                     'text'       => 'Expound actual teachings of the master explorer of the truth the master-builder.',
                 ),
                 array(
