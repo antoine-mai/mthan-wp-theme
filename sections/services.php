@@ -7,7 +7,7 @@
 function mthan_section_services_options()
 {
     return array(
-            array(
+        array(
             'id' => 'services_list',
             'type' => 'group',
             'title' => 'Services List',
