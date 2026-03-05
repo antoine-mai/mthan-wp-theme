@@ -19,6 +19,15 @@ if (!function_exists('mthan_setup')) {
 }
 add_action('after_setup_theme', 'mthan_setup');
 
+// Add 'dropdown' class to nav menu items that have children.
+// The theme JS (custom-script.js) targets li.dropdown to append the angle-right icon.
+add_filter('nav_menu_css_class', function ($classes, $item) {
+    if (in_array('menu-item-has-children', $classes, true)) {
+        $classes[] = 'dropdown';
+    }
+    return $classes;
+}, 10, 2);
+
 // Enqueue styles and scripts
 function mthan_enqueue_assets()
 {
@@ -219,33 +228,34 @@ function mthan_admin_section_autofill_js()
 {
 ?>
 <script>
-     ( fu nct ion  ($ ) {
-        function syncSectionName($select) {
-            var label = $select.find('option:selected').text().trim();
-            var $group = $select.closest('.csf-field-group-item, .csf-group-item');
-            var $nameField = $group.find('input[data-section-name]');
-            if ($nameField.length && label) {
-                $nameField.val(label).trigger('input').trigger('change') ;
-             }
+(function ($) {
+    function syncSectionName($select) {
+        var label = $select.find('option:selected').text().trim();
+        var $group = $select.closest('.csf-field-group-item, .csf-group-item');
+        var $nameField = $group.find('input[data-section-name]');
+        if ($nameField.length && label) {
+            $nameField.val(label).trigger('input').trigger('change');
         }
-        // On change
-        $(doc um ent).on('change', ' se lect' ,  functi on  () {
-            var $select = $(this);
-            // Only target selects inside group items that have a data-section-name input nearby
-            var $group = $select.closest('.csf-field-group-item, .csf-group-item');
-            if ($group.length && $group.find('input[data-section-name]').length) {
-                syncSectionName($select);
+    }
+    // On change
+    $(document).on('change', 'select', function () {
+        var $select = $(this);
+        var $group = $select.closest('.csf-field-group-item, .csf-group-item');
+        if ($group.length && $group.find('input[data-section-name]').length) {
+            syncSectionName($select);
+        }
+    });
+    // On cloning (when new group item is added)
+    $(document).on('csf:group-added csf:repeater-added', function (e, $item) {
+        $item.find('select').each(function () {
+            var $s = $(this);
+            var $g = $s.closest('.csf-field-group-item, .csf-group-item');
+            if ($g.length && $g.find('input[data-section-name]').length) {
+                syncSectionName($s);
             }
         });
-        // On  cloning (w hen new group item is added)
-        $(document) .o n( 'csf:group -added csf:re peater-ad  ded', func  tion (e, $  it em) {
-            $item .f ind('sele ct ').each(fu nc tion () {
-                var $s = $(this);
-                var $g = $s.closest('.csf-field-group-item, .csf-group-item');
-                if ($g.length && $g.find('input[data-son-         }
-         );
-      ;
-    })(jy);
+    });
+})(jQuery);
 </script>
 <?php
 }
