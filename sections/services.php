@@ -34,10 +34,11 @@ function mthan_section_services_options()
                     'title' => 'Description',
                 ),
                     array(
-                    'id' => 'services_link',
-                    'type' => 'text',
-                    'title' => 'Link',
-                    'default' => '#',
+                    'id'          => 'services_link',
+                    'type'        => 'select',
+                    'title'       => 'Link to Page',
+                    'options'     => 'pages',
+                    'placeholder' => 'Select a page',
                 ),
             ),
             'default' => array(
@@ -79,7 +80,7 @@ function mthan_section_services_html($section_data)
         $icon = !empty($service['services_icon']) ? $service['services_icon'] : 'flaticon-hedge';
         $title = !empty($service['services_title']) ? $service['services_title'] : 'Service Title';
         $text = !empty($service['services_text']) ? $service['services_text'] : 'Service text description here ...';
-        $link = !empty($service['services_link']) ? $service['services_link'] : '#';
+        $link = !empty($service['services_link']) ? get_permalink($service['services_link']) : '#';
 ?>
             <!--Service block-->
             <div class="service-block col-lg-4 col-md-6 col-sm-12">
