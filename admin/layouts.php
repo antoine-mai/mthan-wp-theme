@@ -63,17 +63,6 @@ CSF::createSection($prefix, array(
                     'icon' => 'fas fa-blog',
                     'fields' => array(
                         array(
-                            'id'      => 'blog_layout_sidebar',
-                            'type'    => 'image_select',
-                            'title'   => 'Blog Sidebar',
-                            'options' => array(
-                                'full-width'    => get_template_directory_uri() . '/incs/codestar/assets/images/layout/no-sidebar.png',
-                                'left-sidebar'  => get_template_directory_uri() . '/incs/codestar/assets/images/layout/left-sidebar.png',
-                                'right-sidebar' => get_template_directory_uri() . '/incs/codestar/assets/images/layout/right-sidebar.png',
-                            ),
-                            'default' => 'right-sidebar',
-                        ),
-                        array(
                             'type'    => 'subheading',
                             'content' => 'Before Content',
                         ),
@@ -117,17 +106,6 @@ CSF::createSection($prefix, array(
                     'title' => 'Service Layout',
                     'icon' => 'fas fa-tools',
                     'fields' => array(
-                        array(
-                            'id'      => 'service_layout_sidebar',
-                            'type'    => 'image_select',
-                            'title'   => 'Service Sidebar',
-                            'options' => array(
-                                'full-width'    => get_template_directory_uri() . '/incs/codestar/assets/images/layout/no-sidebar.png',
-                                'left-sidebar'  => get_template_directory_uri() . '/incs/codestar/assets/images/layout/left-sidebar.png',
-                                'right-sidebar' => get_template_directory_uri() . '/incs/codestar/assets/images/layout/right-sidebar.png',
-                            ),
-                            'default' => 'left-sidebar',
-                        ),
                         array(
                             'type'    => 'subheading',
                             'content' => 'Before Content',
