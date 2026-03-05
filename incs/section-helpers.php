@@ -163,6 +163,15 @@ function mthan_render_page_sections($position = 'before')
     if (!is_singular()) { return; }
     $meta_key  = is_page() ? 'mthan_page_options' : 'mthan_post_options';
     $post_meta = get_post_meta(get_the_ID(), $meta_key, true);
+
+    // If it's a page and we have enabling switchers, check them
+    if (is_page()) {
+        $enable_key = 'enable_page_' . $position . '_content';
+        if (isset($post_meta[$enable_key]) && !$post_meta[$enable_key]) {
+            return;
+        }
+    }
+
     $group_key = (is_page() ? 'page' : 'post') . '_' . $position . '_content';
     $items     = !empty($post_meta[$group_key]) && is_array($post_meta[$group_key])
         ? $post_meta[$group_key]

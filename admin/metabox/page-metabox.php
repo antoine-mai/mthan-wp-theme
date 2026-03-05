@@ -79,9 +79,16 @@ if (class_exists('CSF')) {
             ),
 
                 array(
-                'id' => 'show_page_title',
+                'id' => 'enable_page_before_content',
                 'type' => 'switcher',
-                'title' => 'Show Page Title',
+                'title' => 'Sections Before Content',
+                'default' => true,
+            ),
+
+                array(
+                'id' => 'enable_page_after_content',
+                'type' => 'switcher',
+                'title' => 'Sections After Content',
                 'default' => true,
             ),
 
