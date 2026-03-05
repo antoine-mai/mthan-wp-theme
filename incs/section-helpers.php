@@ -150,6 +150,8 @@ function mthan_render_global_sections($position = 'before', $page_type = 'main')
 {
     $theme_options = get_option('mthan_theme_options');
     $layouts_tabs  = !empty($theme_options['layouts_tabs']) ? $theme_options['layouts_tabs'] : array();
+    
+    // Construct the global key (e.g., main_layout_before_content, service_layout_after_content)
     $global_key    = $page_type . '_layout_' . $position . '_content';
     $items         = !empty($layouts_tabs[$global_key]) ? $layouts_tabs[$global_key] : array();
     mthan_include_section_items($items);
