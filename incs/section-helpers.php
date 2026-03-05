@@ -126,14 +126,14 @@ function mthan_sec_val($field, $default = '')
  * @param array  $args  Additional CSF field args to merge
  * @return array
  */
-function mthan_page_select_field($id, $title, $args = array())
+function mthan_page_select_field($id, $title, $args = array(), $multiple = false)
 {
     return array_merge(array(
         'id'       => $id,
         'type'     => 'select',
         'title'    => $title,
         'options'  => 'pages',
-        'multiple' => true,
+        'multiple'=> $multiple,
         'chosen'   => true,
         'ajax'     => true,
     ), $args);
