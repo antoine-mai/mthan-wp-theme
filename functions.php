@@ -7,17 +7,16 @@
 // ── Core framework ─────────────────────────────────────────────────
 require_once get_template_directory() . '/incs/codestar/autoload.php';
 
-// ── Theme helpers (must load BEFORE theme-options; layouts.php calls these) ──
+// ── Theme helpers ──────────────────────────────────────────────────
 require_once get_template_directory() . '/incs/section-helpers.php';
 require_once get_template_directory() . '/incs/theme-setup.php';
 require_once get_template_directory() . '/incs/admin-helpers.php';
 
-// ── Theme Options (loads admin/layouts.php which calls mthan_get_available_base_sections) ──
-require_once get_template_directory() . '/incs/theme-options.php';
+// ── Section files (must load before theme-options; section-instance-fields.php
+//    calls mthan_section_*_options() which are defined in these files) ──────
+foreach (glob(get_template_directory() . '/sections/*.php') as $file) {
+    require_once $file;
+}
 
-// ── Section files (registers mthan_section_*_html / *_options fns) ─
-add_action('after_setup_theme', function () {
-    foreach (glob(get_template_directory() . '/sections/*.php') as $file) {
-        require_once $file;
-    }
-}, 5);
+// ── Theme Options (loads admin/layouts.php → section-instance-fields.php) ──
+require_once get_template_directory() . '/incs/theme-options.php';
