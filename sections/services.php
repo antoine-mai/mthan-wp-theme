@@ -89,7 +89,7 @@ function mthan_section_services_html($section_data)
     $sec_title = !empty($section_data['services_sec_title']) ? $section_data['services_sec_title'] : 'Main Services';
     $sec_subtitle = !empty($section_data['services_sec_subtitle']) ? $section_data['services_sec_subtitle'] : 'Our Solutions';
     $sec_text = !empty($section_data['services_sec_text']) ? $section_data['services_sec_text'] : '';
-    $services_repeater = !empty($section_data['services_list']) ? $section_data['services_list'] : array();
+    $services_repeater = !empty($section_data['services_list']) && is_array($section_data['services_list']) ? $section_data['services_list'] : array();
 ?>
 <section class="main-services">
     <div class="auto-container">
@@ -121,7 +121,7 @@ function mthan_section_services_html($section_data)
         </div>
 
         <div class="row clearfix">
-            <?php foreach ($services_repeater as $service):
+            <?php if (is_array($services_repeater)) : foreach ($services_repeater as $service):
         $img = !empty($service['services_image']['url']) ? $service['services_image']['url'] : '';
         $icon = !empty($service['services_icon']) ? $service['services_icon'] : 'flaticon-hedge';
         $title = !empty($service['services_title']) ? $service['services_title'] : 'Service Title';
@@ -152,7 +152,7 @@ function mthan_section_services_html($section_data)
                 </div>
             </div>
             <?php
-    endforeach; ?>
+    endforeach; endif; ?>
 
         </div>
     </div>
