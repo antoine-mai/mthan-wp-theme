@@ -75,7 +75,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
         echo '<div class="csf-cloneable-wrapper csf-data-wrapper" data-title-by="'. esc_attr( json_encode( $title_by ) ) .'" data-title-by-prefix="'. esc_attr( $title_by_prefix ) .'" data-title-number="'. esc_attr( $title_number ) .'" data-field-id="['. esc_attr( $this->field['id'] ) .']" data-max="'. esc_attr( $args['max'] ) .'" data-min="'. esc_attr( $args['min'] ) .'">';
 
-        if ( ! empty( $this->value ) ) {
+        if ( ! empty( $this->value ) && is_array( $this->value ) ) {
 
           $num = 0;
 
