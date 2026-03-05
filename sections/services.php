@@ -33,13 +33,7 @@ function mthan_section_services_options()
                     'type' => 'textarea',
                     'title' => 'Description',
                 ),
-                    array(
-                    'id'          => 'services_link',
-                    'type'        => 'select',
-                    'title'       => 'Link to Page',
-                    'options'     => 'pages',
-                    'placeholder' => 'Select a page',
-                ),
+                mthan_page_select_field('services_link', 'Link to Page'),
             ),
             'default' => array(
                     array(
