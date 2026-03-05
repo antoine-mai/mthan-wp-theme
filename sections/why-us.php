@@ -40,9 +40,12 @@ function mthan_section_why_us_options()
         // Style 2 specific fields
         array(
             'id'    => 'left_bg_image',
-            'type'  => 'upload',
+            'type'  => 'media',
+            'library' => 'image',
+            'preview' => false,
             'title' => 'Left Column BG Image',
             'dependency' => array('style', '==', '2'),
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/background/why-us-bg.jpg')
         ),
         array(
             'id'    => 'rating_value',
@@ -98,6 +101,7 @@ function mthan_section_why_us_options()
             'id'     => 'why_repeater',
             'type'   => 'group',
             'title'  => 'Why Us Blocks',
+            'max'    => 6,
             'fields' => array(
                 array(
                     'id'    => 'title',
@@ -120,6 +124,44 @@ function mthan_section_why_us_options()
                     'title' => 'Link URL',
                 ),
             ),
+            'default' => array(
+                array(
+                    'title' => 'Experienced',
+                    'icon' => 'flaticon-null',
+                    'text' => 'Indignation and dislike mens who are so beguiled & the demoralized.',
+                    'link' => '#'
+                ),
+                array(
+                    'title' => 'Upfront Pricing',
+                    'icon' => 'flaticon-insurance',
+                    'text' => 'Take trivial example which of ever undertakes laborious physical exercise.',
+                    'link' => '#'
+                ),
+                array(
+                    'title' => 'Fully Insured',
+                    'icon' => 'flaticon-offer',
+                    'text' => 'Readable content page when looking at its layout making look like readable.',
+                    'link' => '#'
+                ),
+                array(
+                    'title' => 'Quality Products',
+                    'icon' => 'flaticon-shovel',
+                    'text' => 'How all this mistaken idea of denouncing pleasure and praising complete.',
+                    'link' => '#'
+                ),
+                array(
+                    'title' => 'Pet & Kid Safe',
+                    'icon' => 'flaticon-dog-2',
+                    'text' => 'How all this mistaken idea of denouncing pleasure and praising complete.',
+                    'link' => '#'
+                ),
+                array(
+                    'title' => 'Expert Staff',
+                    'icon' => 'flaticon-gardener-1',
+                    'text' => 'Take trivial example which of ever undertakes laborious physical exercise.',
+                    'link' => '#'
+                ),
+            )
         ),
     );
 }
