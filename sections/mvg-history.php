@@ -5,6 +5,10 @@
  * @param array $section_data Per-instance CSF field values.
 **/
 function mthan_section_mvg_history_html($section_data) { ?>
+<?php
+    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : '';
+    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
+?>
 <section class="mvg-history">
     <div class="mvg">
         <div class="auto-container">

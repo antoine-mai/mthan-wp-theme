@@ -5,6 +5,10 @@
  * @param array $section_data Per-instance CSF field values.
 **/
 function mthan_section_team_two_html($section_data) { ?>
+<?php
+    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : '';
+    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
+?>
 <section class="team-two">  
     <div class="auto-container">
         <div class="sec-title">

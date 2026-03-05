@@ -5,6 +5,10 @@
  * @param array $section_data Per-instance CSF field values.
 **/
 function mthan_section_testimonials_one_html($section_data) { ?>
+<?php
+    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : '';
+    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
+?>
 <section class="testimonials-one alt-color">
         <div class="auto-container">
             <div class="title-box">
