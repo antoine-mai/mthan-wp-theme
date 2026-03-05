@@ -134,7 +134,7 @@ function mthan_section_contact_html_1($section_data) {
                 <div class="text-column col-lg-8 col-md-12 col-sm-12">
                     <div class="inner">
                         <div class="sec-title">
-                            <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+                            <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                             <div class="sub-text"><?php echo esc_html($subtext); ?></div>
@@ -198,7 +198,7 @@ function mthan_section_contact_html_1($section_data) {
                 <div class="image-column col-lg-4 col-md-12 col-sm-12">
                     <div class="inner">
                         <div class="image-box clearfix">
-                            <figure class="image"><img src="images/resource/anim-image-2.png" alt="" title=""></figure>
+                            <figure class="image"><img src="/wp-content/assets/images/resource/anim-image-2.png" alt="" title=""></figure>
                         </div>
                     </div>
                 </div>
@@ -335,7 +335,7 @@ function mthan_section_contact_html_3($section_data) {
                         <div class="top-icon"><span class="flaticon-internet"></span></div>
                         <div class="content-box">
                             <div class="sec-title">
-                                <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+                                <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
                                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                                 <h2><?php echo esc_html($sec_title); ?></h2>
                             </div>
@@ -387,7 +387,7 @@ function mthan_section_contact_html_3($section_data) {
                     <div class="inner clearfix">
                         <div class="content-box">
                             <div class="sec-title">
-                                <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+                                <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
                                 <div class="subtitle">Drop a Line</div>
                                 <h2>Send Message Us</h2>
                             </div>

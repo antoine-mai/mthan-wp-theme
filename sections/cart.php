@@ -42,7 +42,7 @@ function mthan_section_cart_html($section_data) { ?>
                             <tr>
                                 <td class="prod-column">
                                     <div class="column-box">
-                                        <figure class="prod-thumb"><a href="#"><img src="images/resource/shop/prod-thumb-4.jpg" alt=""></a></figure>
+                                        <figure class="prod-thumb"><a href="#"><img src="/wp-content/assets/images/resource/shop/prod-thumb-4.jpg" alt=""></a></figure>
                                         <h4>Hand Shovel</h4>
                                     </div>
                                 </td>
@@ -54,7 +54,7 @@ function mthan_section_cart_html($section_data) { ?>
                             <tr>
                                 <td class="prod-column">
                                     <div class="column-box">
-                                        <figure class="prod-thumb"><a href="#"><img src="images/resource/shop/prod-thumb-5.jpg" alt=""></a></figure>
+                                        <figure class="prod-thumb"><a href="#"><img src="/wp-content/assets/images/resource/shop/prod-thumb-5.jpg" alt=""></a></figure>
                                         <h4>Flower Pot</h4>
                                     </div>
                                 </td>

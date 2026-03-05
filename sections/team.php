@@ -106,14 +106,14 @@ function mthan_section_team_html($section_data) {
     }
 ?>
 <section class="team-section">
-    <div class="left-leaf"><img src="images/resource/leaf-2.png" alt="" title=""></div>
-    <div class="right-leaf"><img src="images/resource/leaf-3.png" alt="" title=""></div>
+    <div class="left-leaf"><img src="/wp-content/assets/images/resource/leaf-2.png" alt="" title=""></div>
+    <div class="right-leaf"><img src="/wp-content/assets/images/resource/leaf-3.png" alt="" title=""></div>
     <div class="auto-container">
         <div class="upper-box clearfix">
             <div class="sec-title">
                 <div class="title-icon">
                     <span class="icon">
-                        <img src="images/icons/leaf-two.png" alt="" title="">
+                        <img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title="">
                     </span>
                 </div>
                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
@@ -172,7 +172,7 @@ function mthan_section_team_html_2($section_data) {
 <section class="team-two">  
     <div class="auto-container">
         <div class="sec-title">
-            <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+            <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
             <h2><?php echo esc_html($sec_title); ?></h2>
         </div>

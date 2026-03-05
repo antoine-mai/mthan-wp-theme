@@ -120,7 +120,7 @@ function mthan_section_testimonials_html($section_data) {
             <div class="row clearfix">
                 <div class="left-col col-xl-6 col-lg-12 col-md-12">
                     <div class="sec-title alternate">
-                        <div class="title-icon"><span class="icon"><img src="images/icons/leaf-four.png" alt="" title=""></span></div>
+                        <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-four.png" alt="" title=""></span></div>
                         <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                         <h2><?php echo esc_html($sec_title); ?></h2>
                     </div>
@@ -192,7 +192,7 @@ function mthan_section_testimonials_html_2($section_data) {
             <!--Column-->
             <div class="carousel-col col-lg-6 col-md-12 col-sm-12">
                 <div class="sec-title">
-                    <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+                    <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
                     <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                     <h2><?php echo esc_html($sec_title); ?></h2>
                 </div>

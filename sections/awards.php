@@ -105,13 +105,13 @@ function mthan_section_awards_html($section_data) {
     $awards   = !empty($section_data['awards_carousel']) ? $section_data['awards_carousel'] : array();
 ?>
 <section class="awards-section">
-        <div class="bottom-image"><img src="images/resource/anim-image-4.png" alt="" title=""></div>
+        <div class="bottom-image"><img src="/wp-content/assets/images/resource/anim-image-4.png" alt="" title=""></div>
         <div class="auto-container">
             <div class="row clearfix">
                 <!--Left Column-->
                 <div class="left-col">
                     <div class="image-layer" style="background-image: url(<?php echo esc_url($bg_image); ?>);"></div>
-                        <div class="bg-icon"><img src="images/icons/awards-bg-icon.png" alt="" title=""></div>
+                        <div class="bg-icon"><img src="/wp-content/assets/images/icons/awards-bg-icon.png" alt="" title=""></div>
                     <div class="inner clearfix">
                         <div class="content-box">
                             <div class="content">

@@ -135,7 +135,7 @@ function mthan_section_what_we_do_html($section_data) {
 
                 <div class="auto-container">
                     <div class="sec-title">
-                        <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
+                        <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-two.png" alt="" title=""></span></div>
                         <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                         <h2><?php echo esc_html($sec_title); ?></h2>
                     </div>

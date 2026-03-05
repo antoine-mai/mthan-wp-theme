@@ -156,7 +156,7 @@ function mthan_section_why_us_html_1($section_data) {
                 <div class="row clearfix">
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
-                            <div class="title-icon"><span class="icon"><img src="images/icons/leaf-four.png" alt="" title=""></span></div>
+                            <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-four.png" alt="" title=""></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                         </div>
@@ -230,7 +230,7 @@ function mthan_section_why_us_html_2($section_data) {
                         <div class="pattern"></div>
                         <div class="content">
                             <div class="sec-title">
-                                <div class="title-icon"><span class="icon"><img src="images/icons/leaf-five.png" alt="" title=""></span></div>
+                                <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-five.png" alt="" title=""></span></div>
                                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                                 <h2><?php echo esc_html($sec_title); ?></h2>
                             </div>
@@ -293,7 +293,7 @@ function mthan_section_why_us_html_3($section_data) {
                 <div class="row clearfix">
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
-                            <div class="title-icon"><span class="icon"><img src="images/icons/leaf-eight.png" alt="" title=""></span></div>
+                            <div class="title-icon"><span class="icon"><img src="/wp-content/assets/images/icons/leaf-eight.png" alt="" title=""></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                         </div>
