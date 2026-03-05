@@ -11,7 +11,7 @@
 function mthan_get_section_style_map()
 {
     return array(
-        'about-section'   => array('about-section', 'about-two', 'about-three'),
+        'about'           => array('about', 'about_html_2', 'about_html_3'),
         'call-to-action'  => array('call-to-action', 'call-to-two'),
         'contact-section' => array('contact-section', 'contact-two', 'contact-three'),
         'facts-section'   => array('facts-section', 'facts-two'),

@@ -11,7 +11,7 @@ function mthan_get_section_instance_fields()
 
     // Base sections that have a standard subtitle/title/description header
     $sections_with_header = array(
-        'about-section',
+        'about',
         'blog-section',
         'call-to-action',
         'contact-section',
@@ -70,10 +70,10 @@ function mthan_get_section_instance_fields()
     }
 
     // ──────────────────────────────────────────────────────────────────
-    // Banner Section — delegates to mthan_section_banner_options()
+    // Banner Section — delegates to mthan_section_banners_options()
     // ──────────────────────────────────────────────────────────────────
-    foreach (mthan_section_banner_section_options() as $banner_field) {
-        $banner_field['dependency'] = array('section_template', '==', 'banner-section');
+    foreach (mthan_section_banners_options() as $banner_field) {
+        $banner_field['dependency'] = array('section_template', '==', 'banners');
         $fields[] = $banner_field;
     }
 

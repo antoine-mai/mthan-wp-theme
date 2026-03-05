@@ -37,9 +37,15 @@ if (class_exists('CSF')) {
         }
     }
 
-    // Include all section option files from admin/section-options/
-    foreach (glob($admin_dir . 'section-options/*.php') as $section_option_file) {
-        require_once $section_option_file;
+    $sections_path = get_template_directory() . '/sections/*.php';
+    // Include all section files so their functions are defined
+    foreach (glob($sections_path) as $section_file) {
+        require_once $section_file;
+        $slug = basename($section_file, '.php');
+        $global_options_func = 'mthan_section_' . str_replace('-', '_', $slug) . '_global_options';
+        if (function_exists($global_options_func)) {
+            CSF::createSection($prefix, $global_options_func());
+        }
     }
 
     // Include all metabox files from the admin/metabox folder
