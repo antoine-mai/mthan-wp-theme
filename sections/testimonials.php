@@ -17,13 +17,13 @@ function mthan_section_testimonials_options()
             'default' => 'style-1',
         ),
         array(
-            'id'      => 'sec_subtitle',
+            'id'      => 'testi_sec_subtitle',
             'type'    => 'text',
             'title'   => 'Subtitle',
             'default' => 'Our Testimonials',
         ),
         array(
-            'id'      => 'sec_title',
+            'id'      => 'testi_sec_title',
             'type'    => 'text',
             'title'   => 'Title',
             'default' => 'What Our Clients Say',
@@ -138,9 +138,9 @@ function mthan_section_testimonials_html($section_data)
         return;
     }
 
-    $sec_title    = !empty($section_data['sec_title'])              ? $section_data['sec_title']              : 'What Our Clients Say';
-    $sec_subtitle = !empty($section_data['sec_subtitle'])           ? $section_data['sec_subtitle']           : 'Our Testimonials';
-    $sec_desc     = !empty($section_data['sec_desc'])               ? $section_data['sec_desc']               : '';
+    $sec_title    = !empty($section_data['testi_sec_title'])              ? $section_data['testi_sec_title']              : 'What Our Clients Say';
+    $sec_subtitle = !empty($section_data['testi_sec_subtitle'])           ? $section_data['testi_sec_subtitle']           : 'Our Testimonials';
+    $sec_desc     = !empty($section_data['testi_sec_desc'])               ? $section_data['testi_sec_desc']               : '';
     $testimonials = !empty($section_data['testimonials_repeater'])  ? $section_data['testimonials_repeater']  : array();
 
     $fallback_imgs = array(
@@ -216,8 +216,8 @@ function mthan_section_testimonials_html($section_data)
  */
 function mthan_section_testimonials_html_2($section_data)
 {
-    $sec_title    = !empty($section_data['sec_title'])             ? $section_data['sec_title']             : 'What Our Clients Say';
-    $sec_subtitle = !empty($section_data['sec_subtitle'])          ? $section_data['sec_subtitle']          : 'Our Testimonials';
+    $sec_title    = !empty($section_data['testi_sec_title'])             ? $section_data['testi_sec_title']             : 'What Our Clients Say';
+    $sec_subtitle = !empty($section_data['testi_sec_subtitle'])          ? $section_data['testi_sec_subtitle']          : 'Our Testimonials';
     $testimonials = !empty($section_data['testimonials_repeater']) ? $section_data['testimonials_repeater'] : array();
     $decorative   = !empty($section_data['decorative_thumbs'])     ? $section_data['decorative_thumbs']     : array();
 

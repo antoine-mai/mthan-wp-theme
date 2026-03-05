@@ -17,13 +17,13 @@ function mthan_section_team_options()
             'default' => 'style-1',
         ),
             array(
-            'id' => 'sec_subtitle',
+            'id' => 'team_sec_subtitle',
             'type' => 'text',
             'title' => 'Subtitle',
             'default' => 'Our Gardeners',
         ),
             array(
-            'id' => 'sec_title',
+            'id' => 'team_sec_title',
             'type' => 'text',
             'title' => 'Title',
             'default' => 'Professional Team',
@@ -124,8 +124,8 @@ function mthan_section_team_options()
 function mthan_section_team_html($section_data)
 {
     $style = !empty($section_data['team_style']) ? $section_data['team_style'] : 'style-1';
-    $sec_title = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Professional Team';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Gardeners';
+    $sec_title = !empty($section_data['team_sec_title']) ? $section_data['team_sec_title'] : 'Professional Team';
+    $sec_subtitle = !empty($section_data['team_sec_subtitle']) ? $section_data['team_sec_subtitle'] : 'Our Gardeners';
     $btn_text = !empty($section_data['btn_text']) ? $section_data['btn_text'] : '';
     $btn_link = !empty($section_data['btn_link']) ? $section_data['btn_link'] : '#';
     $team_repeater = !empty($section_data['team_repeater']) ? $section_data['team_repeater'] : array();
@@ -244,8 +244,8 @@ function mthan_section_team_html($section_data)
  */
 function mthan_section_team_html_2($section_data)
 {
-    $sec_title = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Professional Team';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Gardeners';
+    $sec_title = !empty($section_data['team_sec_title']) ? $section_data['team_sec_title'] : 'Professional Team';
+    $sec_subtitle = !empty($section_data['team_sec_subtitle']) ? $section_data['team_sec_subtitle'] : 'Our Gardeners';
     $team_repeater = !empty($section_data['team_repeater']) ? $section_data['team_repeater'] : array();
 
     $fallback_imgs = array(
