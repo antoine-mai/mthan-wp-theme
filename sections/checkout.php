@@ -1,10 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Render the checkout-section section.
+ * Returns the CSF field definitions for the checkout section instance.
+ * @return array
+ */
+function mthan_section_checkout_options()
+{
+    return array(
+        array(
+            'type'    => 'notice',
+            'style'   => 'info',
+            'content' => 'This section displays the checkout form. Most logic is handled by WooCommerce.',
+        ),
+    );
+}
+
+/**
+ * Render the checkout section.
  *
  * @param array $section_data Per-instance CSF field values.
-**/
-function mthan_section_checkout_section_html($section_data) { ?>
+ **/
+function mthan_section_checkout_html($section_data) { ?>
 <section class="checkout-section">
         <div class="auto-container">
             <div class="row clearfix">

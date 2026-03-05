@@ -1,12 +1,48 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Render the contact-section section.
+ * Returns the CSF field definitions for the contact section instance.
+ * @return array
+ */
+function mthan_section_contact_options()
+{
+    return array(
+        array(
+            'id'    => 'sec_subtitle',
+            'type'  => 'text',
+            'title' => 'Subtitle',
+            'default' => 'Get in Touch',
+        ),
+        array(
+            'id'    => 'sec_title',
+            'type'  => 'text',
+            'title' => 'Title',
+            'default' => 'Contact Us',
+        ),
+        array(
+            'id'    => 'contact_discount',
+            'type'  => 'text',
+            'title' => 'Discount Text',
+            'default' => 'Save up to 40%',
+        ),
+        array(
+            'id'    => 'contact_subtext',
+            'type'  => 'textarea',
+            'title' => 'Subtext',
+            'default' => 'Get free estimates from Pruners lawn care and gardening professionals in your city.',
+        ),
+    );
+}
+
+/**
+ * Render the contact section.
  *
  * @param array $section_data Per-instance CSF field values.
-**/
-function mthan_section_contact_section_html($section_data) { 
-    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : '';
-    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
+ **/
+function mthan_section_contact_html($section_data) { 
+    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : 'Contact Us';
+    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Get in Touch';
+    $discount     = isset($section_data['contact_discount']) ? $section_data['contact_discount'] : 'Save up to 40%';
+    $subtext      = isset($section_data['contact_subtext']) ? $section_data['contact_subtext'] : 'Get free estimates from Pruners lawn care and gardening professionals in your city.';
 ?>
 <section class="contact-section">
         <div class="pattern-layer"></div>
@@ -17,13 +53,13 @@ function mthan_section_contact_section_html($section_data) {
                     <div class="inner">
                         <div class="sec-title">
                             <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                            <div class="subtitle"><?php echo $sec_subtitle; ?></div>
-                            <h2><?php echo $sec_title; ?></h2>
-                            <div class="sub-text">Get free estimates from Pruners lawn care and gardening professionals in your city.</div>
+                            <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
+                            <h2><?php echo esc_html($sec_title); ?></h2>
+                            <div class="sub-text"><?php echo esc_html($subtext); ?></div>
                         </div>
                         <div class="form-outer">
                             <div class="form-box">
-                                <div class="discount">Save up to 40%</div>
+                                <div class="discount"><?php echo esc_html($discount); ?></div>
                                 <!--Newsletter-->
                                 <div class="quote-form default-form">
                                     <form method="post" action="contact.html">

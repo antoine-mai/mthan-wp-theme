@@ -1,10 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Render the cart-section section.
+ * Returns the CSF field definitions for the cart section instance.
+ * @return array
+ */
+function mthan_section_cart_options()
+{
+    return array(
+        array(
+            'type'    => 'notice',
+            'style'   => 'info',
+            'content' => 'This section displays the cart content. Most logic is handled by WooCommerce.',
+        ),
+    );
+}
+
+/**
+ * Render the cart section.
  *
  * @param array $section_data Per-instance CSF field values.
-**/
-function mthan_section_cart_section_html($section_data) { ?>
+ **/
+function mthan_section_cart_html($section_data) { ?>
 <section class="cart-section">
         <div class="auto-container">
             <div class="cart-outer">

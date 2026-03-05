@@ -1,30 +1,85 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Render the service-request section.
+ * Returns the CSF field definitions for the request section instance.
+ * @return array
+ */
+function mthan_section_request_options()
+{
+    return array(
+        array(
+            'id'    => 'sec_subtitle',
+            'type'  => 'text',
+            'title' => 'Subtitle',
+            'default' => 'Request a Quote',
+        ),
+        array(
+            'id'    => 'sec_title',
+            'type'  => 'text',
+            'title' => 'Title',
+            'default' => 'Free Estimates',
+        ),
+        array(
+            'id'    => 'sec_sub_text',
+            'type'  => 'textarea',
+            'title' => 'Sub Text',
+            'default' => 'Get free estimates from lander lawn care and gardening professionals in your city.',
+        ),
+        array(
+            'id'    => 'right_image',
+            'type'  => 'upload',
+            'title' => 'Right Side Image',
+        ),
+        array(
+            'id'    => 'discount_text',
+            'type'  => 'text',
+            'title' => 'Discount Label',
+            'default' => 'Save up to 40%',
+        ),
+        array(
+            'id'    => 'services_list',
+            'type'  => 'textarea',
+            'title' => 'Services (one per line)',
+            'default' => "Spring Cleanup\nPlants Planting\nWater Fountain\nHard Scaping\nGarden Care",
+        ),
+    );
+}
+
+/**
+ * Render the request section.
  *
  * @param array $section_data Per-instance CSF field values.
-**/
-function mthan_section_service_request_html($section_data) { 
-    $sec_title    = isset($section_data['sec_title']) ? $section_data['sec_title'] : '';
-    $sec_subtitle = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
+ **/
+function mthan_section_request_html($section_data) { 
+    $sec_title     = isset($section_data['sec_title']) ? $section_data['sec_title'] : 'Free Estimates';
+    $sec_subtitle  = isset($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Request a Quote';
+    $sec_sub_text  = isset($section_data['sec_sub_text']) ? $section_data['sec_sub_text'] : '';
+    $right_image   = isset($section_data['right_image']) ? $section_data['right_image'] : '';
+    $discount_text = isset($section_data['discount_text']) ? $section_data['discount_text'] : '';
+    $services_list = isset($section_data['services_list']) ? $section_data['services_list'] : '';
 ?>
 <section class="service-request">
         <div class="auto-container">
             <div class="inner-box">
-                <div class="right-image"><img src="images/resource/service-request-image.png" alt=""></div>
+                <?php if($right_image): ?>
+                <div class="right-image"><img src="<?php echo esc_url($right_image); ?>" alt="<?php echo esc_attr($sec_title); ?>"></div>
+                <?php endif; ?>
                 <div class="content-box">
                     <div class="sec-title">
                         <div class="title-icon"><span class="icon"><img src="images/icons/leaf-two.png" alt="" title=""></span></div>
-                        <div class="subtitle"><?php echo $sec_subtitle; ?></div>
-                        <h2><?php echo $sec_title; ?></h2>
-                        <div class="sub-text">Get free estimates from lander lawn care and gardening professionals in your city.</div>
+                        <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
+                        <h2><?php echo esc_html($sec_title); ?></h2>
+                        <?php if($sec_sub_text): ?>
+                        <div class="sub-text"><?php echo esc_html($sec_sub_text); ?></div>
+                        <?php endif; ?>
                     </div>
                     <div class="form-outer">
                         <div class="form-box">
-                            <div class="discount">Save up to 40%</div>
+                            <?php if($discount_text): ?>
+                            <div class="discount"><?php echo esc_html($discount_text); ?></div>
+                            <?php endif; ?>
                             <!--Newsletter-->
                             <div class="quote-form default-form">
-                                <form method="post" action="contact.html">
+                                <form method="post" action="#">
                                     <div class="row clearfix">
                                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                             <div class="field-inner">
@@ -48,11 +103,15 @@ function mthan_section_service_request_html($section_data) {
                                             <div class="field-inner">
                                                 <select class="custom-select-box" name="service">
                                                     <option>Choose Service</option>
-                                                    <option>Spring Cleanup</option>
-                                                    <option>Plants Planting</option>
-                                                    <option>Water Fountain</option>
-                                                    <option>Hard Scaping</option>
-                                                    <option>Garden Care</option>
+                                                    <?php 
+                                                    if($services_list){
+                                                        $services = explode("\n", str_replace("\r", "", $services_list));
+                                                        foreach($services as $s){
+                                                            $s = trim($s);
+                                                            if($s) echo '<option value="'.esc_attr($s).'">'.esc_html($s).'</option>';
+                                                        }
+                                                    }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -68,13 +127,11 @@ function mthan_section_service_request_html($section_data) {
                                             </div>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
