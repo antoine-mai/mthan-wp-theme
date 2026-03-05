@@ -31,6 +31,11 @@ function mthan_section_services_options()
             'title' => 'Services List',
             'fields' => array(
                     array(
+                    'id' => 'services_title',
+                    'type' => 'text',
+                    'title' => 'Title',
+                ),
+                    array(
                     'id' => 'services_image',
                     'type' => 'upload',
                     'title' => 'Image',
@@ -40,11 +45,6 @@ function mthan_section_services_options()
                     'type' => 'text',
                     'title' => 'Icon Class (Flaticon)',
                     'default' => 'flaticon-hedge',
-                ),
-                    array(
-                    'id' => 'services_title',
-                    'type' => 'text',
-                    'title' => 'Title',
                 ),
                     array(
                     'id' => 'services_text',
