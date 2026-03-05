@@ -11,15 +11,18 @@ foreach ($raw_slides as $s) {
     if (!$img && !$title) {
         continue;
     }
+    // btn link: CSF select stores a page ID → resolve to URL
+    $btn1_id = !empty($s['btn1_link']) ? $s['btn1_link'] : '';
+    $btn2_id = !empty($s['btn2_link']) ? $s['btn2_link'] : '';
     $slides[] = array(
         'img' => $img,
         'subtitle' => !empty($s['subtitle']) ? $s['subtitle'] : '',
         'title' => $title,
         'align' => !empty($s['align']) ? $s['align'] : 'left',
         'btn1_text' => !empty($s['btn1_text']) ? $s['btn1_text'] : '',
-        'btn1_link' => !empty($s['btn1_link']) ? $s['btn1_link'] : '#',
+        'btn1_link' => $btn1_id ? get_permalink((int) $btn1_id) : '#',
         'btn2_text' => !empty($s['btn2_text']) ? $s['btn2_text'] : '',
-        'btn2_link' => !empty($s['btn2_link']) ? $s['btn2_link'] : '#',
+        'btn2_link' => $btn2_id ? get_permalink((int) $btn2_id) : '#',
     );
 }
 
