@@ -1,27 +1,22 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 
 // $section_data is set by mthan_include_section_items() — per-instance options
-// banner_slides is a CSF group repeater: array of slide items
-$raw_slides = !empty($section_data['banner_slides']) ? $section_data['banner_slides'] : array();
-
+// Slides use flat indexed fields: slide_1_image, slide_1_title, ..., slide_5_*
 $slides = array();
-foreach ($raw_slides as $s) {
-    $img = !empty($s['image']['url']) ? $s['image']['url'] : '';
-    $title = !empty($s['title']) ? $s['title'] : '';
-    if (!$img && !$title) {
-        continue;
-    }
-    // btn link: CSF select stores a page ID → resolve to URL
-    $btn1_id = !empty($s['btn1_link']) ? $s['btn1_link'] : '';
-    $btn2_id = !empty($s['btn2_link']) ? $s['btn2_link'] : '';
+for ($i = 1; $i <= 5; $i++) {
+    $img   = !empty($section_data["slide_{$i}_image"]['url']) ? $section_data["slide_{$i}_image"]['url'] : '';
+    $title = !empty($section_data["slide_{$i}_title"])        ? $section_data["slide_{$i}_title"]        : '';
+    if (!$img && !$title) { continue; }
+    $btn1_id = !empty($section_data["slide_{$i}_btn1_link"]) ? $section_data["slide_{$i}_btn1_link"] : '';
+    $btn2_id = !empty($section_data["slide_{$i}_btn2_link"]) ? $section_data["slide_{$i}_btn2_link"] : '';
     $slides[] = array(
-        'img' => $img,
-        'subtitle' => !empty($s['subtitle']) ? $s['subtitle'] : '',
-        'title' => $title,
-        'align' => !empty($s['align']) ? $s['align'] : 'left',
-        'btn1_text' => !empty($s['btn1_text']) ? $s['btn1_text'] : '',
+        'img'       => $img,
+        'subtitle'  => !empty($section_data["slide_{$i}_subtitle"])  ? $section_data["slide_{$i}_subtitle"]  : '',
+        'title'     => $title,
+        'align'     => !empty($section_data["slide_{$i}_align"])     ? $section_data["slide_{$i}_align"]     : 'left',
+        'btn1_text' => !empty($section_data["slide_{$i}_btn1_text"]) ? $section_data["slide_{$i}_btn1_text"] : '',
         'btn1_link' => $btn1_id ? get_permalink((int) $btn1_id) : '#',
-        'btn2_text' => !empty($s['btn2_text']) ? $s['btn2_text'] : '',
+        'btn2_text' => !empty($section_data["slide_{$i}_btn2_text"]) ? $section_data["slide_{$i}_btn2_text"] : '',
         'btn2_link' => $btn2_id ? get_permalink((int) $btn2_id) : '#',
     );
 }
