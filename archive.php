@@ -26,9 +26,22 @@ mthan_render_page_sections('before');
                     }
                     ?>
                     <div class="<?php echo esc_attr($row_class); ?>">
-                        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                            <div class="news-block <?php echo esc_attr($item_class); ?> hvr-float-shadow">
-                                <?php get_template_part('template-parts/content'); ?>
+                        <?php if (have_posts()) : while (have_posts()) : the_post(); 
+                            $news_block_class = $item_class;
+                            if ($archive_template == 'grid-2') {
+                                $news_block_class .= ' alternate';
+                            }
+                            ?>
+                            <div class="news-block <?php echo esc_attr($news_block_class); ?> hvr-float-shadow">
+                                <?php 
+                                if ($archive_template == 'grid-3') {
+                                    get_template_part('template-parts/content', 'grid-3');
+                                } elseif ($archive_template == 'grid-2') {
+                                    get_template_part('template-parts/content', 'grid-2');
+                                } else {
+                                    get_template_part('template-parts/content');
+                                }
+                                ?>
                             </div>
                         <?php endwhile; else : ?>
                             <p><?php esc_html_e('No posts found.', 'mthan'); ?></p>
