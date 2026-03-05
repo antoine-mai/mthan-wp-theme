@@ -122,10 +122,10 @@ function mthan_section_process_html_1($section_data) {
     $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
     $repeater     = !empty($section_data['process_repeater']) ? $section_data['process_repeater'] : array();
     $fallback_imgs = array(
-        get_template_directory_uri() . '/assets/images/resource/process-image-1.jpg',
-        get_template_directory_uri() . '/assets/images/resource/process-image-2.jpg',
-        get_template_directory_uri() . '/assets/images/resource/process-image-3.jpg',
-        get_template_directory_uri() . '/assets/images/resource/process-image-4.jpg',
+        get_template_directory_uri() . '/assets/images/resource/featured-image-5.jpg',
+        get_template_directory_uri() . '/assets/images/resource/featured-image-6.jpg',
+        get_template_directory_uri() . '/assets/images/resource/featured-image-7.jpg',
+        get_template_directory_uri() . '/assets/images/resource/featured-image-8.jpg',
     );
 ?>
 <section class="work-process">
