@@ -194,6 +194,15 @@ function mthan_section_projects_html_1($section_data) {
     $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
     $lower         = !empty($section_data['lower_text']) ? $section_data['lower_text'] : '';
     $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
+    $fallback_imgs = array(
+        get_template_directory_uri() . '/assets/images/resource/featured-image-2.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/2.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/3.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/4.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/5.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/6.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/7.jpg',
+    );
 ?>
 <section class="projects-section">
         <div class="auto-container">
@@ -205,8 +214,8 @@ function mthan_section_projects_html_1($section_data) {
 
             <div class="carousel-box">
                 <div class="project-carousel owl-theme owl-carousel">
-                    <?php foreach($repeater as $project): 
-                        $img   = !empty($project['image']['url']) ? $project['image']['url'] : '';
+                    <?php foreach($repeater as $i => $project): 
+                        $img   = !empty($project['image']['url']) ? $project['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
                         $cat   = !empty($project['cat_label']) ? $project['cat_label'] : '';
                         $title = !empty($project['title']) ? $project['title'] : '';
                         $link  = !empty($project['link']) ? $project['link'] : '#';
@@ -243,6 +252,15 @@ function mthan_section_projects_html_2($section_data) {
     $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
     $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
     $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
+    $fallback_imgs = array(
+        get_template_directory_uri() . '/assets/images/gallery/1.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/2.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/3.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/4.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/5.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/6.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/7.jpg',
+    );
 ?>
 <section class="projects-two">
         <div class="auto-container">
@@ -259,8 +277,8 @@ function mthan_section_projects_html_2($section_data) {
 
             <div class="masonry-box">
                 <div class="row masonry-container clearfix">
-                    <?php foreach($repeater as $project): 
-                        $img      = !empty($project['image']['url']) ? $project['image']['url'] : '';
+                    <?php foreach($repeater as $i => $project): 
+                        $img      = !empty($project['image']['url']) ? $project['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
                         $cat      = !empty($project['cat_label']) ? $project['cat_label'] : '';
                         $title    = !empty($project['title']) ? $project['title'] : '';
                         $link     = !empty($project['link']) ? $project['link'] : '#';
@@ -298,6 +316,15 @@ function mthan_section_projects_html_3($section_data) {
     $sec_text         = !empty($section_data['sec_text']) ? $section_data['sec_text'] : '';
     $filters_repeater = !empty($section_data['filters_repeater']) ? $section_data['filters_repeater'] : array();
     $gallery_repeater = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
+    $fallback_imgs    = array(
+        get_template_directory_uri() . '/assets/images/gallery/1.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/2.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/3.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/4.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/5.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/6.jpg',
+        get_template_directory_uri() . '/assets/images/gallery/7.jpg',
+    );
 ?>
 <section class="gallery-section">
         <div class="auto-container">
@@ -332,8 +359,8 @@ function mthan_section_projects_html_3($section_data) {
                     </ul>
                 </div>
                 <div class="filter-list row">
-                    <?php foreach($gallery_repeater as $item): 
-                        $img        = !empty($item['image']['url']) ? $item['image']['url'] : '';
+                    <?php foreach($gallery_repeater as $i => $item): 
+                        $img        = !empty($item['image']['url']) ? $item['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
                         $title      = !empty($item['title']) ? $item['title'] : '';
                         $cat_label  = !empty($item['cat_label']) ? $item['cat_label'] : '';
                         $link       = !empty($item['link']) ? $item['link'] : '#';
