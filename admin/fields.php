@@ -70,10 +70,11 @@ function mthan_get_section_instance_fields()
             // But CSF 'dependency' format is ('id', '==', 'val')
             // Multiple dependencies: array( array('id1','==','val1'), array('id2','==','val2') )
             $about_field['dependency'] = array(
-                array('section_template', '==', 'about'),
+                    array('section_template', '==', 'about'),
                 $about_field['dependency']
             );
-        } else {
+        }
+        else {
             $about_field['dependency'] = array('section_template', '==', 'about');
         }
         $fields[] = $about_field;
@@ -151,13 +152,7 @@ function mthan_get_section_instance_fields()
         $fields[] = $faqs_field;
     }
 
-    // ──────────────────────────────────────────────────────────────────
-    // Gallery Section — delegates to mthan_section_gallery_options()
-    // ──────────────────────────────────────────────────────────────────
-    foreach (mthan_section_gallery_options() as $gallery_field) {
-        $gallery_field['dependency'] = array('section_template', '==', 'gallery');
-        $fields[] = $gallery_field;
-    }
+
 
     // ──────────────────────────────────────────────────────────────────
     // Services Section — delegates to mthan_section_services_options()
@@ -277,6 +272,14 @@ function mthan_get_section_instance_fields()
     foreach (mthan_section_mvg_history_options() as $mvg_field) {
         $mvg_field['dependency'] = array('section_template', '==', 'mvg-history');
         $fields[] = $mvg_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Product Details — delegates to mthan_section_product_details_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_product_details_options() as $product_details_field) {
+        $product_details_field['dependency'] = array('section_template', '==', 'product-details');
+        $fields[] = $product_details_field;
     }
 
     // ──────────────────────────────────────────────────────────────────
