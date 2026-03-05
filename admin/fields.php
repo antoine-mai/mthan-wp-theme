@@ -325,9 +325,10 @@ function mthan_get_section_instance_fields()
     // ──────────────────────────────────────────────────────────────────
     // Page Banner
     // ──────────────────────────────────────────────────────────────────
-    $fields[] = array('type' => 'subheading', 'content' => 'Page Banner Options', 'dependency' => array('section_template', '==', 'page-banner'));
-    $fields[] = array('id' => 'page_banner_image', 'type' => 'media', 'library' => 'image', 'title' => 'Background Image', 'dependency' => array('section_template', '==', 'page-banner'));
-    $fields[] = array('id' => 'page_banner_title', 'type' => 'text', 'title' => 'Page Title (H1)', 'dependency' => array('section_template', '==', 'page-banner'));
+    foreach (mthan_section_page_banner_options() as $pb_field) {
+        $pb_field['dependency'] = array('section_template', '==', 'page-banner');
+        $fields[] = $pb_field;
+    }
 
     // ──────────────────────────────────────────────────────────────────
     // Call To Action
