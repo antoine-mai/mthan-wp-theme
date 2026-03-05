@@ -11,8 +11,6 @@ function mthan_get_section_instance_fields()
 
     // Base sections that have a standard subtitle/title/description header
     $sections_with_header = array(
-        'work-process',
-        'mvg-history',
         'sponsors-section',
     );
 
@@ -242,6 +240,86 @@ function mthan_get_section_instance_fields()
     }
 
     // ──────────────────────────────────────────────────────────────────
+    // Process Section — delegates to mthan_section_process_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_process_options() as $process_field) {
+        $process_field['dependency'] = array('section_template', '==', 'process');
+        $fields[] = $process_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Contact Section — delegates to mthan_section_contact_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_contact_options() as $contact_field) {
+        $contact_field['dependency'] = array('section_template', '==', 'contact');
+        $fields[] = $contact_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // FAQs Section — delegates to mthan_section_faqs_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_faqs_options() as $faq_field) {
+        $faq_field['dependency'] = array('section_template', '==', 'faqs');
+        $fields[] = $faq_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Facts Section — delegates to mthan_section_facts_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_facts_options() as $facts_field) {
+        $facts_field['dependency'] = array('section_template', '==', 'facts');
+        $fields[] = $facts_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // MVG History Section — delegates to mthan_section_mvg_history_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_mvg_history_options() as $mvg_field) {
+        $mvg_field['dependency'] = array('section_template', '==', 'mvg-history');
+        $fields[] = $mvg_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Projects Section — delegates to mthan_section_projects_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_projects_options() as $projects_field) {
+        $projects_field['dependency'] = array('section_template', '==', 'projects');
+        $fields[] = $projects_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Project Details — delegates to mthan_section_project_details_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_project_details_options() as $project_details_field) {
+        $project_details_field['dependency'] = array('section_template', '==', 'project-details');
+        $fields[] = $project_details_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Project Feedback — delegates to mthan_section_project_feedback_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_project_feedback_options() as $project_feedback_field) {
+        $project_feedback_field['dependency'] = array('section_template', '==', 'project-feedback');
+        $fields[] = $project_feedback_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Project Outline — delegates to mthan_section_project_outline_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_project_outline_options() as $project_outline_field) {
+        $project_outline_field['dependency'] = array('section_template', '==', 'project-outline');
+        $fields[] = $project_outline_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // Related Project — delegates to mthan_section_related_project_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_related_project_options() as $related_project_field) {
+        $related_project_field['dependency'] = array('section_template', '==', 'related-project');
+        $fields[] = $related_project_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
     // Page Banner
     // ──────────────────────────────────────────────────────────────────
     $fields[] = array('type' => 'subheading', 'content' => 'Page Banner Options', 'dependency' => array('section_template', '==', 'page-banner'));
@@ -258,41 +336,36 @@ function mthan_get_section_instance_fields()
     $fields[] = array('id' => 'cta_phone', 'type' => 'text', 'title' => 'Phone Number', 'default' => '+31 65 792 63 11', 'dependency' => array('section_template', '==', 'call-to-action'));
 
     // ──────────────────────────────────────────────────────────────────
-    // Facts Section
+    // Map Section — delegates to mthan_section_map_options()
     // ──────────────────────────────────────────────────────────────────
-    $fields[] = array('type' => 'subheading', 'content' => 'Facts Section Options', 'dependency' => array('section_template', '==', 'facts-section'));
-    $fields[] = array('id' => 'facts_bg_image', 'type' => 'media', 'library' => 'image', 'title' => 'Background Image', 'dependency' => array('section_template', '==', 'facts-section'));
-    $fact_defaults = array(
-        1 => array('icon' => 'flaticon-park', 'count' => '2.5', 'suffix' => 'k', 'label' => 'Completed Projects'),
-        2 => array('icon' => 'flaticon-gardener', 'count' => '108', 'suffix' => '', 'label' => 'Expert Landscapers'),
-        3 => array('icon' => 'flaticon-medal', 'count' => '23', 'suffix' => '+', 'label' => 'Awards and Honors'),
-        4 => array('icon' => 'flaticon-customer-review-1', 'count' => '99', 'suffix' => '%', 'label' => 'Satisfied Customers'),
-    );
-    for ($i = 1; $i <= 4; $i++) {
-        $d = $fact_defaults[$i];
-        $fields[] = array('id' => "fact_{$i}_icon", 'type' => 'text', 'title' => "Fact {$i} – Icon Class", 'default' => $d['icon'], 'dependency' => array('section_template', '==', 'facts-section'));
-        $fields[] = array('id' => "fact_{$i}_count", 'type' => 'text', 'title' => "Fact {$i} – Count Number", 'default' => $d['count'], 'dependency' => array('section_template', '==', 'facts-section'));
-        $fields[] = array('id' => "fact_{$i}_suffix", 'type' => 'text', 'title' => "Fact {$i} – Suffix (k/+/%)", 'default' => $d['suffix'], 'dependency' => array('section_template', '==', 'facts-section'));
-        $fields[] = array('id' => "fact_{$i}_label", 'type' => 'text', 'title' => "Fact {$i} – Label", 'default' => $d['label'], 'dependency' => array('section_template', '==', 'facts-section'));
+    foreach (mthan_section_map_options() as $map_field) {
+        $map_field['dependency'] = array('section_template', '==', 'map');
+        $fields[] = $map_field;
     }
 
     // ──────────────────────────────────────────────────────────────────
-    // Error Section
+    // Error Section — delegates to mthan_section_error_options()
     // ──────────────────────────────────────────────────────────────────
-    $fields[] = array('type' => 'subheading', 'content' => 'Error Section Options', 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_title', 'type' => 'text', 'title' => 'Error Code (e.g. 404)', 'default' => '404', 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_heading', 'type' => 'text', 'title' => 'Heading', 'default' => "Oops! That page can't be found", 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_text', 'type' => 'textarea', 'title' => 'Description', 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_btn_text', 'type' => 'text', 'title' => 'Button Text', 'default' => 'Back To Home', 'dependency' => array('section_template', '==', 'error-section'));
-    $fields[] = array('id' => 'error_btn_link', 'type' => 'text', 'title' => 'Button Link', 'default' => '/', 'dependency' => array('section_template', '==', 'error-section'));
+    foreach (mthan_section_error_options() as $error_field) {
+        $error_field['dependency'] = array('section_template', '==', 'error');
+        $fields[] = $error_field;
+    }
 
     // ──────────────────────────────────────────────────────────────────
-    // Coming Soon
+    // Coming Soon — delegates to mthan_section_coming_soon_options()
     // ──────────────────────────────────────────────────────────────────
-    $fields[] = array('type' => 'subheading', 'content' => 'Coming Soon Options', 'dependency' => array('section_template', '==', 'coming-soon'));
-    $fields[] = array('id' => 'coming_soon_title', 'type' => 'text', 'title' => 'Title', 'default' => 'Coming Soon', 'dependency' => array('section_template', '==', 'coming-soon'));
-    $fields[] = array('id' => 'coming_soon_text', 'type' => 'textarea', 'title' => 'Description', 'dependency' => array('section_template', '==', 'coming-soon'));
-    $fields[] = array('id' => 'coming_soon_date', 'type' => 'text', 'title' => 'Launch Date (YYYY/MM/DD)', 'dependency' => array('section_template', '==', 'coming-soon'));
+    foreach (mthan_section_coming_soon_options() as $cs_field) {
+        $cs_field['dependency'] = array('section_template', '==', 'coming-soon');
+        $fields[] = $cs_field;
+    }
+
+    // ──────────────────────────────────────────────────────────────────
+    // My Account — delegates to mthan_section_myaccount_options()
+    // ──────────────────────────────────────────────────────────────────
+    foreach (mthan_section_myaccount_options() as $myaccount_field) {
+        $myaccount_field['dependency'] = array('section_template', '==', 'myaccount');
+        $fields[] = $myaccount_field;
+    }
 
     return $fields;
 }
