@@ -7,9 +7,9 @@ function mthan_section_testimonials_options()
 {
     return array(
         array(
-            'id'    => 'testimonials_style',
-            'type'  => 'select',
-            'title' => 'Testimonials Style',
+            'id'      => 'testimonials_style',
+            'type'    => 'select',
+            'title'   => 'Testimonials Style',
             'options' => array(
                 'style-1' => 'Style 1 (Full Width Carousel)',
                 'style-2' => 'Style 2 (Split Layout)',
@@ -17,37 +17,40 @@ function mthan_section_testimonials_options()
             'default' => 'style-1',
         ),
         array(
-            'id'    => 'sec_subtitle',
-            'type'  => 'text',
-            'title' => 'Subtitle',
+            'id'      => 'sec_subtitle',
+            'type'    => 'text',
+            'title'   => 'Subtitle',
             'default' => 'Our Testimonials',
         ),
         array(
-            'id'    => 'sec_title',
-            'type'  => 'text',
-            'title' => 'Title',
+            'id'      => 'sec_title',
+            'type'    => 'text',
+            'title'   => 'Title',
             'default' => 'What Our Clients Say',
         ),
         array(
-            'id'    => 'sec_desc',
-            'type'  => 'textarea',
-            'title' => 'Description (Style 1)',
+            'id'         => 'sec_desc',
+            'type'       => 'textarea',
+            'title'      => 'Description (Style 1)',
+            'default'    => 'Must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system.',
             'dependency' => array('testimonials_style', '==', 'style-1'),
         ),
         array(
-            'id'     => 'testimonials_repeater',
-            'type'   => 'group',
-            'title'  => 'Testimonials List',
-            'fields' => array(
-                array(
-                    'id'    => 'image',
-                    'type'  => 'upload',
-                    'title' => 'Author Image',
-                ),
+            'id'      => 'testimonials_repeater',
+            'type'    => 'group',
+            'title'   => 'Testimonials List',
+            'fields'  => array(
                 array(
                     'id'    => 'name',
                     'type'  => 'text',
                     'title' => 'Name',
+                ),
+                array(
+                    'id'      => 'image',
+                    'type'    => 'media',
+                    'library' => 'image',
+                    'preview' => false,
+                    'title'   => 'Author Image',
                 ),
                 array(
                     'id'    => 'region',
@@ -55,15 +58,15 @@ function mthan_section_testimonials_options()
                     'title' => 'Region/Location',
                 ),
                 array(
-                    'id'    => 'rating',
-                    'type'  => 'select',
-                    'title' => 'Rating',
+                    'id'      => 'rating',
+                    'type'    => 'select',
+                    'title'   => 'Rating',
                     'options' => array(
-                        '5' => '5 Stars',
+                        '5'   => '5 Stars',
                         '4.5' => '4.5 Stars',
-                        '4' => '4 Stars',
+                        '4'   => '4 Stars',
                         '3.5' => '3.5 Stars',
-                        '3' => '3 Stars',
+                        '3'   => '3 Stars',
                     ),
                     'default' => '5',
                 ),
@@ -78,17 +81,42 @@ function mthan_section_testimonials_options()
                     'title' => 'Testimonial Text',
                 ),
             ),
+            'default' => array(
+                array(
+                    'name'   => 'Robert Anderson',
+                    'region' => 'New York, USA',
+                    'rating' => '5',
+                    'title'  => 'Outstanding Garden Service!',
+                    'text'   => 'Must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system.',
+                ),
+                array(
+                    'name'   => 'Maria Santos',
+                    'region' => 'Los Angeles, USA',
+                    'rating' => '5',
+                    'title'  => 'Professional & Reliable Team',
+                    'text'   => 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC making it over 2000 years old.',
+                ),
+                array(
+                    'name'   => 'James Collins',
+                    'region' => 'Chicago, USA',
+                    'rating' => '4.5',
+                    'title'  => 'Transformed Our Backyard',
+                    'text'   => 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form by injected humour.',
+                ),
+            ),
         ),
         array(
-            'id'     => 'decorative_thumbs',
-            'type'   => 'group',
-            'title'  => 'Decorative Thumbs (Style 2)',
-            'max'    => 4,
-            'fields' => array(
+            'id'         => 'decorative_thumbs',
+            'type'       => 'group',
+            'title'      => 'Decorative Thumbs (Style 2)',
+            'max'        => 4,
+            'fields'     => array(
                 array(
-                    'id'    => 'image',
-                    'type'  => 'upload',
-                    'title' => 'Thumb Image',
+                    'id'      => 'image',
+                    'type'    => 'media',
+                    'library' => 'image',
+                    'preview' => false,
+                    'title'   => 'Thumb Image',
                 ),
             ),
             'dependency' => array('testimonials_style', '==', 'style-2'),
@@ -100,19 +128,26 @@ function mthan_section_testimonials_options()
  * Render the testimonials section.
  *
  * @param array $section_data Per-instance CSF field values.
- **/
-function mthan_section_testimonials_html($section_data) {
-    $style       = isset($section_data['testimonials_style']) ? $section_data['testimonials_style'] : 'style-1';
-    
+ */
+function mthan_section_testimonials_html($section_data)
+{
+    $style = isset($section_data['testimonials_style']) ? $section_data['testimonials_style'] : 'style-1';
+
     if ($style === 'style-2') {
         mthan_section_testimonials_html_2($section_data);
         return;
     }
 
-    $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'What Our Clients Say';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Testimonials';
-    $sec_desc     = !empty($section_data['sec_desc']) ? $section_data['sec_desc'] : '';
-    $testimonials = !empty($section_data['testimonials_repeater']) ? $section_data['testimonials_repeater'] : array();
+    $sec_title    = !empty($section_data['sec_title'])              ? $section_data['sec_title']              : 'What Our Clients Say';
+    $sec_subtitle = !empty($section_data['sec_subtitle'])           ? $section_data['sec_subtitle']           : 'Our Testimonials';
+    $sec_desc     = !empty($section_data['sec_desc'])               ? $section_data['sec_desc']               : '';
+    $testimonials = !empty($section_data['testimonials_repeater'])  ? $section_data['testimonials_repeater']  : array();
+
+    $fallback_imgs = array(
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-1.jpg',
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-2.jpg',
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-3.jpg',
+    );
 ?>
 <section class="testimonials-one alt-color">
     <div class="auto-container">
@@ -133,12 +168,12 @@ function mthan_section_testimonials_html($section_data) {
 
         <div class="carousel-box">
             <div class="testimonial-carousel owl-theme owl-carousel">
-                <?php foreach($testimonials as $item): 
-                    $img    = !empty($item['image']['url']) ? $item['image']['url'] : '';
-                    $name   = !empty($item['name']) ? $item['name'] : '';
+                <?php foreach ($testimonials as $i => $item) {
+                    $img    = !empty($item['image']['url']) ? $item['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
+                    $name   = !empty($item['name'])   ? $item['name']   : '';
                     $region = !empty($item['region']) ? $item['region'] : '';
                     $rating = !empty($item['rating']) ? $item['rating'] : '5';
-                    $text   = !empty($item['text']) ? $item['text'] : '';
+                    $text   = !empty($item['text'])   ? $item['text']   : '';
                 ?>
                 <!--Block-->
                 <div class="testi-block">
@@ -149,41 +184,49 @@ function mthan_section_testimonials_html($section_data) {
                             <h6 class="name"><?php echo esc_html($name); ?></h6>
                             <div class="region"><?php echo esc_html($region); ?></div>
                             <div class="rating">
-                                <?php 
-                                    $full_stars = floor($rating);
-                                    $has_half   = ($rating - $full_stars) >= 0.5;
-                                    for($i=1; $i<=5; $i++){
-                                        if($i <= $full_stars){
-                                            echo '<span class="fa fa-star"></span>';
-                                        } elseif($has_half && $i == $full_stars + 1){
-                                            echo '<span class="fa fa-star-half-alt"></span>';
-                                            $has_half = false;
-                                        } else {
-                                            echo '<span class="far fa-star"></span>';
-                                        }
+                                <?php
+                                $full_stars = floor($rating);
+                                $has_half   = ($rating - $full_stars) >= 0.5;
+                                for ($s = 1; $s <= 5; $s++) {
+                                    if ($s <= $full_stars) {
+                                        echo '<span class="fa fa-star"></span>';
+                                    } elseif ($has_half && $s == $full_stars + 1) {
+                                        echo '<span class="fa fa-star-half-alt"></span>';
+                                        $has_half = false;
+                                    } else {
+                                        echo '<span class="far fa-star"></span>';
                                     }
+                                }
                                 ?>
                             </div>
                             <div class="text"><?php echo esc_html($text); ?></div>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php } ?>
             </div>
         </div>
     </div>
 </section>
-<?php 
+<?php
 }
 
 /**
  * Render Style 2 (Split Layout)
  */
-function mthan_section_testimonials_html_2($section_data) {
-    $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'What Our Clients Say';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Testimonials';
+function mthan_section_testimonials_html_2($section_data)
+{
+    $sec_title    = !empty($section_data['sec_title'])             ? $section_data['sec_title']             : 'What Our Clients Say';
+    $sec_subtitle = !empty($section_data['sec_subtitle'])          ? $section_data['sec_subtitle']          : 'Our Testimonials';
     $testimonials = !empty($section_data['testimonials_repeater']) ? $section_data['testimonials_repeater'] : array();
-    $decorative   = !empty($section_data['decorative_thumbs']) ? $section_data['decorative_thumbs'] : array();
+    $decorative   = !empty($section_data['decorative_thumbs'])     ? $section_data['decorative_thumbs']     : array();
+
+    $fallback_imgs = array(
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-1.jpg',
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-2.jpg',
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-3.jpg',
+        get_template_directory_uri() . '/assets/images/resource/testi-thumb-4.jpg',
+    );
 ?>
 <section class="testimonials-two">
     <div class="pattern-layer"></div>
@@ -198,12 +241,12 @@ function mthan_section_testimonials_html_2($section_data) {
                 </div>
                 <div class="carousel-box">
                     <div class="testimonial-carousel-two owl-theme owl-carousel">
-                        <?php foreach($testimonials as $item): 
-                            $name   = !empty($item['name']) ? $item['name'] : '';
+                        <?php foreach ($testimonials as $item) {
+                            $name   = !empty($item['name'])   ? $item['name']   : '';
                             $region = !empty($item['region']) ? $item['region'] : '';
                             $rating = !empty($item['rating']) ? $item['rating'] : '5';
-                            $title  = !empty($item['title']) ? $item['title'] : '';
-                            $text   = !empty($item['text']) ? $item['text'] : '';
+                            $title  = !empty($item['title'])  ? $item['title']  : '';
+                            $text   = !empty($item['text'])   ? $item['text']   : '';
                         ?>
                         <!--Block-->
                         <div class="testi-block-two">
@@ -212,32 +255,32 @@ function mthan_section_testimonials_html_2($section_data) {
                                     <div class="info">
                                         <div class="quote-icon"><span></span></div>
                                         <div class="rating">
-                                            <?php 
-                                                $full_stars = floor($rating);
-                                                $has_half   = ($rating - $full_stars) >= 0.5;
-                                                for($i=1; $i<=5; $i++){
-                                                    if($i <= $full_stars){
-                                                        echo '<span class="fa fa-star"></span>';
-                                                    } elseif($has_half && $i == $full_stars + 1){
-                                                        echo '<span class="fa fa-star-half-alt"></span>';
-                                                        $has_half = false;
-                                                    } else {
-                                                        echo '<span class="far fa-star"></span>';
-                                                    }
+                                            <?php
+                                            $full_stars = floor($rating);
+                                            $has_half   = ($rating - $full_stars) >= 0.5;
+                                            for ($s = 1; $s <= 5; $s++) {
+                                                if ($s <= $full_stars) {
+                                                    echo '<span class="fa fa-star"></span>';
+                                                } elseif ($has_half && $s == $full_stars + 1) {
+                                                    echo '<span class="fa fa-star-half-alt"></span>';
+                                                    $has_half = false;
+                                                } else {
+                                                    echo '<span class="far fa-star"></span>';
                                                 }
+                                            }
                                             ?>
                                         </div>
                                         <h6 class="title"><?php echo esc_html($title); ?></h6>
                                     </div>
                                     <div class="text"><?php echo esc_html($text); ?></div>
                                     <div class="author">
-                                        <span class="name"><?php echo esc_html($name); ?>,</span> 
+                                        <span class="name"><?php echo esc_html($name); ?>,</span>
                                         <span class="region"><?php echo esc_html($region); ?></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -245,18 +288,18 @@ function mthan_section_testimonials_html_2($section_data) {
             <!--Column-->
             <div class="thumbs-col col-lg-6 col-md-12 col-sm-12">
                 <div class="inner">
-                    <?php foreach($decorative as $thumb): 
-                        $img = !empty($thumb['image']['url']) ? $thumb['image']['url'] : '';
-                        if($img):
+                    <?php foreach ($decorative as $j => $thumb) {
+                        $img = !empty($thumb['image']['url']) ? $thumb['image']['url'] : $fallback_imgs[$j % count($fallback_imgs)];
                     ?>
                     <div class="image-thumb">
                         <div class="image"><img src="<?php echo esc_url($img); ?>" alt="<?php echo esc_attr($sec_title . ' Thumbnail'); ?>" title="<?php echo esc_attr($sec_title); ?>"></div>
                         <div class="icon"><span class="fa fa-quote-left"></span></div>
                     </div>
-                    <?php endif; endforeach; ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<?php }
+<?php
+}

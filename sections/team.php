@@ -257,10 +257,11 @@ function mthan_section_team_html_2($section_data)
 <section class="team-two">
     <div class="auto-container">
         <div class="sec-title">
-            <div class="title-icon"><span class="icon"><img
-                        src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png"
-                        alt="<?php echo esc_attr($sec_subtitle); ?>"
-                        title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+            <div class="title-icon">
+                <span class="icon">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>" />
+                </span>
+            </div>
             <div class="subtitle">
                 <?php echo esc_html($sec_subtitle); ?>
             </div>
@@ -271,60 +272,65 @@ function mthan_section_team_html_2($section_data)
 
         <div class="team-box">
             <div class="team-carousel owl-theme owl-carousel">
-                <?php foreach ($team_repeater as $i => $member) {
-        $img = !empty($member['image']['url']) ? $member['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
-        $name = !empty($member['name']) ? $member['name'] : '';
-        $des = !empty($member['designation']) ? $member['designation'] : '';
-        $phone = !empty($member['phone']) ? $member['phone'] : '';
-        $fb = !empty($member['facebook']) ? $member['facebook'] : '';
-        $tw = !empty($member['twitter']) ? $member['twitter'] : '';
-        $inst = !empty($member['instagram']) ? $member['instagram'] : '';
-?>
+                <?php foreach ($team_repeater as $i => $member) { ?>
+                <?php
+                    $img = !empty($member['image']['url']) ? $member['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
+                    $name = !empty($member['name']) ? $member['name'] : '';
+                    $des = !empty($member['designation']) ? $member['designation'] : '';
+                    $phone = !empty($member['phone']) ? $member['phone'] : '';
+                    $fb = !empty($member['facebook']) ? $member['facebook'] : '';
+                    $tw = !empty($member['twitter']) ? $member['twitter'] : '';
+                    $inst = !empty($member['instagram']) ? $member['instagram'] : '';
+                ?>
                 <!--Team block-->
                 <div class="team-block-two">
                     <div class="inner-box">
                         <div class="upper">
                             <div class="image-box">
-                                <img src="<?php echo esc_url($img); ?>" alt="<?php echo esc_attr($name); ?>"
-                                    title="<?php echo esc_attr($name); ?>">
+                                <img src="<?php echo esc_url($img); ?>" alt="<?php echo esc_attr($name); ?>" title="<?php echo esc_attr($name); ?>" />
                             </div>
                         </div>
                         <div class="lower">
                             <div class="designation">
                                 <?php echo esc_html($des); ?>
                             </div>
-                            <h5><a href="#">
+                            <h5>
+                                <a href="#">
                                     <?php echo esc_html($name); ?>
-                                </a></h5>
+                                </a>
+                            </h5>
                             <div class="phone-box">
                                 <?php if ($phone) { ?>
-                                <a href="<?php echo (strpos($phone, '@') !== false) ? 'mailto:' . esc_attr($phone) : 'tel:' . esc_attr($phone); ?>"
-                                    class="phone">
-                                    <span
-                                        class="icon <?php echo (strpos($phone, '@') !== false) ? 'flaticon-envelope-1' : 'flaticon-headphones'; ?>"></span>
+                                <a href="<?php echo (strpos($phone, '@') !== false) ? 'mailto:' . esc_attr($phone) : 'tel:' . esc_attr($phone); ?>" class="phone">
+                                    <span class="icon <?php echo (strpos($phone, '@') !== false) ? 'flaticon-envelope-1' : 'flaticon-headphones'; ?>"></span>
                                     <?php echo esc_html($phone); ?>
                                 </a>
-                                <?php
-        }?>
+                                <?php } ?>
                                 <div class="share-it">
                                     <span class="theme-btn share-icon flaticon-share-1"></span>
                                     <div class="share-list">
                                         <ul class="clearfix">
                                             <?php if ($fb) { ?>
-                                            <li><a href="<?php echo esc_url($fb); ?>"><span
-                                                        class="fab fa-facebook-f"></span></a></li>
-                                            <?php
-        }?>
+                                            <li>
+                                                <a href="<?php echo esc_url($fb); ?>">
+                                                    <span class="fab fa-facebook-f"></span>
+                                                </a>
+                                            </li>
+                                            <?php }?>
                                             <?php if ($tw) { ?>
-                                            <li><a href="<?php echo esc_url($tw); ?>"><span
-                                                        class="fab fa-twitter"></span></a></li>
-                                            <?php
-        }?>
+                                            <li>
+                                                <a href="<?php echo esc_url($tw); ?>">
+                                                    <span class="fab fa-twitter"></span>
+                                                </a>
+                                            </li>
+                                            <?php }?>
                                             <?php if ($inst) { ?>
-                                            <li><a href="<?php echo esc_url($inst); ?>"><span
-                                                        class="fab fa-instagram"></span></a></li>
-                                            <?php
-        }?>
+                                            <li>
+                                                <a href="<?php echo esc_url($inst); ?>">
+                                                    <span class="fab fa-instagram"></span>
+                                                </a>
+                                            </li>
+                                            <?php }?>
                                         </ul>
                                     </div>
                                 </div>
@@ -332,8 +338,7 @@ function mthan_section_team_html_2($section_data)
                         </div>
                     </div>
                 </div>
-                <?php
-    }?>
+                <?php } ?>
             </div>
         </div>
     </div>
