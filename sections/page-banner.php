@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
+
+/**
+ * Render the page-banner section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_page_banner_html($section_data) {
 $bg = !empty($section_data['page_banner_image']['url']) ? esc_url($section_data['page_banner_image']['url']) : get_template_directory_uri() . '/images/background/banner-image-1.jpg';
 $title = !empty($section_data['page_banner_title']) ? $section_data['page_banner_title'] : get_the_title();
 ?>
@@ -23,3 +30,4 @@ $title = !empty($section_data['page_banner_title']) ? $section_data['page_banner
         </div>
     </div>
 </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the gallery-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_gallery_section_html($section_data) {
 <section class="gallery-section">
         <div class="auto-container">
             <div class="title-box">
@@ -182,3 +189,4 @@
 
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the testimonials-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_testimonials_two_html($section_data) {
 <section class="testimonials-two">
         <div class="pattern-layer"></div>
         <div class="auto-container">
@@ -116,3 +123,4 @@
             </div>
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the facts-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_facts_two_html($section_data) {
 <section class="facts-two">
         <div class="outer-container">
             <div class="row clearfix">
@@ -42,3 +49,4 @@
 
         </div>
     </section>
+}

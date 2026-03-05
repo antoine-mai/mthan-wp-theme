@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
+
+/**
+ * Render the call-to-action section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_call_to_action_html($section_data) {
 $heading = !empty($section_data['cta_heading']) ? $section_data['cta_heading'] : 'Do you need tree care for your home?';
 $btn_text = !empty($section_data['cta_btn_text']) ? $section_data['cta_btn_text'] : 'Send Message';
 $btn_link = !empty($section_data['cta_btn_link']) ? $section_data['cta_btn_link'] : '#';
@@ -29,3 +36,4 @@ $phone = !empty($section_data['cta_phone']) ? $section_data['cta_phone'] : '+31 
         </div>
     </div>
 </section>
+}

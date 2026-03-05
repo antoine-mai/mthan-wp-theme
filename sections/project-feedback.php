@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the project-feedback section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_project_feedback_html($section_data) {
 <section class="project-feedback">
             <div class="image-layer" style="background-image: url(images/background/quote-bg.jpg);"></div>
             <div class="auto-container">
@@ -13,3 +20,4 @@
                 </div>
             </div>
         </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the mvg-history section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_mvg_history_html($section_data) {
 <section class="mvg-history">
         <div class="mvg">
             <div class="auto-container">
@@ -203,3 +210,4 @@
         </div>
 
     </section>
+}

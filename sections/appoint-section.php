@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the appoint-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_appoint_section_html($section_data) {
 <section class="appoint-section">
         <div class="auto-container">
 
@@ -196,3 +203,4 @@
 
         </div>
     </section>
+}

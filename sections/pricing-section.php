@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the pricing-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_pricing_section_html($section_data) {
 <section class="pricing-section">
         <div class="auto-container">
             <div class="title-box">
@@ -111,3 +118,4 @@
 
         </div>
     </section>
+}

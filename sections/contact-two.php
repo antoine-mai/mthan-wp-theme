@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the contact-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_contact_two_html($section_data) {
 <section class="contact-two">
         <div class="pattern-layer"></div>
         <div class="auto-container">
@@ -91,3 +98,4 @@
             </div>
         </div>
     </section>
+}

@@ -1,20 +1,16 @@
 <?php defined('ABSPATH') || exit;
 
-// ──────────────────────────────────────────────────────────────────
-// Banner Section
-// ──────────────────────────────────────────────────────────────────
-
 /**
  * Returns the CSF field definitions for the banner section instance.
- * Called by mthan_get_section_instance_fields() in section-instance-fields.php.
+ * Called by mthan_get_section_instance_fields() → section-instance-fields.php.
  *
  * NOTE: 'title' field MUST be first — CSF group.php:96 uses fields[0] value
- * as the accordion title text. 'image' (media → array) as fields[0] caused
- * "Array to string conversion".
+ * as the accordion title text. 'image' (media → array) as fields[0] would
+ * cause "Array to string conversion".
  *
  * @return array[]
  */
-function mthan_section_banner_options()
+function mthan_section_banner_section_options()
 {
     return array(
         array('type' => 'subheading', 'content' => 'Banner Section Options'),
@@ -27,10 +23,10 @@ function mthan_section_banner_options()
                 array('id' => 'title',    'type' => 'text',   'title' => 'Title (H1)'),
                 array('id' => 'subtitle', 'type' => 'text',   'title' => 'Subtitle'),
                 array('id' => 'image',    'type' => 'media',  'library' => 'image', 'title' => 'Background Image'),
-                array('id' => 'align',    'type' => 'select', 'title' => 'Alignment',      'options' => array('left' => 'Left', 'right' => 'Right'), 'default' => 'left'),
-                array('id' => 'btn1_text','type' => 'text',   'title' => 'Button 1 Text',  'default' => 'Read More'),
+                array('id' => 'align',    'type' => 'select', 'title' => 'Alignment',     'options' => array('left' => 'Left', 'right' => 'Right'), 'default' => 'left'),
+                array('id' => 'btn1_text','type' => 'text',   'title' => 'Button 1 Text', 'default' => 'Read More'),
                 mthan_page_select_field('btn1_link', 'Button 1 Page'),
-                array('id' => 'btn2_text','type' => 'text',   'title' => 'Button 2 Text',  'default' => 'Contact Us'),
+                array('id' => 'btn2_text','type' => 'text',   'title' => 'Button 2 Text', 'default' => 'Contact Us'),
                 mthan_page_select_field('btn2_link', 'Button 2 Page'),
             ),
         ),
@@ -38,12 +34,11 @@ function mthan_section_banner_options()
 }
 
 /**
- * Renders the banner section HTML.
- * Called by mthan_include_section_items() via function dispatch.
+ * Render the banner-section section.
  *
- * @param array $section_data Per-instance field values from CSF.
+ * @param array $section_data Per-instance CSF field values.
  */
-function mthan_section_banner_html($section_data)
+function mthan_section_banner_section_html($section_data)
 {
     $raw_slides = !empty($section_data['banner_slides']) && is_array($section_data['banner_slides'])
         ? $section_data['banner_slides']
@@ -106,16 +101,14 @@ function mthan_section_banner_html($section_data)
                                 <?php if ($slide['btn1_text']) { ?>
                                 <a href="<?php echo esc_url($slide['btn1_link']); ?>" class="theme-btn btn-style-one">
                                     <span class="btn-title">
-                                        <?php echo esc_html($slide['btn1_text']); ?> <i
-                                            class="arrow flaticon-play-button-1"></i>
+                                        <?php echo esc_html($slide['btn1_text']); ?> <i class="arrow flaticon-play-button-1"></i>
                                     </span>
                                 </a>
                                 <?php } ?>
                                 <?php if ($slide['btn2_text']) { ?>
                                 <a href="<?php echo esc_url($slide['btn2_link']); ?>" class="theme-btn btn-style-three">
                                     <span class="btn-title">
-                                        <?php echo esc_html($slide['btn2_text']); ?> <i
-                                            class="arrow flaticon-play-button-1"></i>
+                                        <?php echo esc_html($slide['btn2_text']); ?> <i class="arrow flaticon-play-button-1"></i>
                                     </span>
                                 </a>
                                 <?php } ?>

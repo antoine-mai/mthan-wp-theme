@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the projects-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_projects_two_html($section_data) {
 <section class="projects-two">
         <div class="auto-container">
             <div class="upper-box clearfix">
@@ -118,3 +125,4 @@
             </div>
         </div>
     </section>
+}

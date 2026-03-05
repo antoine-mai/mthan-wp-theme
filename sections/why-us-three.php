@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the why-us-three section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_why_us_three_html($section_data) {
 <section class="why-us-three">
         <div class="auto-container">
             <div class="title-box">
@@ -95,3 +102,4 @@
 
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the about-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_about_two_html($section_data) {
 <section class="about-two">
         <div class="auto-container">
         	<div class="row clearfix">
@@ -47,3 +54,4 @@
             </div>
         </div>
     </section>
+}

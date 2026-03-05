@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the about-three section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_about_three_html($section_data) {
 <section class="about-three">
         <div class="auto-container">
         	<div class="row clearfix">
@@ -51,3 +58,4 @@
             </div>
         </div>
     </section>
+}

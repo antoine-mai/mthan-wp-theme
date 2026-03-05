@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the related-project section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_related_project_html($section_data) {
 <section class="related-project">
             <div class="auto-container">
                 <div class="title">
@@ -72,3 +79,4 @@
                 </div>
             </div>
         </section>
+}

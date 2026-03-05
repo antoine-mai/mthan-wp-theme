@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') || exit;
 /**
  * functions.php — loader only.
- * All function definitions live in incs/.
+ * All function definitions live in incs/ and sections/.
  */
 
 // ── Core framework ─────────────────────────────────────────────────
@@ -12,8 +12,9 @@ require_once get_template_directory() . '/incs/section-helpers.php';
 require_once get_template_directory() . '/incs/theme-setup.php';
 require_once get_template_directory() . '/incs/admin-helpers.php';
 
-// ── Section files (must load before theme-options; section-instance-fields.php
-//    calls mthan_section_*_options() which are defined in these files) ──────
+// ── Section files (all function-based, safe to require early) ──────
+// Must load before theme-options.php so mthan_section_*_options()
+// functions exist when section-instance-fields.php runs.
 foreach (glob(get_template_directory() . '/sections/*.php') as $file) {
     require_once $file;
 }

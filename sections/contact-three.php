@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the contact-three section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_contact_three_html($section_data) {
 <section class="contact-three">
         <div class="outer-container">
             <div class="row clearfix">
@@ -116,3 +123,4 @@
             </div>
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
+
+/**
+ * Render the facts-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_facts_section_html($section_data) {
 $bg = !empty($section_data['facts_bg_image']['url']) ? esc_url($section_data['facts_bg_image']['url']) : get_template_directory_uri() . '/images/background/image-6.jpg';
 $defaults = array(
     1 => array('icon' => 'flaticon-park', 'count' => '2.5', 'suffix' => 'k', 'label' => 'Completed Projects'),
@@ -42,3 +49,4 @@ $defaults = array(
         </div>
     </div>
 </section>
+}

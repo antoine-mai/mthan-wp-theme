@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the why-us-two section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_why_us_two_html($section_data) {
 <section class="why-us-two">
         <div class="outer-container">
             <div class="row clearfix">
@@ -91,3 +98,4 @@
 
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
+
+/**
+ * Render the about-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_about_section_html($section_data) {
 $sec_subtitle = !empty($section_data['about-section_subtitle']) ? $section_data['about-section_subtitle'] : 'About Us';
 $sec_title = !empty($section_data['about-section_title']) ? $section_data['about-section_title'] : 'Professional Gardener';
 $sec_text = !empty($section_data['about-section_text']) ? $section_data['about-section_text'] : 'Leader in landscaping, lawn care, and irrigation services in Los Angeles since 2004.';
@@ -61,3 +68,4 @@ $sec_text = !empty($section_data['about-section_text']) ? $section_data['about-s
         </div>
     </div>
 </section>
+}

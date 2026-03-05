@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the projects-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_projects_section_html($section_data) {
 <section class="projects-section">
         <div class="auto-container">
             <div class="sec-title">
@@ -104,3 +111,4 @@
             <div class="lower-text">We give guarantee for healthy landscapes, You should never compromise with quality. <a href="#" class="theme-btn">View All Projects <i class="arrow flaticon-play-button-1"></i></a></div>
         </div>
     </section>
+}

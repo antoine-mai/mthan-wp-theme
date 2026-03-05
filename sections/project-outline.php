@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the project-outline section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_project_outline_html($section_data) {
 <section class="project-outline">
             <div class="auto-container">
                 <div class="title">
@@ -51,3 +58,4 @@
                 </div>
             </div>
         </section>
+}

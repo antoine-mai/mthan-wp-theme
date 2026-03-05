@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the error-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_error_section_html($section_data) {
 <section class="error-section">
         <div class="image-layer" style="background-image: url(images/background/bg-404.jpg);"></div>
 
@@ -16,3 +23,4 @@
             </div>
         </div>
     </section>
+}

@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the what-we-do section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_what_we_do_html($section_data) {
 <section class="what-we-do">
         <div class="tabs-box service-tabs">
             <div class="upper-box">
@@ -258,3 +265,4 @@
             </div>
         </div>
     </section>
+}

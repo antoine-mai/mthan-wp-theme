@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the cart-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_cart_section_html($section_data) {
 <section class="cart-section">
         <div class="auto-container">
             <div class="cart-outer">
@@ -66,3 +73,4 @@
             </div>
         </div>
     </section>
+}

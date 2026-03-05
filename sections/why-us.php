@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the why-us section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_why_us_html($section_data) {
 <section class="why-us">
         <div class="pattern-layer"></div>
         <div class="right-leaf"></div>
@@ -126,3 +133,4 @@
             </div>
         </div>
     </section>
+}

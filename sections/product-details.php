@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the product-details section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_product_details_html($section_data) {
 <section class="product-details">
         <div class="auto-container">
             <div class="basic-details">
@@ -245,3 +252,4 @@
             </div>
         </div>
     </section>
+}

@@ -72,7 +72,7 @@ function mthan_get_section_instance_fields()
     // ──────────────────────────────────────────────────────────────────
     // Banner Section — delegates to mthan_section_banner_options()
     // ──────────────────────────────────────────────────────────────────
-    foreach (mthan_section_banner_options() as $banner_field) {
+    foreach (mthan_section_banner_section_options() as $banner_field) {
         $banner_field['dependency'] = array('section_template', '==', 'banner-section');
         $fields[] = $banner_field;
     }

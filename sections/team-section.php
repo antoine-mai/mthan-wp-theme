@@ -1,4 +1,11 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+
+/**
+ * Render the team-section section.
+ *
+ * @param array $section_data Per-instance CSF field values.
+ */
+function mthan_section_team_section_html($section_data) {
 <section class="team-section">
         <div class="left-leaf"><img src="images/resource/leaf-2.png" alt="" title=""></div>
         <div class="right-leaf"><img src="images/resource/leaf-3.png" alt="" title=""></div>
@@ -74,3 +81,4 @@
             </div>
         </div>
     </section>
+}
