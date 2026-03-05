@@ -16,34 +16,6 @@ if (class_exists('CSF')) {
 
     // Create a section
     CSF::createSection($prefix, array(
-        'title' => 'General Settings',
-        'icon' => 'fas fa-cogs',
-        'fields' => array(
-
-                array(
-                'id' => 'page_layout',
-                'type' => 'select',
-                'title' => 'Page Layout',
-                'options' => array(
-                    'default' => 'Default',
-                    'full-width' => 'Full Width',
-                    'left-sidebar' => 'Left Sidebar',
-                    'right-sidebar' => 'Right Sidebar',
-                ),
-                'default' => 'default',
-            ),
-
-                array(
-                'id' => 'show_page_title',
-                'type' => 'switcher',
-                'title' => 'Show Page Title',
-                'default' => true,
-            ),
-
-        )
-    ));
-
-    CSF::createSection($prefix, array(
         'title' => 'Sections',
         'icon' => 'fas fa-layer-group',
         'fields' => array(
@@ -85,6 +57,34 @@ if (class_exists('CSF')) {
                 mthan_get_section_instance_fields()
             )
             ),
+        )
+    ));
+
+    CSF::createSection($prefix, array(
+        'title' => 'Settings',
+        'icon' => 'fas fa-cogs',
+        'fields' => array(
+
+                array(
+                'id' => 'page_layout',
+                'type' => 'select',
+                'title' => 'Page Layout',
+                'options' => array(
+                    'default' => 'Default',
+                    'full-width' => 'Full Width',
+                    'left-sidebar' => 'Left Sidebar',
+                    'right-sidebar' => 'Right Sidebar',
+                ),
+                'default' => 'default',
+            ),
+
+                array(
+                'id' => 'show_page_title',
+                'type' => 'switcher',
+                'title' => 'Show Page Title',
+                'default' => true,
+            ),
+
         )
     ));
 

@@ -23,7 +23,7 @@ function mthan_section_banner_section_options()
                 array('id' => 'title',    'type' => 'text',   'title' => 'Title (H1)'),
                 array('id' => 'subtitle', 'type' => 'text',   'title' => 'Subtitle'),
                 array('id' => 'image',    'type' => 'media',  'library' => 'image', 'title' => 'Background Image'),
-                array('id' => 'align',    'type' => 'select', 'title' => 'Alignment',     'options' => array('left' => 'Left', 'right' => 'Right'), 'default' => 'left'),
+                array('id' => 'align',    'type' => 'select', 'title' => 'Content Alignment', 'options' => array('left' => 'Left', 'center' => 'Center', 'right' => 'Right'), 'default' => 'center'),
                 array('id' => 'btn1_text','type' => 'text',   'title' => 'Button 1 Text', 'default' => 'Read More'),
                 mthan_page_select_field('btn1_link', 'Button 1 Page'),
                 array('id' => 'btn2_text','type' => 'text',   'title' => 'Button 2 Text', 'default' => 'Contact Us'),
@@ -60,7 +60,7 @@ function mthan_section_banner_section_html($section_data)
             'img'       => $img,
             'subtitle'  => !empty($s['subtitle'])  ? $s['subtitle']  : '',
             'title'     => $title,
-            'align'     => !empty($s['align'])     ? $s['align']     : 'left',
+            'align'     => !empty($s['align'])     ? $s['align']     : 'center',
             'btn1_text' => !empty($s['btn1_text']) ? $s['btn1_text'] : '',
             'btn1_link' => $btn1_id ? get_permalink((int) $btn1_id) : '#',
             'btn2_text' => !empty($s['btn2_text']) ? $s['btn2_text'] : '',
@@ -72,7 +72,7 @@ function mthan_section_banner_section_html($section_data)
     if (empty($slides)) {
         $base   = get_template_directory_uri() . '/assets/images/main-slider/';
         $slides = array(
-            array('img' => $base . '0.jpg', 'subtitle' => 'High Quality &amp; Affordable Price', 'title' => 'Unique Designs', 'align' => 'left',  'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Contact Us', 'btn2_link' => '#'),
+            array('img' => $base . '0.jpg', 'subtitle' => 'High Quality &amp; Affordable Price', 'title' => 'Unique Designs', 'align' => 'center',  'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Contact Us', 'btn2_link' => '#'),
             array('img' => $base . '0.jpg', 'subtitle' => 'Adding Perfection to Your Lawn',      'title' => 'Lawn Stylist',   'align' => 'right', 'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Services',   'btn2_link' => '#'),
             array('img' => $base . '0.jpg', 'subtitle' => 'Solutions for Your Green Edge',       'title' => 'Build and Care', 'align' => 'left',  'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Services',   'btn2_link' => '#'),
         );
@@ -80,7 +80,7 @@ function mthan_section_banner_section_html($section_data)
     ?>
 <section class="banner-section banner-two">
     <div class="banner-carousel owl-theme owl-carousel">
-        <?php foreach ($slides as $slide) { $alignment_class = ($slide['align'] === 'right') ? ' right-aligned' : ''; ?>
+        <?php foreach ($slides as $slide) { $alignment_class = ' ' . $slide['align'] . '-aligned'; ?>
         <div class="slide-item">
             <div class="image-layer" style="background-image: url(<?php echo esc_url($slide['img']); ?>);"></div>
             <div class="auto-container">

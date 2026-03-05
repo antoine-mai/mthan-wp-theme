@@ -45,14 +45,15 @@ CSF::createSection('mthan_theme_options', array(
                 ),
 
                     array(
-                    'id' => 'alignment',
+                    'id' => 'align',
                     'type' => 'select',
                     'title' => 'Content Alignment',
                     'options' => array(
                         'left' => 'Left',
+                        'center' => 'Center',
                         'right' => 'Right',
                     ),
-                    'default' => 'left',
+                    'default' => 'center',
                 ),
 
                     array(
