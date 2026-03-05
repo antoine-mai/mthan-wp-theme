@@ -25,7 +25,7 @@ foreach ($raw_slides as $s) {
 
 // Fallback to default slides if none configured
 if (empty($slides)) {
-    $base = get_template_directory_uri() . '/images/main-slider/';
+    $base = get_template_directory_uri() . '/assets/images/main-slider/';
     $slides = array(
             array('img' => $base . '4.jpg', 'subtitle' => 'High Quality &amp; Affordable Price', 'title' => 'Unique Designs', 'align' => 'left', 'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Contact Us', 'btn2_link' => '#'),
             array('img' => $base . '5.jpg', 'subtitle' => 'Adding Perfection to Your Lawn', 'title' => 'Lawn Stylist', 'align' => 'right', 'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Services', 'btn2_link' => '#'),
@@ -35,9 +35,7 @@ if (empty($slides)) {
 ?>
 <section class="banner-section banner-two">
     <div class="banner-carousel owl-theme owl-carousel">
-        <?php foreach ($slides as $slide) {
-    $alignment_class = ($slide['align'] === 'right') ? ' right-aligned' : '';
-?>
+        <?php foreach ($slides as $slide) { $alignment_class = ($slide['align'] === 'right') ? ' right-aligned' : ''; ?>
         <div class="slide-item">
             <div class="image-layer" style="background-image: url(<?php echo esc_url($slide['img']); ?>);"></div>
             <div class="auto-container">
@@ -48,14 +46,12 @@ if (empty($slides)) {
                             <div class="subtitle">
                                 <?php echo esc_html($slide['subtitle']); ?>
                             </div>
-                            <?php
-    }?>
+                            <?php } ?>
                             <?php if ($slide['title']) { ?>
                             <h1>
                                 <?php echo esc_html($slide['title']); ?>
                             </h1>
-                            <?php
-    }?>
+                            <?php } ?>
                             <div class="link-box clearfix">
                                 <?php if ($slide['btn1_text']) { ?>
                                 <a href="<?php echo esc_url($slide['btn1_link']); ?>" class="theme-btn btn-style-one">
@@ -64,8 +60,7 @@ if (empty($slides)) {
                                             class="arrow flaticon-play-button-1"></i>
                                     </span>
                                 </a>
-                                <?php
-    }?>
+                                <?php } ?>
                                 <?php if ($slide['btn2_text']) { ?>
                                 <a href="<?php echo esc_url($slide['btn2_link']); ?>" class="theme-btn btn-style-three">
                                     <span class="btn-title">
@@ -73,15 +68,13 @@ if (empty($slides)) {
                                             class="arrow flaticon-play-button-1"></i>
                                     </span>
                                 </a>
-                                <?php
-    }?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <?php
-}?>
+        <?php } ?>
     </div>
 </section>
