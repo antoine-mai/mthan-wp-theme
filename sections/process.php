@@ -35,11 +35,11 @@ function mthan_section_process_options()
             'title' => 'Header Description',
             'default' => 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.',
         ),
-        // Repeater for steps
         array(
             'id'     => 'process_repeater',
             'type'   => 'group',
             'title'  => 'Process Steps',
+            'max'    => 4,
             'fields' => array(
                 array(
                     'id'    => 'title',
@@ -57,15 +57,43 @@ function mthan_section_process_options()
                     'title' => 'Icon (flaticon class)',
                 ),
                 array(
-                    'id'    => 'image',
-                    'type'  => 'upload',
-                    'title' => 'Featured Image',
+                    'id'         => 'image',
+                    'type'       => 'media',
+                    'library'    => 'image',
+                    'preview'    => false,
+                    'title'      => 'Featured Image',
                     'dependency' => array('style', '==', '1'),
                 ),
                 array(
                     'id'    => 'text',
                     'type'  => 'textarea',
                     'title' => 'Description',
+                ),
+            ),
+            'default' => array(
+                array(
+                    'title'      => 'Consultation',
+                    'step_label' => 'Step One',
+                    'icon'       => 'flaticon-speech-bubble',
+                    'text'       => 'How to pursue pleasure rationally encounter consequences that painful again.',
+                ),
+                array(
+                    'title'      => 'Design & Plan',
+                    'step_label' => 'Step Two',
+                    'icon'       => 'flaticon-notes',
+                    'text'       => 'Nor again is there anyone who loves or pursues or desires to obtain pain.',
+                ),
+                array(
+                    'title'      => 'Start Working',
+                    'step_label' => 'Step Three',
+                    'icon'       => 'flaticon-worker',
+                    'text'       => 'Expound actual teachings of the master explorer of the truth the master-builder.',
+                ),
+                array(
+                    'title'      => 'Final Result',
+                    'step_label' => 'Step Four',
+                    'icon'       => 'flaticon-park',
+                    'text'       => 'Great explorer of the truth the master-builder of human happiness no one rejects.',
                 ),
             ),
         ),
@@ -93,6 +121,12 @@ function mthan_section_process_html_1($section_data) {
     $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : '';
     $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
     $repeater     = !empty($section_data['process_repeater']) ? $section_data['process_repeater'] : array();
+    $fallback_imgs = array(
+        get_template_directory_uri() . '/assets/images/resource/process-image-1.jpg',
+        get_template_directory_uri() . '/assets/images/resource/process-image-2.jpg',
+        get_template_directory_uri() . '/assets/images/resource/process-image-3.jpg',
+        get_template_directory_uri() . '/assets/images/resource/process-image-4.jpg',
+    );
 ?>
 <section class="work-process">
         <div class="round-pattern-layer"></div>
@@ -115,11 +149,11 @@ function mthan_section_process_html_1($section_data) {
 
             <div class="process">
                 <div class="row clearfix">
-                    <?php foreach($repeater as $item): 
+                    <?php foreach($repeater as $i => $item): 
                         $title = !empty($item['title']) ? $item['title'] : '';
                         $step  = !empty($item['step_label']) ? $item['step_label'] : '';
                         $icon  = !empty($item['icon']) ? $item['icon'] : '';
-                        $img   = !empty($item['image']['url']) ? $item['image']['url'] : '';
+                        $img   = !empty($item['image']['url']) ? $item['image']['url'] : $fallback_imgs[$i % count($fallback_imgs)];
                         $text  = !empty($item['text']) ? $item['text'] : '';
                     ?>
                     <!--Process Block-->
