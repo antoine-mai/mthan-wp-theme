@@ -103,6 +103,13 @@ function mthan_section_testimonials_options()
                     'title'  => 'Transformed Our Backyard',
                     'text'   => 'There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form by injected humour.',
                 ),
+                array(
+                    'name'   => 'Sarah O\'Connor',
+                    'region' => 'San Francisco, USA',
+                    'rating' => '5',
+                    'title'  => 'Highly Recommended',
+                    'text'   => 'All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.',
+                ),
             ),
         ),
         array(
