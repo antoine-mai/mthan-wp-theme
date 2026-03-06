@@ -4,6 +4,9 @@
  * All function definitions live in incs/ and sections/.
  */
 
+// Theme options prefix — single source of truth
+define('MTHAN_THEME_OPTIONS', 'mthan_theme_options');
+
 // ── Core framework ─────────────────────────────────────────────────
 require_once get_template_directory() . '/incs/codestar/autoload.php';
 

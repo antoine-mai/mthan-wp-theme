@@ -1,27 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Control core classes for avoid errors
+
 if (class_exists('CSF')) {
 
-    // Set a unique slug-like ID
-    $prefix = 'mthan_theme_options';
-
     // Create options
-    CSF::createOptions($prefix, array(
-        'menu_title' => 'Theme Options',
-        'menu_slug' => 'mthan-theme-options',
-        'menu_type' => 'submenu',
-        'menu_parent' => 'themes.php', // Adds it under Appearance
-        'menu_position' => 999, // Position at the end
+    CSF::createOptions(MTHAN_THEME_OPTIONS, [
+        'menu_title'      => 'Theme Options',
+        'menu_slug'       => 'mthan-theme-options',
+        'menu_type'       => 'submenu',
+        'menu_parent'     => 'themes.php',
+        'menu_position'   => 999,
         'framework_title' => 'Theme Options',
-        'theme' => 'light', // Preferred theme
-    ));
+        'theme'           => 'light',
+    ]);
 
     // Include all section files from the admin folder
     $admin_dir = get_template_directory() . '/admin/';
 
     // Load per-instance section fields helper (used by layouts.php and metaboxes)
     require_once $admin_dir . 'fields.php';
-    $sections = array(
+
+    $admin_sections = [
         'general.php',
         'typography.php',
         'layouts.php',
@@ -32,33 +30,27 @@ if (class_exists('CSF')) {
         'contact.php',
         'scripts.php',
         'sections.php',
-    );
+    ];
 
-    foreach ($sections as $section) {
+    foreach ($admin_sections as $section) {
         if (file_exists($admin_dir . $section)) {
             require_once $admin_dir . $section;
         }
     }
 
+    // Register global options from each section file
     $sections_path = get_template_directory() . '/sections/*.php';
-    // Include all section files so their functions are defined
     foreach (glob($sections_path) as $section_file) {
-        require_once $section_file;
         $slug = basename($section_file, '.php');
         $global_options_func = 'mthan_section_' . str_replace('-', '_', $slug) . '_global_options';
         if (function_exists($global_options_func)) {
-            CSF::createSection($prefix, $global_options_func());
+            CSF::createSection(MTHAN_THEME_OPTIONS, $global_options_func());
         }
     }
 
-    // Include all metabox files from the admin/metabox folder
+    // Include all metabox files
     $metabox_dir = get_template_directory() . '/admin/metabox/';
-    $metaboxes = array(
-        'page-metabox.php',
-        'post-metabox.php',
-    );
-
-    foreach ($metaboxes as $metabox) {
+    foreach (['page-metabox.php', 'post-metabox.php'] as $metabox) {
         if (file_exists($metabox_dir . $metabox)) {
             require_once $metabox_dir . $metabox;
         }

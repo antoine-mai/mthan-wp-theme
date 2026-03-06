@@ -1,6 +1,6 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 // Blog Settings
-CSF::createSection($prefix, [
+CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id' => 'blog_settings',
     'title' => 'Blog',
     'icon' => 'fas fa-edit',
