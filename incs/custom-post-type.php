@@ -3,10 +3,10 @@
 // Register mthan_page Custom Post Type
 function mthan_register_cpt_page() {
     $labels = [
-        'name'                  => _x('Mthan Pages', 'Post Type General Name', 'mthan-wp'),
-        'singular_name'         => _x('Mthan Page', 'Post Type Singular Name', 'mthan-wp'),
-        'menu_name'             => __('Mthan Pages', 'mthan-wp'),
-        'name_admin_bar'        => __('Mthan Page', 'mthan-wp'),
+        'name'                  => _x('Pages', 'Post Type General Name', 'mthan-wp'),
+        'singular_name'         => _x('Page', 'Post Type Singular Name', 'mthan-wp'),
+        'menu_name'             => __('Pages', 'mthan-wp'),
+        'name_admin_bar'        => __('Page', 'mthan-wp'),
         'archives'              => __('Page Archives', 'mthan-wp'),
         'attributes'            => __('Page Attributes', 'mthan-wp'),
         'parent_item_colon'     => __('Parent Page:', 'mthan-wp'),
@@ -32,7 +32,7 @@ function mthan_register_cpt_page() {
         'filter_items_list'     => __('Filter pages list', 'mthan-wp'),
     ];
     $args = [
-        'label'                 => __('Mthan Page', 'mthan-wp'),
+        'label'                 => __('Page', 'mthan-wp'),
         'description'           => __('Custom Pages with Builder', 'mthan-wp'),
         'labels'                => $labels,
         'supports'              => ['title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'excerpt'],
