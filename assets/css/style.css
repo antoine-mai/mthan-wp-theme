@@ -16390,6 +16390,11 @@ img.lazy-image.loaded {
 .mthan-mobile-bar .mobile-bar-inner li {
 	flex: 1;
 	text-align: center;
+	border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mthan-mobile-bar .mobile-bar-inner li:last-child {
+	border-right: none;
 }
 
 .mthan-mobile-bar .mobile-bar-inner li a {
@@ -16402,7 +16407,7 @@ img.lazy-image.loaded {
 .mthan-mobile-bar .mobile-bar-inner li a .icon {
 	display: block;
 	font-size: 20px;
-	margin-bottom: 5px;
+	margin-bottom: 2px;
 	color: #24a77e;
 }
 
