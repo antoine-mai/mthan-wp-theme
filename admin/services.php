@@ -1,5 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Service Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id'     => 'service_settings',
     'title'  => 'Services',

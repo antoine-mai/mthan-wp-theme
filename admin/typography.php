@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Typography Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id' => 'typography_settings',
     'title' => 'Typography',

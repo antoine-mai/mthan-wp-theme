@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Social Media Tab
- */
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'social_settings',
     'title' => 'Social Media',

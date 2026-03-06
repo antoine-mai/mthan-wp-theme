@@ -1,8 +1,8 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Get base sections only (variant slugs like about-two/about-three are excluded)
+/**
+ * 
+**/
 $available_sections = mthan_get_available_base_sections();
-
 // Layouts Settings
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'layouts_settings',

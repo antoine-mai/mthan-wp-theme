@@ -1,9 +1,8 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 /**
- * Per-instance option fields for each section type.
- * Merged into every group repeater (layouts.php, page-metabox, post-metabox).
- * Fields use 'dependency' so they only show when the matching section_template is selected.
- */
+ * Get section instance fields
+ * @return array
+**/
 function mthan_get_section_instance_fields()
 {
     // Style map: sections with multiple styles

@@ -14,7 +14,7 @@ require_once get_template_directory() . '/incs/codestar/autoload.php';
 require_once get_template_directory() . '/incs/section-helpers.php';
 require_once get_template_directory() . '/incs/theme-setup.php';
 require_once get_template_directory() . '/incs/admin-helpers.php';
-require_once get_template_directory() . '/incs/cpt.php';
+require_once get_template_directory() . '/incs/custom-post-type.php';
 
 // ── Section files (all function-based, safe to require early) ──────
 // Must load before theme-options.php so mthan_section_*_options()

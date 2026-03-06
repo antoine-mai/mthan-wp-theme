@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Sections Settings
-
+/**
+ * 
+**/
 $global_settings_fields = [
     [
         'id'      => 'default_section_padding_top',

@@ -1,5 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'footer_settings',
     'title' => 'Footer',

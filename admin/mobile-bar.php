@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Mobile Bar Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'mobile_bar_settings',
     'title' => 'Mobile Bar',

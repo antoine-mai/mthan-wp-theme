@@ -1,6 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Custom Scripts Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'custom_scripts_settings',
     'title' => 'Custom Scripts',

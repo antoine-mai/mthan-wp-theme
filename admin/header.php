@@ -1,5 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Header Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, array(
     'id' => 'header_settings',
     'title' => 'Header',

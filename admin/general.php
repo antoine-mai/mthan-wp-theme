@@ -1,5 +1,7 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// General Settings
+/**
+ * 
+**/
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id' => 'general_settings',
     'title' => 'General',
