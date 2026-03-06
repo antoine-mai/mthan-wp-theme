@@ -1,93 +1,24 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 
-// ── Check for Front Page Custom Sections ───────────────────────────
-if (is_front_page() || is_home()) {
-    $options = get_option(MTHAN_THEME_OPTIONS);
-    $homepage_sections = !empty($options['homepage_sections']) ? $options['homepage_sections'] : array();
+/**
+ * The Index file is now strictly used for rendering the Home Page sections 
+ * configured in MTHAN Theme Options -> Home Page.
+ */
 
-    get_header();
-    if (!empty($homepage_sections)) {
-        mthan_render_global_sections('before', 'main');
-        mthan_include_section_items($homepage_sections);
-        mthan_render_global_sections('after', 'main');
-    } else {
-        echo '<div class="no-sections-found" style="padding: 100px 0; text-align: center;">';
-        echo '<h2>No Home Page sections configured.</h2>';
-        echo '<p>Please go to <strong>MTHAN > Home Page</strong> to add sections.</p>';
-        echo '</div>';
-    }
-    get_footer();
-    exit;
-}
+$options = get_option(MTHAN_THEME_OPTIONS);
+$homepage_sections = !empty($options['homepage_sections']) ? $options['homepage_sections'] : array();
 
 get_header();
-mthan_render_global_sections('before', 'blog');
-mthan_render_page_sections('before');
-?>
 
-<div class="sidebar-page-container blog-page">
-    <div class="auto-container">
-        <div class="row clearfix">
-            <!--Content Side-->
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
-                <div class="blog-content">
-                    <?php 
-                    $theme_options = get_option('mthan_theme_options');
-                    $archive_template = !empty($theme_options['blog_archive_template']) ? $theme_options['blog_archive_template'] : 'grid-2';
-                    
-                    $row_class = 'row clearfix';
-                    $item_class = 'col-lg-6 col-md-12 col-sm-12'; // Default grid-2
+if (!empty($homepage_sections)) {
+    mthan_render_global_sections('before', 'main');
+    mthan_include_section_items($homepage_sections);
+    mthan_render_global_sections('after', 'main');
+} else {
+    echo '<div class="no-sections-found" style="padding: 100px 0; text-align: center;">';
+    echo '<h2>No Home Page sections configured.</h2>';
+    echo '<p>Please go to <strong>MTHAN > Home Page</strong> to add sections.</p>';
+    echo '</div>';
+}
 
-                    if ($archive_template == 'grid-3') {
-                        $item_class = 'col-lg-4 col-md-6 col-sm-12';
-                    } elseif ($archive_template == 'list') {
-                        $row_class = 'list-view';
-                        $item_class = 'col-12';
-                    }
-                    ?>
-                    <div class="<?php echo esc_attr($row_class); ?>">
-                        <?php 
-                        if (have_posts()) {
-                            while (have_posts()) {
-                                the_post();
-                                $news_block_class = $item_class;
-                                if ($archive_template == 'grid-2' || $archive_template == 'list') {
-                                    $news_block_class .= ' alternate';
-                                }
-                                ?>
-                                <div class="news-block <?php echo esc_attr($news_block_class); ?> hvr-float-shadow">
-                                    <?php 
-                                    if ($archive_template == 'grid-3') {
-                                        get_template_part('template-parts/content', 'grid-3');
-                                    } elseif ($archive_template == 'grid-2') {
-                                        get_template_part('template-parts/content', 'grid-2');
-                                    } elseif ($archive_template == 'list') {
-                                        get_template_part('template-parts/content', 'list');
-                                    } else {
-                                        get_template_part('template-parts/content');
-                                    }
-                                    ?>
-                                </div>
-                                <?php 
-                            }
-                        } else {
-                            ?>
-                            <p><?php esc_html_e('No posts found.', 'mthan'); ?></p>
-                            <?php 
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-            <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-                <?php get_template_part('template-parts/sidebar', 'blog'); ?>
-            </div>
-        </div>
-    </div>
-</div>
-
-<?php
-mthan_render_page_sections('after');
-mthan_render_global_sections('after', 'blog');
 get_footer();
