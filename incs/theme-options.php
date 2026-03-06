@@ -24,8 +24,8 @@ if (class_exists('CSF')) {
         'typography.php',
         'layouts.php',
         'header.php',
-        'mobile-bar.php',
         'footer.php',
+        'mobile-bar.php',
         'scripts.php',
         'sections.php',
     ];
