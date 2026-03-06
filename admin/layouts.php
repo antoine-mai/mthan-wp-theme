@@ -4,7 +4,8 @@
 **/
 $available_sections = mthan_get_available_base_sections();
 // Layouts Settings
-CSF::createSection(MTHAN_THEME_OPTIONS, array(
+global $mthan_options_id;
+CSF::createSection($mthan_options_id, array(
     'id' => 'layouts_settings',
     'title' => 'Layout',
     'icon' => 'fas fa-columns',

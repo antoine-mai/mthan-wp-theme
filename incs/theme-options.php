@@ -15,61 +15,65 @@ add_action('admin_menu', function() {
 
 if (class_exists('CSF')) {
 
-    // Create options
-    CSF::createOptions(MTHAN_THEME_OPTIONS, [
-        'menu_title'      => 'Settings',
-        'menu_slug'       => 'mthan-settings',
-        'menu_type'       => 'submenu',
-        'menu_parent'     => 'mthan-admin',
-        'framework_title' => 'Settings',
-        'theme'           => 'dark',
-    ]);
-
-    // Include all section files from the admin folder
     $admin_dir = get_template_directory() . '/admin/';
+    require_once $admin_dir . 'fields.php'; // Load section fields helper
 
-    // Load per-instance section fields helper (used by layouts.php and metaboxes)
-    require_once $admin_dir . 'fields.php';
-
+    // Each of these will be a separate menu item under MTHAN
     $admin_sections = [
-        'general.php',
-        'homepage.php',
-        'typography.php',
-        'layouts.php',
-        'header.php',
-        'footer.php',
-        'mobile-bar.php',
-        'scripts.php',
-        'sections.php',
+        'general.php'    => ['title' => 'General'],
+        'typography.php' => ['title' => 'Typography'],
+        'layouts.php'    => ['title' => 'Layouts'],
+        'header.php'     => ['title' => 'Header'],
+        'footer.php'     => ['title' => 'Footer'],
+        'mobile-bar.php' => ['title' => 'Mobile Bar'],
+        'scripts.php'    => ['title' => 'Scripts'],
+        'sections.php'   => ['title' => 'Sections'],
     ];
 
-    foreach ($admin_sections as $section) {
-        if (file_exists($admin_dir . $section)) {
-            require_once $admin_dir . $section;
+    global $mthan_options_id;
+
+    foreach ($admin_sections as $file => $config) {
+        $slug = basename($file, '.php');
+        $mthan_options_id = 'mthan_options_' . str_replace('-', '_', $slug);
+        
+        // Define the options page
+        CSF::createOptions($mthan_options_id, [
+            'menu_title'      => $config['title'],
+            'menu_slug'       => 'mthan-' . $slug,
+            'menu_type'       => 'submenu',
+            'menu_parent'     => 'mthan-admin',
+            'framework_title' => $config['title'],
+            'theme'           => 'dark',
+            'database'        => 'option',
+            'option_name'     => MTHAN_THEME_OPTIONS, // Always save to the same option name
+        ]);
+
+        if (file_exists($admin_dir . $file)) {
+            require_once $admin_dir . $file;
         }
     }
 
-    // Register global options from each section file
-    $sections_path = get_template_directory() . '/sections/*.php';
-    foreach (glob($sections_path) as $section_file) {
-        $slug = basename($section_file, '.php');
-        $global_options_func = 'mthan_section_' . str_replace('-', '_', $slug) . '_global_options';
-        if (function_exists($global_options_func)) {
-            CSF::createSection(MTHAN_THEME_OPTIONS, $global_options_func());
-        }
-    }
-
-    // Always include Update section at the very end
+    // Update section
     if (file_exists($admin_dir . 'update.php')) {
+        $mthan_options_id = 'mthan_options_update';
+        CSF::createOptions($mthan_options_id, [
+            'menu_title'      => 'Update',
+            'menu_slug'       => 'mthan-update',
+            'menu_type'       => 'submenu',
+            'menu_parent'     => 'mthan-admin',
+            'framework_title' => 'Theme Update',
+            'theme'           => 'dark',
+            'database'        => 'option',
+            'option_name'     => MTHAN_THEME_OPTIONS, // Keep persistent
+        ]);
         require_once $admin_dir . 'update.php';
     }
 
-    // Include all metabox files
+    // Metaboxes
     $metabox_dir = get_template_directory() . '/admin/metabox/';
     foreach (['mthan-page-metabox.php'] as $metabox) {
         if (file_exists($metabox_dir . $metabox)) {
             require_once $metabox_dir . $metabox;
         }
     }
-
 }

@@ -2,7 +2,8 @@
 /**
  * 
 **/
-CSF::createSection(MTHAN_THEME_OPTIONS, array(
+global $mthan_options_id;
+CSF::createSection($mthan_options_id, array(
     'id' => 'mobile_bar_settings',
     'title' => 'Mobile Bar',
     'icon' => 'fas fa-mobile-alt',

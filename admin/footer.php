@@ -2,7 +2,8 @@
 /**
  * 
 **/
-CSF::createSection(MTHAN_THEME_OPTIONS, array(
+global $mthan_options_id;
+CSF::createSection($mthan_options_id, array(
     'id' => 'footer_settings',
     'title' => 'Footer',
     'icon' => 'fas fa-arrow-down',

@@ -25,7 +25,8 @@ $update_content_html = '<div style="margin-top:20px; padding:20px; border:1px so
     <pre id="mthan-git-update-log" style="margin-top: 15px; padding: 15px; background: #222; color: #4ade80; border-radius: 4px; display: none; white-space: pre-wrap; font-size: 13px;"></pre>
 </div>';
 
-CSF::createSection(MTHAN_THEME_OPTIONS, [
+global $mthan_options_id;
+CSF::createSection($mthan_options_id, [
     'id'     => 'update_settings',
     'title'  => 'Update',
     'icon'   => 'fas fa-sync-alt',
