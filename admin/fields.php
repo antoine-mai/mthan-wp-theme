@@ -37,7 +37,7 @@ function mthan_get_section_instance_fields()
                                 $style_options[$s] = "Style {$s}";
                             }
                             $overrides[] = [
-                                'id'         => 'section_style',
+                                'id'         => $slug . '_section_style',
                                 'type'       => 'select',
                                 'title'      => 'Style Variant',
                                 'options'    => $style_options,
