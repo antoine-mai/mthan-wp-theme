@@ -6,7 +6,7 @@
  * we load that page's content and sections.
  */
 
-$options = get_option('mthan_options_default_pages');
+$options = get_option(MTHAN_THEME_OPTIONS);
 $homepage_id = !empty($options['default_homepage']) ? (int)$options['default_homepage'] : 0;
 
 if ($homepage_id) {

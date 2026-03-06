@@ -24,7 +24,7 @@ if (class_exists('CSF')) {
         'typography.php' => ['title' => 'Typography'],
         'layouts.php'    => ['title' => 'Layouts'],
         'header.php'     => ['title' => 'Header'],
-        'default-pages.php' => ['title' => 'Pages'],
+        'pages.php'      => ['title' => 'Pages'],
         'footer.php'     => ['title' => 'Footer'],
         'mobile-bar.php' => ['title' => 'Mobile Bar'],
         'scripts.php'    => ['title' => 'Scripts'],
