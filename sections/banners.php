@@ -22,7 +22,7 @@ function mthan_section_banners_options()
             'fields'       => array(
                 array('id' => 'title',    'type' => 'text',   'title' => 'Title (H1)'),
                 array('id' => 'subtitle', 'type' => 'text',   'title' => 'Subtitle'),
-                array('id' => 'image',    'type' => 'media',  'library' => 'image', 'title' => 'Background Image'),
+                array('id' => 'image',    'type' => 'upload', 'preview' => false, 'title' => 'Background Image'),
                 array('id' => 'align',    'type' => 'select', 'title' => 'Content Alignment', 'options' => array('left' => 'Left', 'center' => 'Center', 'right' => 'Right'), 'default' => 'center'),
                 array('id' => 'btn1_text','type' => 'text',   'title' => 'Button 1 Text', 'default' => 'Read More'),
                 mthan_page_select_field('btn1_link', 'Button 1 Page'),
@@ -33,7 +33,7 @@ function mthan_section_banners_options()
                 array(
                     'title'     => 'Brilliant Hands <br>For Your Landscaping',
                     'subtitle'  => 'Welcome to Pruners',
-                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/1.jpg'),
+                    'image'     => get_template_directory_uri() . '/assets/images/main-slider/1.jpg',
                     'align'     => 'left',
                     'btn1_text' => 'Read More',
                     'btn2_text' => 'Contact Us',
@@ -41,7 +41,7 @@ function mthan_section_banners_options()
                 array(
                     'title'     => 'Complete Solution <br>for Your Landscaping',
                     'subtitle'  => 'Form of Impression',
-                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/2.jpg'),
+                    'image'     => get_template_directory_uri() . '/assets/images/main-slider/2.jpg',
                     'align'     => 'right',
                     'btn1_text' => 'Read More',
                     'btn2_text' => 'Services',
@@ -49,7 +49,7 @@ function mthan_section_banners_options()
                 array(
                     'title'     => 'We Give Guarantee <br>for Healthy Landscapes',
                     'subtitle'  => '100% Gurantee Works',
-                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/3.jpg'),
+                    'image'     => get_template_directory_uri() . '/assets/images/main-slider/3.jpg',
                     'align'     => 'left',
                     'btn1_text' => 'Read More',
                     'btn2_text' => 'Contact Us',
@@ -73,7 +73,7 @@ function mthan_section_banners_html($section_data)
         $base = get_template_directory_uri() . '/assets/images/main-slider/';
         $raw_slides = array(
             array(
-                'image'     => array('url' => $base . '1.jpg'),
+                'image'     => $base . '1.jpg',
                 'subtitle'  => 'Welcome to Pruners',
                 'title'     => 'Brilliant Hands <br>For Your Landscaping',
                 'align'     => 'left',
@@ -83,7 +83,7 @@ function mthan_section_banners_html($section_data)
                 'btn2_link' => '#',
             ),
             array(
-                'image'     => array('url' => $base . '2.jpg'),
+                'image'     => $base . '2.jpg',
                 'subtitle'  => 'Form of Impression',
                 'title'     => 'Complete Solution <br>for Your Landscaping',
                 'align'     => 'right',
@@ -93,7 +93,7 @@ function mthan_section_banners_html($section_data)
                 'btn2_link' => '#',
             ),
             array(
-                'image'     => array('url' => $base . '3.jpg'),
+                'image'     => $base . '3.jpg',
                 'subtitle'  => '100% Gurantee Works',
                 'title'     => 'We Give Guarantee <br>for Healthy Landscapes',
                 'align'     => 'left',
@@ -107,8 +107,8 @@ function mthan_section_banners_html($section_data)
 
     $slides = array();
     foreach ($raw_slides as $s) {
-        $img   = !empty($s['image']['url']) ? $s['image']['url'] : '';
-        $title = !empty($s['title'])        ? $s['title']        : '';
+        $img   = !empty($s['image']) ? (is_array($s['image']) ? $s['image']['url'] : $s['image']) : '';
+        $title = !empty($s['title']) ? $s['title'] : '';
         if (!$img && !$title) { continue; }
 
         $btn1_id = !empty($s['btn1_link']) ? $s['btn1_link'] : '';
