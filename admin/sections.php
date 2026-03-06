@@ -25,6 +25,7 @@ $global_settings_fields = [
 ];
 
 $toggle_fields = [];
+$config_accordion_items = [];
 $sections_path = get_template_directory() . '/sections/';
 
 if (is_dir($sections_path)) {
@@ -32,11 +33,23 @@ if (is_dir($sections_path)) {
     if ($files) {
         foreach ($files as $file) {
             $filename = basename($file, '.php');
+            $section_name = ucwords(str_replace('-', ' ', $filename));
+            
             $toggle_fields[] = [
                 'id'      => 'enable_section_' . str_replace('-', '_', $filename),
                 'type'    => 'switcher',
-                'title'   => 'Enable ' . ucwords(str_replace('-', ' ', $filename)),
+                'title'   => 'Enable ' . $section_name,
                 'default' => true,
+            ];
+
+            $config_accordion_items[] = [
+                'title'  => $section_name,
+                'fields' => [
+                    [
+                        'type'    => 'content',
+                        'content' => 'Configurations for ' . $section_name . ' will be placed here.',
+                    ]
+                ]
             ];
         }
     }
@@ -46,6 +59,20 @@ if (empty($toggle_fields)) {
     $toggle_fields[] = [
         'type'    => 'content',
         'content' => 'No sections found in the /sections/ directory.',
+    ];
+}
+
+$config_fields = [];
+if (!empty($config_accordion_items)) {
+    $config_fields[] = [
+        'id'         => 'sections_configuration_accordion',
+        'type'       => 'accordion',
+        'accordions' => $config_accordion_items,
+    ];
+} else {
+    $config_fields[] = [
+        'type'    => 'content',
+        'content' => 'No sections found.',
     ];
 }
 
@@ -62,6 +89,11 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'title'  => 'Global Settings',
                     'icon'   => 'fas fa-globe',
                     'fields' => $global_settings_fields,
+                ],
+                [
+                    'title'  => 'Configurations',
+                    'icon'   => 'fas fa-sliders-h',
+                    'fields' => $config_fields,
                 ],
                 [
                     'title'  => 'Enable / Disable',
