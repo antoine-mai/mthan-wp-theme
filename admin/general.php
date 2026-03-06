@@ -2,7 +2,7 @@
 // General Settings
 CSF::createSection($prefix, array(
     'id' => 'general_settings',
-    'title' => 'General Settings',
+    'title' => 'General',
     'icon' => 'fas fa-cogs',
     'fields' => array(
             array(

@@ -2,7 +2,7 @@
 // Header Settings
 CSF::createSection($prefix, array(
     'id' => 'header_settings',
-    'title' => 'Header Settings',
+    'title' => 'Header',
     'icon' => 'fas fa-arrow-up',
     'fields' => array(
 

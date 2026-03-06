@@ -2,7 +2,7 @@
 // Footer Settings
 CSF::createSection($prefix, array(
     'id' => 'footer_settings',
-    'title' => 'Footer Settings',
+    'title' => 'Footer',
     'icon' => 'fas fa-arrow-down',
     'fields' => array(
             array(

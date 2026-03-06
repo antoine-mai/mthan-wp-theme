@@ -1,29 +1,34 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Social Media Settings
+/**
+ * Social Media Tab
+ */
 CSF::createSection($prefix, array(
     'id' => 'social_settings',
-    'title' => 'Social Media Settings',
+    'title' => 'Social Media',
     'icon' => 'fas fa-share-alt',
     'fields' => array(
-            array(
-            'id' => 'social_facebook',
-            'type' => 'text',
-            'title' => 'Facebook URL',
-        ),
-            array(
-            'id' => 'social_twitter',
-            'type' => 'text',
-            'title' => 'Twitter URL',
-        ),
-            array(
-            'id' => 'social_instagram',
-            'type' => 'text',
-            'title' => 'Instagram URL',
-        ),
-            array(
-            'id' => 'social_youtube',
-            'type' => 'text',
-            'title' => 'YouTube URL',
+        array(
+            'id' => 'social_links',
+            'type' => 'group',
+            'title' => 'Social Links',
+            'button_title' => 'Add New Social Link',
+            'accordion_title_auto' => false,
+            'accordion_title_prefix' => 'Social Link: ',
+            'accordion_title_number' => true,
+            'fields' => array(
+                array(
+                    'id' => 'icon',
+                    'type' => 'icon',
+                    'title' => 'Icon Name (e.g., fab fa-facebook)',
+                    'default' => 'fab fa-facebook',
+                ),
+                array(
+                    'id' => 'url',
+                    'type' => 'text',
+                    'title' => 'URL',
+                    'default' => '#',
+                ),
+            ),
         ),
     )
 ));

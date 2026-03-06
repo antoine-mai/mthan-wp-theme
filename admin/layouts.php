@@ -6,7 +6,7 @@ $available_sections = mthan_get_available_base_sections();
 // Layouts Settings
 CSF::createSection($prefix, array(
     'id' => 'layouts_settings',
-    'title' => 'Layout Settings',
+    'title' => 'Layout',
     'icon' => 'fas fa-columns',
     'fields' => array(
 

@@ -2,7 +2,7 @@
 // Blog Settings
 CSF::createSection($prefix, array(
     'id' => 'blog_settings',
-    'title' => 'Blog Settings',
+    'title' => 'Blog',
     'icon' => 'fas fa-edit',
     'fields' => array(
             array(
