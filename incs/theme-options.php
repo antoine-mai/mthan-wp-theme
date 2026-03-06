@@ -20,15 +20,17 @@ if (class_exists('CSF')) {
 
     // Each of these will be a separate menu item under MTHAN
     $admin_sections = [
-        'general.php'    => ['title' => 'General'],
-        'typography.php' => ['title' => 'Typography'],
-        'layouts.php'    => ['title' => 'Layouts'],
-        'header.php'     => ['title' => 'Header'],
-        'pages.php'      => ['title' => 'Home Page'],
-        'footer.php'     => ['title' => 'Footer'],
-        'mobile-bar.php' => ['title' => 'Mobile Bar'],
-        'scripts.php'    => ['title' => 'Scripts'],
-        'sections.php'   => ['title' => 'Sections'],
+        'general.php'      => ['title' => 'General'],
+        'typography.php'   => ['title' => 'Typography'],
+        'layouts.php'      => ['title' => 'Layouts'],
+        'header.php'       => ['title' => 'Header'],
+        'home-page.php'    => ['title' => 'Home Page'],
+        'search-page.php'  => ['title' => 'Search Page'],
+        'contact-page.php' => ['title' => 'Contact Page'],
+        'footer.php'       => ['title' => 'Footer'],
+        'mobile-bar.php'   => ['title' => 'Mobile Bar'],
+        'scripts.php'      => ['title' => 'Scripts'],
+        'sections.php'     => ['title' => 'Sections'],
     ];
 
     global $mthan_options_id;
