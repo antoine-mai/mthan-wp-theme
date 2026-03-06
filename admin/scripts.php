@@ -1,40 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Custom Scripts Settings
+// Blog Settings
 CSF::createSection($prefix, array(
-    'id' => 'custom_scripts_settings',
-    'title' => 'Custom Scripts',
-    'icon' => 'fas fa-code',
+    'id' => 'blog_settings',
+    'title' => 'Blog',
+    'icon' => 'fas fa-edit',
     'fields' => array(
-        array(
-            'id' => 'header_scripts',
-            'type' => 'code_editor',
-            'title' => 'Header Scripts',
-            'desc' => 'These scripts will be printed in the &lt;head&gt; section.',
-            'settings' => array(
-                'theme' => 'dracula',
-                'mode' => 'htmlmixed',
+            array(
+            'id' => 'blog_layout',
+            'type' => 'select',
+            'title' => 'Blog Layout',
+            'options' => array(
+                'list' => 'List Layout',
+                'grid' => 'Grid Layout',
             ),
+            'default' => 'list'
         ),
-        array(
-            'id' => 'body_scripts',
-            'type' => 'code_editor',
-            'title' => 'After Body Scripts',
-            'desc' => 'These scripts will be printed just after the opening &lt;body&gt; tag.',
-            'settings' => array(
-                'theme' => 'dracula',
-                'mode' => 'htmlmixed',
-            ),
-        ),
-        array(
-            'id' => 'footer_scripts',
-            'type' => 'code_editor',
-            'title' => 'Footer Scripts',
-            'desc' => 'These scripts will be printed before the closing &lt;/body&gt; tag.',
-            'settings' => array(
-                'theme' => 'dracula',
-                'mode' => 'htmlmixed',
-            ),
+            array(
+            'id' => 'blog_sidebar',
+            'type' => 'switcher',
+            'title' => 'Enable Sidebar on Single Post',
+            'default' => true,
         ),
     )
 ));

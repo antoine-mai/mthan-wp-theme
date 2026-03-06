@@ -1,22 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Typography Settings
+// Blog Settings
 CSF::createSection($prefix, array(
-    'id' => 'typography_settings',
-    'title' => 'Typography',
-    'icon' => 'fas fa-font',
+    'id' => 'blog_settings',
+    'title' => 'Blog',
+    'icon' => 'fas fa-edit',
     'fields' => array(
-        array(
-            'id' => 'body_typography',
-            'type' => 'typography',
-            'title' => 'Body Font',
-            'output' => 'body, p',
+            array(
+            'id' => 'blog_layout',
+            'type' => 'select',
+            'title' => 'Blog Layout',
+            'options' => array(
+                'list' => 'List Layout',
+                'grid' => 'Grid Layout',
+            ),
+            'default' => 'list'
         ),
-        array(
-            'id' => 'heading_typography',
-            'type' => 'typography',
-            'title' => 'Heading Font (H1 - H6)',
-            'output' => 'h1, h2, h3, h4, h5, h6, .theme-btn',
+            array(
+            'id' => 'blog_sidebar',
+            'type' => 'switcher',
+            'title' => 'Enable Sidebar on Single Post',
+            'default' => true,
         ),
     )
 ));

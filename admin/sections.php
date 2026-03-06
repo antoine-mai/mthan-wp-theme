@@ -1,31 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Sections Settings
-$section_fields = array();
-$sections_path = get_template_directory() . '/sections/';
-
-if (is_dir($sections_path)) {
-    $files = glob($sections_path . '*.php');
-    if ($files) {
-        foreach ($files as $file) {
-            $filename = basename($file, '.php');
-            $section_fields[] = array(
-                'id' => 'enable_section_' . str_replace('-', '_', $filename),
-                'type' => 'switcher',
-                'title' => 'Enable ' . ucwords(str_replace('-', ' ', $filename)) . ' Section',
-                'default' => true,
-            );
-        }
-    }
-}
-
+// Blog Settings
 CSF::createSection($prefix, array(
-    'id' => 'sections_toggle',
-    'title' => 'Sections Toggle',
-    'icon' => 'fas fa-toggle-on',
-    'fields' => empty($section_fields) ? array(
+    'id' => 'blog_settings',
+    'title' => 'Blog',
+    'icon' => 'fas fa-edit',
+    'fields' => array(
             array(
-            'type' => 'content',
-            'content' => 'No sections found in the /sections/ directory.',
-        )
-    ) : $section_fields
+            'id' => 'blog_layout',
+            'type' => 'select',
+            'title' => 'Blog Layout',
+            'options' => array(
+                'list' => 'List Layout',
+                'grid' => 'Grid Layout',
+            ),
+            'default' => 'list'
+        ),
+            array(
+            'id' => 'blog_sidebar',
+            'type' => 'switcher',
+            'title' => 'Enable Sidebar on Single Post',
+            'default' => true,
+        ),
+    )
 ));

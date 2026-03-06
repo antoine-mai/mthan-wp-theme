@@ -1,51 +1,25 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-// Mobile Bar Settings
+// Blog Settings
 CSF::createSection($prefix, array(
-    'id' => 'mobile_bar_settings',
-    'title' => 'Mobile Bar',
-    'icon' => 'fas fa-mobile-alt',
+    'id' => 'blog_settings',
+    'title' => 'Blog',
+    'icon' => 'fas fa-edit',
     'fields' => array(
-        array(
-            'id' => 'enable_mobile_bar',
-            'type' => 'switcher',
-            'title' => 'Enable Mobile Bar',
-            'default' => true,
-        ),
-        array(
-            'id' => 'mobile_bar_items',
-            'type' => 'group',
-            'title' => 'Mobile Bar Items',
-            'button_title' => 'Add New Item',
-            'accordion_title_auto' => true,
-            'accordion_title_prefix' => 'Item: ',
-            'accordion_title_number' => true,
-            'dependency' => array('enable_mobile_bar', '==', true),
-            'fields' => array(
-                array(
-                    'id' => 'title',
-                    'type' => 'text',
-                    'title' => 'Title',
-                ),
-                array(
-                    'id' => 'url',
-                    'type' => 'text',
-                    'title' => 'URL',
-                    'default' => '#',
-                ),
-                array(
-                    'id' => 'icon',
-                    'type' => 'upload',
-                    'title' => 'Icon Upload',
-                    'preview' => false,
-                ),
-                array(
-                    'id' => 'text_color',
-                    'type' => 'color',
-                    'title' => 'Text Color',
-                    'default' => '#333333',
-                ),
+            array(
+            'id' => 'blog_layout',
+            'type' => 'select',
+            'title' => 'Blog Layout',
+            'options' => array(
+                'list' => 'List Layout',
+                'grid' => 'Grid Layout',
             ),
+            'default' => 'list'
+        ),
+            array(
+            'id' => 'blog_sidebar',
+            'type' => 'switcher',
+            'title' => 'Enable Sidebar on Single Post',
+            'default' => true,
         ),
     )
 ));
