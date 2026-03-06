@@ -32,6 +32,7 @@ function mthan_section_what_we_do_options()
                     array(
                     'id' => 'nav_icon',
                     'type' => 'upload',
+                    'preview' => false,
                     'title' => 'Icon Upload',
                 ),
                     array(

@@ -90,12 +90,14 @@ function mthan_section_contact_options()
         array(
             'id'    => 'contact_form_bg_image',
             'type'  => 'upload',
+                    'preview' => false,
             'title' => 'Form BG Image',
             'dependency' => array('contact_style', '==', '3'),
         ),
         array(
             'id'    => 'contact_right_person_image',
             'type'  => 'upload',
+                    'preview' => false,
             'title' => 'Right Person Image',
             'dependency' => array('contact_style', '==', '3'),
         ),

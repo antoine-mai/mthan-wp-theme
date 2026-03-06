@@ -20,11 +20,13 @@ function mthan_section_services_options()
                     array(
                     'id' => 'services_image',
                     'type' => 'upload',
+                    'preview' => false,
                     'title' => 'Image',
                 ),
                     array(
                     'id' => 'services_icon',
                     'type' => 'upload',
+                    'preview' => false,
                     'title' => 'Icon Upload',
                 ),
                     array(

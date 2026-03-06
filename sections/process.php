@@ -54,6 +54,7 @@ function mthan_section_process_options()
                 array(
                     'id'    => 'icon',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Icon Upload',
                 ),
                 array(

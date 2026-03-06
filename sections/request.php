@@ -27,6 +27,7 @@ function mthan_section_request_options()
         array(
             'id'    => 'right_image',
             'type'  => 'upload',
+                    'preview' => false,
             'title' => 'Right Side Image',
         ),
         array(

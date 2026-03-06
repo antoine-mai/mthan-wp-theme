@@ -87,14 +87,15 @@ CSF::createSection($prefix, array(
             'accordion_title_auto' => true,
             'fields' => array(
                 array(
-                    'id' => 'icon',
-                    'type' => 'upload',
-                    'title' => 'Icon Upload',
-                ),
-                array(
                     'id' => 'title',
                     'type' => 'text',
                     'title' => 'Service Title',
+                ),
+                array(
+                    'id' => 'icon',
+                    'type' => 'upload',
+                    'preview' => false,
+                    'title' => 'Icon Upload',
                 ),
                 array(
                     'id' => 'link_text',

@@ -111,6 +111,7 @@ function mthan_section_why_us_options()
                 array(
                     'id'    => 'icon',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Icon Upload',
                 ),
                 array(

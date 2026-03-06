@@ -14,6 +14,7 @@ function mthan_section_sponsors_options()
                 array(
                     'id'    => 'logo',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Logo Image',
                 ),
                 array(

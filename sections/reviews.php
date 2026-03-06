@@ -50,11 +50,13 @@ function mthan_section_reviews_options()
                 array(
                     'id'    => 'image',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Large Image',
                 ),
                 array(
                     'id'    => 'thumb',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Author Thumbnail',
                 ),
                 array(

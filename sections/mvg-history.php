@@ -41,6 +41,7 @@ function mthan_section_mvg_history_options()
                 array(
                     'id'    => 'image',
                     'type'  => 'upload',
+                    'preview' => false,
                     'title' => 'Background Image',
                 ),
             ),
@@ -68,6 +69,7 @@ function mthan_section_mvg_history_options()
                 array(
                     'id'    => 'icon',
                     'type' => 'upload',
+                    'preview' => false,
                     'title' => 'Icon Image',
                 ),
                 array(
