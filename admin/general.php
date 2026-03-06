@@ -9,6 +9,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
             'id' => 'logo',
             'type' => 'upload',
             'title' => 'Logo',
+            'default' => 'https://team3t.com/wp-content/themes/mthan-wp-prunner/assets/images/logo.png',
             'preview' => false  
         ],
         [
