@@ -16,6 +16,35 @@ CSF::createSection($prefix, [
             'type' => 'upload',
             'title' => 'Favicon',
             'preview' => false
-        ]
+        ],
+        [
+            'id' => 'social_links',
+            'type' => 'group',
+            'title' => 'Social Links',
+            'button_title' => 'Add New Social Link',
+            'accordion_title_auto' => true,
+            'accordion_title_prefix' => 'Social: ',
+            'accordion_title_number' => true,
+            'fields' => [
+                [
+                    'id' => 'title',
+                    'type' => 'text',
+                    'title' => 'Name',
+                    'default' => 'Facebook',
+                ],
+                [
+                    'id' => 'icon',
+                    'type' => 'icon',
+                    'title' => 'Icon Class',
+                    'default' => 'fab fa-facebook',
+                ],
+                [
+                    'id' => 'url',
+                    'type' => 'text',
+                    'title' => 'URL',
+                    'default' => '#',
+                ],
+            ],
+        ],
     ]
 ]);
