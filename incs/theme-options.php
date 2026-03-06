@@ -21,6 +21,7 @@ if (class_exists('CSF')) {
 
     $admin_sections = [
         'general.php',
+        'homepage.php',
         'typography.php',
         'layouts.php',
         'header.php',
