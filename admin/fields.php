@@ -65,7 +65,7 @@ function mthan_get_section_instance_fields()
                         }
 
                         // Prefix IDs (except universal ones)
-                        if ($original_id && $original_id !== 'section_style' && $original_id !== 'section_template') {
+                        if ($original_id && $original_id !== 'section_template') {
                              $cf['id'] = $slug . '_' . str_replace($slug . '_', '', $cf['id']);
                         }
 
@@ -142,7 +142,7 @@ function mthan_prefix_dependency_ids($dependency, $slug)
     // Check if it's a simple condition array e.g. ['field', '==', 'val']
     if (count($dependency) === 3 && is_string($dependency[0]) && is_string($dependency[1])) {
         $id = $dependency[0];
-        if ($id !== 'section_style' && $id !== 'section_template' && strpos($id, $slug . '_') !== 0) {
+        if ($id !== 'section_template' && strpos($id, $slug . '_') !== 0) {
             $dependency[0] = $slug . '_' . $id;
         }
         return $dependency;
