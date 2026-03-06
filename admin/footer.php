@@ -17,11 +17,6 @@ CSF::createSection($prefix, array(
         ),
         // Style 1 specifics
             array(
-            'type' => 'heading',
-            'content' => 'Style 1 Settings',
-            'dependency' => array('footer_layout', '==', 'style-1'),
-        ),
-            array(
             'id' => 'footer_1_logo',
             'type' => 'media',
             'title' => 'Footer Logo',
@@ -50,11 +45,6 @@ CSF::createSection($prefix, array(
         ),
 
         // Style 2 specifics
-            array(
-            'type' => 'heading',
-            'content' => 'Style 2 Settings',
-            'dependency' => array('footer_layout', '==', 'style-2'),
-        ),
             array(
             'id' => 'footer_2_logo',
             'type' => 'media',

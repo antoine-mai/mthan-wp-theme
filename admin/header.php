@@ -85,11 +85,6 @@ CSF::createSection($prefix, array(
 
         // Style 1 Specific Fields
             array(
-            'type' => 'subheading',
-            'content' => 'Style 1 Specific Options',
-            'dependency' => array('header_layout', '==', 'style-1'),
-        ),
-            array(
             'id' => 'header_1_tip_text',
             'type' => 'text',
             'title' => 'Topbar Tip Text',
@@ -126,11 +121,6 @@ CSF::createSection($prefix, array(
         ),
 
         // Style 2 Specific Fields
-            array(
-            'type' => 'subheading',
-            'content' => 'Style 2 Specific Options',
-            'dependency' => array('header_layout', '==', 'style-2'),
-        ),
             array(
             'id' => 'header_2_quote_text',
             'type' => 'text',
