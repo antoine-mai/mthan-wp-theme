@@ -53,36 +53,6 @@ CSF::createSection($prefix, array(
             'default' => true,
         ),
 
-        // Contact Information (Global for Headers)
-            array(
-            'type' => 'subheading',
-            'content' => 'Contact Information',
-        ),
-            array(
-            'id' => 'contact_phone',
-            'type' => 'text',
-            'title' => 'Phone Number',
-            'default' => '(+5) 678 90 12 345',
-        ),
-            array(
-            'id' => 'contact_email',
-            'type' => 'text',
-            'title' => 'Email Address',
-            'default' => 'service@pruners.com',
-        ),
-            array(
-            'id' => 'contact_address',
-            'type' => 'text',
-            'title' => 'Address',
-            'default' => '53 Garden Street LA, USA',
-        ),
-            array(
-            'id' => 'contact_hours',
-            'type' => 'text',
-            'title' => 'Working Hours',
-            'default' => 'Mon-Fri: 9am to 7pm',
-        ),
-
         // Style 1 Specific Fields
             array(
             'id' => 'header_1_tip_text',
