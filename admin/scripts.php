@@ -1,25 +1,40 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Blog Settings
-CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'id' => 'blog_settings',
-    'title' => 'Blog',
-    'icon' => 'fas fa-edit',
-    'fields' => [
-            [
-            'id' => 'blog_layout',
-            'type' => 'select',
-            'title' => 'Blog Layout',
-            'options' => [
-                'list' => 'List Layout',
-                'grid' => 'Grid Layout',
-            ],
-            'default' => 'list'
-        ],
-            [
-            'id' => 'blog_sidebar',
-            'type' => 'switcher',
-            'title' => 'Enable Sidebar on Single Post',
-            'default' => true,
-        ],
-    ]
-]);
+
+// Custom Scripts Settings
+CSF::createSection(MTHAN_THEME_OPTIONS, array(
+    'id' => 'custom_scripts_settings',
+    'title' => 'Custom Scripts',
+    'icon' => 'fas fa-code',
+    'fields' => array(
+        array(
+            'id' => 'header_scripts',
+            'type' => 'code_editor',
+            'title' => 'Header Scripts',
+            'desc' => 'These scripts will be printed in the &lt;head&gt; section.',
+            'settings' => array(
+                'theme' => 'dracula',
+                'mode' => 'htmlmixed',
+            ),
+        ),
+        array(
+            'id' => 'body_scripts',
+            'type' => 'code_editor',
+            'title' => 'After Body Scripts',
+            'desc' => 'These scripts will be printed just after the opening &lt;body&gt; tag.',
+            'settings' => array(
+                'theme' => 'dracula',
+                'mode' => 'htmlmixed',
+            ),
+        ),
+        array(
+            'id' => 'footer_scripts',
+            'type' => 'code_editor',
+            'title' => 'Footer Scripts',
+            'desc' => 'These scripts will be printed before the closing &lt;/body&gt; tag.',
+            'settings' => array(
+                'theme' => 'dracula',
+                'mode' => 'htmlmixed',
+            ),
+        ),
+    )
+));

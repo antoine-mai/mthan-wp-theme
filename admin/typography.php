@@ -1,25 +1,22 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Blog Settings
-CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'id' => 'blog_settings',
-    'title' => 'Blog',
-    'icon' => 'fas fa-edit',
-    'fields' => [
-            [
-            'id' => 'blog_layout',
-            'type' => 'select',
-            'title' => 'Blog Layout',
-            'options' => [
-                'list' => 'List Layout',
-                'grid' => 'Grid Layout',
-            ],
-            'default' => 'list'
-        ],
-            [
-            'id' => 'blog_sidebar',
-            'type' => 'switcher',
-            'title' => 'Enable Sidebar on Single Post',
-            'default' => true,
-        ],
-    ]
-]);
+
+// Typography Settings
+CSF::createSection(MTHAN_THEME_OPTIONS, array(
+    'id' => 'typography_settings',
+    'title' => 'Typography',
+    'icon' => 'fas fa-font',
+    'fields' => array(
+        array(
+            'id' => 'body_typography',
+            'type' => 'typography',
+            'title' => 'Body Font',
+            'output' => 'body, p',
+        ),
+        array(
+            'id' => 'heading_typography',
+            'type' => 'typography',
+            'title' => 'Heading Font (H1 - H6)',
+            'output' => 'h1, h2, h3, h4, h5, h6, .theme-btn',
+        ),
+    )
+));

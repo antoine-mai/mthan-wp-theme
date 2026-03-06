@@ -1,25 +1,31 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Blog Settings
-CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'id' => 'blog_settings',
-    'title' => 'Blog',
-    'icon' => 'fas fa-edit',
-    'fields' => [
-            [
-            'id' => 'blog_layout',
-            'type' => 'select',
-            'title' => 'Blog Layout',
-            'options' => [
-                'list' => 'List Layout',
-                'grid' => 'Grid Layout',
-            ],
-            'default' => 'list'
-        ],
-            [
-            'id' => 'blog_sidebar',
-            'type' => 'switcher',
-            'title' => 'Enable Sidebar on Single Post',
-            'default' => true,
-        ],
-    ]
-]);
+// Sections Settings
+$section_fields = array();
+$sections_path = get_template_directory() . '/sections/';
+
+if (is_dir($sections_path)) {
+    $files = glob($sections_path . '*.php');
+    if ($files) {
+        foreach ($files as $file) {
+            $filename = basename($file, '.php');
+            $section_fields[] = array(
+                'id' => 'enable_section_' . str_replace('-', '_', $filename),
+                'type' => 'switcher',
+                'title' => 'Enable ' . ucwords(str_replace('-', ' ', $filename)) . ' Section',
+                'default' => true,
+            );
+        }
+    }
+}
+
+CSF::createSection(MTHAN_THEME_OPTIONS, array(
+    'id' => 'sections_toggle',
+    'title' => 'Sections Toggle',
+    'icon' => 'fas fa-toggle-on',
+    'fields' => empty($section_fields) ? array(
+            array(
+            'type' => 'content',
+            'content' => 'No sections found in the /sections/ directory.',
+        )
+    ) : $section_fields
+));
