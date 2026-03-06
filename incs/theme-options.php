@@ -10,7 +10,7 @@ if (class_exists('CSF')) {
         'menu_parent'     => 'themes.php',
         'menu_position'   => 999,
         'framework_title' => 'Theme Options',
-        'theme'           => 'light',
+        'theme'           => 'dark',
     ]);
 
     // Include all section files from the admin folder
