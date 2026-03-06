@@ -1,14 +1,26 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 
+// ── Register MTHAN Parent Menu ─────────────────────────────────────────
+add_action('admin_menu', function() {
+    add_menu_page(
+        'MTHAN Management',
+        'MTHAN',
+        'manage_options',
+        'mthan-admin',
+        '', // Callback empty because we use submenus
+        get_template_directory_uri() . '/assets/images/mthan-logo.png',
+        2
+    );
+});
+
 if (class_exists('CSF')) {
 
     // Create options
     CSF::createOptions(MTHAN_THEME_OPTIONS, [
-        'menu_title'      => 'MTHAN',
-        'menu_slug'       => 'mthan-admin',
-        'menu_type'       => 'menu',
-        'menu_icon'       => get_template_directory_uri() . '/assets/images/mthan-logo.png',
-        'menu_position'   => 2,
+        'menu_title'      => 'Theme Options',
+        'menu_slug'       => 'mthan-theme-options',
+        'menu_type'       => 'submenu',
+        'menu_parent'     => 'mthan-admin',
         'framework_title' => 'MTHAN Platform',
         'theme'           => 'dark',
     ]);
