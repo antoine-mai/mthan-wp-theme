@@ -18,6 +18,34 @@ CSF::createSection($prefix, [
             'preview' => false
         ],
         [
+            'type' => 'subheading',
+            'content' => 'Contact Information',
+        ],
+        [
+            'id' => 'contact_phone',
+            'type' => 'text',
+            'title' => 'Phone Number',
+            'default' => '(+5) 678 90 12 345',
+        ],
+        [
+            'id' => 'contact_email',
+            'type' => 'text',
+            'title' => 'Email Address',
+            'default' => 'service@pruners.com',
+        ],
+        [
+            'id' => 'contact_address',
+            'type' => 'text',
+            'title' => 'Address',
+            'default' => '53 Garden Street LA, USA',
+        ],
+        [
+            'id' => 'contact_hours',
+            'type' => 'text',
+            'title' => 'Working Hours',
+            'default' => 'Mon-Fri: 9am to 7pm',
+        ],
+        [
             'id' => 'social_links',
             'type' => 'group',
             'title' => 'Social Links',
@@ -45,34 +73,6 @@ CSF::createSection($prefix, [
                     'default' => '#',
                 ],
             ],
-        ],
-        [
-            'type' => 'subheading',
-            'content' => 'Contact Information',
-        ],
-        [
-            'id' => 'contact_phone',
-            'type' => 'text',
-            'title' => 'Phone Number',
-            'default' => '(+5) 678 90 12 345',
-        ],
-        [
-            'id' => 'contact_email',
-            'type' => 'text',
-            'title' => 'Email Address',
-            'default' => 'service@pruners.com',
-        ],
-        [
-            'id' => 'contact_address',
-            'type' => 'text',
-            'title' => 'Address',
-            'default' => '53 Garden Street LA, USA',
-        ],
-        [
-            'id' => 'contact_hours',
-            'type' => 'text',
-            'title' => 'Working Hours',
-            'default' => 'Mon-Fri: 9am to 7pm',
         ],
     ]
 ]);
