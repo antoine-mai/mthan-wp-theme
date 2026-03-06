@@ -39,6 +39,18 @@ CSF::createSection($prefix, array(
                     'title' => 'Icon Class',
                     'default' => 'fas fa-home',
                 ),
+                array(
+                    'id' => 'text_color',
+                    'type' => 'color',
+                    'title' => 'Text Color',
+                    'default' => '#333333',
+                ),
+                array(
+                    'id' => 'icon_color',
+                    'type' => 'color',
+                    'title' => 'Icon Color',
+                    'default' => '#24a77e',
+                ),
             ),
         ),
     )

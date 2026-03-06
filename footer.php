@@ -29,11 +29,13 @@ if (!empty($theme_options['enable_mobile_bar']) && !empty($theme_options['mobile
             $title = !empty($item['title']) ? $item['title'] : '';
             $url = !empty($item['url']) ? $item['url'] : '#';
             $icon = !empty($item['icon']) ? $item['icon'] : 'fas fa-link';
+            $text_color = !empty($item['text_color']) ? "color: {$item['text_color']};" : '';
+            $icon_color = !empty($item['icon_color']) ? "color: {$item['icon_color']};" : '';
         ?>
         <li>
             <a href="<?php echo esc_url($url); ?>">
-                <span class="icon <?php echo esc_attr($icon); ?>"></span>
-                <span class="text"><?php echo esc_html($title); ?></span>
+                <span class="icon <?php echo esc_attr($icon); ?>" style="<?php echo esc_attr($icon_color); ?>"></span>
+                <span class="text" style="<?php echo esc_attr($text_color); ?>"><?php echo esc_html($title); ?></span>
             </a>
         </li>
         <?php endforeach; ?>
