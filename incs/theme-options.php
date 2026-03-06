@@ -4,12 +4,12 @@ if (class_exists('CSF')) {
 
     // Create options
     CSF::createOptions(MTHAN_THEME_OPTIONS, [
-        'menu_title'      => 'Theme Options',
-        'menu_slug'       => 'mthan-theme-options',
-        'menu_type'       => 'submenu',
-        'menu_parent'     => 'themes.php',
-        'menu_position'   => 999,
-        'framework_title' => 'Theme Options',
+        'menu_title'      => 'MTHAN',
+        'menu_slug'       => 'mthan-admin',
+        'menu_type'       => 'menu',
+        'menu_icon'       => get_template_directory_uri() . '/assets/images/mthan-logo.png',
+        'menu_position'   => 2,
+        'framework_title' => 'MTHAN Platform',
         'theme'           => 'dark',
     ]);
 

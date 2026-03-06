@@ -39,7 +39,7 @@ function mthan_register_cpt_page() {
         'hierarchical'          => true,
         'public'                => true,
         'show_ui'               => true,
-        'show_in_menu'          => true,
+        'show_in_menu'          => 'mthan-admin',
         'menu_position'         => 3,
         'menu_icon'             => get_template_directory_uri() . '/assets/images/mthan-logo.png',
         'show_in_admin_bar'     => true,
