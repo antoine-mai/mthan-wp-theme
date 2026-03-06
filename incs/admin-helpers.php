@@ -50,40 +50,44 @@ function mthan_ajax_git_update()
         wp_send_json_error(['message' => 'Permission denied']);
     }
 
-    if (!function_exists('exec') || !function_exists('shell_exec')) {
-        wp_send_json_error(['message' => 'Functions shell_exec or exec are disabled on the server.']);
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    WP_Filesystem();
+    global $wp_filesystem;
+
+    $zip_url = 'https://github.com/antoine-mai/mthan-wp-prunner/archive/refs/heads/main.zip';
+    $temp_zip = download_url($zip_url, 300);
+
+    if (is_wp_error($temp_zip)) {
+        wp_send_json_error(['message' => 'Download failed: ' . $temp_zip->get_error_message()]);
     }
 
-    $theme_dir = get_template_directory();
-    
-    // Check if git is available
-    $git_check = @shell_exec('command -v git');
-    if (empty($git_check)) {
-        wp_send_json_error(['message' => 'Git is not installed on the server or the shell cannot find it.']);
+    $extract_to = get_theme_root() . '/mthan_temp_update_dir/';
+    $wp_filesystem->delete($extract_to, true);
+
+    $unzip_result = unzip_file($temp_zip, $extract_to);
+    unlink($temp_zip);
+
+    if (is_wp_error($unzip_result)) {
+        wp_send_json_error(['message' => 'Unzip failed: ' . $unzip_result->get_error_message()]);
     }
 
-    // Change directory to theme root and run git pull
-    $original_dir = getcwd();
-    chdir($theme_dir);
-    
-    $output = [];
-    $return_var = -1;
-    @exec('git pull 2>&1', $output, $return_var);
-    $log = implode("\n", $output);
-    
-    chdir($original_dir);
-
-    if ($return_var === 0) {
-        wp_send_json_success([
-            'message' => 'Theme updated successfully via Git.',
-            'log'     => $log
-        ]);
-    } else {
-        wp_send_json_error([
-            'message' => 'Git pull failed. (Exit Code: ' . $return_var . ')',
-            'log'     => $log
-        ]);
+    $source_dir = $extract_to . 'mthan-wp-prunner-main/';
+    if (!is_dir($source_dir)) {
+        $wp_filesystem->delete($extract_to, true);
+        wp_send_json_error(['message' => 'Extraction failed to locate the downloaded repository folder.']);
     }
+
+    $copy_result = copy_dir($source_dir, get_template_directory());
+    $wp_filesystem->delete($extract_to, true);
+
+    if (is_wp_error($copy_result)) {
+        wp_send_json_error(['message' => 'Failed to copy updated files: ' . $copy_result->get_error_message()]);
+    }
+
+    wp_send_json_success([
+        'message' => 'Theme updated successfully via Remote ZIP Download.',
+        'log'     => "1. Downloaded latest ZIP from GitHub main branch.\n2. Extracted files securely into server.\n3. Copied new files to theme directory successfully."
+    ]);
 }
 
 // Admin JS for Git Update Button
@@ -97,7 +101,7 @@ function mthan_admin_git_update_js() {
             var $log = $('#mthan-git-update-log');
             
             $btn.prop('disabled', true).text('Updating...');
-            $log.slideDown().text('Running git pull...');
+            $log.slideDown().text('Downloading and installing updates from GitHub...');
 
             $.ajax({
                 url: ajaxurl,
