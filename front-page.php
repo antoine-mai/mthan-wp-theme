@@ -7,35 +7,23 @@
  */
 
 $options = get_option(MTHAN_THEME_OPTIONS);
-$homepage_id = !empty($options['default_homepage']) ? (int)$options['default_homepage'] : 0;
+$homepage_sections = !empty($options['homepage_sections']) ? $options['homepage_sections'] : array();
 
-if ($homepage_id) {
-    // Modify global $post to point to the selected home page
-    $post = get_post($homepage_id);
-    if ($post) {
-        setup_postdata($post);
-        
-        get_header();
-        
-        $layout_type = mthan_get_layout_type();
-        
-        // Sections
-        mthan_render_global_sections('before', $layout_type);
-        mthan_render_page_sections('before');
-        
-        // Main Content
-        the_content();
-        
-        // Sections After
-        mthan_render_page_sections('after');
-        mthan_render_global_sections('after', $layout_type);
-        
-        get_footer();
-        
-        wp_reset_postdata();
-        exit;
-    }
+if (!empty($homepage_sections)) {
+    get_header();
+    
+    // Render global before sections
+    mthan_render_global_sections('before', 'main');
+    
+    // Render the builder sections
+    mthan_include_section_items($homepage_sections);
+    
+    // Render global after sections
+    mthan_render_global_sections('after', 'main');
+    
+    get_footer();
+    exit;
 }
 
-// Fallback to default index.php behavior or regular page loading if no homepage_id is set
+// Fallback to default index.php behavior or regular page loading
 require get_template_directory() . '/index.php';

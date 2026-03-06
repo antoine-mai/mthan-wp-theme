@@ -4,22 +4,28 @@
 **/
 global $mthan_options_id;
 
+$available_sections = mthan_get_available_base_sections();
+
 CSF::createSection($mthan_options_id, [
     'id'     => 'home_page_settings',
     'title'  => 'Home Page',
     'icon'   => 'fas fa-home',
     'fields' => [
         [
-            'id'          => 'default_homepage',
-            'type'        => 'select',
-            'title'       => 'Default Home Page',
-            'desc'        => 'Select the page to be used as Site Home Page.',
-            'options'     => 'post',
-            'query_args'  => [
-                'post_type' => 'mthan_page',
-                'posts_per_page' => -1,
-            ],
-            'placeholder' => 'Select a Page',
+            'id'                     => 'homepage_sections',
+            'type'                   => 'group',
+            'title'                  => 'Home Page Sections',
+            'button_title'           => 'Add New Section',
+            'accordion_title_auto'   => true,
+            'accordion_title_prefix' => 'Section: ',
+            'accordion_title_number' => true,
+            'fields'                 => array_merge(
+                [
+                    ['id' => 'name', 'type' => 'text', 'title' => 'Name', 'attributes' => ['data-section-name' => '1', 'placeholder' => 'Section name']],
+                    ['id' => 'section_template', 'type' => 'select', 'title' => 'Select Template', 'options' => empty($available_sections) ? array('' => 'No sections enabled') : $available_sections],
+                ],
+                mthan_get_section_instance_fields()
+            )
         ],
     ]
 ]);
