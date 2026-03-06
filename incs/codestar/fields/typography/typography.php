@@ -83,7 +83,7 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
       $this->value      = wp_parse_args( $this->value, $default_value );
       $this->chosen     = $args['chosen'];
       $chosen_class     = ( $this->chosen ) ? ' csf--chosen' : '';
-      $line_height_unit = ( ! empty( $args['line_height_unit'] ) ) ? $args['line_height_unit'] : $args['unit'];
+      $line_height_unit = ( isset( $args['line_height_unit'] ) ) ? $args['line_height_unit'] : $args['unit'];
 
       echo '<div class="csf--typography'. esc_attr( $chosen_class ) .'" data-depend-id="'. esc_attr( $this->field['id'] ) .'" data-unit="'. esc_attr( $args['unit'] ) .'" data-line-height-unit="'. esc_attr( $line_height_unit ) .'" data-exclude="'. esc_attr( $args['exclude'] ) .'">';
 
@@ -518,19 +518,13 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
         'word-spacing',
       );
 
-      $unit = ( ! empty( $this->value['unit'] ) ) ? $this->value['unit'] : 'px';
-      $line_height_unit = ( ! empty( $this->value['line_height_unit'] ) ) ? $this->value['line_height_unit'] : $unit;
+      $unit = isset($this->field['unit']) ? $this->field['unit'] : ((!empty($this->value['unit'])) ? $this->value['unit'] : 'px');
+      $line_height_unit = isset($this->field['line_height_unit']) ? $this->field['line_height_unit'] : ((!empty($this->value['line_height_unit'])) ? $this->value['line_height_unit'] : $unit);
 
       foreach ( $properties as $property ) {
         if ( isset( $this->value[$property] ) && $this->value[$property] !== '' ) {
           $current_unit = ( $property === 'line-height' ) ? $line_height_unit : $unit;
-          $val = $this->value[$property];
-          
-          // Remove unit if it's already present in the value to avoid double units like pxpx
-          if ( ! empty( $current_unit ) ) {
-            $val = str_replace( $current_unit, '', $val );
-          }
-          
+          $val = preg_replace('/[a-zA-Z%]+$/', '', $this->value[$property]);
           $output .= $property .':'. $val . $current_unit . $important .';';
         }
       }

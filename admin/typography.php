@@ -125,7 +125,7 @@ CSF::createSection($mthan_options_id, [
             'type'             => 'typography',
             'title'            => 'Accent / Button Typography',
             'output'           => '.theme-btn, .accent-font',
-            'output_variables' => true,
+            'line_height_unit' => '',
             'default'          => [
                 'font-family'     => 'Inter',
                 'font-weight'     => '600',
