@@ -46,6 +46,11 @@ if (class_exists('CSF')) {
         }
     }
 
+    // Always include Update section at the very end
+    if (file_exists($admin_dir . 'update.php')) {
+        require_once $admin_dir . 'update.php';
+    }
+
     // Include all metabox files
     $metabox_dir = get_template_directory() . '/admin/metabox/';
     foreach (['page-metabox.php', 'post-metabox.php'] as $metabox) {
