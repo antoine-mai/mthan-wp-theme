@@ -14,7 +14,7 @@ CSF::createSection($mthan_options_id, [
         [
             'id'                     => 'homepage_sections',
             'type'                   => 'group',
-            'title'                  => 'Home Page Sections',
+            'title'                  => '',
             'button_title'           => 'Add New Section',
             'accordion_title_auto'   => true,
             'accordion_title_prefix' => 'Section: ',
