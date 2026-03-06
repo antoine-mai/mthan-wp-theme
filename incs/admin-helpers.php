@@ -50,19 +50,25 @@ function mthan_ajax_git_update()
         wp_send_json_error(['message' => 'Permission denied']);
     }
 
+    if (!function_exists('exec') || !function_exists('shell_exec')) {
+        wp_send_json_error(['message' => 'Functions shell_exec or exec are disabled on the server.']);
+    }
+
     $theme_dir = get_template_directory();
     
     // Check if git is available
-    $git_check = shell_exec('command -v git');
+    $git_check = @shell_exec('command -v git');
     if (empty($git_check)) {
-        wp_send_json_error(['message' => 'Git is not installed on the server.']);
+        wp_send_json_error(['message' => 'Git is not installed on the server or the shell cannot find it.']);
     }
 
     // Change directory to theme root and run git pull
     $original_dir = getcwd();
     chdir($theme_dir);
     
-    exec('git pull 2>&1', $output, $return_var);
+    $output = [];
+    $return_var = -1;
+    @exec('git pull 2>&1', $output, $return_var);
     $log = implode("\n", $output);
     
     chdir($original_dir);
@@ -114,7 +120,11 @@ function mthan_admin_git_update_js() {
                     }
                 },
                 error: function(xhr, status, error) {
-                    $log.css('color', '#f87171').text('AJAX ERROR: ' + error);
+                    var errorMsg = 'AJAX ERROR: ' + status + ' - ' + error;
+                    if (xhr.responseText) {
+                        errorMsg += '\n\nServer Response:\n' + xhr.responseText;
+                    }
+                    $log.css('color', '#f87171').text(errorMsg);
                     $btn.text('Update Failed').prop('disabled', false);
                 }
             });
