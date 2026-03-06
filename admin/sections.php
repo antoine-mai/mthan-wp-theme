@@ -4,16 +4,17 @@
 **/
 $global_settings_fields = [
     [
-        'id'      => 'default_section_padding_top',
-        'type'    => 'text',
-        'title'   => 'Default Section Top Padding',
-        'default' => '120px',
-    ],
-    [
-        'id'      => 'default_section_padding_bottom',
-        'type'    => 'text',
-        'title'   => 'Default Section Bottom Padding',
-        'default' => '120px',
+        'id'      => 'default_section_padding',
+        'type'    => 'spacing',
+        'title'   => 'Default Section Padding',
+        'left'    => false,
+        'right'   => false,
+        'units'   => ['px', '%', 'em', 'rem'],
+        'default' => [
+            'top'    => '120',
+            'bottom' => '120',
+            'unit'   => 'px',
+        ],
     ],
     [
         'id'      => 'default_section_bg',
