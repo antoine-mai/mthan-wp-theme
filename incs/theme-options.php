@@ -77,9 +77,6 @@ if (class_exists('CSF')) {
 
     // Metaboxes
     $metabox_dir = get_template_directory() . '/admin/metabox/';
-
-    // Metaboxes
-    $metabox_dir = get_template_directory() . '/admin/metabox/';
     foreach (['mthan-page-metabox.php'] as $metabox) {
         if (file_exists($metabox_dir . $metabox)) {
             require_once $metabox_dir . $metabox;

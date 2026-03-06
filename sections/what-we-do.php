@@ -12,6 +12,14 @@ function mthan_section_what_we_do_options()
             'title' => 'Subtitle',
             'default' => 'What We Do',
         ),
+        array(
+            'id' => 'wwd_subtitle_icon',
+            'type' => 'media',
+            'library' => 'image',
+            'preview' => false,
+            'title' => 'Subtitle Icon',
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png')
+        ),
             array(
             'id' => 'wwd_title',
             'type' => 'text',
@@ -217,6 +225,22 @@ function mthan_section_what_we_do_options()
 }
 
 /**
+ * Returns the CSF field definitions for the what-we-do section global config.
+ * @return array
+ */
+function mthan_section_what_we_do_config_options()
+{
+    return [
+        [
+            'id' => 'wwd_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the what-we-do section.
  *
  * @param array $section_data Per-instance CSF field values.
@@ -225,6 +249,7 @@ function mthan_section_what_we_do_html($section_data)
 {
     $sec_title = !empty($section_data['wwd_title']) ? $section_data['wwd_title'] : 'Special Services For You';
     $sec_subtitle = !empty($section_data['wwd_subtitle']) ? $section_data['wwd_subtitle'] : 'What We Do';
+    $sec_sub_icon = !empty($section_data['wwd_subtitle_icon']['url']) ? $section_data['wwd_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
     $tabs = !empty($section_data['tabs_repeater']) ? $section_data['tabs_repeater'] : array();
 ?>
 <section class="what-we-do">
@@ -235,7 +260,7 @@ function mthan_section_what_we_do_html($section_data)
             <div class="auto-container">
                 <div class="sec-title">
                     <div class="title-icon"><span class="icon"><img
-                                src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png"
+                                src="<?php echo esc_url($sec_sub_icon); ?>"
                                 alt="<?php echo esc_attr($sec_subtitle); ?>"
                                 title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                     <div class="subtitle">

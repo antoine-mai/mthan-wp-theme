@@ -8,6 +8,26 @@ function mthan_section_services_options()
 {
     return array(
         array(
+            'id' => 'services_subtitle',
+            'type' => 'text',
+            'title' => 'Subtitle',
+            'default' => 'Our Services',
+        ),
+        array(
+            'id' => 'services_subtitle_icon',
+            'type' => 'media',
+            'library' => 'image',
+            'preview' => false,
+            'title' => 'Subtitle Icon',
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/icons/leaf-center.png')
+        ),
+        array(
+            'id' => 'services_title',
+            'type' => 'text',
+            'title' => 'Title',
+            'default' => 'What We Offer',
+        ),
+        array(
             'id' => 'main_services_list',
             'type' => 'group',
             'title' => 'Services List',
@@ -58,16 +78,42 @@ function mthan_section_services_options()
 }
 
 /**
+ * Returns the CSF field definitions for the services section global config.
+ * @return array
+ */
+function mthan_section_services_config_options()
+{
+    return [
+        [
+            'id' => 'services_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the services section.
  *
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_services_html($section_data)
 {
-    $services_repeater = !empty($section_data['services_list']) && is_array($section_data['services_list']) ? $section_data['services_list'] : array();
+    $sec_subtitle = !empty($section_data['services_subtitle']) ? $section_data['services_subtitle'] : 'Our Services';
+    $sec_title = !empty($section_data['services_title']) ? $section_data['services_title'] : 'What We Offer';
+    $sec_sub_icon = !empty($section_data['services_subtitle_icon']['url']) ? $section_data['services_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-center.png';
+    $services_repeater = !empty($section_data['main_services_list']) && is_array($section_data['main_services_list']) ? $section_data['main_services_list'] : array();
 ?>
 <section class="main-services">
     <div class="auto-container">
+        <?php if($sec_title || $sec_subtitle): ?>
+        <div class="sec-title centered">
+            <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+            <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
+            <h2><?php echo esc_html($sec_title); ?></h2>
+        </div>
+        <?php endif; ?>
 
         <div class="row clearfix">
             <?php if (is_array($services_repeater)) : foreach ($services_repeater as $service):

@@ -72,23 +72,33 @@ function mthan_get_available_base_sections()
  */
 function mthan_get_section_bg_css($section_data)
 {
-    if (empty($section_data['section_background'])) {
-        return '';
-    }
-    $bg     = $section_data['section_background'];
     $styles = array();
-
-    if (!empty($bg['background-color'])) {
-        $styles[] = 'background-color: ' . $bg['background-color'] . ';';
+    
+    // Background
+    if (!empty($section_data['section_background'])) {
+        $bg = $section_data['section_background'];
+        if (!empty($bg['background-color'])) {
+            $styles[] = 'background-color: ' . $bg['background-color'] . ';';
+        }
+        if (!empty($bg['background-image']['url'])) {
+            $styles[] = 'background-image: url(\'' . esc_url($bg['background-image']['url']) . '\');';
+            foreach (array('repeat', 'position', 'attachment', 'size') as $prop) {
+                if (!empty($bg['background-' . $prop])) {
+                    $styles[] = 'background-' . $prop . ': ' . $bg['background-' . $prop] . ';';
+                }
+            }
+        }
     }
 
-    if (!empty($bg['background-image']['url'])) {
-        $styles[] = 'background-image: url(\'' . esc_url($bg['background-image']['url']) . '\');';
-        
-        foreach (array('repeat', 'position', 'attachment', 'size') as $prop) {
-            if (!empty($bg['background-' . $prop])) {
-                $styles[] = 'background-' . $prop . ': ' . $bg['background-' . $prop] . ';';
-            }
+    // Padding
+    if (!empty($section_data['section_padding'])) {
+        $p = $section_data['section_padding'];
+        $unit = !empty($p['unit']) ? $p['unit'] : 'px';
+        if (isset($p['top']) && $p['top'] !== '') {
+            $styles[] = 'padding-top: ' . $p['top'] . $unit . ';';
+        }
+        if (isset($p['bottom']) && $p['bottom'] !== '') {
+            $styles[] = 'padding-bottom: ' . $p['bottom'] . $unit . ';';
         }
     }
 

@@ -14,6 +14,14 @@ function mthan_section_blog_options()
             'default' => 'News & Updates',
         ),
         array(
+            'id'      => 'blog_sec_subtitle_icon',
+            'type'    => 'media',
+            'library' => 'image',
+            'preview' => false,
+            'title'   => 'Subtitle Icon',
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png')
+        ),
+        array(
             'id'      => 'blog_sec_title',
             'type'    => 'text',
             'title'   => 'Title',
@@ -54,6 +62,22 @@ function mthan_section_blog_options()
 }
 
 /**
+ * Returns the CSF field definitions for the blog section global config.
+ * @return array
+ */
+function mthan_section_blog_config_options()
+{
+    return [
+        [
+            'id' => 'blog_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the blog section.
  *
  * @param array $section_data Per-instance CSF field values.
@@ -61,6 +85,7 @@ function mthan_section_blog_options()
 function mthan_section_blog_html($section_data)
 {
     $sec_subtitle = !empty($section_data['blog_sec_subtitle']) ? $section_data['blog_sec_subtitle'] : 'News & Updates';
+    $sec_sub_icon = !empty($section_data['blog_sec_subtitle_icon']['url']) ? $section_data['blog_sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
     $sec_title    = !empty($section_data['blog_sec_title'])    ? $section_data['blog_sec_title']    : 'Latest From Blog';
     $btn_text     = !empty($section_data['blog_btn_text'])     ? $section_data['blog_btn_text']     : 'View More Blog';
     $btn_link     = !empty($section_data['blog_btn_link'])     ? $section_data['blog_btn_link']     : '#';
@@ -84,7 +109,7 @@ function mthan_section_blog_html($section_data)
     <div class="auto-container">
         <div class="upper-box clearfix">
             <div class="sec-title">
-                <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                 <h2><?php echo esc_html($sec_title); ?></h2>
             </div>

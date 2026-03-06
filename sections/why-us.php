@@ -25,6 +25,14 @@ function mthan_section_why_us_options()
             'default' => 'why choose us',
         ),
         array(
+            'id'    => 'sec_subtitle_icon',
+            'type'  => 'media',
+            'library' => 'image',
+            'preview' => false,
+            'title' => 'Subtitle Icon',
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/icons/leaf-four.png')
+        ),
+        array(
             'id'    => 'sec_title',
             'type'  => 'text',
             'title' => 'Title',
@@ -180,6 +188,22 @@ function mthan_section_why_us_options()
 }
 
 /**
+ * Returns the CSF field definitions for the why-us section global config.
+ * @return array
+ */
+function mthan_section_why_us_config_options()
+{
+    return [
+        [
+            'id' => 'why_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the why-us section.
  */
 function mthan_section_why_us_html($section_data) {
@@ -200,6 +224,7 @@ function mthan_section_why_us_html($section_data) {
 function mthan_section_why_us_html_1($section_data) {
     $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
     $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
+    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-four.png';
     $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
     $repeater     = !empty($section_data['why_repeater']) ? $section_data['why_repeater'] : array();
 ?>
@@ -211,7 +236,7 @@ function mthan_section_why_us_html_1($section_data) {
                 <div class="row clearfix">
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
-                            <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-four.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                            <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                         </div>
@@ -254,6 +279,7 @@ function mthan_section_why_us_html_1($section_data) {
 function mthan_section_why_us_html_2($section_data) {
     $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
     $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
+    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-five.png';
     $bg_image     = !empty($section_data['left_bg_image']['url']) ? $section_data['left_bg_image']['url'] : '';
     $r_val        = !empty($section_data['rating_value']) ? $section_data['rating_value'] : '4.9';
     $r_text       = !empty($section_data['rating_text']) ? $section_data['rating_text'] : 'Customer Rating';
@@ -287,7 +313,7 @@ function mthan_section_why_us_html_2($section_data) {
                             <div class="sec-title">
                                 <div class="title-icon">
                                     <span class="icon">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-five.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>" />
+                                        <img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>" />
                                     </span>
                                 </div>
                                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
@@ -343,6 +369,7 @@ function mthan_section_why_us_html_2($section_data) {
 function mthan_section_why_us_html_3($section_data) {
     $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
     $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
+    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-eight.png';
     $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
     $repeater     = !empty($section_data['why_repeater']) ? $section_data['why_repeater'] : array();
 ?>
@@ -352,7 +379,7 @@ function mthan_section_why_us_html_3($section_data) {
                 <div class="row clearfix">
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
-                            <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-eight.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                            <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                         </div>

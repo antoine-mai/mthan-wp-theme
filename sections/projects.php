@@ -25,6 +25,14 @@ function mthan_section_projects_options()
             'default' => 'Our Projects',
         ),
         array(
+            'id'    => 'sec_subtitle_icon',
+            'type'  => 'media',
+            'library' => 'image',
+            'preview' => false,
+            'title' => 'Subtitle Icon',
+            'default' => array('url' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png')
+        ),
+        array(
             'id'    => 'sec_title',
             'type'  => 'text',
             'title' => 'Title',
@@ -171,6 +179,22 @@ function mthan_section_projects_options()
 }
 
 /**
+ * Returns the CSF field definitions for the projects section global config.
+ * @return array
+ */
+function mthan_section_projects_config_options()
+{
+    return [
+        [
+            'id' => 'projects_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the projects section.
  */
 function mthan_section_projects_html($section_data) {
@@ -191,6 +215,7 @@ function mthan_section_projects_html($section_data) {
 function mthan_section_projects_html_1($section_data) {
     $sec_title     = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
     $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
+    $sec_sub_icon  = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
     $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
     $lower         = !empty($section_data['lower_text']) ? $section_data['lower_text'] : '';
     $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
@@ -207,7 +232,7 @@ function mthan_section_projects_html_1($section_data) {
 <section class="projects-section">
         <div class="auto-container">
             <div class="sec-title">
-                <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                 <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                 <h2><?php echo esc_html($sec_title); ?></h2>
             </div>
@@ -250,6 +275,7 @@ function mthan_section_projects_html_1($section_data) {
 function mthan_section_projects_html_2($section_data) {
     $sec_title     = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
     $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
+    $sec_sub_icon  = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
     $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
     $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
     $fallback_imgs = array(
@@ -266,7 +292,7 @@ function mthan_section_projects_html_2($section_data) {
         <div class="auto-container">
             <div class="upper-box clearfix">
                 <div class="sec-title">
-                    <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-two.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                    <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                     <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                     <h2><?php echo esc_html($sec_title); ?></h2>
                 </div>
@@ -313,6 +339,7 @@ function mthan_section_projects_html_2($section_data) {
 function mthan_section_projects_html_3($section_data) {
     $sec_title        = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
     $sec_subtitle     = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
+    $sec_sub_icon     = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-four.png';
     $sec_text         = !empty($section_data['sec_text']) ? $section_data['sec_text'] : '';
     $filters_repeater = !empty($section_data['filters_repeater']) ? $section_data['filters_repeater'] : array();
     $gallery_repeater = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
@@ -332,7 +359,7 @@ function mthan_section_projects_html_3($section_data) {
                 <div class="row clearfix">
                     <div class="left-col col-xl-6 col-lg-12 col-md-12">
                         <div class="sec-title alternate">
-                            <div class="title-icon"><span class="icon"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/leaf-four.png" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
+                            <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($sec_sub_icon); ?>" alt="<?php echo esc_attr($sec_subtitle); ?>" title="<?php echo esc_attr($sec_subtitle); ?>"></span></div>
                             <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
                             <h2><?php echo esc_html($sec_title); ?></h2>
                         </div>

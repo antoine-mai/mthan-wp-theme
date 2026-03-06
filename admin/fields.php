@@ -432,5 +432,19 @@ function mthan_get_section_instance_fields()
         'output'  => '.section-instance-ID', // Note: actual application depends on rendering logic
     ];
 
+    $fields[] = [
+        'id'      => 'section_padding',
+        'type'    => 'spacing',
+        'title'   => 'Padding Settings',
+        'left'    => false,
+        'right'   => false,
+        'units'   => ['px', '%', 'em', 'rem'],
+        'default' => [
+            'top'    => '120',
+            'bottom' => '120',
+            'unit'   => 'px',
+        ],
+    ];
+
     return $fields;
 }

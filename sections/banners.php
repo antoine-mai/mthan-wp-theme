@@ -34,6 +34,22 @@ function mthan_section_banners_options()
 }
 
 /**
+ * Returns the CSF field definitions for the banner section global config.
+ * @return array
+ */
+function mthan_section_banners_config_options()
+{
+    return [
+        [
+            'id' => 'banners_section_id',
+            'type' => 'text',
+            'title' => 'Section ID',
+            'desc' => 'Optional ID for this section (useful for anchor links)',
+        ],
+    ];
+}
+
+/**
  * Render the banner-section section.
  *
  * @param array $section_data Per-instance CSF field values.
