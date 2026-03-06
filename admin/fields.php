@@ -43,10 +43,16 @@ function mthan_get_section_instance_fields()
                 if (function_exists($options_func)) {
                     $content_fields = $options_func();
                     $overrides = [];
+                    $global_options = get_option(MTHAN_THEME_OPTIONS, []);
+
                     foreach($content_fields as $cf) {
-                        // Strip defaults so they fall back to global configuration
-                        if (isset($cf['default'])) {
-                            unset($cf['default']);
+                        // Populate default from global configuration if available
+                        if (isset($cf['id'])) {
+                            $field_id = str_replace($slug . '_', '', $cf['id']);
+                            $global_key = 'g_' . $slug . '_' . $field_id;
+                            if (isset($global_options[$global_key])) {
+                                $cf['default'] = $global_options[$global_key];
+                            }
                         }
                         
                         // Prefix Title for clarity
