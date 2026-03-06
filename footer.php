@@ -19,6 +19,28 @@ get_template_part('template-parts/footer', $footer_layout);
 <!--Scroll to top-->
 <div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-arrows"></span></div>
 
+<?php 
+// Render mobile bar if enabled
+if (!empty($theme_options['enable_mobile_bar']) && !empty($theme_options['mobile_bar_items'])) : 
+?>
+<div class="mthan-mobile-bar d-md-none d-block">
+    <ul class="mobile-bar-inner clearfix">
+        <?php foreach ($theme_options['mobile_bar_items'] as $item) : 
+            $title = !empty($item['title']) ? $item['title'] : '';
+            $url = !empty($item['url']) ? $item['url'] : '#';
+            $icon = !empty($item['icon']) ? $item['icon'] : 'fas fa-link';
+        ?>
+        <li>
+            <a href="<?php echo esc_url($url); ?>">
+                <span class="icon <?php echo esc_attr($icon); ?>"></span>
+                <span class="text"><?php echo esc_html($title); ?></span>
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 </body>
 

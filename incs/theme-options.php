@@ -23,6 +23,7 @@ if (class_exists('CSF')) {
     require_once $admin_dir . 'fields.php';
     $sections = array(
         'general.php',
+        'typography.php',
         'layouts.php',
         'header.php',
         'mobile-bar.php',
