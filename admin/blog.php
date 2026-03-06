@@ -1,31 +1,33 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-// Blog Settings
-CSF::createSection(MTHAN_THEME_OPTIONS, array(
+/**
+ * Blog Settings
+ */
+CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id' => 'blog_settings',
     'title' => 'Blog',
     'icon' => 'fas fa-edit',
-    'fields' => array(
-            array(
+    'fields' => [
+        [
             'id' => 'blog_layout',
             'type' => 'select',
             'title' => 'Blog Layout',
-            'options' => array(
+            'options' => [
                 'list' => 'List Layout',
                 'grid' => 'Grid Layout',
-            ),
+            ],
             'default' => 'list'
-        ),
-        array(
+        ],
+        [
             'id'      => 'blog_sidebar',
             'type'    => 'switcher',
             'title'   => 'Enable Sidebar on Blog List',
             'default' => true,
-        ),
-        array(
+        ],
+        [
             'id'      => 'blog_single_sidebar',
             'type'    => 'switcher',
             'title'   => 'Enable Sidebar on Single Post',
             'default' => true,
-        ),
-    )
-));
+        ],
+    ]
+]);
