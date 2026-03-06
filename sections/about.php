@@ -250,46 +250,6 @@ function mthan_section_about_options()
 }
 
 /**
- * Returns the CSF field definitions for the about section global config.
- * @return array
- */
-function mthan_section_about_config_options()
-{
-    return array(
-        array(
-            'id'      => 'about_global_style',
-            'type'    => 'select',
-            'title'   => 'Default Style',
-            'options' => array(
-                '1' => 'Style 1 (Standard)',
-                '2' => 'Style 2 (Insurance)',
-                '3' => 'Style 3 (Experience)',
-            ),
-            'default' => '1',
-            'help'    => 'Default style when adding a new About section.',
-        ),
-        array(
-            'id'      => 'about_global_subtitle',
-            'type'    => 'text',
-            'title'   => 'Default Subtitle',
-            'default' => 'About Us',
-        ),
-        array(
-            'id'      => 'about_global_title',
-            'type'    => 'text',
-            'title'   => 'Default Title',
-            'default' => 'Professional Gardener',
-        ),
-        array(
-            'id'      => 'about_global_icon',
-            'type'    => 'upload',
-            'title'   => 'Default Icon',
-            'default' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png',
-        ),
-    );
-}
-
-/**
  * Render the about section.
  *
  * @param array $section_data Per-instance CSF field values.
@@ -312,31 +272,33 @@ function mthan_section_about_html($section_data)
  */
 function mthan_get_about_common_data($section_data)
 {
+    $slug = 'about';
     return array(
-        'subtitle' => !empty($section_data['about_subtitle']) ? $section_data['about_subtitle'] : 'About Us',
-        'title' => !empty($section_data['about_title']) ? $section_data['about_title'] : 'Professional Gardener',
-        'text' => !empty($section_data['about_text']) ? $section_data['about_text'] : '',
-        'text_2' => !empty($section_data['about_text_2']) ? $section_data['about_text_2'] : '',
-        'btn_text' => !empty($section_data['about_btn_text']) ? $section_data['about_btn_text'] : 'Read More',
-        'btn_link' => !empty($section_data['about_btn_link']) ? $section_data['about_btn_link'] : '#',
-        'video_link' => !empty($section_data['about_video_link']) ? $section_data['about_video_link'] : '#',
-        'video_icon' => !empty($section_data['about_video_icon']) ? $section_data['about_video_icon'] : 'flaticon-play-button-1',
+        'subtitle' => mthan_get_section_val($slug, $section_data, 'subtitle', 'About Us'),
+        'title'    => mthan_get_section_val($slug, $section_data, 'title', 'Professional Gardener'),
+        'text'     => mthan_get_section_val($slug, $section_data, 'text', ''),
+        'text_2'   => mthan_get_section_val($slug, $section_data, 'text_2', ''),
+        'btn_text' => mthan_get_section_val($slug, $section_data, 'btn_text', 'Read More'),
+        'btn_link' => mthan_get_section_val($slug, $section_data, 'btn_link', '#'),
+        'video_link' => mthan_get_section_val($slug, $section_data, 'video_link', '#'),
+        'video_icon' => mthan_get_section_val($slug, $section_data, 'video_icon', 'flaticon-play-button-1'),
 
-        'quote_text' => !empty($section_data['about_quote_text']) ? $section_data['about_quote_text'] : '',
-        'quote_name' => !empty($section_data['about_quote_name']) ? $section_data['about_quote_name'] : '',
-        'quote_desig' => !empty($section_data['about_quote_designation']) ? $section_data['about_quote_designation'] : '',
+        'quote_text'  => mthan_get_section_val($slug, $section_data, 'quote_text', ''),
+        'quote_name'  => mthan_get_section_val($slug, $section_data, 'quote_name', ''),
+        'quote_desig' => mthan_get_section_val($slug, $section_data, 'quote_designation', ''),
 
-        'cert_title' => !empty($section_data['about_cert_title']) ? $section_data['about_cert_title'] : 'Certified Company',
-        'cert_number' => !empty($section_data['about_cert_number']) ? $section_data['about_cert_number'] : 'ISO 9001:2015',
+        'cert_title'  => mthan_get_section_val($slug, $section_data, 'cert_title', 'Certified Company'),
+        'cert_number' => mthan_get_section_val($slug, $section_data, 'cert_number', 'ISO 9001:2015'),
 
-        'subtitle_icon' => !empty($section_data['about_subtitle_icon']['url']) ? $section_data['about_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png',
-        'signature' => !empty($section_data['about_signature']['url']) ? $section_data['about_signature']['url'] : get_template_directory_uri() . '/assets/images/resource/signature-1.png',
-        'feat_img' => !empty($section_data['about_featured_image']['url']) ? $section_data['about_featured_image']['url'] : get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg',
-        'anim_img' => !empty($section_data['about_anim_image']['url']) ? $section_data['about_anim_image']['url'] : get_template_directory_uri() . '/assets/images/resource/anim-image-1.png',
-        'vid_thumb' => !empty($section_data['about_vid_thumb']['url']) ? $section_data['about_vid_thumb']['url'] : get_template_directory_uri() . '/assets/images/resource/vid-thumb-1.jpg',
-        'iso_icon' => !empty($section_data['about_iso_icon']['url']) ? $section_data['about_iso_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/iso-icon.png',
-        'experience_year' => !empty($section_data['about_exp_years']) ? $section_data['about_exp_years'] : '16',
-        'experience_text' => !empty($section_data['about_exp_text']) ? $section_data['about_exp_text'] : 'Years <br>of Experience',
+        'subtitle_icon' => mthan_sec_img($slug, $section_data, 'subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png'),
+        'signature'     => mthan_sec_img($slug, $section_data, 'signature', get_template_directory_uri() . '/assets/images/resource/signature-1.png'),
+        'feat_img'      => mthan_sec_img($slug, $section_data, 'featured_image', get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg'),
+        'anim_img'      => mthan_sec_img($slug, $section_data, 'anim_image', get_template_directory_uri() . '/assets/images/resource/anim-image-1.png'),
+        'vid_thumb'     => mthan_sec_img($slug, $section_data, 'vid_thumb', get_template_directory_uri() . '/assets/images/resource/vid-thumb-1.jpg'),
+        'iso_icon'      => mthan_sec_img($slug, $section_data, 'iso_icon', get_template_directory_uri() . '/assets/images/icons/iso-icon.png'),
+        
+        'experience_year' => mthan_get_section_val($slug, $section_data, 'exp_years', '16'),
+        'experience_text' => mthan_get_section_val($slug, $section_data, 'exp_text', 'Years <br>of Experience'),
     );
 }
 
@@ -345,11 +307,12 @@ function mthan_get_about_common_data($section_data)
  */
 function mthan_section_about_html_1($section_data)
 {
+    $slug = 'about';
     $common = mthan_get_about_common_data($section_data);
-    $projects_count = !empty($section_data['about_projects_count']) ? $section_data['about_projects_count'] : '2k';
-    $projects_text = !empty($section_data['about_projects_text']) ? $section_data['about_projects_text'] : 'Projects <br>were completed';
-    $projects_icon = !empty($section_data['about_projects_icon']) ? $section_data['about_projects_icon'] : 'flaticon-leaves';
-    $quote_thumb = !empty($section_data['about_quote_thumb']['url']) ? $section_data['about_quote_thumb']['url'] : get_template_directory_uri() . '/assets/images/resource/quote-thumb.jpg';
+    $projects_count = mthan_get_section_val($slug, $section_data, 'projects_count', '2k');
+    $projects_text  = mthan_get_section_val($slug, $section_data, 'projects_text', 'Projects <br>were completed');
+    $projects_icon  = mthan_get_section_val($slug, $section_data, 'projects_icon', 'flaticon-leaves');
+    $quote_thumb    = mthan_sec_img($slug, $section_data, 'quote_thumb', get_template_directory_uri() . '/assets/images/resource/quote-thumb.jpg');
 ?>
 <section class="about-section">
     <div class="auto-container">
@@ -453,11 +416,12 @@ function mthan_section_about_html_1($section_data)
 
 <?php function mthan_section_about_html_2($section_data)
 {
+    $slug = 'about';
     $common = mthan_get_about_common_data($section_data);
-    $insured_title = !empty($section_data['about_insured_title']) ? $section_data['about_insured_title'] : 'Fully Insured';
-    $insured_text = !empty($section_data['about_insured_text']) ? $section_data['about_insured_text'] : '';
-    $insured_icon = !empty($section_data['about_insured_icon']) ? $section_data['about_insured_icon'] : 'flaticon-insurance';
-    $anim_img_2 = !empty($section_data['about_anim_image']['url']) ? $section_data['about_anim_image']['url'] : get_template_directory_uri() . '/assets/images/resource/anim-image-3.png';
+    $insured_title = mthan_get_section_val($slug, $section_data, 'insured_title', 'Fully Insured');
+    $insured_text  = mthan_get_section_val($slug, $section_data, 'insured_text', '');
+    $insured_icon  = mthan_get_section_val($slug, $section_data, 'insured_icon', 'flaticon-insurance');
+    $anim_img_2    = mthan_sec_img($slug, $section_data, 'anim_image', get_template_directory_uri() . '/assets/images/resource/anim-image-3.png');
 ?>
 <section class="about-two">
     <div class="auto-container">
@@ -557,9 +521,10 @@ function mthan_section_about_html_1($section_data)
 
 <?php function mthan_section_about_html_3($section_data)
 {
+    $slug = 'about';
     $common = mthan_get_about_common_data($section_data);
-    $feat_img_3 = !empty($section_data['about_featured_image']['url']) ? $section_data['about_featured_image']['url'] : get_template_directory_uri() . '/assets/images/resource/featured-image-12.jpg';
-    $vid_thumb_3 = !empty($section_data['about_vid_thumb']['url']) ? $section_data['about_vid_thumb']['url'] : get_template_directory_uri() . '/assets/images/resource/vid-thumb-2.jpg';
+    $feat_img_3  = mthan_sec_img($slug, $section_data, 'featured_image', get_template_directory_uri() . '/assets/images/resource/featured-image-12.jpg');
+    $vid_thumb_3 = mthan_sec_img($slug, $section_data, 'vid_thumb', get_template_directory_uri() . '/assets/images/resource/vid-thumb-2.jpg');
 ?>
 <section class="about-three">
     <div class="auto-container">

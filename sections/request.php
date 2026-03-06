@@ -51,12 +51,13 @@ function mthan_section_request_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_request_html($section_data) { 
-    $sec_title     = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Free Estimates';
-    $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Request a Quote';
-    $sec_sub_text  = !empty($section_data['sec_sub_text']) ? $section_data['sec_sub_text'] : '';
-    $right_image   = !empty($section_data['right_image']) ? $section_data['right_image'] : '';
-    $discount_text = !empty($section_data['discount_text']) ? $section_data['discount_text'] : '';
-    $services_list = !empty($section_data['services_list']) ? $section_data['services_list'] : '';
+    $slug = 'request';
+    $sec_title     = mthan_get_section_val($slug, $section_data, 'sec_title', 'Free Estimates');
+    $sec_subtitle  = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Request a Quote');
+    $sec_sub_text  = mthan_get_section_val($slug, $section_data, 'sec_sub_text', 'Get free estimates from lander lawn care and gardening professionals in your city.');
+    $right_image   = mthan_sec_img($slug, $section_data, 'right_image', '');
+    $discount_text = mthan_get_section_val($slug, $section_data, 'discount_text', 'Save up to 40%');
+    $services_list = mthan_get_section_val($slug, $section_data, 'services_list', "Spring Cleanup\nPlants Planting\nWater Fountain\nHard Scaping\nGarden Care");
 ?>
 <section class="service-request">
         <div class="auto-container">

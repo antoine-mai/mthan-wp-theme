@@ -121,12 +121,13 @@ function mthan_section_mvg_history_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_mvg_history_html($section_data) { 
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Lander';
-    $mvg_blocks   = !empty($section_data['mvg_blocks']) ? $section_data['mvg_blocks'] : array();
-    $desc_blocks  = !empty($section_data['desc_carousel']) ? $section_data['desc_carousel'] : array();
-    $history      = !empty($section_data['history_repeater']) ? $section_data['history_repeater'] : array();
-    $btn_text     = !empty($section_data['history_btn_text']) ? $section_data['history_btn_text'] : 'View Full History';
-    $btn_link     = !empty($section_data['history_btn_link']) ? $section_data['history_btn_link'] : array();
+    $slug = 'mvg-history';
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Lander');
+    $mvg_blocks   = mthan_get_section_val($slug, $section_data, 'mvg_blocks', array());
+    $desc_blocks  = mthan_get_section_val($slug, $section_data, 'desc_carousel', array());
+    $history      = mthan_get_section_val($slug, $section_data, 'history_repeater', array());
+    $btn_text     = mthan_get_section_val($slug, $section_data, 'history_btn_text', 'View Full History');
+    $btn_link     = mthan_get_section_val($slug, $section_data, 'history_btn_link', array());
 ?>
 <section class="mvg-history">
     <div class="mvg">

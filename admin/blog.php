@@ -21,13 +21,13 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
             'id'      => 'blog_sidebar',
             'type'    => 'switcher',
             'title'   => 'Enable Sidebar on Blog List',
-            'default' => true,
+            'default' => true
         ],
         [
             'id'      => 'blog_single_sidebar',
             'type'    => 'switcher',
             'title'   => 'Enable Sidebar on Single Post',
-            'default' => true,
-        ],
+            'default' => true
+        ]
     ]
 ]);

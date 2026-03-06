@@ -182,7 +182,8 @@ function mthan_section_projects_options()
  * Render the projects section.
  */
 function mthan_section_projects_html($section_data) {
-    $style = isset($section_data['style']) ? $section_data['style'] : '1';
+    $slug = 'projects';
+    $style = mthan_get_section_val($slug, $section_data, 'style', '1');
     
     if ($style === '2') {
         mthan_section_projects_html_2($section_data);
@@ -197,12 +198,13 @@ function mthan_section_projects_html($section_data) {
  * Style 1 Rendering (Carousel)
  */
 function mthan_section_projects_html_1($section_data) {
-    $sec_title     = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
-    $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
-    $sec_sub_icon  = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
-    $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
-    $lower         = !empty($section_data['lower_text']) ? $section_data['lower_text'] : '';
-    $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
+    $slug = 'projects';
+    $sec_title     = mthan_get_section_val($slug, $section_data, 'sec_title', 'Recent Gallery');
+    $sec_subtitle  = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Projects');
+    $sec_sub_icon  = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png');
+    $repeater      = mthan_get_section_val($slug, $section_data, 'repeater', array());
+    $lower         = mthan_get_section_val($slug, $section_data, 'lower_text', 'We give guarantee for healthy landscapes, You should never compromise with quality.');
+    $all_link      = mthan_get_section_val($slug, $section_data, 'view_all_link', '#');
     $fallback_imgs = array(
         get_template_directory_uri() . '/assets/images/resource/featured-image-2.jpg',
         get_template_directory_uri() . '/assets/images/resource/featured-image-3.jpg',
@@ -257,11 +259,12 @@ function mthan_section_projects_html_1($section_data) {
  * Style 2 Rendering (Masonry Grid)
  */
 function mthan_section_projects_html_2($section_data) {
-    $sec_title     = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
-    $sec_subtitle  = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
-    $sec_sub_icon  = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
-    $repeater      = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
-    $all_link      = !empty($section_data['view_all_link']) ? $section_data['view_all_link'] : '#';
+    $slug = 'projects';
+    $sec_title     = mthan_get_section_val($slug, $section_data, 'sec_title', 'Recent Gallery');
+    $sec_subtitle  = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Projects');
+    $sec_sub_icon  = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png');
+    $repeater      = mthan_get_section_val($slug, $section_data, 'repeater', array());
+    $all_link      = mthan_get_section_val($slug, $section_data, 'view_all_link', '#');
     $fallback_imgs = array(
         get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg',
         get_template_directory_uri() . '/assets/images/resource/featured-image-2.jpg',
@@ -321,12 +324,13 @@ function mthan_section_projects_html_2($section_data) {
  * Style 3 Rendering (Filtered Gallery)
  */
 function mthan_section_projects_html_3($section_data) {
-    $sec_title        = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Recent Gallery';
-    $sec_subtitle     = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Projects';
-    $sec_sub_icon     = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-four.png';
-    $sec_text         = !empty($section_data['sec_text']) ? $section_data['sec_text'] : '';
-    $filters_repeater = !empty($section_data['filters_repeater']) ? $section_data['filters_repeater'] : array();
-    $gallery_repeater = !empty($section_data['projects_repeater']) ? $section_data['projects_repeater'] : array();
+    $slug      = 'projects';
+    $sec_title        = mthan_get_section_val($slug, $section_data, 'sec_title', 'Recent Gallery');
+    $sec_subtitle     = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Projects');
+    $sec_sub_icon     = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-four.png');
+    $sec_text         = mthan_get_section_val($slug, $section_data, 'sec_text', 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.');
+    $filters_repeater = mthan_get_section_val($slug, $section_data, 'filters_repeater', array());
+    $gallery_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
     $fallback_imgs    = array(
         get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg',
         get_template_directory_uri() . '/assets/images/resource/featured-image-2.jpg',

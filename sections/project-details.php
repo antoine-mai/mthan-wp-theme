@@ -63,11 +63,12 @@ function mthan_section_project_details_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_project_details_html($section_data) { 
-    $image   = !empty($section_data['project_image']['url']) ? $section_data['project_image']['url'] : get_template_directory_uri() . '/assets/images/gallery/53.jpg';
-    $title   = !empty($section_data['project_title']) ? $section_data['project_title'] : 'Here to Know <br>About Our Project';
-    $content = !empty($section_data['project_content']) ? $section_data['project_content'] : '';
-    $info    = !empty($section_data['project_info']) ? $section_data['project_info'] : array();
-    $alt     = !empty($section_data['project_title']) ? strip_tags($section_data['project_title']) : 'Project Image';
+    $slug    = 'project-details';
+    $image   = mthan_sec_img($slug, $section_data, 'image', get_template_directory_uri() . '/assets/images/gallery/53.jpg');
+    $title   = mthan_get_section_val($slug, $section_data, 'title', 'Here to Know <br>About Our Project');
+    $content = mthan_get_section_val($slug, $section_data, 'content', '');
+    $info    = mthan_get_section_val($slug, $section_data, 'info', array());
+    $alt     = strip_tags($title);
 ?>
 <section class="project-details">
     <div class="auto-container">

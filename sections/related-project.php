@@ -72,8 +72,9 @@ function mthan_section_related_project_options()
  * @param array $section_data Per-instance CSF field values.
  */
 function mthan_section_related_project_html($section_data) {
-    $title    = !empty($section_data['related_title']) ? $section_data['related_title'] : 'Related Projects';
-    $projects = !empty($section_data['related_repeater']) ? $section_data['related_repeater'] : array();
+    $slug     = 'related-project';
+    $title    = mthan_get_section_val($slug, $section_data, 'title', 'Related Projects');
+    $projects = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="related-project">
     <div class="auto-container">

@@ -72,7 +72,8 @@ function mthan_section_facts_options()
  * Render the facts section.
  */
 function mthan_section_facts_html($section_data) {
-    $style = isset($section_data['style']) ? $section_data['style'] : '1';
+    $slug = 'facts';
+    $style = mthan_get_section_val($slug, $section_data, 'style', '1');
     
     if ($style === '2') {
         mthan_section_facts_html_2($section_data);
@@ -85,10 +86,9 @@ function mthan_section_facts_html($section_data) {
  * Style 1 Rendering (With BG)
  */
 function mthan_section_facts_html_1($section_data) {
-    $bg_image = isset($section_data['bg_image']) ? $section_data['bg_image'] : '';
-    $repeater = isset($section_data['facts_repeater']) ? $section_data['facts_repeater'] : array();
-    
-    $bg_url = !empty($bg_image['url']) ? $bg_image['url'] : get_template_directory_uri() . '/assets/images/background/image-6.jpg';
+    $slug = 'facts';
+    $bg_url = mthan_sec_img($slug, $section_data, 'bg_image', get_template_directory_uri() . '/assets/images/background/image-6.jpg');
+    $repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="facts-section">
     <div class="image-layer" style="background-image: url(<?php echo esc_url($bg_url); ?>);"></div>
@@ -123,7 +123,8 @@ function mthan_section_facts_html_1($section_data) {
  * Style 2 Rendering (Full Width Blocks)
  */
 function mthan_section_facts_html_2($section_data) {
-    $repeater = isset($section_data['facts_repeater']) ? $section_data['facts_repeater'] : array();
+    $slug = 'facts';
+    $repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="facts-two">
         <div class="outer-container">

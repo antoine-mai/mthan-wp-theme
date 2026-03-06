@@ -96,13 +96,14 @@ function mthan_section_awards_options()
  * @param array $section_data Per-instance CSF field values.
  **/ 
 function mthan_section_awards_html($section_data) { 
-    $subtitle = !empty($section_data['awards_subtitle']) ? $section_data['awards_subtitle'] : 'Our Success';
-    $title    = !empty($section_data['awards_title']) ? $section_data['awards_title'] : 'Most Awards Won <br>By a Company in <br>USA - <span class="theme_color">Pruners&CO</span>';
-    $text     = !empty($section_data['awards_text']) ? $section_data['awards_text'] : 'It is a long established fact that a reader will distracted by the readable content.';
-    $btn_text = !empty($section_data['awards_btn_text']) ? $section_data['awards_btn_text'] : 'All Our Awards';
-    $btn_link = !empty($section_data['awards_btn_link']) ? $section_data['awards_btn_link'] : '#';
-    $bg_image = !empty($section_data['awards_bg_image']['url']) ? $section_data['awards_bg_image']['url'] : get_template_directory_uri() . '/assets/images/background/awards-bg.jpg';
-    $awards   = !empty($section_data['awards_carousel']) ? $section_data['awards_carousel'] : array();
+    $slug = 'awards';
+    $subtitle = mthan_get_section_val($slug, $section_data, 'subtitle', 'Our Success');
+    $title    = mthan_get_section_val($slug, $section_data, 'title', 'Most Awards Won <br>By a Company in <br>USA - <span class="theme_color">Pruners&CO</span>');
+    $text     = mthan_get_section_val($slug, $section_data, 'text', 'It is a long established fact that a reader will distracted by the readable content.');
+    $btn_text = mthan_get_section_val($slug, $section_data, 'btn_text', 'All Our Awards');
+    $btn_link = mthan_get_section_val($slug, $section_data, 'btn_link', '#');
+    $bg_image = mthan_sec_img($slug, $section_data, 'bg_image', get_template_directory_uri() . '/assets/images/background/awards-bg.jpg');
+    $awards   = mthan_get_section_val($slug, $section_data, 'carousel', array());
 ?>
 <section class="awards-section">
         <div class="bottom-image"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/resource/anim-image-4.png" alt="<?php echo esc_attr($subtitle); ?>" title="<?php echo esc_attr($subtitle); ?>"></div>

@@ -43,10 +43,29 @@ if (is_dir($sections_path)) {
             ];
 
             $config_fields_func = 'mthan_section_' . str_replace('-', '_', $filename) . '_config_options';
+            $options_fields_func = 'mthan_section_' . str_replace('-', '_', $filename) . '_options';
             $section_config_fields = [];
+            
+            // First load special config
             if (function_exists($config_fields_func)) {
                 $section_config_fields = $config_fields_func();
-            } else {
+            }
+
+            // Then load content fields as global defaults
+            if (function_exists($options_fields_func)) {
+                $content_fields = $options_fields_func();
+                foreach($content_fields as $cf) {
+                    if (isset($cf['id'])) {
+                        $cf['id'] = 'g_' . $filename . '_' . str_replace($filename . '_', '', $cf['id']);
+                        $cf['title'] = 'Default ' . $cf['title'];
+                        // For global configs, we might not want dependencies based on local style selector
+                        if (isset($cf['dependency'])) unset($cf['dependency']);
+                        $section_config_fields[] = $cf;
+                    }
+                }
+            }
+
+            if (empty($section_config_fields)) {
                 $section_config_fields[] = [
                     'type'    => 'content',
                     'content' => 'No special configurations for ' . $section_name . ' yet.',

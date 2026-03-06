@@ -58,12 +58,13 @@ function mthan_section_project_feedback_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_project_feedback_html($section_data) {
-    $bg      = !empty($section_data['feedback_bg']['url']) ? $section_data['feedback_bg']['url'] : get_template_directory_uri() . '/assets/images/background/quote-bg.jpg';
-    $title   = !empty($section_data['feedback_title']) ? $section_data['feedback_title'] : 'Get morethan we expected';
-    $text    = !empty($section_data['feedback_text']) ? $section_data['feedback_text'] : 'Thank you for our beautiful new front! Your crew was outstanding & very professional!.';
-    $rating  = !empty($section_data['feedback_rating']) ? (int)$section_data['feedback_rating'] : 5;
-    $name    = !empty($section_data['feedback_name']) ? $section_data['feedback_name'] : 'Louie Daxon,';
-    $area    = !empty($section_data['feedback_area']) ? $section_data['feedback_area'] : 'New Orleans, usa';
+    $slug    = 'project-feedback';
+    $bg      = mthan_sec_img($slug, $section_data, 'bg', get_template_directory_uri() . '/assets/images/background/quote-bg.jpg');
+    $title   = mthan_get_section_val($slug, $section_data, 'title', 'Get morethan we expected');
+    $text    = mthan_get_section_val($slug, $section_data, 'text', 'Thank you for our beautiful new front! Your crew was outstanding & very professional!.');
+    $rating  = (int)mthan_get_section_val($slug, $section_data, 'rating', 5);
+    $name    = mthan_get_section_val($slug, $section_data, 'name', 'Louie Daxon,');
+    $area    = mthan_get_section_val($slug, $section_data, 'area', 'New Orleans, usa');
 ?>
 <section class="project-feedback">
     <div class="image-layer" style="background-image: url(<?php echo esc_url($bg); ?>);"></div>

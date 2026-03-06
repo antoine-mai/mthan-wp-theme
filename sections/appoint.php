@@ -62,16 +62,16 @@ function mthan_section_appoint_options()
  *
  * @param array $section_data Per-instance CSF field values.
  **/
-function mthan_section_appoint_html($section_data) { ?>
-<?php
-    $sec_title    = !empty($section_data['appoint_title']) ? $section_data['appoint_title'] : 'Request Job Estimate';
-    $sec_subtitle = !empty($section_data['appoint_subtitle']) ? $section_data['appoint_subtitle'] : 'About Us';
-    $btn_text     = !empty($section_data['appoint_btn_text']) ? $section_data['appoint_btn_text'] : 'Request Job Estimate';
-    $btn_link     = !empty($section_data['appoint_btn_link']) ? $section_data['appoint_btn_link'] : '#';
-    $form_title   = !empty($section_data['appoint_form_title']) ? $section_data['appoint_form_title'] : 'Create Appointment';
-    $form_text    = !empty($section_data['appoint_form_text']) ? $section_data['appoint_form_text'] : 'Fill out the form below and then Set a Day and Time that works best for you!.';
-    $success_msg  = !empty($section_data['appoint_success_msg']) ? $section_data['appoint_success_msg'] : 'Thank you for make an appoitnment!.';
-    $cal_title    = !empty($section_data['appoint_calendar_title']) ? $section_data['appoint_calendar_title'] : 'Choose Your Comfortable Time';
+function mthan_section_appoint_html($section_data) { 
+    $slug = 'appoint';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'title', 'Request Job Estimate');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'subtitle', 'About Us');
+    $btn_text     = mthan_get_section_val($slug, $section_data, 'btn_text', 'Request Job Estimate');
+    $btn_link     = mthan_get_section_val($slug, $section_data, 'btn_link', '#');
+    $form_title   = mthan_get_section_val($slug, $section_data, 'form_title', 'Create Appointment');
+    $form_text    = mthan_get_section_val($slug, $section_data, 'form_text', 'Fill out the form below and then Set a Day and Time that works best for you!.');
+    $success_msg  = mthan_get_section_val($slug, $section_data, 'success_msg', 'Thank you for make an appoitnment!.');
+    $cal_title    = mthan_get_section_val($slug, $section_data, 'calendar_title', 'Choose Your Comfortable Time');
 ?>
 <section class="appoint-section">
         <div class="auto-container">

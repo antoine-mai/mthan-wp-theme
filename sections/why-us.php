@@ -191,7 +191,8 @@ function mthan_section_why_us_options()
  * Render the why-us section.
  */
 function mthan_section_why_us_html($section_data) {
-    $style = isset($section_data['style']) ? $section_data['style'] : '1';
+    $slug = 'why-us';
+    $style = mthan_get_section_val($slug, $section_data, 'style', '1');
     
     if ($style === '2') {
         mthan_section_why_us_html_2($section_data);
@@ -206,11 +207,12 @@ function mthan_section_why_us_html($section_data) {
  * Style 1 Rendering (Grid)
  */
 function mthan_section_why_us_html_1($section_data) {
-    $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
-    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-four.png';
-    $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
-    $repeater     = !empty($section_data['why_repeater']) ? $section_data['why_repeater'] : array();
+    $slug = 'why-us';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'The Number One Choice For Landscaping');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'why choose us');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-four.png');
+    $header_text  = mthan_get_section_val($slug, $section_data, 'header_text', 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.');
+    $repeater     = mthan_get_section_val($slug, $section_data, 'why_repeater', array());
 ?>
 <section class="why-us">
         <div class="pattern-layer"></div>
@@ -261,18 +263,19 @@ function mthan_section_why_us_html_1($section_data) {
  * Style 2 Rendering (Split)
  */
 function mthan_section_why_us_html_2($section_data) {
-    $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
-    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-five.png';
-    $bg_image     = !empty($section_data['left_bg_image']['url']) ? $section_data['left_bg_image']['url'] : '';
-    $r_val        = !empty($section_data['rating_value']) ? $section_data['rating_value'] : '4.9';
-    $r_text       = !empty($section_data['rating_text']) ? $section_data['rating_text'] : 'Customer Rating';
-    $f_text       = !empty($section_data['floated_text']) ? $section_data['floated_text'] : 'Since 2008';
-    $c_text       = !empty($section_data['content_text']) ? $section_data['content_text'] : '';
-    $btn_text     = !empty($section_data['btn_text']) ? $section_data['btn_text'] : 'How We Work';
-    $btn_link     = !empty($section_data['btn_link']) ? $section_data['btn_link'] : '#';
-    $list_items   = !empty($section_data['list_items']) ? explode("\n", str_replace("\r", "", $section_data['list_items'])) : array();
-    $repeater     = !empty($section_data['why_repeater']) ? $section_data['why_repeater'] : array();
+    $slug = 'why-us';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'The Number One Choice For Landscaping');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'why choose us');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-five.png');
+    $bg_image     = mthan_sec_img($slug, $section_data, 'left_bg_image', get_template_directory_uri() . '/assets/images/background/why-us-bg.jpg');
+    $r_val        = mthan_get_section_val($slug, $section_data, 'rating_value', '4.9');
+    $r_text       = mthan_get_section_val($slug, $section_data, 'rating_text', 'Customer Rating');
+    $f_text       = mthan_get_section_val($slug, $section_data, 'floated_text', 'Since 2008');
+    $c_text       = mthan_get_section_val($slug, $section_data, 'content_text', 'It is a long established fact that a reader will distracted by the readable content.');
+    $btn_text     = mthan_get_section_val($slug, $section_data, 'btn_text', 'How We Work');
+    $btn_link     = mthan_get_section_val($slug, $section_data, 'btn_link', '#');
+    $list_items   = explode("\n", str_replace("\r", "", mthan_get_section_val($slug, $section_data, 'list_items', "Clean, Branded Vehicles\nProfessional, Uniformed Personnel\nTimely Response Guarantee\nReliable Equipment Maintained Daily")));
+    $repeater     = mthan_get_section_val($slug, $section_data, 'why_repeater', array());
 ?>
 <section class="why-us-two">
     <div class="outer-container">
@@ -351,11 +354,12 @@ function mthan_section_why_us_html_2($section_data) {
  * Style 3 Rendering (Flap)
  */
 function mthan_section_why_us_html_3($section_data) {
-    $sec_title    = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'The Number One Choice For Landscaping';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'why choose us';
-    $sec_sub_icon = !empty($section_data['sec_subtitle_icon']['url']) ? $section_data['sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-eight.png';
-    $header_text  = !empty($section_data['header_text']) ? $section_data['header_text'] : '';
-    $repeater     = !empty($section_data['why_repeater']) ? $section_data['why_repeater'] : array();
+    $slug = 'why-us';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'The Number One Choice For Landscaping');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'why choose us');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-eight.png');
+    $header_text  = mthan_get_section_val($slug, $section_data, 'header_text', 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.');
+    $repeater     = mthan_get_section_val($slug, $section_data, 'why_repeater', array());
 ?>
 <section class="why-us-three">
         <div class="auto-container">

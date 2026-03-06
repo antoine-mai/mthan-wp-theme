@@ -103,13 +103,14 @@ function mthan_section_reviews_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_reviews_html($section_data) { 
-    $sec_title        = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Happy Customers';
-    $sec_subtitle     = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Feedback';
-    $form_title       = !empty($section_data['review_form_title']) ? $section_data['review_form_title'] : '';
-    $form_text        = !empty($section_data['review_form_text']) ? $section_data['review_form_text'] : '';
-    $avg_rating       = !empty($section_data['avg_rating']) ? $section_data['avg_rating'] : '4.5';
-    $review_count     = !empty($section_data['review_count']) ? $section_data['review_count'] : '';
-    $reviews_repeater = !empty($section_data['reviews_repeater']) ? $section_data['reviews_repeater'] : array();
+    $slug = 'reviews';
+    $sec_title        = mthan_get_section_val($slug, $section_data, 'sec_title', 'Happy Customers');
+    $sec_subtitle     = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Feedback');
+    $form_title       = mthan_get_section_val($slug, $section_data, 'form_title', 'We Happy to Hear Your Feedback');
+    $form_text        = mthan_get_section_val($slug, $section_data, 'form_text', 'Keep the feedback to 200 words or less.');
+    $avg_rating       = mthan_get_section_val($slug, $section_data, 'avg_rating', '4.5');
+    $review_count     = mthan_get_section_val($slug, $section_data, 'review_count', '[24 Reviews]');
+    $reviews_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="reviews-section">
         <div class="auto-container">

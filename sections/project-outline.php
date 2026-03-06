@@ -67,8 +67,9 @@ function mthan_section_project_outline_options()
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_project_outline_html($section_data) {
-    $title    = !empty($section_data['outline_title']) ? $section_data['outline_title'] : 'Outline Of Project';
-    $outlines = !empty($section_data['outline_repeater']) ? $section_data['outline_repeater'] : array();
+    $slug     = 'project-outline';
+    $title    = mthan_get_section_val($slug, $section_data, 'title', 'Outline Of Project');
+    $outlines = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="project-outline">
     <div class="auto-container">

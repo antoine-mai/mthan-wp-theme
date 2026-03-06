@@ -138,17 +138,18 @@ function mthan_section_testimonials_options()
  */
 function mthan_section_testimonials_html($section_data)
 {
-    $style = isset($section_data['testimonials_style']) ? $section_data['testimonials_style'] : 'style-1';
+    $slug = 'testimonials';
+    $style = mthan_get_section_val($slug, $section_data, 'style', 'style-1');
 
     if ($style === 'style-2') {
         mthan_section_testimonials_html_2($section_data);
         return;
     }
 
-    $sec_title    = !empty($section_data['testi_sec_title'])              ? $section_data['testi_sec_title']              : 'Guarantee Success';
-    $sec_subtitle = !empty($section_data['testi_sec_subtitle'])           ? $section_data['testi_sec_subtitle']           : 'Testimonials';
-    $sec_desc     = !empty($section_data['testi_sec_desc'])               ? $section_data['testi_sec_desc']               : 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.';
-    $testimonials = !empty($section_data['testimonials_repeater'])  ? $section_data['testimonials_repeater']  : array();
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'testi_sec_title', 'Guarantee Success');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'testi_sec_subtitle', 'Testimonials');
+    $sec_desc     = mthan_get_section_val($slug, $section_data, 'sec_desc', 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.');
+    $testimonials = mthan_get_section_val($slug, $section_data, 'repeater', array());
 
     $fallback_imgs = array(
         get_template_directory_uri() . '/assets/images/resource/testi-thumb-1.jpg',
@@ -223,10 +224,11 @@ function mthan_section_testimonials_html($section_data)
  */
 function mthan_section_testimonials_html_2($section_data)
 {
-    $sec_title    = !empty($section_data['testi_sec_title'])             ? $section_data['testi_sec_title']             : 'What Our Clients Say';
-    $sec_subtitle = !empty($section_data['testi_sec_subtitle'])          ? $section_data['testi_sec_subtitle']          : 'Our Testimonials';
-    $testimonials = !empty($section_data['testimonials_repeater']) ? $section_data['testimonials_repeater'] : array();
-    $decorative   = !empty($section_data['decorative_thumbs'])     ? $section_data['decorative_thumbs']     : array();
+    $slug = 'testimonials';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'testi_sec_title', 'What Our Clients Say');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'testi_sec_subtitle', 'Our Testimonials');
+    $testimonials = mthan_get_section_val($slug, $section_data, 'repeater', array());
+    $decorative   = mthan_get_section_val($slug, $section_data, 'decorative_thumbs', array());
 
     $fallback_imgs = array(
         get_template_directory_uri() . '/assets/images/resource/testi-thumb-1.jpg',

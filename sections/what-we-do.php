@@ -231,10 +231,11 @@ function mthan_section_what_we_do_options()
  **/
 function mthan_section_what_we_do_html($section_data)
 {
-    $sec_title = !empty($section_data['wwd_title']) ? $section_data['wwd_title'] : 'Special Services For You';
-    $sec_subtitle = !empty($section_data['wwd_subtitle']) ? $section_data['wwd_subtitle'] : 'What We Do';
-    $sec_sub_icon = !empty($section_data['wwd_subtitle_icon']['url']) ? $section_data['wwd_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
-    $tabs = !empty($section_data['tabs_repeater']) ? $section_data['tabs_repeater'] : array();
+    $slug = 'what-we-do';
+    $sec_title = mthan_get_section_val($slug, $section_data, 'wwd_title', 'Special Services For You');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'wwd_subtitle', 'What We Do');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'wwd_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png');
+    $tabs = mthan_get_section_val($slug, $section_data, 'tabs_repeater', array());
 ?>
 <section class="what-we-do">
     <div class="tabs-box service-tabs">

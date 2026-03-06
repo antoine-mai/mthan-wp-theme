@@ -68,14 +68,15 @@ function mthan_section_blog_options()
  */
 function mthan_section_blog_html($section_data)
 {
-    $sec_subtitle = !empty($section_data['blog_sec_subtitle']) ? $section_data['blog_sec_subtitle'] : 'News & Updates';
-    $sec_sub_icon = !empty($section_data['blog_sec_subtitle_icon']['url']) ? $section_data['blog_sec_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-two.png';
-    $sec_title    = !empty($section_data['blog_sec_title'])    ? $section_data['blog_sec_title']    : 'Latest From Blog';
-    $btn_text     = !empty($section_data['blog_btn_text'])     ? $section_data['blog_btn_text']     : 'View More Blog';
-    $btn_link     = !empty($section_data['blog_btn_link'])     ? $section_data['blog_btn_link']     : '#';
-    $count        = !empty($section_data['blog_count'])        ? (int)$section_data['blog_count']   : 3;
-    $cat          = !empty($section_data['blog_category'])     ? $section_data['blog_category']     : '';
-    $paged        = (get_query_var('paged'))                   ? get_query_var('paged')             : 1;
+    $slug = 'blog';
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'News & Updates');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'sec_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png');
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'Latest From Blog');
+    $btn_text     = mthan_get_section_val($slug, $section_data, 'btn_text', 'View More Blog');
+    $btn_link     = mthan_get_section_val($slug, $section_data, 'btn_link', '#');
+    $count        = (int)mthan_get_section_val($slug, $section_data, 'count', 3);
+    $cat          = mthan_get_section_val($slug, $section_data, 'category', '');
+    $paged        = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
     $args = array(
         'post_type'      => 'post',

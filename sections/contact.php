@@ -108,7 +108,8 @@ function mthan_section_contact_options()
  * Render the contact section.
  */
 function mthan_section_contact_html($section_data) {
-    $style = isset($section_data['contact_style']) ? $section_data['contact_style'] : '1';
+    $slug = 'contact';
+    $style = mthan_get_section_val($slug, $section_data, 'style', '1');
     
     if ($style === '2') {
         mthan_section_contact_html_2($section_data);
@@ -123,10 +124,11 @@ function mthan_section_contact_html($section_data) {
  * Style 1 Rendering (Image Right)
  */
 function mthan_section_contact_html_1($section_data) {
-    $sec_title    = !empty($section_data['contact_sec_title']) ? $section_data['contact_sec_title'] : 'Contact Us';
-    $sec_subtitle = !empty($section_data['contact_sec_subtitle']) ? $section_data['contact_sec_subtitle'] : 'Get in Touch';
-    $discount     = !empty($section_data['contact_discount_text']) ? $section_data['contact_discount_text'] : 'Save up to 40%';
-    $subtext      = !empty($section_data['contact_sub_text']) ? $section_data['contact_sub_text'] : 'Get free estimates from Pruners lawn care and gardening professionals in your city.';
+    $slug = 'contact';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'Contact Us');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Get in Touch');
+    $discount     = mthan_get_section_val($slug, $section_data, 'discount_text', 'Save up to 40%');
+    $subtext      = mthan_get_section_val($slug, $section_data, 'sub_text', 'Get free estimates from Pruners lawn care and gardening professionals in your city.');
 ?>
 <section class="contact-section">
         <div class="pattern-layer"></div>
@@ -214,12 +216,13 @@ function mthan_section_contact_html_1($section_data) {
  * Style 2 Rendering (Map Left)
  */
 function mthan_section_contact_html_2($section_data) {
-    $sec_title    = !empty($section_data['contact_sec_title']) ? $section_data['contact_sec_title'] : 'Contact Us';
-    $subtext      = !empty($section_data['contact_sub_text']) ? $section_data['contact_sub_text'] : 'Fill out the form below and then Set a Day and Time that works best for you!.';
-    $map_iframe   = !empty($section_data['contact_map_iframe']) ? $section_data['contact_map_iframe'] : '';
-    $addr         = !empty($section_data['contact_info_address']) ? $section_data['contact_info_address'] : '53 Garden Street Los Anegles 90029 USA';
-    $phone        = !empty($section_data['contact_info_phone']) ? $section_data['contact_info_phone'] : '(+5) 678 90 12 345';
-    $email        = !empty($section_data['contact_info_email']) ? $section_data['contact_info_email'] : 'service@Prunersteam.com';
+    $slug = 'contact';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'Contact Us');
+    $subtext      = mthan_get_section_val($slug, $section_data, 'sub_text', 'Fill out the form below and then Set a Day and Time that works best for you!.');
+    $map_iframe   = mthan_get_section_val($slug, $section_data, 'map_iframe', '');
+    $addr         = mthan_get_section_val($slug, $section_data, 'info_address', '53 Garden Street Los Anegles 90029 USA');
+    $phone        = mthan_get_section_val($slug, $section_data, 'info_phone', '(+5) 678 90 12 345');
+    $email        = mthan_get_section_val($slug, $section_data, 'info_email', 'service@Prunersteam.com');
 ?>
 <section class="contact-two">
         <div class="pattern-layer"></div>
@@ -321,13 +324,14 @@ function mthan_section_contact_html_2($section_data) {
  * Style 3 Rendering (Split Content)
  */
 function mthan_section_contact_html_3($section_data) {
-    $sec_title    = !empty($section_data['contact_sec_title']) ? $section_data['contact_sec_title'] : 'Contact Us';
-    $sec_subtitle = !empty($section_data['contact_sec_subtitle']) ? $section_data['contact_sec_subtitle'] : 'Get in Touch';
-    $office_text  = !empty($section_data['contact_main_office_text']) ? $section_data['contact_main_office_text'] : 'PO Box 515381 Lander, Garden Street LA 90029 USA.';
-    $hours_raw    = !empty($section_data['contact_working_hours']) ? $section_data['contact_working_hours'] : "Mon-Friday: 09am to 07pm\nSat: 10.00am to 04pm";
+    $slug = 'contact';
+    $sec_title    = mthan_get_section_val($slug, $section_data, 'sec_title', 'Contact Us');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Get in Touch');
+    $office_text  = mthan_get_section_val($slug, $section_data, 'main_office_text', 'PO Box 515381 Lander, Garden Street LA 90029 USA.');
+    $hours_raw    = mthan_get_section_val($slug, $section_data, 'working_hours', "Mon-Friday: 09am to 07pm\nSat: 10.00am to 04pm");
     $hours        = explode("\n", str_replace("\r", "", $hours_raw));
-    $bg_image     = !empty($section_data['contact_form_bg_image']['url']) ? $section_data['contact_form_bg_image']['url'] : '';
-    $person_img   = !empty($section_data['contact_right_person_image']['url']) ? $section_data['contact_right_person_image']['url'] : '';
+    $bg_image     = mthan_sec_img($slug, $section_data, 'form_bg_image', '');
+    $person_img   = mthan_sec_img($slug, $section_data, 'right_person_image', '');
 ?>
 <section class="contact-three">
         <div class="outer-container">

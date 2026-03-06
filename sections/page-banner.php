@@ -34,9 +34,10 @@ function mthan_section_page_banner_options()
  */
 function mthan_section_page_banner_html($section_data)
 {
-    $bg = !empty($section_data['page_banner_image']['url']) ? esc_url($section_data['page_banner_image']['url']) : get_template_directory_uri() . '/assets/images/background/banner-image-1.jpg';
-    $title = !empty($section_data['page_banner_title']) ? $section_data['page_banner_title'] : get_the_title();
-    $breadcrumb = !empty($section_data['page_banner_breadcrumb_title']) ? $section_data['page_banner_breadcrumb_title'] : $title;
+    $slug = 'page-banner';
+    $bg = mthan_sec_img($slug, $section_data, 'image', get_template_directory_uri() . '/assets/images/background/banner-image-1.jpg');
+    $title = mthan_get_section_val($slug, $section_data, 'title', get_the_title());
+    $breadcrumb = mthan_get_section_val($slug, $section_data, 'breadcrumb_title', $title);
 ?>
 <section class="page-banner">
     <div class="image-layer" style="background-image:url(<?php echo $bg; ?>);"></div>

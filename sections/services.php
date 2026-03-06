@@ -84,10 +84,11 @@ function mthan_section_services_options()
  **/
 function mthan_section_services_html($section_data)
 {
-    $sec_subtitle = !empty($section_data['services_subtitle']) ? $section_data['services_subtitle'] : 'Our Services';
-    $sec_title = !empty($section_data['services_title']) ? $section_data['services_title'] : 'What We Offer';
-    $sec_sub_icon = !empty($section_data['services_subtitle_icon']['url']) ? $section_data['services_subtitle_icon']['url'] : get_template_directory_uri() . '/assets/images/icons/leaf-center.png';
-    $services_repeater = !empty($section_data['main_services_list']) && is_array($section_data['main_services_list']) ? $section_data['main_services_list'] : array();
+    $slug = 'services';
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'subtitle', 'Our Services');
+    $sec_title = mthan_get_section_val($slug, $section_data, 'title', 'What We Offer');
+    $sec_sub_icon = mthan_sec_img($slug, $section_data, 'subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-center.png');
+    $services_repeater = mthan_get_section_val($slug, $section_data, 'main_services_list', array());
 ?>
 <section class="main-services">
     <div class="auto-container">

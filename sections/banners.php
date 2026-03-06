@@ -40,10 +40,44 @@ function mthan_section_banners_options()
  */
 function mthan_section_banners_html($section_data)
 {
-    $raw_slides = !empty($section_data['banner_slides'])
-        && is_array($section_data['banner_slides'])
-        ? $section_data['banner_slides']
-        : array();
+    $slug = 'banners';
+    $raw_slides = mthan_get_section_val($slug, $section_data, 'slides', array());
+
+    if (empty($raw_slides)) {
+        $base = get_template_directory_uri() . '/assets/images/main-slider/';
+        $raw_slides = array(
+            array(
+                'image'     => array('url' => $base . '1.jpg'),
+                'subtitle'  => 'Welcome to Pruners',
+                'title'     => 'Brilliant Hands <br>For Your Landscaping',
+                'align'     => 'left',
+                'btn1_text' => 'Read More',
+                'btn1_link' => '#',
+                'btn2_text' => 'Contact Us',
+                'btn2_link' => '#',
+            ),
+            array(
+                'image'     => array('url' => $base . '2.jpg'),
+                'subtitle'  => 'Form of Impression',
+                'title'     => 'Complete Solution <br>for Your Landscaping',
+                'align'     => 'right',
+                'btn1_text' => 'Read More',
+                'btn1_link' => '#',
+                'btn2_text' => 'Services',
+                'btn2_link' => '#',
+            ),
+            array(
+                'image'     => array('url' => $base . '3.jpg'),
+                'subtitle'  => '100% Gurantee Works',
+                'title'     => 'We Give Guarantee <br>for Healthy Landscapes',
+                'align'     => 'left',
+                'btn1_text' => 'Read More',
+                'btn1_link' => '#',
+                'btn2_text' => 'Contact Us',
+                'btn2_link' => '#',
+            ),
+        );
+    }
 
     $slides = array();
     foreach ($raw_slides as $s) {
@@ -53,7 +87,6 @@ function mthan_section_banners_html($section_data)
 
         $btn1_id = !empty($s['btn1_link']) ? $s['btn1_link'] : '';
         $btn2_id = !empty($s['btn2_link']) ? $s['btn2_link'] : '';
-        // multiple => true returns an array; take the first selected page
         if (is_array($btn1_id)) { $btn1_id = reset($btn1_id); }
         if (is_array($btn2_id)) { $btn2_id = reset($btn2_id); }
 
@@ -63,19 +96,9 @@ function mthan_section_banners_html($section_data)
             'title'     => $title,
             'align'     => !empty($s['align'])     ? $s['align']     : 'center',
             'btn1_text' => !empty($s['btn1_text']) ? $s['btn1_text'] : '',
-            'btn1_link' => $btn1_id ? get_permalink((int) $btn1_id) : '#',
+            'btn1_link' => $btn1_id ? (is_numeric($btn1_id) ? get_permalink((int) $btn1_id) : $btn1_id) : '#',
             'btn2_text' => !empty($s['btn2_text']) ? $s['btn2_text'] : '',
-            'btn2_link' => $btn2_id ? get_permalink((int) $btn2_id) : '#',
-        );
-    }
-
-    // Fallback to default slides if none configured
-    if (empty($slides)) {
-        $base   = get_template_directory_uri() . '/assets/images/main-slider/';
-        $slides = array(
-            array('img' => $base . '0.jpg', 'subtitle' => 'High Quality &amp; Affordable Price', 'title' => 'Unique Designs', 'align' => 'center',  'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Contact Us', 'btn2_link' => '#'),
-            array('img' => $base . '0.jpg', 'subtitle' => 'Adding Perfection to Your Lawn',      'title' => 'Lawn Stylist',   'align' => 'right', 'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Services',   'btn2_link' => '#'),
-            array('img' => $base . '0.jpg', 'subtitle' => 'Solutions for Your Green Edge',       'title' => 'Build and Care', 'align' => 'left',  'btn1_text' => 'Read More', 'btn1_link' => '#', 'btn2_text' => 'Services',   'btn2_link' => '#'),
+            'btn2_link' => $btn2_id ? (is_numeric($btn2_id) ? get_permalink((int) $btn2_id) : $btn2_id) : '#',
         );
     }
     ?>

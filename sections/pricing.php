@@ -87,10 +87,11 @@ function mthan_section_pricing_options()
  **/
 function mthan_section_pricing_html($section_data)
 {
-    $sec_title = !empty($section_data['sec_title']) ? $section_data['sec_title'] : 'Pricing Plans';
-    $sec_subtitle = !empty($section_data['sec_subtitle']) ? $section_data['sec_subtitle'] : 'Our Solutions';
-    $sec_text = !empty($section_data['sec_text']) ? $section_data['sec_text'] : '';
-    $pricing_repeater = !empty($section_data['pricing_repeater']) ? $section_data['pricing_repeater'] : array();
+    $slug = 'pricing';
+    $sec_title = mthan_get_section_val($slug, $section_data, 'sec_title', 'Pricing Plans');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Solutions');
+    $sec_text = mthan_get_section_val($slug, $section_data, 'sec_text', 'How to pursue pleasure rationally encounter consequences that painful again is there anyone who loves.');
+    $pricing_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="pricing-section">
     <div class="auto-container">

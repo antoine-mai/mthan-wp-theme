@@ -34,7 +34,8 @@ function mthan_section_sponsors_options()
  * @param array $section_data Per-instance CSF field values.
  **/ 
 function mthan_section_sponsors_html($section_data) { 
-    $sponsors_repeater = !empty($section_data['sponsors_repeater']) ? $section_data['sponsors_repeater'] : array();
+    $slug = 'sponsors';
+    $sponsors_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 ?>
 <section class="sponsors-section">
         <div class="sponsors-outer">

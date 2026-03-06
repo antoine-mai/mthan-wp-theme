@@ -123,12 +123,13 @@ function mthan_section_team_options()
  */
 function mthan_section_team_html($section_data)
 {
-    $style = !empty($section_data['team_style']) ? $section_data['team_style'] : 'style-1';
-    $sec_title = !empty($section_data['team_sec_title']) ? $section_data['team_sec_title'] : 'Professional Team';
-    $sec_subtitle = !empty($section_data['team_sec_subtitle']) ? $section_data['team_sec_subtitle'] : 'Our Gardeners';
-    $btn_text = !empty($section_data['btn_text']) ? $section_data['btn_text'] : '';
-    $btn_link = !empty($section_data['btn_link']) ? $section_data['btn_link'] : '#';
-    $team_repeater = !empty($section_data['team_repeater']) ? $section_data['team_repeater'] : array();
+    $slug = 'team';
+    $style = mthan_get_section_val($slug, $section_data, 'style', 'style-1');
+    $sec_title = mthan_get_section_val($slug, $section_data, 'sec_title', 'Professional Team');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Gardeners');
+    $btn_text = mthan_get_section_val($slug, $section_data, 'btn_text', 'All Members');
+    $btn_link = mthan_get_section_val($slug, $section_data, 'btn_link', '#');
+    $team_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 
     if ($style === 'style-2') {
         mthan_section_team_html_2($section_data);
@@ -244,9 +245,10 @@ function mthan_section_team_html($section_data)
  */
 function mthan_section_team_html_2($section_data)
 {
-    $sec_title = !empty($section_data['team_sec_title']) ? $section_data['team_sec_title'] : 'Professional Team';
-    $sec_subtitle = !empty($section_data['team_sec_subtitle']) ? $section_data['team_sec_subtitle'] : 'Our Gardeners';
-    $team_repeater = !empty($section_data['team_repeater']) ? $section_data['team_repeater'] : array();
+    $slug = 'team';
+    $sec_title = mthan_get_section_val($slug, $section_data, 'sec_title', 'Professional Team');
+    $sec_subtitle = mthan_get_section_val($slug, $section_data, 'sec_subtitle', 'Our Gardeners');
+    $team_repeater = mthan_get_section_val($slug, $section_data, 'repeater', array());
 
     $fallback_imgs = array(
         get_template_directory_uri() . '/assets/images/resource/testi-thumb-1.jpg',

@@ -177,10 +177,53 @@ function mthan_include_section_items($items)
 }
 
 /**
- * Read a per-instance field value from the current section.
- * In templates: mthan_sec_val('subtitle', 'Default Text')
+ * Retrieve a section value with fallback: Instance -> Global -> Default.
+ * @param string $slug The base slug (e.g. 'about')
+ * @param array $instance_data Local section data
+ * @param string $field Suffix of the field ID (e.g. 'subtitle')
+ * @param mixed $default Hardcoded default
  */
-function mthan_sec_val($field, $default = '')
+function mthan_get_section_val($slug, $instance_data, $field, $default = '')
+{
+    $key = $slug . '_' . $field;
+    $val = isset($instance_data[$key]) ? $instance_data[$key] : '';
+
+    $is_empty = empty($val);
+    if (is_array($val) && isset($val['url']) && empty($val['url'])) $is_empty = true;
+
+    if (!$is_empty) {
+        return $val;
+    }
+
+    // Global Fallback
+    $to = get_option(MTHAN_THEME_OPTIONS, []);
+    $global_key = 'g_' . $slug . '_' . $field;
+    $global_val = isset($to[$global_key]) ? $to[$global_key] : '';
+
+    $global_empty = empty($global_val);
+    if (is_array($global_val) && isset($global_val['url']) && empty($global_val['url'])) $global_empty = true;
+
+    if (!$global_empty) {
+        return $global_val;
+    }
+
+    return $default;
+}
+
+/**
+ * Helper to get image URL with fallback.
+ */
+function mthan_sec_img($slug, $instance_data, $field, $default_url = '')
+{
+    $val = mthan_get_section_val($slug, $instance_data, $field, ['url' => $default_url]);
+    return is_array($val) && !empty($val['url']) ? $val['url'] : $default_url;
+}
+
+/**
+ * Helper to read a per-instance field value from the current section.
+ * In templates: mthan_get_sec_val_legacy('subtitle', 'Default Text')
+ */
+function mthan_get_sec_val_legacy($field, $default = '')
 {
     $sd   = isset($GLOBALS['_mthan_current_section']) ? $GLOBALS['_mthan_current_section'] : array();
     $slug = !empty($sd['section_template']) ? $sd['section_template'] : '';

@@ -63,7 +63,8 @@ function mthan_section_areas_options()
  * @param array $section_data Per-instance CSF field values.
  */
 function mthan_section_areas_html($section_data) { 
-    $blocks = !empty($section_data['areas_blocks']) ? $section_data['areas_blocks'] : array();
+    $slug = 'areas';
+    $blocks = mthan_get_section_val($slug, $section_data, 'blocks', array());
     if (empty($blocks)) return;
 ?>
 <section class="areas-section">
