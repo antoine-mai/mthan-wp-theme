@@ -76,7 +76,7 @@ function mthan_section_cta_html($section_data) {
 ?>
 <section class="call-to-action">
     <div class="auto-container">
-        <div class="row clearfix">
+        <div class="row clearfix align-items-center">
             <div class="title-col col-xl-7 col-lg-12 col-md-12">
                 <div class="inner">
                     <h4>
@@ -86,7 +86,7 @@ function mthan_section_cta_html($section_data) {
             </div>
             <div class="info-col col-xl-5 col-lg-12 col-md-12">
                 <div class="inner clearfix">
-                    <ul class="info clearfix">
+                    <ul class="info clearfix mb-0">
                         <li><a href="<?php echo esc_url($btn_link); ?>"><span><?php echo esc_html($btn_text); ?></span> <i class="arrow flaticon-play-button-1"></i></a></li>
                         <li><a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>"><span><?php echo esc_html($phone); ?></span></a></li>
                     </ul>
