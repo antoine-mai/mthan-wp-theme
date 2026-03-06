@@ -6,26 +6,30 @@ $theme_options = get_option('mthan_theme_options');
 
         <!--Upper Section-->
         <div class="upper-section">
-            <div class="left-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/resource/footer-left-image.png" alt=""></div>
-            <div class="right-image"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/resource/footer-right-image.png" alt=""></div>
+            <?php if (!empty($theme_options['footer_1_bg_left']['url'])) : ?>
+            <div class="left-image"><img src="<?php echo esc_url($theme_options['footer_1_bg_left']['url']); ?>" alt=""></div>
+            <?php endif; ?>
+            <?php if (!empty($theme_options['footer_1_bg_right']['url'])) : ?>
+            <div class="right-image"><img src="<?php echo esc_url($theme_options['footer_1_bg_right']['url']); ?>" alt=""></div>
+            <?php endif; ?>
             
             <div class="auto-container">
 
                 <div class="upper">
                     <div class="inner">
                         <div class="logo">
-                            <?php if (!empty($theme_options['footer_1_logo']['url'])) : ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_1_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
+                            <?php if (!empty($theme_options['footer_logo']['url'])) : ?>
+                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
                             <?php else : ?>
                                 <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-logo.png" alt="<?php bloginfo('name'); ?>"></a>
                             <?php endif; ?>
                         </div>
                         <div class="clearfix">
                             <div class="text-box">
-                                <?php if (!empty($theme_options['footer_1_about_text'])) : ?>
-                                <div class="text"><?php echo esc_html($theme_options['footer_1_about_text']); ?> 
-                                    <?php if (!empty($theme_options['footer_1_about_btn_text'])) : ?>
-                                    <a href="<?php echo esc_url($theme_options['footer_1_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_1_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a>
+                                <?php if (!empty($theme_options['footer_about_text'])) : ?>
+                                <div class="text"><?php echo esc_html($theme_options['footer_about_text']); ?> 
+                                    <?php if (!empty($theme_options['footer_about_btn_text'])) : ?>
+                                    <a href="<?php echo esc_url($theme_options['footer_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a>
                                     <?php endif; ?>
                                 </div>
                                 <?php endif; ?>
@@ -80,25 +84,41 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-6 col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-widget services-widget">
                                 <div class="widget-title">
-                                    <h4>Main Services</h4>
+                                    <h4><?php echo esc_html($theme_options['footer_1_services_title'] ?? 'Main Services'); ?></h4>
                                 </div>
                                 <div class="widget-content">
+                                    <?php if (!empty($theme_options['footer_1_services']) && is_array($theme_options['footer_1_services'])) : ?>
                                     <div class="row clearfix">
+                                        <?php 
+                                        $services_count = count($theme_options['footer_1_services']);
+                                        $half = ceil($services_count / 2);
+                                        $col1 = array_slice($theme_options['footer_1_services'], 0, $half);
+                                        $col2 = array_slice($theme_options['footer_1_services'], $half);
+                                        ?>
                                         <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12">
                                             <ul>
-                                                <li><a href="#"><span class="icon flaticon-hedge"></span><span class="txt">Spring Cleanup</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
-                                                <li><a href="#"><span class="icon flaticon-digging-1"></span><span class="txt">Plants Planting</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
-                                                <li><a href="#"><span class="icon flaticon-sprinkler"></span><span class="txt">Water Fountain</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
+                                                <?php foreach ($col1 as $s) : ?>
+                                                <li><a href="<?php echo esc_url($s['url'] ?? '#'); ?>">
+                                                    <?php if (!empty($s['icon'])) : ?><img src="<?php echo esc_url($s['icon']); ?>" alt="" class="icon" style="width:20px;margin-right:15px;"><?php endif; ?>
+                                                    <span class="txt"><?php echo esc_html($s['title'] ?? ''); ?></span>
+                                                    <span class="sub-txt"><?php echo esc_html($s['link_text'] ?? 'Details'); ?> <i class="arrow flaticon-play-button-1"></i></span>
+                                                </a></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </div>
                                         <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12">
                                             <ul>
-                                                <li><a href="#"><span class="icon flaticon-painting"></span><span class="txt">Hardscaping</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
-                                                <li><a href="#"><span class="icon flaticon-wheelbarrow"></span><span class="txt">Garden Care</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
-                                                <li><a href="#"><span class="icon flaticon-terrain"></span><span class="txt">Soil Preparation</span><span class="sub-txt">Details <i class="arrow flaticon-play-button-1"></i></span></a></li>
+                                                <?php foreach ($col2 as $s) : ?>
+                                                <li><a href="<?php echo esc_url($s['url'] ?? '#'); ?>">
+                                                    <?php if (!empty($s['icon'])) : ?><img src="<?php echo esc_url($s['icon']); ?>" alt="" class="icon" style="width:20px;margin-right:15px;"><?php endif; ?>
+                                                    <span class="txt"><?php echo esc_html($s['title'] ?? ''); ?></span>
+                                                    <span class="sub-txt"><?php echo esc_html($s['link_text'] ?? 'Details'); ?> <i class="arrow flaticon-play-button-1"></i></span>
+                                                </a></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </div>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +162,7 @@ $theme_options = get_option('mthan_theme_options');
                             <div class="form-group clearfix">
                                 <input type="text" name="name" value="" placeholder="Your Name *" required>
                                 <input type="email" name="email" value="" placeholder="Email Address *" required>
-                                <button type="submit" class="theme-btn btn-style-three"><span class="btn-title">Subscribe Us <i class="arrow flaticon-play-button-1"></i></span></button>
+                                <button type="submit" class="theme-btn btn-style-three"><span class="btn-title"><?php echo esc_html($theme_options['footer_newsletter_title'] ?? 'Subscribe Us'); ?> <i class="arrow flaticon-play-button-1"></i></span></button>
                             </div>
                         </form>
                     </div>

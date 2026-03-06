@@ -16,18 +16,18 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-4 col-lg-6 col-md-12 col-sm-12">
                             <div class="footer-widget about">
                                 <div class="logo">
-                                    <?php if (!empty($theme_options['footer_2_logo']['url'])) : ?>
-                                        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_2_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
+                                    <?php if (!empty($theme_options['footer_logo']['url'])) : ?>
+                                        <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
                                     <?php else : ?>
                                         <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-logo-two.png" alt="<?php bloginfo('name'); ?>"></a>
                                     <?php endif; ?>
                                 </div>
                                 <div class="text-box">
-                                    <?php if (!empty($theme_options['footer_2_about_text'])) : ?>
-                                    <div class="text"><?php echo esc_html($theme_options['footer_2_about_text']); ?></div>
+                                    <?php if (!empty($theme_options['footer_about_text'])) : ?>
+                                    <div class="text"><?php echo esc_html($theme_options['footer_about_text']); ?></div>
                                     <?php endif; ?>
-                                    <?php if (!empty($theme_options['footer_2_about_btn_text'])) : ?>
-                                    <div class="link"><a href="<?php echo esc_url($theme_options['footer_2_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_2_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a></div>
+                                    <?php if (!empty($theme_options['footer_about_btn_text'])) : ?>
+                                    <div class="link"><a href="<?php echo esc_url($theme_options['footer_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a></div>
                                     <?php endif; ?>
                                 </div>
                                 <?php if (!empty($theme_options['contact_hours'])) : ?>
@@ -98,7 +98,7 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-4 col-lg-6 col-md-12 col-sm-12">
                             <div class="footer-widget newsletter-box">
                                 <div class="widget-title">
-                                    <h4>Subscribe Us</h4>
+                                    <h4><?php echo esc_html($theme_options['footer_newsletter_title'] ?? 'Subscribe Us'); ?></h4>
                                 </div>
                                 <div class="subscribe-box">
                                     <?php if (!empty($theme_options['footer_2_newsletter_text'])) : ?>
