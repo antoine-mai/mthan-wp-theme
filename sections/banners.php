@@ -15,7 +15,7 @@ function mthan_section_banners_options()
     return array(
         array('type' => 'subheading', 'content' => 'Banner Section Options'),
         array(
-            'id'           => 'banner_slides',
+            'id'           => 'slides',
             'type'         => 'group',
             'title'        => 'Slides',
             'button_title' => '+ Add Slide',
@@ -28,6 +28,32 @@ function mthan_section_banners_options()
                 mthan_page_select_field('btn1_link', 'Button 1 Page'),
                 array('id' => 'btn2_text','type' => 'text',   'title' => 'Button 2 Text', 'default' => 'Contact Us'),
                 mthan_page_select_field('btn2_link', 'Button 2 Page'),
+            ),
+            'default'      => array(
+                array(
+                    'title'     => 'Brilliant Hands <br>For Your Landscaping',
+                    'subtitle'  => 'Welcome to Pruners',
+                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/1.jpg'),
+                    'align'     => 'left',
+                    'btn1_text' => 'Read More',
+                    'btn2_text' => 'Contact Us',
+                ),
+                array(
+                    'title'     => 'Complete Solution <br>for Your Landscaping',
+                    'subtitle'  => 'Form of Impression',
+                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/2.jpg'),
+                    'align'     => 'right',
+                    'btn1_text' => 'Read More',
+                    'btn2_text' => 'Services',
+                ),
+                array(
+                    'title'     => 'We Give Guarantee <br>for Healthy Landscapes',
+                    'subtitle'  => '100% Gurantee Works',
+                    'image'     => array('url' => get_template_directory_uri() . '/assets/images/main-slider/3.jpg'),
+                    'align'     => 'left',
+                    'btn1_text' => 'Read More',
+                    'btn2_text' => 'Contact Us',
+                ),
             ),
         ),
     );
@@ -118,7 +144,7 @@ function mthan_section_banners_html($section_data)
                             <?php } ?>
                             <?php if ($slide['title']) { ?>
                             <h1>
-                                <?php echo esc_html($slide['title']); ?>
+                                <?php echo wp_kses_post($slide['title']); ?>
                             </h1>
                             <?php } ?>
                             <div class="link-box clearfix">
