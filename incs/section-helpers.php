@@ -302,15 +302,32 @@ function mthan_page_select_field($id, $title, $args = array(), $multiple = false
 /**
  * Render global sections from Theme Options > Layout Settings.
  */
-function mthan_render_global_sections($position = 'before', $page_type = 'main')
+function mthan_render_global_sections($position = 'before', $page_type = 'page')
 {
     $theme_options = get_option('mthan_theme_options');
     $layouts_tabs  = !empty($theme_options['layouts_tabs']) ? $theme_options['layouts_tabs'] : array();
     
-    // Construct the global key (e.g., main_layout_before_content, service_layout_after_content)
-    $global_key    = $page_type . '_layout_' . $position . '_content';
-    $items         = !empty($layouts_tabs[$global_key]) ? $layouts_tabs[$global_key] : array();
-    mthan_include_section_items($items);
+    // 1. Output Global Page Layout logic
+    $global_base_key = 'page_layout_' . $position . '_content';
+    $disable_global = false;
+    
+    if ($page_type !== 'page' && $page_type !== 'main') {
+        $disable_global = !empty($layouts_tabs['disable_page_layout_' . $page_type]) ? $layouts_tabs['disable_page_layout_' . $page_type] : false;
+    }
+    
+    if (!$disable_global) {
+        // Fallback checks 'main_layout_' for legacy data, but defaults to 'page_layout_'
+        $legacy_base_key = 'main_layout_' . $position . '_content';
+        $global_items = !empty($layouts_tabs[$global_base_key]) ? $layouts_tabs[$global_base_key] : (!empty($layouts_tabs[$legacy_base_key]) ? $layouts_tabs[$legacy_base_key] : array());
+        mthan_include_section_items($global_items);
+    }
+    
+    // 2. Output Specific Page Type (e.g., Blog or Service) layout logic
+    if ($page_type !== 'page' && $page_type !== 'main') {
+        $specific_key = $page_type . '_layout_' . $position . '_content';
+        $specific_items = !empty($layouts_tabs[$specific_key]) ? $layouts_tabs[$specific_key] : array();
+        mthan_include_section_items($specific_items);
+    }
 }
 
 /**
@@ -324,7 +341,8 @@ function mthan_get_layout_type()
 
     if (is_page()) {
         $meta      = get_post_meta(get_the_ID(), 'mthan_page_options', true);
-        $type      = !empty($meta['page_layout_type']) ? $meta['page_layout_type'] : 'main';
+        $type      = !empty($meta['page_layout_type']) ? $meta['page_layout_type'] : 'page';
+        if ($type === 'main') $type = 'page';
         return $type;
     }
 
@@ -332,7 +350,7 @@ function mthan_get_layout_type()
         return 'blog';
     }
 
-    return 'main';
+    return 'page';
 }
 
 /**

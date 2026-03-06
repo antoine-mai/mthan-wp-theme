@@ -14,7 +14,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
             'type' => 'tabbed',
             'tabs' => [
                 [
-                    'title' => 'Main Layout',
+                    'title' => 'Page Layout',
                     'icon' => 'fas fa-home',
                     'fields' => [
                         [
@@ -22,7 +22,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'Before Content',
                         ],
                         [
-                            'id' => 'main_layout_before_content',
+                            'id' => 'page_layout_before_content',
                             'type' => 'group',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => true,
@@ -54,7 +54,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'After Content',
                         ],
                         [
-                            'id' => 'main_layout_after_content',
+                            'id' => 'page_layout_after_content',
                             'type' => 'group',
                             'button_title' => 'Add New Section',
                             'accordion_title_auto' => true,
@@ -97,6 +97,12 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                 'list'   => 'List View',
                             ],
                             'default' => 'grid-2',
+                        ],
+                        [
+                            'id'      => 'disable_page_layout_blog',
+                            'type'    => 'switcher',
+                            'title'   => 'Disable Global Page Layout Elements',
+                            'default' => false,
                         ],
                         [
                             'type'    => 'subheading',
@@ -168,6 +174,12 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'title' => 'Service Layout',
                     'icon' => 'fas fa-tools',
                     'fields' => [
+                        [
+                            'id'      => 'disable_page_layout_service',
+                            'type'    => 'switcher',
+                            'title'   => 'Disable Global Page Layout Elements',
+                            'default' => false,
+                        ],
                         [
                             'type'    => 'subheading',
                             'content' => 'Before Content',
