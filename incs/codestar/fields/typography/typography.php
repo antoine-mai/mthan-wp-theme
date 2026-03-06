@@ -523,8 +523,15 @@ if ( ! class_exists( 'CSF_Field_typography' ) ) {
 
       foreach ( $properties as $property ) {
         if ( isset( $this->value[$property] ) && $this->value[$property] !== '' ) {
-          $unit = ( $property === 'line-height' ) ? $line_height_unit : $unit;
-          $output .= $property .':'. $this->value[$property] . $unit . $important .';';
+          $current_unit = ( $property === 'line-height' ) ? $line_height_unit : $unit;
+          $val = $this->value[$property];
+          
+          // Remove unit if it's already present in the value to avoid double units like pxpx
+          if ( ! empty( $current_unit ) ) {
+            $val = str_replace( $current_unit, '', $val );
+          }
+          
+          $output .= $property .':'. $val . $current_unit . $important .';';
         }
       }
 

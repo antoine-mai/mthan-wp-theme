@@ -40,7 +40,6 @@
 	border: none;
 	outline: none;
 	font-size: 100%;
-	line-height: inherit;
 }
 
 /***
@@ -92,7 +91,7 @@ h6 {
 	font-weight: normal;
 	margin: 0px 0px 15px;
 	background: none;
-	line-height: 1.25em;
+	line-height: 1.4;
 	font-family: 'Libre Baskerville', serif;
 }
 
