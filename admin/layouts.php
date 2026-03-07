@@ -3,27 +3,18 @@
  * Layouts Settings
  */
 
-// Parent Section
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id'    => 'layouts_settings',
     'title' => 'Layouts',
     'icon'  => 'fas fa-columns',
-]);
-
-// Sub-section: Page Layout
-CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'parent' => 'layouts_settings',
-    'id'     => 'page_layout_settings',
-    'title'  => 'Page Layout',
-    'icon'   => 'fas fa-file',
     'fields' => [
         [
-            'id'    => 'page_banner_tabs',
+            'id'    => 'layouts_tabs',
             'type'  => 'tabbed',
             'tabs'  => [
                 [
-                    'title'  => 'Banner Settings',
-                    'icon'   => 'fas fa-image',
+                    'title'  => 'Page Layout',
+                    'icon'   => 'fas fa-file',
                     'fields' => [
                         [
                             'id'      => 'global_page_banner_enable',
@@ -40,39 +31,35 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         ],
                     ],
                 ],
+                [
+                    'title'  => 'Post Layout',
+                    'icon'   => 'fas fa-edit',
+                    'fields' => [
+                        [
+                            'id' => 'blog_layout',
+                            'type' => 'select',
+                            'title' => 'Blog Layout',
+                            'options' => [
+                                'list' => 'List Layout',
+                                'grid' => 'Grid Layout',
+                            ],
+                            'default' => 'list'
+                        ],
+                        [
+                            'id'      => 'blog_sidebar',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Sidebar on Blog List',
+                            'default' => true
+                        ],
+                        [
+                            'id'      => 'blog_single_sidebar',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Sidebar on Single Post',
+                            'default' => true
+                        ]
+                    ],
+                ],
             ],
         ],
     ],
-]);
-
-// Sub-section: Post Layout
-CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'parent' => 'layouts_settings',
-    'id'     => 'post_layout_settings',
-    'title'  => 'Post Layout',
-    'icon'   => 'fas fa-edit',
-    'fields' => [
-        [
-            'id' => 'blog_layout',
-            'type' => 'select',
-            'title' => 'Blog Layout',
-            'options' => [
-                'list' => 'List Layout',
-                'grid' => 'Grid Layout',
-            ],
-            'default' => 'list'
-        ],
-        [
-            'id'      => 'blog_sidebar',
-            'type'    => 'switcher',
-            'title'   => 'Enable Sidebar on Blog List',
-            'default' => true
-        ],
-        [
-            'id'      => 'blog_single_sidebar',
-            'type'    => 'switcher',
-            'title'   => 'Enable Sidebar on Single Post',
-            'default' => true
-        ]
-    ]
 ]);
