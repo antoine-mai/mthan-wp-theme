@@ -25,7 +25,6 @@ $global_settings_fields = [
 ];
 
 $toggle_fields = [];
-$config_accordion_items = [];
 $sections_path = get_template_directory() . '/incs/sections/';
 
 if (is_dir($sections_path)) {
@@ -41,65 +40,6 @@ if (is_dir($sections_path)) {
                 'title'   => 'Enable ' . $section_name,
                 'default' => true,
             ];
-
-            $config_fields_func = 'mthan_section_' . str_replace('-', '_', $filename) . '_config_options';
-            $options_fields_func = 'mthan_section_' . str_replace('-', '_', $filename) . '_options';
-            $section_config_fields = [];
-            
-            // First load special config
-            if (function_exists($config_fields_func)) {
-                $section_config_fields = $config_fields_func();
-            }
-
-            // Then load content fields as global defaults
-            if (function_exists($options_fields_func)) {
-                $content_fields = $options_fields_func();
-                foreach($content_fields as $cf) {
-                    if (isset($cf['id'])) {
-                        $cf['id'] = 'g_' . $filename . '_' . str_replace($filename . '_', '', $cf['id']);
-                        $cf['title'] = 'Default ' . $cf['title'];
-                        // For global configs, we might not want dependencies based on local style selector
-                        if (isset($cf['dependency'])) unset($cf['dependency']);
-                        $section_config_fields[] = $cf;
-                    }
-                }
-            }
-
-            // Add Background & Padding Settings to Global Config
-            $section_config_fields[] = [
-                'type'    => 'subheading',
-                'content' => 'Section Appearance (Global Default)',
-            ];
-            $section_config_fields[] = [
-                'id'      => 'g_' . $filename . '_background',
-                'type'    => 'background',
-                'title'   => 'Default Background Settings',
-            ];
-            $section_config_fields[] = [
-                'id'      => 'g_' . $filename . '_padding',
-                'type'    => 'spacing',
-                'title'   => 'Default Padding Settings',
-                'left'    => false,
-                'right'   => false,
-                'units'   => ['px', '%', 'em', 'rem'],
-                'default' => [
-                    'top'    => '120',
-                    'bottom' => '120',
-                    'unit'   => 'px',
-                ],
-            ];
-
-            if (empty($section_config_fields)) {
-                $section_config_fields[] = [
-                    'type'    => 'content',
-                    'content' => 'No special configurations for ' . $section_name . ' yet.',
-                ];
-            }
-
-            $config_accordion_items[] = [
-                'title'  => $section_name,
-                'fields' => $section_config_fields,
-            ];
         }
     }
 }
@@ -111,19 +51,7 @@ if (empty($toggle_fields)) {
     ];
 }
 
-$config_fields = [];
-if (!empty($config_accordion_items)) {
-    $config_fields[] = [
-        'id'         => 'sections_configuration_accordion',
-        'type'       => 'accordion',
-        'accordions' => $config_accordion_items,
-    ];
-} else {
-    $config_fields[] = [
-        'type'    => 'content',
-        'content' => 'No sections found.',
-    ];
-}
+
 
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id'     => 'sections_settings',
@@ -138,11 +66,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'title'  => 'Global Settings',
                     'icon'   => 'fas fa-globe',
                     'fields' => $global_settings_fields,
-                ],
-                [
-                    'title'  => 'Configurations',
-                    'icon'   => 'fas fa-sliders-h',
-                    'fields' => $config_fields,
                 ],
                 [
                     'title'  => 'Enable / Disable',
