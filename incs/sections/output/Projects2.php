@@ -17,12 +17,12 @@ function mthan_section_Projects2_html($section_data) { ?>
     // Fixed configuration for each item to maintain Masonry layout
     $item_configs = array(
         1 => array('class' => 'col-lg-6 col-md-12 col-sm-12'),
-        2 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
-        3 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
-        4 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
-        5 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        2 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
+        3 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
+        4 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
+        5 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
         6 => array('class' => 'col-lg-6 col-md-12 col-sm-12'),
-        7 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        7 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
     );
 ?>
 <section class="projects-two">
@@ -52,7 +52,7 @@ function mthan_section_Projects2_html($section_data) { ?>
         <div class="masonry-box">
             <div class="row masonry-container clearfix">
                 <!-- Grid Sizer -->
-                <div class="project-block-two masonry-item column-width col-lg-3 col-md-6 col-sm-12" style="position: absolute; visibility: hidden; height: 0;"></div>
+                <div class="column-width col-lg-3 col-md-6 col-sm-12" style="height: 0; padding: 0; margin: 0; visibility: hidden;"></div>
 
                 <?php 
                 $options_func = 'mthan_section_Projects2_options';

@@ -504,20 +504,19 @@
 	//Default Masonry
 	function enableDefaultMasonry() {
 		if($('.masonry-container').length){
-
-			var winDow = $(window);
-			// Needed variables
-			var $container=$('.masonry-container');
-
-			$container.isotope({
-				itemSelector: '.masonry-item',
-				 masonry: {
-					columnWidth : '.column-width'
-				 },
-				animationOptions:{
-					duration:500,
-					easing:'linear'
-				}
+			$('.masonry-container').each(function(){
+				var $container = $(this);
+				$container.isotope({
+					itemSelector: '.masonry-item',
+					percentPosition: true,
+					masonry: {
+						columnWidth : '.column-width'
+					},
+					animationOptions:{
+						duration:500,
+						easing:'linear'
+					}
+				});
 			});
 		}
 	}
@@ -657,7 +656,7 @@
    ========================================================================== */
 
 	$(window).on('resize', function() {
-
+		enableDefaultMasonry();
 	});
 
 /* ==========================================================================
