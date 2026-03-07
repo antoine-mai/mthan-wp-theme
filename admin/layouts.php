@@ -137,6 +137,56 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         ],
                     ],
                 ],
+                [
+                    'title'  => 'Service Layout',
+                    'icon'   => 'fas fa-concierge-bell',
+                    'fields' => [
+                        [
+                            'type'    => 'subheading',
+                            'content' => 'Service Settings',
+                        ],
+                        [
+                            'id'      => 'service_sidebar',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Sidebar on Services',
+                            'default' => true,
+                        ],
+                        [
+                            'type'    => 'subheading',
+                            'content' => 'Content Sections',
+                        ],
+                        [
+                            'id'           => 'service_before_content',
+                            'type'         => 'group',
+                            'title'        => 'Before Service Content',
+                            'button_title' => 'Add Section',
+                            'fields'       => [
+                                [
+                                    'id'      => 'section',
+                                    'type'    => 'select',
+                                    'title'   => 'Select Section',
+                                    'options' => $sections_list,
+                                    'chosen'  => true,
+                                ],
+                            ],
+                        ],
+                        [
+                            'id'           => 'service_after_content',
+                            'type'         => 'group',
+                            'title'        => 'After Service Content',
+                            'button_title' => 'Add Section',
+                            'fields'       => [
+                                [
+                                    'id'      => 'section',
+                                    'type'    => 'select',
+                                    'title'   => 'Select Section',
+                                    'options' => $sections_list,
+                                    'chosen'  => true,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
