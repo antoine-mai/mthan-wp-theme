@@ -72,7 +72,8 @@ function mthan_get_link($link) {
  */
 function mthan_render_page_sections($position = 'before') {
     $meta = get_post_meta(get_the_ID(), MTHAN_PAGE_OPTIONS, true);
-    $sections = isset($meta['page_sections']) ? $meta['page_sections'] : array();
+    $key  = ($position === 'after') ? 'page_after_sections' : 'page_before_sections';
+    $sections = isset($meta[$key]) ? $meta[$key] : array();
 
     if (!is_array($sections)) {
         return;
@@ -80,9 +81,7 @@ function mthan_render_page_sections($position = 'before') {
 
     foreach ($sections as $section) {
         $template = isset($section['template']) ? $section['template'] : '';
-        $sec_pos  = isset($section['position']) ? $section['position'] : 'before';
-
-        if (empty($template) || $sec_pos !== $position) {
+        if (empty($template)) {
             continue;
         }
 

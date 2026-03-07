@@ -14,14 +14,13 @@ CSF::createMetabox(MTHAN_PAGE_OPTIONS, [
 
 // ── Sections Data ───────────────────────────────────────────────────
 $available_sections = array_merge(['' => '— Select Template —'], mthan_get_sections());
+$section_fields     = mthan_get_section_fields();
 
-// ── Sections ───────────────────────────────────────────────────────
-CSF::createSection(MTHAN_PAGE_OPTIONS, [
-    'title'  => 'Sections',
-    'icon'   => 'fas fa-layer-group',
-    'fields' => [
+// ── Helper to create section group ──
+$mthan_gen_section_group = function($id) use ($available_sections, $section_fields) {
+    return [
         [
-            'id'                     => 'page_sections',
+            'id'                     => $id,
             'type'                   => 'group',
             'button_title'           => 'Add Section',
             'accordion_title_auto'   => true,
@@ -35,21 +34,25 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
                         'title' => 'Select Template',
                         'options' => $available_sections,
                     ],
-                    [
-                        'id'      => 'position',
-                        'type'    => 'select',
-                        'title'   => 'Position',
-                        'options' => [
-                            'before' => 'Before Content',
-                            'after'  => 'After Content',
-                        ],
-                        'default' => 'before',
-                    ],
                 ],
-                mthan_get_section_fields()
+                $section_fields
             ),
         ],
-    ],
+    ];
+};
+
+// ── Before Content Sections ────────────────────────────────────────
+CSF::createSection(MTHAN_PAGE_OPTIONS, [
+    'title'  => 'Before Content',
+    'icon'   => 'fas fa-arrow-up',
+    'fields' => $mthan_gen_section_group('page_before_sections'),
+]);
+
+// ── After Content Sections ─────────────────────────────────────────
+CSF::createSection(MTHAN_PAGE_OPTIONS, [
+    'title'  => 'After Content',
+    'icon'   => 'fas fa-arrow-down',
+    'fields' => $mthan_gen_section_group('page_after_sections'),
 ]);
 
 // ── Settings ──────────────────────────────────────────────────────
