@@ -307,6 +307,45 @@ function mthan_render_global_sections($position = 'before', $page_type = 'page')
     $theme_options = get_option('mthan_theme_options');
     $layouts_tabs  = !empty($theme_options['layouts_tabs']) ? $theme_options['layouts_tabs'] : array();
     
+    // 0. Global Page Banner logic (only at the top of 'before' position)
+    if ($position === 'before') {
+        $render_banner = false;
+        $banner_bg = '';
+        $banner_title = get_the_title();
+
+        if (is_singular()) {
+            $post_meta = get_post_meta(get_the_ID(), MTHAN_PAGE_OPTIONS, true);
+            $hide_local = !empty($post_meta['hide_page_banner']);
+            
+            // Check Global setting from Page Layout tab
+            $global_enable = isset($layouts_tabs['global_page_banner_enable']) ? $layouts_tabs['global_page_banner_enable'] : true;
+            
+            if ($global_enable && !$hide_local) {
+                $render_banner = true;
+                // Priority: Local Meta > Global Theme Option > Default
+                $banner_bg = !empty($post_meta['page_banner_bg']['url']) ? $post_meta['page_banner_bg']['url'] : '';
+                if (!$banner_bg) {
+                    $banner_bg = !empty($layouts_tabs['global_page_banner_bg']['url']) ? $layouts_tabs['global_page_banner_bg']['url'] : '';
+                }
+                
+                if (!empty($post_meta['page_banner_title'])) {
+                    $banner_title = $post_meta['page_banner_title'];
+                }
+            }
+        }
+
+        if ($render_banner) {
+            // Using the existing section HTML function if possible
+            if (function_exists('mthan_section_page_banner_html')) {
+                // The section helper looks for prefixed keys: slug_key
+                mthan_section_page_banner_html([
+                    'page-banner_image' => ['url' => $banner_bg],
+                    'page-banner_title' => $banner_title
+                ]);
+            }
+        }
+    }
+
     // 1. Output Global Page Layout logic
     $global_base_key = 'page_layout_' . $position . '_content';
     $disable_global = false;

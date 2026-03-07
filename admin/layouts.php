@@ -19,6 +19,22 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'fields' => [
                         [
                             'type'    => 'subheading',
+                            'content' => 'Global Page Banner',
+                        ],
+                        [
+                            'id'      => 'global_page_banner_enable',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Global Banner',
+                            'default' => true,
+                        ],
+                        [
+                            'id'      => 'global_page_banner_bg',
+                            'type'    => 'upload',
+                            'title'   => 'Global Banner Background',
+                            'dependency' => ['global_page_banner_enable', '==', 'true'],
+                        ],
+                        [
+                            'type'    => 'subheading',
                             'content' => 'Before Content',
                         ],
                         [
