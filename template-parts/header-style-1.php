@@ -55,7 +55,7 @@ $theme_options = get_option('mthan_theme_options');
                             <div class="call"><?php echo esc_html($theme_options['header_1_callback_text'] ?? 'Get Call Back'); ?> <span class="icon flaticon-play-button-1"></span></div>
                         </div>
                         <div class="search-box">
-                            <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                            <form method="get" action="<?php echo esc_url(!empty($theme_options['default_search_page']) ? get_permalink($theme_options['default_search_page']) : home_url('/')); ?>">
                                 <div class="form-group">
                                     <div class="field-box">
                                         <input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Keyword ..." required="">

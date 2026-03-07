@@ -5,7 +5,8 @@
     <!-- Search Widget -->
     <div class="sidebar-widget search-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
         <div class="widget-inner">
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <?php $theme_options = get_option('mthan_theme_options'); ?>
+            <form role="search" method="get" action="<?php echo esc_url(!empty($theme_options['default_search_page']) ? get_permalink($theme_options['default_search_page']) : home_url('/')); ?>">
                 <div class="form-group">
                     <input type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>"
                         placeholder="Enter Keyword ...">
