@@ -22,6 +22,8 @@ function mthan_get_sections() {
         'HowItWorks1'  => 'How It Works 1',
         'HowItWorks2'  => 'How It Works 2',
         'Team'         => 'Team',
+        'Testimonials1' => 'Testimonials 1',
+        'Testimonials2' => 'Testimonials 2',
         // Add more sections here...
     ];
 }
