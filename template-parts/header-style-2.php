@@ -6,9 +6,6 @@
  * @since 1.0.0
 **/
 $theme_options = get_option('mthan_theme_options');
-$menu_id = !empty($theme_options['header_menu'])
-    ? $theme_options['header_menu']
-    : '';
 ?>
 <header class="main-header header-style-two">
     <?php if (!empty($theme_options['header_topbar'])) { ?>
@@ -122,12 +119,7 @@ $menu_id = !empty($theme_options['header_menu'])
                     <!-- Main Menu -->
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            <?php wp_nav_menu([
-                                'menu' => $menu_id,
-                                'container' => false,
-                                'menu_class' => 'navigation clearfix',
-                                'fallback_cb' => false
-                            ]); ?>
+                            <!-- Custom Menu Placeholder -->
                         </div>
                     </nav>
                 </div>

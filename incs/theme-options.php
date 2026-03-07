@@ -64,7 +64,7 @@ if (class_exists('CSF')) {
 
     // Metaboxes
     $metabox_dir = get_template_directory() . '/admin/metabox/';
-    foreach (['page-metabox.php', 'nav-menu-metabox.php'] as $metabox) {
+    foreach (['page-metabox.php'] as $metabox) {
         if (file_exists($metabox_dir . $metabox)) {
             require_once $metabox_dir . $metabox;
         }

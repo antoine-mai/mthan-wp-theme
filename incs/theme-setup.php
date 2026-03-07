@@ -9,7 +9,6 @@ if (!function_exists('mthan_setup')) {
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
         add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
-        add_theme_support('menus');
         load_theme_textdomain('mthan-wp', get_template_directory() . '/languages');
     }
 }
@@ -43,18 +42,6 @@ function mthan_enqueue_assets()
 
     // Theme Script
     wp_enqueue_script('mthan-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery', 'mthan-custom-script'), '1.0', true);
-}
-
-// ──────────────────────────────────────────────────────────────────
-// Nav Menu: add 'dropdown' class to items with children
-// The theme JS (custom-script.js) looks for li.dropdown to inject
-// the angle-right icon.
-// ──────────────────────────────────────────────────────────────────
-function mthan_nav_menu_css_class($classes, $item) {
-    if (in_array('menu-item-has-children', $classes, true)) {
-        $classes[] = 'dropdown';
-    }
-    return $classes;
 }
 
 // ──────────────────────────────────────────────────────────────────

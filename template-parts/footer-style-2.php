@@ -47,46 +47,24 @@ $theme_options = get_option('mthan_theme_options');
                                 <div class="widget-content">
                                     <div class="row clearfix">
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                                            <?php 
-                                            if(has_nav_menu('footer-quick-links-left')) {
-                                                wp_nav_menu(array(
-                                                    'theme_location' => 'footer-quick-links-left',
-                                                    'container' => false,
-                                                    'menu_class' => 'links',
-                                                    'fallback_cb' => false
-                                                ));
-                                            } else {
-                                                echo '<ul class="links">
-                                                    <li><a href="#">Company</a></li>
-                                                    <li><a href="#">Projects</a></li>
-                                                    <li><a href="#">Testimonials</a></li>
-                                                    <li><a href="#">News </a></li>
-                                                    <li><a href="#">Process</a></li>
-                                                    <li><a href="#">Contact Us</a></li>
-                                                </ul>';
-                                            }
-                                            ?>
+                                            <ul class="links">
+                                                <li><a href="#">Company</a></li>
+                                                <li><a href="#">Projects</a></li>
+                                                <li><a href="#">Testimonials</a></li>
+                                                <li><a href="#">News </a></li>
+                                                <li><a href="#">Process</a></li>
+                                                <li><a href="#">Contact Us</a></li>
+                                            </ul>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                                            <?php 
-                                            if(has_nav_menu('footer-quick-links-right')) {
-                                                wp_nav_menu(array(
-                                                    'theme_location' => 'footer-quick-links-right',
-                                                    'container' => false,
-                                                    'menu_class' => 'links',
-                                                    'fallback_cb' => false
-                                                ));
-                                            } else {
-                                                echo '<ul class="links">
-                                                    <li><a href="#">Services</a></li>
-                                                    <li><a href="#">Awards</a></li>
-                                                    <li><a href="#">Pricing Plan</a></li>
-                                                    <li><a href="#">Faq’s</a></li>
-                                                    <li><a href="#">Products</a></li>
-                                                    <li><a href="#">Policies</a></li>
-                                                </ul>';
-                                            }
-                                            ?>
+                                            <ul class="links">
+                                                <li><a href="#">Services</a></li>
+                                                <li><a href="#">Awards</a></li>
+                                                <li><a href="#">Pricing Plan</a></li>
+                                                <li><a href="#">Faq’s</a></li>
+                                                <li><a href="#">Products</a></li>
+                                                <li><a href="#">Policies</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -139,22 +117,11 @@ $theme_options = get_option('mthan_theme_options');
                 <div class="inner clearfix">
                     <div class="copyright"><?php echo wp_kses_post($theme_options['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.'); ?></div>
                     <div class="bottom-links">
-                        <?php 
-                        if(has_nav_menu('footer-bottom-links')) {
-                            wp_nav_menu(array(
-                                'theme_location' => 'footer-bottom-links',
-                                'container' => false,
-                                'menu_class' => 'clearfix',
-                                'fallback_cb' => false
-                            ));
-                        } else {
-                            echo '<ul class="clearfix">
-                                <li><a href="#">Terms of Service</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Sitemap</a></li>
-                            </ul>';
-                        }
-                        ?>
+                        <ul class="clearfix">
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
