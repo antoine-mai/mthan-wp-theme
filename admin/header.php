@@ -42,6 +42,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'preview' => false
                         ],
                         [
+                            'type'    => 'subheading',
+                            'content' => 'Navigation Menu Items',
+                        ],
+                        [
                             'id'              => 'menu_items',
                             'type'            => 'group',
                             'title'           => ' ',
