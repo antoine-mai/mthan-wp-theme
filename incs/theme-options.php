@@ -26,9 +26,39 @@ if (class_exists('CSF')) {
     ]);
 
     // ── Load All Sections dynamically ────────────────────────────────────────
+    $preferred_order = [
+        'general.php',
+        'typography.php',
+        'layouts.php',
+        'header.php',
+        'mobile-bar.php',
+        'home-page.php',
+        'sections.php',
+        'blog.php',
+        'search.php',
+        'contact.php',
+        'footer.php',
+        'scripts.php',
+        'update.php'
+    ];
+
+    $loaded_files = ['fields.php'];
+
+    // 1. Load priority files in exact order
+    foreach ($preferred_order as $file) {
+        if (file_exists($admin_dir . $file)) {
+            require_once $admin_dir . $file;
+            $loaded_files[] = $file;
+        }
+    }
+
+    // 2. Auto-load any new/custom files appended later
     foreach (glob($admin_dir . '*.php') as $file) {
-        if (basename($file) === 'fields.php') continue;
-        require_once $file;
+        $basename = basename($file);
+        if (!in_array($basename, $loaded_files)) {
+            require_once $file;
+            $loaded_files[] = $basename;
+        }
     }
 
     // Metaboxes
