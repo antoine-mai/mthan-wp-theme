@@ -4,35 +4,11 @@
 **/
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id'    => 'contact_settings',
-    'title' => 'Contact Form',
-    'icon'  => 'fas fa-envelope',
+    'title' => 'Contact',
+    'icon'  => 'fas fa-address-book',
     'fields' => [
-        [
-            'id'    => 'contact_phone',
-            'type'  => 'text',
-            'title' => 'Phone Number',
-        ],
-        [
-            'id'    => 'contact_email',
-            'type'  => 'text',
-            'title' => 'Email Address',
-        ],
-        [
-            'id'    => 'contact_address',
-            'type'  => 'textarea',
-            'title' => 'Address',
-        ],
-        [
-            'id'    => 'contact_working_hours',
-            'type'  => 'textarea',
-            'title' => 'Working Hours',
-            'desc'  => 'Enter working hours, one per line.',
-        ],
-        [
-            'id'    => 'contact_map_iframe',
-            'type'  => 'textarea',
-            'title' => 'Map Iframe',
-            'desc'  => 'Paste the Google Maps iframe embed code here.',
-            ],
+        mthan_page_select_field('contact_page', 'Contact Page', [
+            'desc' => 'Select the page that serves as the main contact page.'
+        ]),
     ]
 ]);
