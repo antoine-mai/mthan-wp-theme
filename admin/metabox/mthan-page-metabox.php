@@ -1,8 +1,8 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
-
-$prefix = 'mthan_page_options';
-
-CSF::createMetabox($prefix, [
+/**
+ * 
+**/
+CSF::createMetabox(MTHAN_PAGE_OPTIONS, [
     'title'        => 'Page Options',
     'post_type'    => 'mthan_page',
     'show_restore' => true,
@@ -10,7 +10,7 @@ CSF::createMetabox($prefix, [
 ]);
 
 // General
-CSF::createSection($prefix, [
+CSF::createSection(MTHAN_PAGE_OPTIONS, [
     'title'  => 'Layout',
     'icon'   => 'fas fa-columns',
     'fields' => [
@@ -50,7 +50,7 @@ CSF::createSection($prefix, [
 ]);
 
 // Page Banner
-CSF::createSection($prefix, [
+CSF::createSection(MTHAN_PAGE_OPTIONS, [
     'title'  => 'Page Banner',
     'icon'   => 'fas fa-image',
     'fields' => [
