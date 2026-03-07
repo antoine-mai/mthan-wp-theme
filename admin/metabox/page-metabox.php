@@ -109,12 +109,6 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
             'title'   => 'Hide Page Banner',
             'default' => false,
         ],
-        [
-            'id'      => 'hide_mobile_bar',
-            'type'    => 'switcher',
-            'title'   => 'Hide Mobile Bar',
-            'default' => false,
-        ],
     ],
 ]);
 

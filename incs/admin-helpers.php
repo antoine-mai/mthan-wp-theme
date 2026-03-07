@@ -179,3 +179,27 @@ function mthan_admin_git_update_js() { ?>
     });
 </script>
 <?php }
+function mthan_prefix_dependency_ids($dependency, $slug)
+{
+    if (!is_array($dependency)) {
+        return $dependency;
+    }
+
+    // Check if it's a simple condition array e.g. ['field', '==', 'val']
+    if (count($dependency) === 3 && is_string($dependency[0]) && is_string($dependency[1])) {
+        $id = $dependency[0];
+        if ($id !== 'section_template' && strpos($id, $slug . '_') !== 0) {
+            $dependency[0] = $slug . '_' . $id;
+        }
+        return $dependency;
+    }
+
+    // Otherwise recurse through nested dependencies
+    foreach ($dependency as $key => $value) {
+        if (is_array($value)) {
+            $dependency[$key] = mthan_prefix_dependency_ids($value, $slug);
+        }
+    }
+
+    return $dependency;
+}

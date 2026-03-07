@@ -55,3 +55,7 @@ add_filter('nav_menu_css_class', 'mthan_nav_menu_css_class', 10, 2);
 add_action('wp_head', 'mthan_wp_head_scripts');
 add_action('wp_body_open', 'mthan_wp_body_open_scripts');
 add_action('wp_footer', 'mthan_wp_footer_scripts', 999);
+
+// AJAX Section Field Loader (incs/admin-ajax-sections.php)
+add_action('wp_ajax_mthan_load_section_fields', 'mthan_ajax_load_section_fields');
+add_action('admin_footer', 'mthan_admin_ajax_section_loader_js');
