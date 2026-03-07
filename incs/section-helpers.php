@@ -16,7 +16,6 @@ function mthan_get_section_style_map()
      * If all values match the key, it's considered internal switching.
      */
     return array(
-        'about'           => array('about', 'about', 'about'),
         'cta'             => array('cta', 'cta'),
         'contact'         => array('contact', 'contact', 'contact'),
         'facts'           => array('facts', 'facts'),
