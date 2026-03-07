@@ -21,7 +21,7 @@ function mthan_section_Areas_html($section_data)
                     <?php foreach ($items as $item) { 
                         $title = isset($item['title']) ? $item['title'] : '';
                         $sub   = isset($item['subtitle']) ? $item['subtitle'] : '';
-                        $icon  = mthan_sec_img(isset($item['icon']) ? $item['icon'] : '');
+                        $icon  = isset($item['icon']) ? $item['icon'] : '';
                         $link  = mthan_get_link(isset($item['link']) ? $item['link'] : '');
                         ?>
                         <!--Area Block-->
@@ -29,9 +29,7 @@ function mthan_section_Areas_html($section_data)
                             <div class="inner">
                                 <div class="content">
                                     <div class="icon">
-                                        <?php if ($icon) { ?>
-                                            <span class="icon"><img src="<?php echo esc_url($icon); ?>" alt="icon"></span>
-                                        <?php } ?>
+                                        <?php echo mthan_get_icon_html($icon); ?>
                                     </div>
                                     <h5>
                                         <a href="<?php echo esc_url($link); ?>">

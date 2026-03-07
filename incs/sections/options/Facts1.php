@@ -50,8 +50,8 @@ function mthan_section_Facts1_options() {
             'fields' => array(
                 array(
                     'id'    => 'icon',
-                    'type'  => 'text',
-                    'title' => 'Icon Class',
+                    'type'  => 'upload',
+                    'title' => 'Icon (Image or flaticon class)',
                 ),
                 array(
                     'id'    => 'count',

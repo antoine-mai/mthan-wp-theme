@@ -32,7 +32,7 @@ function mthan_section_Facts1_html($section_data) { ?>
             <div class="fact-block col-lg-3 col-md-6 col-sm-12">
                 <div class="inner">
                     <?php if ($icon) { ?>
-                    <div class="icon-box"><span class="<?php echo esc_attr($icon); ?>"></span></div>
+                    <div class="icon-box"><?php echo mthan_get_icon_html($icon); ?></div>
                     <?php } ?>
                     
                     <div class="fact-count">

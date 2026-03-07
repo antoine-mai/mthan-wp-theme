@@ -72,6 +72,24 @@ function mthan_get_link($link) {
 }
 
 /**
+ * Intelligent Icon Renderer.
+ * Supports both Image URLs and Icon Classes.
+ */
+function mthan_get_icon_html($val, $attr = '') {
+    if (empty($val)) return '';
+    
+    $url = mthan_sec_img($val);
+    
+    // If it contains a slash or common image extension, treat as image
+    if (strpos($url, '/') !== false || preg_match('/\.(jpg|jpeg|png|gif|svg|webp)/i', $url)) {
+        return '<img src="' . esc_url($url) . '" alt="icon" ' . $attr . '>';
+    }
+    
+    // Otherwise it's likely a flaticon/fa class
+    return '<span class="' . esc_attr($val) . '" ' . $attr . '></span>';
+}
+
+/**
  * Render all sections for a post.
  */
 function mthan_render_page_sections($position = 'before') {
