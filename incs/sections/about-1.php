@@ -83,7 +83,6 @@ function mthan_section_about_1_html($section_data) {
                     </div>
                 </div>
                 <!--Image Column-->
-                <?php /*
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner">
                         <div class="image-box">
@@ -103,20 +102,6 @@ function mthan_section_about_1_html($section_data) {
                                 <div class="txt">
                                     <?php echo wp_kses_post($exp_text); ?>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                */ ?>
-                <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner">
-                        <div class="image-box clearfix">
-                            <figure class="image"><img src="images/resource/featured-image-1.jpg" alt="" title=""></figure>
-                            <div class="anim-image"><img src="images/resource/anim-image-1.png" alt="" title=""></div>
-                            <div class="caption">
-                                <span class="icon flaticon-leaves"></span> 
-                                <span class="big-txt">2k</span> 
-                                <span class="txt">Projects <br>were completed</span>
                             </div>
                         </div>
                     </div>
