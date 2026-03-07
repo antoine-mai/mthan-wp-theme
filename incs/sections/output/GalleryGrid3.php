@@ -1,0 +1,119 @@
+<?php defined('ABSPATH') || exit;
+
+/**
+ * Render the Gallery Grid 3 section.
+ *
+ * @param array $section_data CSF field values for this section instance.
+ */
+function mthan_section_GalleryGrid3_html($section_data) { ?>
+<?php
+    $slug = 'GalleryGrid3';
+    $title_icon  = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
+    $subtitle    = mthan_get_section_val($slug, $section_data, 'subtitle');
+    $title       = mthan_get_section_val($slug, $section_data, 'title');
+    $description = mthan_get_section_val($slug, $section_data, 'description');
+    
+    $filters     = mthan_get_section_val($slug, $section_data, 'filters', array());
+    $items       = mthan_get_section_val($slug, $section_data, 'items', array());
+    
+    $btn_text    = mthan_get_section_val($slug, $section_data, 'footer_btn_text');
+    $btn_link    = mthan_get_link(mthan_get_section_val($slug, $section_data, 'footer_btn_link'));
+?>
+<section class="gallery-section">
+    <div class="auto-container">
+        <!-- Title Box -->
+        <div class="title-box">
+            <div class="row clearfix">
+                <div class="left-col col-xl-6 col-lg-12 col-md-12">
+                    <div class="sec-title alternate">
+                        <?php if ($title_icon) { ?>
+                        <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($title_icon); ?>" alt="icon"></span></div>
+                        <?php } ?>
+                        <?php if ($subtitle) { ?>
+                        <div class="subtitle"><?php echo esc_html($subtitle); ?></div>
+                        <?php } ?>
+                        <?php if ($title) { ?>
+                        <h2><?php echo esc_html($title); ?></h2>
+                        <?php } ?>
+                    </div>
+                </div>
+                <?php if ($description) { ?>
+                <div class="right-col col-xl-6 col-lg-12 col-md-12">
+                    <div class="text"><?php echo wp_kses_post($description); ?></div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+
+        <!--MixitUp Gallery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+            <?php if (!empty($filters)) { ?>
+            <div class="gallery-filters centered clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <?php 
+                    $first = true;
+                    foreach ($filters as $f) {
+                        $f_label = isset($f['label']) ? $f['label'] : '';
+                        $f_slug  = isset($f['slug']) ? $f['slug'] : 'all';
+                        $f_count = isset($f['count']) ? $f['count'] : '';
+                        $active_class = $first ? 'active' : '';
+                    ?>
+                    <li class="<?php echo esc_attr($active_class); ?> filter" data-role="button" data-filter="<?php echo esc_attr($f_slug); ?>">
+                        <?php echo esc_html($f_label); ?>
+                        <?php if ($f_count !== '') { ?>
+                        <span class="count"><?php echo esc_html($f_count); ?></span>
+                        <?php } ?>
+                    </li>
+                    <?php $first = false; } ?>
+                </ul>
+            </div>
+            <?php } ?>
+
+            <!-- Filter List -->
+            <?php if (!empty($items)) { ?>
+            <div class="filter-list row">
+                <?php foreach ($items as $item) { 
+                    $item_title = isset($item['title']) ? $item['title'] : '';
+                    $item_cat   = isset($item['category']) ? $item['category'] : '';
+                    $item_fil   = isset($item['filters']) ? $item['filters'] : '';
+                    $item_img   = mthan_sec_img(isset($item['image']) ? $item['image'] : '');
+                    $item_lnk   = mthan_get_link(isset($item['link']) ? $item['link'] : '#');
+                ?>
+                <!-- Gallery Item -->
+                <div class="gallery-item mix all <?php echo esc_attr($item_fil); ?> col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <?php if ($item_img) { ?>
+                        <div class="image-box">
+                            <img src="<?php echo esc_url($item_img); ?>" alt="<?php echo esc_attr($item_title); ?>">
+                        </div>
+                        <?php } ?>
+                        <div class="hover-box">
+                            <div class="hvr-content">
+                                <?php if ($item_cat) { ?>
+                                <div class="cat"><a href="<?php echo esc_url($item_lnk); ?>"><?php echo esc_html($item_cat); ?></a></div>
+                                <?php } ?>
+                                <?php if ($item_title) { ?>
+                                <h5><a href="<?php echo esc_url($item_lnk); ?>"><?php echo esc_html($item_title); ?></a></h5>
+                                <?php } ?>
+                                <div class="link-box"><a href="<?php echo esc_url($item_lnk); ?>"><span class="icon flaticon-right-arrow-1"></span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+            <?php } ?>
+
+            <!-- More Box -->
+            <?php if ($btn_text) { ?>
+            <div class="more-box">
+                <a class="theme-btn btn-style-four" href="<?php echo esc_url($btn_link); ?>">
+                    <span class="btn-title"><?php echo esc_html($btn_text); ?> <i class="arrow flaticon-play-button-1"></i></span>
+                </a>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+<?php }

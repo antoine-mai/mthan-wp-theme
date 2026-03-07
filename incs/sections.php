@@ -20,6 +20,8 @@ function mthan_get_sections() {
         'WhatWeDo2' => 'What We Do 2',
         'Projects1' => 'Projects 1',
         'Projects2' => 'Projects 2',
+        'GalleryGrid3' => 'Gallery Grid 3',
+        'GalleryGrid4' => 'Gallery Grid 4',
         'WhyUs1'       => 'Why Us 1',
         'WhyUs2'       => 'Why Us 2',
         'WhyUs3'       => 'Why Us 3',
