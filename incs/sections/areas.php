@@ -37,6 +37,10 @@ function mthan_section_areas_html($section_data) {
                     $subtitle = !empty($block['subtitle']) ? $block['subtitle'] : '';
                     $icon = !empty($block['icon']) ? $block['icon'] : '';
                     $link = !empty($block['link']) ? $block['link'] : '#';
+
+                    if (is_numeric($link)) {
+                        $link = get_permalink($link);
+                    }
                 ?>
                 <!--Area Block-->
                 <div class="area-block col-lg-4 col-md-12 col-sm-12">

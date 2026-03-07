@@ -28,12 +28,7 @@ function mthan_section_areas_options()
                     'type'  => 'text',
                     'title' => 'Icon Class',
                 ),
-                array(
-                    'id'    => 'link',
-                    'type'  => 'text',
-                    'title' => 'Link URL',
-                    'default' => '#',
-                ),
+                mthan_page_select_field('link', 'Link Page'),
             ),
             'default' => array(
                 array(
