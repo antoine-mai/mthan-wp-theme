@@ -181,6 +181,22 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             ],
                             'output_mode' => 'color',
                         ],
+                        [
+                            'id'          => 'header_1_btn_icon_color',
+                            'type'        => 'color',
+                            'title'       => 'Button Icon Color',
+                            'default'     => '#24a77e',
+                            'output'      => '.main-header .header-lower .more-links .estimate-btn .icon',
+                            'output_mode' => 'color',
+                        ],
+                        [
+                            'id'          => 'header_1_btn_icon_bg',
+                            'type'        => 'color',
+                            'title'       => 'Button Icon Background',
+                            'default'     => '#ffffff',
+                            'output'      => '.main-header .header-lower .more-links .estimate-btn .icon',
+                            'output_mode' => 'background-color',
+                        ],
                     ]
                 ],
                 // 3. Style 2
