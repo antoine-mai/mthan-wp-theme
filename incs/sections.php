@@ -24,6 +24,7 @@ function mthan_get_sections() {
         'Team'         => 'Team',
         'Testimonials1' => 'Testimonials 1',
         'Testimonials2' => 'Testimonials 2',
+        'Blog'          => 'Blog',
         // Add more sections here...
     ];
 }
