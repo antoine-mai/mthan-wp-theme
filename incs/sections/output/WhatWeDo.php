@@ -54,7 +54,9 @@ function mthan_section_WhatWeDo_html($section_data) { ?>
                                     echo mthan_get_icon_html(isset($tab['tab_hover_icon']) ? $tab['tab_hover_icon'] : '', 'class="icon hvr-icon"'); 
                                 ?>
                             </div>
-                            <div class="btn-title"><?php echo esc_html(isset($tab['tab_title']) ? $tab['tab_title'] : ''); ?></div>
+                            <div class="btn-title">
+                                <?php echo esc_html(isset($tab['tab_title']) ? $tab['tab_title'] : ''); ?>
+                            </div>
                             <span class="arrow flaticon-right-1"></span>
                         </li>
                         <?php } ?>

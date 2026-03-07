@@ -52,6 +52,11 @@ function mthan_section_Projects1_options() {
             ),
             'fields' => array(
                 array(
+                    'id'    => 'title',
+                    'type'  => 'text',
+                    'title' => 'Title',
+                ),
+                array(
                     'id'    => 'image',
                     'type'  => 'upload',
                     'title' => 'Project Image',
@@ -62,11 +67,6 @@ function mthan_section_Projects1_options() {
                     'title' => 'Category',
                 ),
                 mthan_page_select_field('category_link', 'Category Link'),
-                array(
-                    'id'    => 'title',
-                    'type'  => 'text',
-                    'title' => 'Title',
-                ),
                 mthan_page_select_field('link', 'Project Link'),
             ),
         ),
