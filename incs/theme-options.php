@@ -23,6 +23,8 @@ if (class_exists('CSF')) {
         'show_reset_all'     => true,
         'show_reset_section' => true,
         'nav'                => 'normal', // Left-side tabs
+        'output_css'         => true,
+        'enqueue_webfont'    => true,
     ]);
 
     // ── Load All Sections dynamically ────────────────────────────────────────
