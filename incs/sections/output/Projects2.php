@@ -1,7 +1,7 @@
 <?php defined('ABSPATH') || exit;
 
 /**
- * Render the Projects 2 section.
+ * Render the Projects 2 section (Fixed 7 Items Masonry).
  *
  * @param array $section_data CSF field values for this section instance.
  */
@@ -13,9 +13,17 @@ function mthan_section_Projects2_html($section_data) { ?>
     $title      = mthan_get_section_val($slug, $section_data, 'title');
     $btn_text   = mthan_get_section_val($slug, $section_data, 'btn_text');
     $btn_link   = mthan_get_link(mthan_get_section_val($slug, $section_data, 'btn_link'));
-    $items      = mthan_get_section_val($slug, $section_data, 'items', array());
 
-    if (empty($items)) return;
+    // Fixed configuration for each item to maintain Masonry layout
+    $item_configs = array(
+        1 => array('class' => 'col-lg-6 col-md-12 col-sm-12'),
+        2 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        3 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        4 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        5 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        6 => array('class' => 'column-width col-lg-6 col-md-12 col-sm-12'),
+        7 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+    );
 ?>
 <section class="projects-two">
     <div class="auto-container">
@@ -43,16 +51,39 @@ function mthan_section_Projects2_html($section_data) { ?>
 
         <div class="masonry-box">
             <div class="row masonry-container clearfix">
-                <?php foreach ($items as $item) { 
+                <?php 
+                for ($i = 1; $i <= 7; $i++) {
+                    $item = mthan_get_section_val($slug, $section_data, 'item_' . $i, array());
+                    
+                    // If no saved data, manually fetch defaults defined in options
+                    if (empty($item)) {
+                        $options_func = 'mthan_section_Projects2_options';
+                        if (function_exists($options_func)) {
+                            $opts = $options_func();
+                            foreach ($opts as $opt) {
+                                if (isset($opt['id']) && $opt['id'] == 'item_' . $i && isset($opt['fields'])) {
+                                    $item = array();
+                                    foreach ($opt['fields'] as $f) {
+                                        if (isset($f['id']) && isset($f['default'])) {
+                                            $item[$f['id']] = $f['default'];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     $img    = mthan_sec_img(isset($item['image']) ? $item['image'] : '');
+                    $tit    = isset($item['title']) ? $item['title'] : '';
                     $cat    = isset($item['category']) ? $item['category'] : '';
+                    $link   = mthan_get_link(isset($item['link']) ? $item['link'] : '');
                     $cat_l  = mthan_get_link(isset($item['category_link']) ? $item['category_link'] : '');
-                    $i_tit  = isset($item['title']) ? $item['title'] : '';
-                    $i_link = mthan_get_link(isset($item['link']) ? $item['link'] : '');
-                    $width  = isset($item['width']) ? $item['width'] : 'col-lg-3 col-md-6 col-sm-12';
+                    $class  = $item_configs[$i]['class'];
+                    
+                    if (empty($img) && empty($tit)) continue;
                 ?>
                 <!--Project Block-->
-                <div class="project-block-two masonry-item <?php echo esc_attr($width); ?>">
+                <div class="project-block-two masonry-item <?php echo esc_attr($class); ?>">
                     <div class="inner-box">
                         <?php if ($img) { ?>
                         <div class="image-box">
@@ -64,8 +95,8 @@ function mthan_section_Projects2_html($section_data) { ?>
                                 <?php if ($cat) { ?>
                                 <div class="cat"><a href="<?php echo esc_url($cat_l); ?>"><?php echo esc_html($cat); ?></a></div>
                                 <?php } ?>
-                                <?php if ($i_tit) { ?>
-                                <h5><a href="<?php echo esc_url($i_link); ?>"><?php echo esc_html($i_tit); ?></a></h5>
+                                <?php if ($tit) { ?>
+                                <h5><a href="<?php echo esc_url($link); ?>"><?php echo esc_html($tit); ?></a></h5>
                                 <?php } ?>
                             </div>
                         </div>

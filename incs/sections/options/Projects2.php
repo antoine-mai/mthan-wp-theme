@@ -1,14 +1,13 @@
 <?php defined('ABSPATH') || exit;
 
 /**
- * Projects 2 Section Options
+ * Projects 2 Section Options (Fixed 7 Items for Masonry)
  */
 function mthan_section_Projects2_options() {
-    $img_path = get_template_directory_uri() . '/assets/images/resource/';
     $gal_path = get_template_directory_uri() . '/assets/images/gallery/';
     $icon_path = get_template_directory_uri() . '/assets/images/icons/';
 
-    return array(
+    $options = array(
         array(
             'id'    => 'title_icon',
             'type'  => 'upload',
@@ -34,85 +33,48 @@ function mthan_section_Projects2_options() {
             'default' => 'View More',
         ),
         mthan_page_select_field('btn_link', 'Button Link'),
-        array(
-            'id'    => 'items',
-            'type'  => 'group',
-            'title' => 'Project Items',
-            'default' => array(
-                array(
-                    'image' => $gal_path . '1.jpg',
-                    'category' => 'Garden Care',
-                    'title' => 'Communual Garden',
-                    'width' => 'col-lg-6 col-md-12 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '2.jpg',
-                    'category' => 'Landscape',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-3 col-md-6 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '3.jpg',
-                    'category' => 'Garden Care',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-3 col-md-6 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '4.jpg',
-                    'category' => 'Landscape',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-3 col-md-6 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '6.jpg',
-                    'category' => 'Garden Care',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-3 col-md-6 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '7.jpg',
-                    'category' => 'Garden Care',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-6 col-md-12 col-sm-12',
-                ),
-                array(
-                    'image' => $gal_path . '5.jpg',
-                    'category' => 'Garden Care',
-                    'title' => 'Outdoor Living',
-                    'width' => 'col-lg-3 col-md-6 col-sm-12',
-                ),
-            ),
+    );
+
+    // Define 7 Fixed Items with their default values
+    $defaults = array(
+        1 => array('title' => 'Communual Garden', 'category' => 'Garden Care', 'image' => $gal_path . '1.jpg'),
+        2 => array('title' => 'Outdoor Living', 'category' => 'Landscape', 'image' => $gal_path . '2.jpg'),
+        3 => array('title' => 'Outdoor Living', 'category' => 'Garden Care', 'image' => $gal_path . '3.jpg'),
+        4 => array('title' => 'Outdoor Living', 'category' => 'Landscape', 'image' => $gal_path . '4.jpg'),
+        5 => array('title' => 'Outdoor Living', 'category' => 'Garden Care', 'image' => $gal_path . '6.jpg'),
+        6 => array('title' => 'Outdoor Living', 'category' => 'Garden Care', 'image' => $gal_path . '7.jpg'),
+        7 => array('title' => 'Outdoor Living', 'category' => 'Garden Care', 'image' => $gal_path . '5.jpg'),
+    );
+
+    for ($i = 1; $i <= 7; $i++) {
+        $options[] = array(
+            'id'    => 'item_' . $i,
+            'type'  => 'fieldset',
+            'title' => 'Project ' . $i . ($i == 1 || $i == 6 ? ' (Large)' : ' (Small)'),
             'fields' => array(
                 array(
                     'id'    => 'title',
                     'type'  => 'text',
                     'title' => 'Title',
-                ),
-                array(
-                    'id'    => 'image',
-                    'type'  => 'upload',
-                    'title' => 'Project Image',
+                    'default' => $defaults[$i]['title'],
                 ),
                 array(
                     'id'    => 'category',
                     'type'  => 'text',
                     'title' => 'Category',
+                    'default' => $defaults[$i]['category'],
                 ),
                 mthan_page_select_field('category_link', 'Category Link'),
-                mthan_page_select_field('link', 'Project Link'),
                 array(
-                    'id'    => 'width',
-                    'type'  => 'select',
-                    'title' => 'Column Width',
-                    'options' => array(
-                        'col-lg-6 col-md-12 col-sm-12' => 'Large (50%)',
-                        'col-lg-3 col-md-6 col-sm-12'  => 'Small (25%)',
-                        'col-lg-4 col-md-6 col-sm-12'  => 'Medium (33%)',
-                        'col-lg-12 col-md-12 col-sm-12' => 'Full (100%)',
-                    ),
-                    'default' => 'col-lg-3 col-md-6 col-sm-12',
+                    'id'    => 'image',
+                    'type'  => 'upload',
+                    'title' => 'Image',
+                    'default' => $defaults[$i]['image'],
                 ),
+                mthan_page_select_field('link', 'Project Link'),
             ),
-        ),
-    );
+        );
+    }
+
+    return $options;
 }
