@@ -48,7 +48,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         [
                             'id'              => 'menu_items',
                             'type'            => 'group',
-                            'title'           => ' ',
                             'button_title'    => 'Add New Item',
                             'accordion_title_auto' => true,
                             'accordion_title_prefix' => 'Item: ',
