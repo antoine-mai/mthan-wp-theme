@@ -6,11 +6,15 @@ $theme_options = get_option('mthan_theme_options');
 
         <!--Upper Section-->
         <div class="upper-section">
-            <?php if (!empty($theme_options['footer_1_bg_left']['url'])) : ?>
-            <div class="left-image"><img src="<?php echo esc_url($theme_options['footer_1_bg_left']['url']); ?>" alt=""></div>
+            <?php 
+            $bg_left_url = mthan_get_img_url($theme_options['footer_1_bg_left'] ?? '');
+            $bg_right_url = mthan_get_img_url($theme_options['footer_1_bg_right'] ?? '');
+            ?>
+            <?php if (!empty($bg_left_url)) : ?>
+            <div class="left-image"><img src="<?php echo esc_url($bg_left_url); ?>" alt=""></div>
             <?php endif; ?>
-            <?php if (!empty($theme_options['footer_1_bg_right']['url'])) : ?>
-            <div class="right-image"><img src="<?php echo esc_url($theme_options['footer_1_bg_right']['url']); ?>" alt=""></div>
+            <?php if (!empty($bg_right_url)) : ?>
+            <div class="right-image"><img src="<?php echo esc_url($bg_right_url); ?>" alt=""></div>
             <?php endif; ?>
             
             <div class="auto-container">
@@ -18,11 +22,10 @@ $theme_options = get_option('mthan_theme_options');
                 <div class="upper">
                     <div class="inner">
                         <div class="logo">
-                            <?php if (!empty($theme_options['footer_logo']['url'])) : ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($theme_options['footer_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>"></a>
-                            <?php else : ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/footer-logo.png" alt="<?php bloginfo('name'); ?>"></a>
-                            <?php endif; ?>
+                            <?php 
+                            $footer_logo_url = mthan_get_img_url($theme_options['footer_logo'] ?? '', get_template_directory_uri() . '/assets/images/footer-logo.png');
+                            ?>
+                            <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php bloginfo('name'); ?>"></a>
                         </div>
                         <div class="clearfix">
                             <div class="text-box">

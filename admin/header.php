@@ -30,21 +30,24 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
         ],
         [
             'id' => 'header_logo',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Header Logo',
             'desc' => 'Upload a custom logo for the header.',
+            'preview' => false
         ],
         [
             'id' => 'header_sticky_logo',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Sticky Header Logo',
             'desc' => 'Upload a custom logo for the sticky header.',
+            'preview' => false
         ],
         [
             'id' => 'header_nav_logo',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Mobile/Nav Header Logo',
             'desc' => 'Upload a custom logo for the mobile navigation menu.',
+            'preview' => false
         ],
         [
             'id' => 'header_topbar',
@@ -138,8 +141,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
         ],
         [
             'id' => 'header_2_iso_image',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'ISO Image',
+            'preview' => false,
             'dependency' => ['header_layout', '==', 'style-2'],
         ],
 

@@ -80,3 +80,17 @@ function mthan_wp_footer_scripts() {
         echo $options['footer_scripts'] . "\n";
     }
 }
+
+/**
+ * Safe helper to get image URL from Theme Options (supports both 'media' and 'upload' fields).
+ */
+function mthan_get_img_url($field_value, $default_url = '')
+{
+    if (empty($field_value)) {
+        return $default_url;
+    }
+    if (is_array($field_value)) {
+        return !empty($field_value['url']) ? $field_value['url'] : $default_url;
+    }
+    return $field_value;
+}

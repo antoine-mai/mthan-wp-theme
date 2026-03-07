@@ -88,15 +88,12 @@ $menu_id = !empty($theme_options['header_menu'])
                 <!--Logo-->
                 <div class="logo-box">
                     <div class="logo">
-                        <?php if (!empty($theme_options['header_logo']['url'])) : ?>
+                        <?php 
+                        $logo_url = mthan_get_img_url($theme_options['header_logo'] ?? '', get_template_directory_uri() . '/assets/images/logo.png');
+                        ?>
                         <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-                            <img src="<?php echo esc_url($theme_options['header_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>">
+                            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>">
                         </a>
-                        <?php else : ?>
-                        <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="<?php bloginfo('name'); ?>">
-                        </a>
-                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="other-links clearfix">
@@ -176,15 +173,12 @@ $menu_id = !empty($theme_options['header_menu'])
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <?php if (!empty($theme_options['header_sticky_logo']['url'])) { ?>
+                <?php 
+                $sticky_logo_url = mthan_get_img_url($theme_options['header_sticky_logo'] ?? '', get_template_directory_uri() . '/assets/images/sticky-logo.png');
+                ?>
                 <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo esc_url($theme_options['header_sticky_logo']['url']); ?>" alt="<?php bloginfo('name'); ?>" />
+                    <img src="<?php echo esc_url($sticky_logo_url); ?>" alt="<?php bloginfo('name'); ?>" />
                 </a>
-                <?php } else { ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/sticky-logo.png" alt="<?php bloginfo('name'); ?>" />
-                </a>
-                <?php } ?>
             </div>
             <!--Right Col-->
             <div class="pull-right clearfix">
@@ -218,15 +212,12 @@ $menu_id = !empty($theme_options['header_menu'])
         
         <nav class="menu-box">
             <div class="nav-logo">
-                <?php if (!empty($theme_options['header_nav_logo']['url'])) { ?>
+                <?php 
+                $nav_logo_url = mthan_get_img_url($theme_options['header_nav_logo'] ?? '', get_template_directory_uri() . '/assets/images/nav-logo.png');
+                ?>
                 <a href="<?php echo esc_url(home_url('/')); ?>">
-                    <img src="<?php echo esc_url($theme_options['header_nav_logo']['url']); ?>" alt="" title="" />
+                    <img src="<?php echo esc_url($nav_logo_url); ?>" alt="" title="" />
                 </a>
-                <?php } else { ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/nav-logo.png" alt="" title="" />
-                </a>
-                <?php } ?>
             </div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
             <!--Social Links-->

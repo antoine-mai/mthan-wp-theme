@@ -19,8 +19,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
         ],
         [
             'id' => 'footer_logo',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Footer Logo',
+            'preview' => false
         ],
         [
             'id' => 'footer_about_text',
@@ -58,14 +59,16 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
         // -------------------------
         [
             'id' => 'footer_1_bg_left',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Background Image Left',
+            'preview' => false,
             'dependency' => ['footer_layout', '==', 'style-1'],
         ],
         [
             'id' => 'footer_1_bg_right',
-            'type' => 'media',
+            'type' => 'upload',
             'title' => 'Background Image Right',
+            'preview' => false,
             'dependency' => ['footer_layout', '==', 'style-1'],
         ],
         [
