@@ -41,17 +41,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'desc'    => 'Default: assets/images/nav-logo.png',
                             'preview' => false
                         ],
-                    ]
-                ],
-                // 2. Menu Items
-                [
-                    'title'  => 'Menu Items',
-                    'icon'   => 'fas fa-list',
-                    'fields' => [
+                        [
+                            'type'    => 'subheading',
+                            'content' => 'Navigation Menu Items',
+                        ],
                         [
                             'id'              => 'menu_items',
                             'type'            => 'group',
-                            'title'           => 'Navigation Menu',
+                            'title'           => 'Menu Items',
                             'button_title'    => 'Add New Item',
                             'accordion_title_auto' => true,
                             'accordion_title_prefix' => 'Item: ',
@@ -111,7 +108,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         ],
                     ]
                 ],
-                // 3. Style 1
+                // 2. Style 1
                 [
                     'title'  => 'Style 1',
                     'icon'   => 'fas fa-paint-brush',
@@ -183,7 +180,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         ],
                     ]
                 ],
-                // 4. Style 2
+                // 3. Style 2
                 [
                     'title'  => 'Style 2',
                     'icon'   => 'fas fa-paint-brush',
@@ -236,7 +233,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                         ],
                     ]
                 ],
-                // 5. Sticky Header
+                // 4. Sticky Header
                 [
                     'title'  => 'Sticky',
                     'icon'   => 'fas fa-thumbtack',
