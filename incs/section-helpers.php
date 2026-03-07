@@ -79,7 +79,7 @@ function mthan_get_available_base_sections()
  */
 function mthan_get_section_bg_css($section_data)
 {
-    $styles = array();
+    $styles = [];
     $slug = !empty($section_data['section_template']) ? $section_data['section_template'] : '';
     if (!$slug) return '';
 
