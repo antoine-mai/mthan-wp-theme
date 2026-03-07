@@ -25,23 +25,21 @@ $global_settings_fields = [
 ];
 
 $toggle_fields = [];
-$sections_path = get_template_directory() . '/incs/sections/';
+$registered    = function_exists('mthan_get_registered_sections') ? mthan_get_registered_sections() : array();
+$variant_slugs = function_exists('mthan_get_section_variant_slugs') ? mthan_get_section_variant_slugs() : array();
 
-if (is_dir($sections_path)) {
-    $files = glob($sections_path . '*.php');
-    if ($files) {
-        foreach ($files as $file) {
-            $filename = basename($file, '.php');
-            $section_name = ucwords(str_replace('-', ' ', $filename));
-            
-            $toggle_fields[] = [
-                'id'      => 'enable_section_' . str_replace('-', '_', $filename),
-                'type'    => 'switcher',
-                'title'   => 'Enable ' . $section_name,
-                'default' => true,
-            ];
-        }
+foreach ($registered as $slug) {
+    if (in_array($slug, $variant_slugs)) {
+        continue;
     }
+    $section_name = ucwords(str_replace('-', ' ', $slug));
+    
+    $toggle_fields[] = [
+        'id'      => 'enable_section_' . str_replace('-', '_', $slug),
+        'type'    => 'switcher',
+        'title'   => 'Enable ' . $section_name,
+        'default' => true,
+    ];
 }
 
 if (empty($toggle_fields)) {

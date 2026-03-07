@@ -1,9 +1,4 @@
 <?php defined('ABSPATH') || exit;
-
-// ──────────────────────────────────────────────────────────────────
-// Section Style Map & Variant Helpers
-// ──────────────────────────────────────────────────────────────────
-
 /**
  * Returns list of sections that have style variants.
  * Key = base section slug, value = array of file slugs (index = style number - 1).
