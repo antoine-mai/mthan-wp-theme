@@ -6,8 +6,8 @@
  * @param array $section_data Per-instance CSF field values.
  **/
 function mthan_section_cta_html($section_data) { 
-    $slug = 'cta';
-    $style = isset($section_data['section_style']) ? $section_data['section_style'] : '1';
+    $slug  = 'cta';
+    $style = mthan_get_section_val($slug, $section_data, 'section_style', '1');
     
     if ($style === '2') {
         mthan_section_cta_html_2($section_data);

@@ -5,8 +5,8 @@
  * Render the why-us section.
  */
 function mthan_section_why_us_html($section_data) {
-    $slug = 'why-us';
-    $style = isset($section_data['section_style']) ? $section_data['section_style'] : '1';
+    $slug  = 'why-us';
+    $style = mthan_get_section_val($slug, $section_data, 'section_style', '1');
     
     if ($style === '2') {
         mthan_section_why_us_html_2($section_data);

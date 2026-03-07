@@ -5,8 +5,8 @@
  * Render the projects section.
  */
 function mthan_section_projects_html($section_data) {
-    $slug = 'projects';
-    $style = isset($section_data['section_style']) ? $section_data['section_style'] : '1';
+    $slug  = 'projects';
+    $style = mthan_get_section_val($slug, $section_data, 'section_style', '1');
     
     if ($style === '2') {
         mthan_section_projects_html_2($section_data);
