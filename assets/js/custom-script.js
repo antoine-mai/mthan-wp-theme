@@ -503,7 +503,7 @@
 
 	//Default Masonry
 	function enableDefaultMasonry() {
-		if($('.masonry-container').length){
+		if($('.masonry-container').length && typeof $.fn.isotope === 'function'){
 			$('.masonry-container').each(function(){
 				var $container = $(this);
 				$container.isotope({
@@ -520,7 +520,6 @@
 			});
 		}
 	}
-	enableDefaultMasonry();
 
 	//Sortable Masonary with Filters
 	function sortableMasonry() {
