@@ -520,6 +520,7 @@
 			});
 		}
 	}
+	enableDefaultMasonry();
 
 	//Sortable Masonary with Filters
 	function sortableMasonry() {
