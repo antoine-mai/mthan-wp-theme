@@ -20,8 +20,8 @@ function mthan_section_Banners_html($section_data)
                 $subtitle = isset($slide['subtitle']) ? $slide['subtitle'] : '';
                 $title = isset($slide['title']) ? $slide['title'] : '';
                 $text = isset($slide['text']) ? $slide['text'] : '';
-                $btn1_link = isset($slide['btn1_link']) ? $slide['btn1_link'] : '';
-                $btn2_link = isset($slide['btn2_link']) ? $slide['btn2_link'] : '';
+                $btn1_link = mthan_get_link(isset($slide['btn1_link']) ? $slide['btn1_link'] : '');
+                $btn2_link = mthan_get_link(isset($slide['btn2_link']) ? $slide['btn2_link'] : '');
                 ?>
                 <!-- Slide Item -->
                 <div class="slide-item">

@@ -22,7 +22,7 @@ function mthan_section_Areas_html($section_data)
                         $title = isset($item['title']) ? $item['title'] : '';
                         $sub   = isset($item['subtitle']) ? $item['subtitle'] : '';
                         $icon  = isset($item['icon']) ? $item['icon'] : '';
-                        $link  = isset($item['link']) ? $item['link'] : '#';
+                        $link  = mthan_get_link(isset($item['link']) ? $item['link'] : '');
                         ?>
                         <!--Area Block-->
                         <div class="area-block col-lg-4 col-md-12 col-sm-12">

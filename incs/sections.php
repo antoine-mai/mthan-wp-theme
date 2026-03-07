@@ -59,6 +59,15 @@ function mthan_sec_img($val, $default = '') {
 }
 
 /**
+ * Handle link values (ID or URL).
+ */
+function mthan_get_link($link) {
+    if (empty($link)) return '#';
+    if (is_numeric($link)) return get_permalink((int) $link);
+    return $link;
+}
+
+/**
  * Render all sections for a post.
  */
 function mthan_render_page_sections($position = 'before') {
