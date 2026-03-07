@@ -1,24 +1,49 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
 
 /**
- * The Index file is now strictly used for rendering the Home Page sections 
- * configured in MTHAN Theme Options -> Home Page.
+ * The Index file renders the Front Page (or static page assigned as homepage).
+ * Sections are configured via the Page Options metabox (Before/After Content).
  */
-
-$options = get_option(MTHAN_THEME_OPTIONS);
-$homepage_sections = !empty($options['homepage_sections']) ? $options['homepage_sections'] : array();
 
 get_header();
 
-if (!empty($homepage_sections)) {
-    mthan_render_global_sections('before', 'main');
-    mthan_include_section_items($homepage_sections);
-    mthan_render_global_sections('after', 'main');
+if (is_front_page() || is_page()) {
+    // Get the current page's post meta
+    $post_id   = get_the_ID();
+    $post_meta = get_post_meta($post_id, MTHAN_PAGE_OPTIONS, true) ?: [];
+
+    $before = !empty($post_meta['page_before_content']) ? $post_meta['page_before_content'] : [];
+    $after  = !empty($post_meta['page_after_content'])  ? $post_meta['page_after_content']  : [];
+
+    if (!empty($before)) {
+        mthan_include_section_items($before);
+    }
+
+    // Render the page's main content (editor content)
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            if (!empty(get_the_content())) {
+                echo '<div class="page-content">';
+                the_content();
+                echo '</div>';
+            }
+        }
+    }
+
+    if (!empty($after)) {
+        mthan_include_section_items($after);
+    }
+
 } else {
-    echo '<div class="no-sections-found" style="padding: 100px 0; text-align: center;">';
-    echo '<h2>No Home Page sections configured.</h2>';
-    echo '<p>Please go to <strong>MTHAN > Home Page</strong> to add sections.</p>';
-    echo '</div>';
+    // Fallback: blog archive
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            get_template_part('template-parts/post-card');
+        }
+        the_posts_pagination();
+    }
 }
 
 get_footer();
