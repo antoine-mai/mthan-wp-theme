@@ -32,22 +32,34 @@ function mthan_section_Projects1_options() {
             'title' => 'Project Items',
             'default' => array(
                 array(
+                    'title' => 'Communual Garden',
                     'image' => $img_path . 'featured-image-2.jpg',
                     'category' => 'Garden Care',
-                    'title' => 'Communual Garden',
-                    'link'  => '',
                 ),
                 array(
+                    'title' => 'Sprinkler Irrigation',
                     'image' => $img_path . 'featured-image-3.jpg',
                     'category' => 'Lawn Care',
-                    'title' => 'Sprinkler Irrigation',
-                    'link'  => '',
                 ),
                 array(
+                    'title' => 'Rubbish Removal',
                     'image' => $img_path . 'featured-image-4.jpg',
                     'category' => 'Pathways',
+                ),
+                array(
+                    'title' => 'Communual Garden',
+                    'image' => $img_path . 'featured-image-2.jpg',
+                    'category' => 'Garden Care',
+                ),
+                array(
+                    'title' => 'Sprinkler Irrigation',
+                    'image' => $img_path . 'featured-image-3.jpg',
+                    'category' => 'Lawn Care',
+                ),
+                array(
                     'title' => 'Rubbish Removal',
-                    'link'  => '',
+                    'image' => $img_path . 'featured-image-4.jpg',
+                    'category' => 'Pathways',
                 ),
             ),
             'fields' => array(
