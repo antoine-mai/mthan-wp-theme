@@ -9,11 +9,8 @@ $layouts_tabs  = !empty($theme_options['layouts_tabs'])
 $enable_preloader = isset($layouts_tabs['preloader']) 
     ? (bool)$layouts_tabs['preloader'] 
     : true;
-$header_tabs = !empty($theme_options['header_tabs']) 
-    ? $theme_options['header_tabs'] 
-    : [];
-$header_layout = !empty($header_tabs['header_layout']) 
-    ? $header_tabs['header_layout'] 
+$header_layout = !empty($theme_options['header_layout']) 
+    ? $theme_options['header_layout'] 
     : 'style-1';
 if (is_singular()) {
     $meta_key = is_page() ? 'mthan_page_options' : 'mthan_post_options';

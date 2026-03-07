@@ -1,6 +1,6 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); 
 $theme_options = get_option('mthan_theme_options');
-$header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_tabs'] : [];
+$header_tabs = $theme_options;
 ?>
 <header class="main-header">
     <div class="header-top">
