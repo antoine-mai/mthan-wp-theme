@@ -4,22 +4,23 @@
  */
 function mthan_section_about_1_html($section_data) { ?>
 <?php
-    $slug  = 'about-1';
-    $sub_title = mthan_get_section_val($slug, $section_data, 'subtitle', 'About Us');
-    $title     = mthan_get_section_val($slug, $section_data, 'title', 'Professional Gardener');
-    $content   = mthan_get_section_val($slug, $section_data, 'about_content', '');
-    $image     = mthan_get_section_val($slug, $section_data, 'image');
-    $sub_icon  = mthan_get_section_val($slug, $section_data, 'subtitle_icon');
-    $btn_text  = mthan_get_section_val($slug, $section_data, 'btn_text', 'Read More');
-    $btn_link  = mthan_sec_link($slug, $section_data, 'btn_link', '#');
-    $vid_url   = mthan_get_section_val($slug, $section_data, 'video_url', '#');
-    $q_text    = mthan_get_section_val($slug, $section_data, 'quote_text', '');
-    $q_auth    = mthan_get_section_val($slug, $section_data, 'quote_author', '');
-    $q_des     = mthan_get_section_val($slug, $section_data, 'quote_designation', '');
+    
+    $q_des     = mthan_get_section_val($slug, $section_data, 'quote_designation');
     $sig_img   = mthan_get_section_val($slug, $section_data, 'signature_image');
+    $content   = mthan_get_section_val($slug, $section_data, 'about_content');
+    $sub_icon  = mthan_get_section_val($slug, $section_data, 'subtitle_icon');
+    $q_auth    = mthan_get_section_val($slug, $section_data, 'quote_author');
+    $q_text    = mthan_get_section_val($slug, $section_data, 'quote_text');
     $anim_img  = mthan_get_section_val($slug, $section_data, 'anim_image');
-    $exp_count = mthan_get_section_val($slug, $section_data, 'exp_count', '25');
-    $exp_text  = mthan_get_section_val($slug, $section_data, 'exp_text', 'Years of <br>Experience'); 
+    $vid_url   = mthan_get_section_val($slug, $section_data, 'video_url');
+    $exp_count = mthan_get_section_val($slug, $section_data, 'exp_count');
+    $sub_title = mthan_get_section_val($slug, $section_data, 'subtitle');
+    $btn_text  = mthan_get_section_val($slug, $section_data, 'btn_text');
+    $exp_text  = mthan_get_section_val($slug, $section_data, 'exp_text');
+    $title     = mthan_get_section_val($slug, $section_data, 'title');
+    $image     = mthan_get_section_val($slug, $section_data, 'image');
+    $btn_link  = mthan_sec_link($slug, $section_data, 'btn_link');
+    $slug      = 'about-1';
 ?>
 <section class="about-section">
     <div class="auto-container">

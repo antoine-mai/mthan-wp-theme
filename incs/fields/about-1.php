@@ -5,26 +5,36 @@
  */
 function mthan_section_about_1_options() {
     return [
-        mthan_subtitle_field('About Us'),
-        mthan_title_field('Professional Gardener'),
         [
+            'title'   => 'Section Subtitle',
+            'id'      => 'subtitle',
+            'default' => 'About Us',
+            'type'    => 'text'
+        ],
+        [
+            'default' => 'Professional Gardener',
+            'title'   => 'Section Title',
+            'id'      => 'title',
+            'type'    => 'text'
+        ],
+        [
+            'default' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png',
+            'title'   => 'Subtitle Icon',
             'id'      => 'subtitle_icon',
             'type'    => 'upload',
-            'preview' => false,
-            'title'   => 'Subtitle Icon',
-            'default' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png'
+            'preview' => false
         ],
         [
+            'default' => '<p class="bigger-text">Leader in landscaping, lawn care, and irrigation services in Los Angeles since 2004.</p><p>Must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and we will give you a complete account of the system, and expound the actualy teachings.</p>',
             'id'      => 'about_content',
             'type'    => 'wp_editor',
-            'title'   => 'Content',
-            'default' => '<p class="bigger-text">Leader in landscaping, lawn care, and irrigation services in Los Angeles since 2004.</p><p>Must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and we will give you a complete account of the system, and expound the actualy teachings.</p>',
+            'title'   => 'Content'
         ],
         [
-            'id'         => 'quote_text',
-            'type'       => 'textarea',
-            'title'      => 'Quote Text',
             'default'    => 'Our Company has established a reputation as the leader in landscape design.',
+            'id'         => 'quote_text',
+            'title'      => 'Quote Text',
+            'type'       => 'textarea'
         ],
         [
             'id'         => 'quote_author',
