@@ -31,25 +31,25 @@ function mthan_get_about_common_data($section_data)
         'text_2'   => mthan_get_section_val($slug, $section_data, 'text_2', ''),
         'btn_text' => mthan_get_section_val($slug, $section_data, 'btn_text', 'Read More'),
         'btn_link' => mthan_sec_link($slug, $section_data, 'btn_link', '#'),
-        'video_link' => mthan_sec_link($slug, $section_data, 'about_video_link', '#'),
-        'video_icon' => mthan_get_section_val($slug, $section_data, 'about_video_icon', 'flaticon-play-button-1'),
+        'video_link' => mthan_sec_link($slug, $section_data, 'video_link', '#'),
+        'video_icon' => mthan_get_section_val($slug, $section_data, 'video_icon', 'flaticon-play-button-1'),
 
-        'quote_text'  => mthan_get_section_val($slug, $section_data, 'about_quote_text', ''),
-        'quote_name'  => mthan_get_section_val($slug, $section_data, 'about_quote_name', ''),
-        'quote_desig' => mthan_get_section_val($slug, $section_data, 'about_quote_designation', ''),
+        'quote_text'  => mthan_get_section_val($slug, $section_data, 'quote_text', ''),
+        'quote_name'  => mthan_get_section_val($slug, $section_data, 'quote_name', ''),
+        'quote_desig' => mthan_get_section_val($slug, $section_data, 'quote_designation', ''),
 
-        'cert_title'  => mthan_get_section_val($slug, $section_data, 'about_cert_title', 'Certified Company'),
-        'cert_number' => mthan_get_section_val($slug, $section_data, 'about_cert_number', 'ISO 9001:2015'),
+        'cert_title'  => mthan_get_section_val($slug, $section_data, 'cert_title', 'Certified Company'),
+        'cert_number' => mthan_get_section_val($slug, $section_data, 'cert_number', 'ISO 9001:2015'),
 
-        'subtitle_icon' => mthan_sec_img($slug, $section_data, 'about_subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png'),
-        'signature'     => mthan_sec_img($slug, $section_data, 'about_signature', get_template_directory_uri() . '/assets/images/resource/signature-1.png'),
-        'feat_img'      => mthan_sec_img($slug, $section_data, 'about_featured_image', get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg'),
-        'anim_img'      => mthan_sec_img($slug, $section_data, 'about_anim_image', get_template_directory_uri() . '/assets/images/resource/anim-image-1.png'),
-        'vid_thumb'     => mthan_sec_img($slug, $section_data, 'about_vid_thumb', get_template_directory_uri() . '/assets/images/resource/vid-thumb-1.jpg'),
-        'iso_icon'      => mthan_sec_img($slug, $section_data, 'about_iso_icon', get_template_directory_uri() . '/assets/images/icons/iso-icon.png'),
+        'subtitle_icon' => mthan_sec_img($slug, $section_data, 'subtitle_icon', get_template_directory_uri() . '/assets/images/icons/leaf-two.png'),
+        'signature'     => mthan_sec_img($slug, $section_data, 'signature', get_template_directory_uri() . '/assets/images/resource/signature-1.png'),
+        'feat_img'      => mthan_sec_img($slug, $section_data, 'featured_image', get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg'),
+        'anim_img'      => mthan_sec_img($slug, $section_data, 'anim_image', get_template_directory_uri() . '/assets/images/resource/anim-image-1.png'),
+        'vid_thumb'     => mthan_sec_img($slug, $section_data, 'vid_thumb', get_template_directory_uri() . '/assets/images/resource/vid-thumb-1.jpg'),
+        'iso_icon'      => mthan_sec_img($slug, $section_data, 'iso_icon', get_template_directory_uri() . '/assets/images/icons/iso-icon.png'),
         
-        'experience_year' => mthan_get_section_val($slug, $section_data, 'about_exp_years', '16'),
-        'experience_text' => mthan_get_section_val($slug, $section_data, 'about_exp_text', 'Years <br>of Experience'),
+        'experience_year' => mthan_get_section_val($slug, $section_data, 'exp_years', '16'),
+        'experience_text' => mthan_get_section_val($slug, $section_data, 'exp_text', 'Years <br>of Experience'),
     ];
 }
 
@@ -60,10 +60,10 @@ function mthan_section_about_html_1($section_data)
 {
     $slug = 'about';
     $common = mthan_get_about_common_data($section_data);
-    $projects_count = mthan_get_section_val($slug, $section_data, 'about_projects_count', '2k');
-    $projects_text  = mthan_get_section_val($slug, $section_data, 'about_projects_text', 'Projects <br>were completed');
-    $projects_icon  = mthan_get_section_val($slug, $section_data, 'about_projects_icon', 'flaticon-leaves');
-    $quote_thumb    = mthan_sec_img($slug, $section_data, 'about_quote_thumb', get_template_directory_uri() . '/assets/images/resource/quote-thumb.jpg');
+    $projects_count = mthan_get_section_val($slug, $section_data, 'projects_count', '2k');
+    $projects_text  = mthan_get_section_val($slug, $section_data, 'projects_text', 'Projects <br>were completed');
+    $projects_icon  = mthan_get_section_val($slug, $section_data, 'projects_icon', 'flaticon-leaves');
+    $quote_thumb    = mthan_sec_img($slug, $section_data, 'quote_thumb', get_template_directory_uri() . '/assets/images/resource/quote-thumb.jpg');
 ?>
 <section class="about-section">
     <div class="auto-container">
@@ -167,9 +167,9 @@ function mthan_section_about_html_1($section_data)
 {
     $slug = 'about';
     $common = mthan_get_about_common_data($section_data);
-    $insured_title = mthan_get_section_val($slug, $section_data, 'about_insured_title', 'Fully Insured');
-    $insured_text  = mthan_get_section_val($slug, $section_data, 'about_insured_text', '');
-    $insured_icon  = mthan_get_section_val($slug, $section_data, 'about_insured_icon', 'flaticon-insurance');
+    $insured_title = mthan_get_section_val($slug, $section_data, 'insured_title', 'Fully Insured');
+    $insured_text  = mthan_get_section_val($slug, $section_data, 'insured_text', '');
+    $insured_icon  = mthan_get_section_val($slug, $section_data, 'insured_icon', 'flaticon-insurance');
     $anim_img_2    = mthan_sec_img($slug, $section_data, 'about_anim_image', get_template_directory_uri() . '/assets/images/resource/anim-image-3.png');
 ?>
 <section class="about-two">

@@ -48,6 +48,9 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
                         'title'      => 'Name',
                         'attributes' => ['data-section-name' => '1', 'placeholder' => 'Section name'],
                     ],
+                ],
+                mthan_get_section_layout_fields(),
+                [
                     [
                         'id'      => 'section_template',
                         'type'    => 'select',
@@ -77,6 +80,9 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
                         'title'      => 'Name',
                         'attributes' => ['data-section-name' => '1', 'placeholder' => 'Section name'],
                     ],
+                ],
+                mthan_get_section_layout_fields(),
+                [
                     [
                         'id'      => 'section_template',
                         'type'    => 'select',

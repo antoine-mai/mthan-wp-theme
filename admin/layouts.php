@@ -57,6 +57,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
@@ -89,6 +92,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
@@ -144,6 +150,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
@@ -176,6 +185,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
@@ -220,6 +232,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
@@ -252,6 +267,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'placeholder' => 'Section name'
                                         ]
                                     ],
+                                ],
+                                mthan_get_section_layout_fields(),
+                                [
                                     [
                                         'id' => 'section_template', 
                                         'type' => 'select', 
