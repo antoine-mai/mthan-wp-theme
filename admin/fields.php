@@ -58,11 +58,6 @@ function mthan_get_section_instance_fields()
                                 $cf['default'] = $global_options[$global_key];
                             }
                         }
-                        
-                        // Prefix Title
-                        if (isset($cf['title'])) {
-                            $cf['title'] = 'Override ' . $cf['title'];
-                        }
 
                         // Prefix IDs (except universal ones)
                         if ($original_id && $original_id !== 'section_template') {
@@ -89,7 +84,7 @@ function mthan_get_section_instance_fields()
                     $overrides[] = [
                         'id'         => $bg_id,
                         'type'       => 'background',
-                        'title'      => 'Override Background Settings',
+                        'title'      => 'Background Settings',
                         'dependency' => ['section_template', '==', $slug],
                         'default'    => isset($global_options['g_' . $bg_id]) ? $global_options['g_' . $bg_id] : [],
                     ];
@@ -98,7 +93,7 @@ function mthan_get_section_instance_fields()
                     $overrides[] = [
                         'id'         => $pad_id,
                         'type'       => 'spacing',
-                        'title'      => 'Override Padding Settings',
+                        'title'      => 'Padding Settings',
                         'left'       => false,
                         'right'      => false,
                         'units'      => ['px', '%', 'em', 'rem'],
