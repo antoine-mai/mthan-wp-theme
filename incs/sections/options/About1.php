@@ -3,7 +3,7 @@
 /**
  * About Section Options
  */
-function mthan_section_About_options() {
+function mthan_section_About1_options() {
     $img_path = get_template_directory_uri() . '/assets/images/resource/';
     $icon_path = get_template_directory_uri() . '/assets/images/icons/';
 
