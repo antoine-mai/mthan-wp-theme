@@ -1,4 +1,8 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?');
+/**
+ * Template Name: Page
+ * 
+**/
 get_header();
 $layout_type = mthan_get_layout_type();
 mthan_render_global_sections('before', $layout_type);

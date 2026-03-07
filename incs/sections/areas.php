@@ -6,17 +6,28 @@
  */
 function mthan_section_areas_html($section_data) { 
     $slug = 'areas';
-    $blocks = mthan_get_section_val($slug, $section_data, 'blocks', []);
     $sec_title = mthan_get_section_val($slug, $section_data, 'title', '');
     $sec_subtitle = mthan_get_section_val($slug, $section_data, 'subtitle', '');
-    if (empty($blocks)) return;
+    $blocks = mthan_get_section_val($slug, $section_data, 'blocks', []);
+
+    if (empty($blocks)) {
+        $blocks = array(
+            array('title' => 'Commercial Area', 'subtitle' => 'Land local open spaces', 'icon' => 'flaticon-flower-shop', 'link' => '#'),
+            array('title' => 'Residential Area', 'subtitle' => 'Land surrounding a home', 'icon' => 'flaticon-house-1', 'link' => '#'),
+            array('title' => 'Public Area', 'subtitle' => 'Land open to the Public', 'icon' => 'flaticon-park-3', 'link' => '#'),
+        );
+    }
 ?>
 <section class="areas-section">
     <div class="auto-container">
         <?php if($sec_title || $sec_subtitle): ?>
         <div class="sec-title centered">
-            <div class="subtitle"><?php echo esc_html($sec_subtitle); ?></div>
-            <h2><?php echo esc_html($sec_title); ?></h2>
+            <div class="subtitle">
+                <?php echo esc_html($sec_subtitle); ?>
+            </div>
+            <h2>
+                <?php echo esc_html($sec_title); ?>
+            </h2>
         </div>
         <?php endif; ?>
         <div class="inner-container">
