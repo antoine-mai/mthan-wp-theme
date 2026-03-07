@@ -13,6 +13,7 @@ function mthan_get_sections() {
         'About2'  => 'About 2',
         'Facts1'  => 'Facts 1',
         'Facts2'  => 'Facts 2',
+        'Services' => 'Services',
         // Add more sections here...
     ];
 }
@@ -50,7 +51,31 @@ function mthan_get_section_fields() {
  */
 function mthan_get_section_val($slug, $data, $key, $default = '') {
     $field_id = $slug . '_' . $key;
-    return isset($data[$field_id]) ? $data[$field_id] : $default;
+    
+    if (isset($data[$field_id]) && $data[$field_id] !== '' && $data[$field_id] !== array()) {
+        return $data[$field_id];
+    }
+
+    // Otherwise, try to find the default from the section registration
+    static $sec_defaults = array();
+    if (!isset($sec_defaults[$slug])) {
+        $sec_defaults[$slug] = array();
+        $func = 'mthan_section_' . $slug . '_options';
+        if (function_exists($func)) {
+            $fields = $func();
+            foreach ($fields as $field) {
+                if (isset($field['id']) && isset($field['default'])) {
+                    $sec_defaults[$slug][$field['id']] = $field['default'];
+                }
+            }
+        }
+    }
+
+    if (isset($sec_defaults[$slug][$key])) {
+        return $sec_defaults[$slug][$key];
+    }
+
+    return $default;
 }
 
 /**
