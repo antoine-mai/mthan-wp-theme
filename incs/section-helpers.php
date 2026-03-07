@@ -325,7 +325,7 @@ function mthan_render_global_sections($position = 'before', $page_type = 'page')
                 // Priority: Local Meta > Global Theme Option > Default
                 $banner_bg = !empty($post_meta['page_banner_bg']['url']) ? $post_meta['page_banner_bg']['url'] : '';
                 if (!$banner_bg) {
-                    $banner_bg = !empty($layouts_tabs['global_page_banner_bg']['url']) ? $layouts_tabs['global_page_banner_bg']['url'] : '';
+                    $banner_bg = !empty($layouts_tabs['global_page_banner_bg']['url']) ? $layouts_tabs['global_page_banner_bg']['url'] : get_template_directory_uri() . '/assets/images/background/banner-image-1.jpg';
                 }
                 
                 if (!empty($post_meta['page_banner_title'])) {

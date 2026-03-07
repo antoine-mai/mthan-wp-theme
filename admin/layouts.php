@@ -31,6 +31,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'id'      => 'global_page_banner_bg',
                             'type'    => 'upload',
                             'title'   => 'Global Banner Background',
+                            'desc'    => 'Default: assets/images/background/banner-image-1.jpg',
                             'dependency' => ['global_page_banner_enable', '==', 'true'],
                         ],
                         [
