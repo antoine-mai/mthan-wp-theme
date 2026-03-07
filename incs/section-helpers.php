@@ -429,7 +429,7 @@ function mthan_name_field()
  *
  * @return array
  */
-function mthan_icon_field($title = 'Icon Upload')
+function mthan_icon_field($title = 'Icon Upload', $default = '')
 {
     return [
         'type'    => 'upload',
@@ -437,6 +437,7 @@ function mthan_icon_field($title = 'Icon Upload')
         'id'      => 'icon',
         'preview' => false,
         'desc'    => 'Upload an image or paste a font class icon (e.g., "fas fa-leaf" or "flaticon-gardener").',
+        'default' => $default
     ];
 }
 

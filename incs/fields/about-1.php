@@ -6,15 +6,8 @@
 function mthan_section_about_1_options() {
     return [
         mthan_subtitle_field('About Us'),
-        [
-            'id'      => 'subtitle_icon',
-            'type'    => 'media',
-            'library' => 'image',
-            'preview' => false,
-            'title'   => 'Subtitle Icon',
-            'default' => ['url' => get_template_directory_uri() . '/assets/images/icons/leaf-two.png']
-        ],
         mthan_title_field('Professional Gardener'),
+        mthan_icon_field('Section Icon', get_template_directory_uri() . '/assets/images/resource/section-icon-1.png'),
         [
             'id'      => 'about_content',
             'type'    => 'wp_editor',
@@ -49,14 +42,14 @@ function mthan_section_about_1_options() {
             'type'  => 'upload',
             'title' => 'Main Image',
             'preview' => false,
-            'default' => ['url' => get_template_directory_uri() . '/assets/images/resource/about-1.png'],
+            'default' => get_template_directory_uri() . '/assets/images/resource/about-1.png',
         ],
         [
             'id'    => 'anim_image',
             'type'  => 'upload',
             'preview' => false,
             'title' => 'Animated Image (Small)',
-            'default' => ['url' => get_template_directory_uri() . '/assets/images/resource/anim-image-1.png'],
+            'default' => get_template_directory_uri() . '/assets/images/resource/anim-image-1.png',
         ],
         [
             'id'    => 'video_url',
