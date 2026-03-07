@@ -43,6 +43,11 @@ function mthan_section_Facts2_options() {
             ),
             'fields' => array(
                 array(
+                    'id'    => 'title',
+                    'type'  => 'text',
+                    'title' => 'Title',
+                ),
+                array(
                     'id'    => 'icon',
                     'type'  => 'upload',
                     'title' => 'Icon (Image or flaticon class)',
@@ -61,11 +66,6 @@ function mthan_section_Facts2_options() {
                     'id'    => 'speed',
                     'type'  => 'text',
                     'title' => 'Animation Speed (ms)',
-                ),
-                array(
-                    'id'    => 'title',
-                    'type'  => 'text',
-                    'title' => 'Title',
                 ),
                 array(
                     'id'    => 'subtitle',
