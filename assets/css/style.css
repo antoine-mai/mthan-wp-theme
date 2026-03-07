@@ -1215,7 +1215,7 @@ img {
 .main-header .header-lower .more-links {
 	position: relative;
 	float: right;
-	padding: 8px 0px;
+	padding: 10px 0px;
 }
 
 .header-style-two .header-lower .more-links {
@@ -1284,7 +1284,7 @@ img {
 	position: relative;
 	top: 1px;
 	float: left;
-	margin-left: 15px;
+	margin-left: 30px;
 }
 
 .main-header .header-lower .more-links .estimate-btn a {
@@ -1293,10 +1293,10 @@ img {
     align-items: center !important;
     justify-content: center !important;
     gap: 12px !important;
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: 600;
 	text-transform: uppercase;
-	padding: 12px 25px !important;
+	padding: 10px 30px !important;
 	line-height: 24px;
 	color: #ffffff;
 	background: #24a77e;
