@@ -13,7 +13,9 @@ function mthan_get_sections() {
         'About2'  => 'About 2',
         'Facts1'  => 'Facts 1',
         'Facts2'  => 'Facts 2',
-        'Services' => 'Services',
+        'WhatWeDo' => 'What We Do',
+        'Projects1' => 'Projects 1',
+        'Projects2' => 'Projects 2',
         // Add more sections here...
     ];
 }
