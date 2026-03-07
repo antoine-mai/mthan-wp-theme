@@ -2,7 +2,7 @@
 /**
  * Render the about-1 section.
  */
-function mthan_section_about_1_html($section_data) { var_dump($section_data); ?>
+function mthan_section_about_1_html($section_data) { ?>
 <?php
     $slug      = 'about-1';
     $q_des     = mthan_get_section_val($slug, $section_data, 'quote_designation');
