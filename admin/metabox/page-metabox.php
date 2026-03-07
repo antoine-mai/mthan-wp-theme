@@ -144,6 +144,7 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
             'id'      => 'page_banner_bg',
             'type'    => 'upload',
             'title'   => 'Background Image',
+            'default' => get_template_directory_uri() . '/assets/images/background/banner-image-1.jpg',
             'preview' => false,
         ],
     ],
