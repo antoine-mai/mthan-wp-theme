@@ -11,6 +11,7 @@ function mthan_get_sections() {
         'Areas'   => 'Areas',
         'About1'  => 'About 1',
         'About2'  => 'About 2',
+        'About3'  => 'About 3',
         'Facts1'  => 'Facts 1',
         'Facts2'  => 'Facts 2',
         'WhatWeDo1' => 'What We Do 1',
