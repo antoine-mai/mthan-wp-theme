@@ -103,8 +103,13 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                             </a>
                         </div>
                         <div class="call">
-                            <?php echo esc_html($header_tabs['header_1_callback_text'] ?? 'Get Call Back'); ?> 
-                            <span class="icon flaticon-play-button-1"></span>
+                            <?php 
+                            $callback_url = !empty($header_tabs['header_1_callback_url']) ? (is_numeric($header_tabs['header_1_callback_url']) ? get_permalink($header_tabs['header_1_callback_url']) : $header_tabs['header_1_callback_url']) : '/contact';
+                            ?>
+                            <a href="<?php echo esc_url($callback_url); ?>">
+                                <?php echo esc_html($header_tabs['header_1_callback_text'] ?? 'Get Call Back'); ?> 
+                                <span class="icon flaticon-play-button-1"></span>
+                            </a>
                         </div>
                     </div>
                     <div class="search-box">
