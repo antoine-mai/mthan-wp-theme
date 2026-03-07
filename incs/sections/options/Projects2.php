@@ -57,6 +57,30 @@ function mthan_section_Projects2_options() {
                     'title' => 'Outdoor Living',
                     'width' => 'col-lg-3 col-md-6 col-sm-12',
                 ),
+                array(
+                    'image' => $gal_path . '4.jpg',
+                    'category' => 'Landscape',
+                    'title' => 'Outdoor Living',
+                    'width' => 'col-lg-3 col-md-6 col-sm-12',
+                ),
+                array(
+                    'image' => $gal_path . '6.jpg',
+                    'category' => 'Garden Care',
+                    'title' => 'Outdoor Living',
+                    'width' => 'col-lg-3 col-md-6 col-sm-12',
+                ),
+                array(
+                    'image' => $gal_path . '7.jpg',
+                    'category' => 'Garden Care',
+                    'title' => 'Outdoor Living',
+                    'width' => 'col-lg-6 col-md-12 col-sm-12',
+                ),
+                array(
+                    'image' => $gal_path . '5.jpg',
+                    'category' => 'Garden Care',
+                    'title' => 'Outdoor Living',
+                    'width' => 'col-lg-3 col-md-6 col-sm-12',
+                ),
             ),
             'fields' => array(
                 array(
