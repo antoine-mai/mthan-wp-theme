@@ -6,8 +6,8 @@
  * @return array Slugs and labels.
  */
 function mthan_get_sections() {
-    return array(
+    return [
         'banners' => 'Banners',
         // Add more sections here...
-    );
+    ];
 }

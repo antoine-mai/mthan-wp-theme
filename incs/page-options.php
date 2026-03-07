@@ -12,14 +12,29 @@ CSF::createMetabox(MTHAN_PAGE_OPTIONS, [
     'priority'     => 'high',
 ]);
 
+// ── Sections Data ───────────────────────────────────────────────────
+$available_sections = array_merge(['' => '— Select Template —'], mthan_get_sections());
+
 // ── Sections ───────────────────────────────────────────────────────
 CSF::createSection(MTHAN_PAGE_OPTIONS, [
     'title'  => 'Sections',
     'icon'   => 'fas fa-layer-group',
     'fields' => [
         [
-            'type'    => 'content',
-            'content' => 'Section logic has been reset. Please start from zero.',
+            'id'                     => 'page_sections',
+            'type'                   => 'group',
+            'button_title'           => 'Add Section',
+            'accordion_title_auto'   => true,
+            'accordion_title_prefix' => 'Section: ',
+            'accordion_title_number' => true,
+            'fields'                 => [
+                [
+                    'id'    => 'template',
+                    'type'  => 'select',
+                    'title' => 'Select Template',
+                    'options' => $available_sections,
+                ],
+            ],
         ],
     ],
 ]);
