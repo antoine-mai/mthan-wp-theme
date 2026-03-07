@@ -142,7 +142,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'default' => 'Contact Us',
                         ],
                         mthan_page_select_field('header_1_btn_url', 'Button URL', [
-                            'default' => '#',
+                            'default' => '/contact',
                         ]),
                         [
                             'id'      => 'header_1_btn_icon',
