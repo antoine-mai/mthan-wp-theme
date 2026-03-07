@@ -3,8 +3,8 @@
  * Blog Settings
 **/
 CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'id' => 'blog_settings',
-    'title' => 'Blog',
+    'id' => 'post_layout_settings',
+    'title' => 'Post Layout',
     'icon' => 'fas fa-edit',
     'fields' => [
         [

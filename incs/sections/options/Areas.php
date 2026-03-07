@@ -13,19 +13,19 @@ function mthan_section_Areas_options() {
                 array(
                     'title'    => 'Commercial Area',
                     'subtitle' => 'Land local open spaces',
-                    'icon'     => '', // Use upload now
+                    'icon'     => 'flaticon-flower-shop',
                     'link'     => '',
                 ),
                 array(
                     'title'    => 'Residential Area',
                     'subtitle' => 'Land surrounding a home',
-                    'icon'     => '',
+                    'icon'     => 'flaticon-house-1',
                     'link'     => '',
                 ),
                 array(
                     'title'    => 'Public Area',
                     'subtitle' => 'Land open to the Public',
-                    'icon'     => '',
+                    'icon'     => 'flaticon-park-3',
                     'link'     => '',
                 ),
             ),

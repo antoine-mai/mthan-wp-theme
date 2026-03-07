@@ -4,8 +4,8 @@
  */
 
 CSF::createSection(MTHAN_THEME_OPTIONS, [
-    'id'     => 'layouts_settings',
-    'title'  => 'Layouts',
+    'id'     => 'page_layout_settings',
+    'title'  => 'Page Layout',
     'icon'   => 'fas fa-columns',
     'fields' => [
         [
