@@ -84,7 +84,7 @@ function mthan_section_about_1_html($section_data) {
                 </div>
                 <!--Image Column-->
                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-column">
+                    <div class="inner">
                         <div class="image-box">
                             <div class="image">
                                 <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" />
