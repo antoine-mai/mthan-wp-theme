@@ -6,7 +6,7 @@
  * @since 1.0.0
 **/
 $theme_options = get_option('mthan_theme_options');
-$header_tabs = $theme_options;
+$header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_tabs'] : [];
 ?>
 <header class="main-header header-style-two">
     <div class="header-top-two">
