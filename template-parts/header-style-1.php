@@ -182,7 +182,7 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                         $btn_url = !empty($header_tabs['header_1_btn_url']) ? (is_numeric($header_tabs['header_1_btn_url']) ? get_permalink($header_tabs['header_1_btn_url']) : $header_tabs['header_1_btn_url']) : '#';
                         ?>
                         <a href="<?php echo esc_url($btn_url); ?>">
-                            <span class="icon <?php echo esc_attr($header_tabs['header_1_btn_icon'] ?? 'fas fa-phone-alt'); ?>"></span>
+                            <i class="<?php echo esc_attr($header_tabs['header_1_btn_icon'] ?? 'fas fa-phone-alt'); ?>"></i>
                             <?php echo esc_html($header_tabs['header_1_btn_text']); ?> 
                         </a>
                     </div>
