@@ -48,6 +48,7 @@ function mthan_section_about_1_options() {
             'id'    => 'image',
             'type'  => 'media',
             'title' => 'Main Image',
+            'deffault' => get_template_directory_uri() . '/assets/images/resource/featured-image-1.jpg',
         ],
         [
             'id'    => 'video_url',
