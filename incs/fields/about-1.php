@@ -46,13 +46,15 @@ function mthan_section_about_1_options() {
         ],
         [
             'id'    => 'image',
-            'type'  => 'media',
+            'type'  => 'upload',
             'title' => 'Main Image',
+            'preview' => false,
             'default' => ['url' => get_template_directory_uri() . '/assets/images/resource/about-1.png'],
         ],
         [
             'id'    => 'anim_image',
-            'type'  => 'media',
+            'type'  => 'upload',
+            'preview' => false,
             'title' => 'Animated Image (Small)',
             'default' => ['url' => get_template_directory_uri() . '/assets/images/resource/anim-image-1.png'],
         ],
