@@ -28,8 +28,7 @@ if (class_exists('CSF')) {
 
     // ── Load Admin Sub-items ───────────────────────────────────────────────
     $admin_files = [
-        'page-layout.php',
-        'post-layout.php',
+        'layouts.php',
         'general.php',
         'typography.php',
         'header.php',

@@ -90,12 +90,14 @@ function mthan_section_About2_options() {
             'type'  => 'upload',
             'title' => 'Main Image',
             'default' => $img_path . 'anim-image-3.png',
+            'help'    => 'Recommended size: 570x630px',
         ),
         array(
             'id'    => 'vid_thumb',
             'type'  => 'upload',
             'title' => 'Video Thumbnail',
             'default' => $img_path . 'vid-thumb-1.jpg',
+            'help'    => 'Recommended size: 270x300px',
         ),
         array(
             'id'    => 'vid_link',

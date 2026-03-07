@@ -89,6 +89,7 @@ function mthan_section_About1_options() {
             'type'  => 'upload',
             'title' => 'Main Image',
             'default' => $img_path . 'featured-image-1.jpg',
+            'help'    => 'Recommended size: 570x630px',
         ),
         array(
             'id'    => 'anim_image',

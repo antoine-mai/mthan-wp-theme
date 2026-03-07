@@ -93,6 +93,7 @@ function mthan_section_Team_options() {
                     'id'    => 'image',
                     'type'  => 'upload',
                     'title' => 'Member Image',
+                    'help'  => 'Recommended size: 270x300px',
                 ),
                 array(
                     'id'    => 'link',
