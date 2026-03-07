@@ -3,7 +3,6 @@
 if (class_exists('CSF')) {
 
     $admin_dir = get_template_directory() . '/admin/';
-    require_once $admin_dir . 'fields.php'; // Load section fields helper
 
     // ── Create Single Options Instance ─────────────────────────────────────
     CSF::createOptions(MTHAN_THEME_OPTIONS, [
@@ -22,17 +21,16 @@ if (class_exists('CSF')) {
         'show_search'        => true,
         'show_reset_all'     => true,
         'show_reset_section' => true,
-        'nav'                => 'normal', // Left-side tabs
+        'nav'                => 'normal',
         'output_css'         => true,
         'enqueue_webfont'    => true,
     ]);
 
-    // ── Load All Sections dynamically ────────────────────────────────────────
-    $preferred_order = [
+    // ── Load Admin Sub-items ───────────────────────────────────────────────
+    $admin_files = [
         'general.php',
         'typography.php',
         'layouts.php',
-        'sections.php',
         'header.php',
         'mobile-bar.php',
         'blog.php',
@@ -43,22 +41,9 @@ if (class_exists('CSF')) {
         'update.php'
     ];
 
-    $loaded_files = ['fields.php'];
-
-    // 1. Load priority files in exact order
-    foreach ($preferred_order as $file) {
+    foreach ($admin_files as $file) {
         if (file_exists($admin_dir . $file)) {
             require_once $admin_dir . $file;
-            $loaded_files[] = $file;
-        }
-    }
-
-    // 2. Auto-load any new/custom files appended later
-    foreach (glob($admin_dir . '*.php') as $file) {
-        $basename = basename($file);
-        if (!in_array($basename, $loaded_files)) {
-            require_once $file;
-            $loaded_files[] = $basename;
         }
     }
 
