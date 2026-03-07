@@ -16,9 +16,10 @@ function mthan_get_sections() {
         'WhatWeDo' => 'What We Do',
         'Projects1' => 'Projects 1',
         'Projects2' => 'Projects 2',
-        'WhyUs'       => 'Why Us',
-        'HowItWorks'  => 'How It Works',
-        'HowItWorks2' => 'How It Works 2',
+        'WhyUs1'       => 'Why Us 1',
+        'WhyUs2'       => 'Why Us 2',
+        'HowItWorks1'  => 'How It Works 1',
+        'HowItWorks2'  => 'How It Works 2',
         // Add more sections here...
     ];
 }

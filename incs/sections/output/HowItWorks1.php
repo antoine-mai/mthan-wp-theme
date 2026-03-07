@@ -5,9 +5,9 @@
  *
  * @param array $section_data CSF field values for this section instance.
  */
-function mthan_section_HowItWorks_html($section_data) { ?>
+function mthan_section_HowItWorks1_html($section_data) { ?>
 <?php
-    $slug = 'HowItWorks';
+    $slug = 'HowItWorks1';
     $title_icon  = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
     $subtitle    = mthan_get_section_val($slug, $section_data, 'subtitle');
     $title       = mthan_get_section_val($slug, $section_data, 'title');

@@ -3,7 +3,7 @@
 /**
  * How It Works Section Options
  */
-function mthan_section_HowItWorks_options() {
+function mthan_section_HowItWorks1_options() {
     $img_path = get_template_directory_uri() . '/assets/images/resource/';
     $icon_path = get_template_directory_uri() . '/assets/images/icons/';
 

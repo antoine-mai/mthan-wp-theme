@@ -3,7 +3,7 @@
 /**
  * Why Us Section Options
  */
-function mthan_section_WhyUs_options() {
+function mthan_section_WhyUs1_options() {
     $icon_path = get_template_directory_uri() . '/assets/images/icons/';
 
     return array(
