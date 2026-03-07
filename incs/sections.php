@@ -1,0 +1,13 @@
+<?php defined('ABSPATH') || exit;
+
+/**
+ * Register available sections.
+ * 
+ * @return array Slugs and labels.
+ */
+function mthan_get_sections() {
+    return array(
+        'banners' => 'Banners',
+        // Add more sections here...
+    );
+}

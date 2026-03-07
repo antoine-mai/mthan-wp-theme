@@ -10,15 +10,26 @@ define('MTHAN_PAGE_OPTIONS', 'mthan_page_options');
 // ── Core framework ─────────────────────────────────────────────────
 require_once get_template_directory() . '/incs/codestar/autoload.php';
 
+// ── Required Files (loaded manually to control order) ──────────────
+require_once get_template_directory() . '/incs/sections.php';
+
 // ── Autoload /incs/ directory ──────────────────────────────────────
 $mthan_autoload_incs = function($dir) use (&$mthan_autoload_incs) {
     if (!is_dir($dir)) return;
 
+    $dir_name   = basename($dir);
+    $registered = function_exists('mthan_get_sections') ? array_keys(mthan_get_sections()) : [];
+
     foreach (glob($dir . '/*.php') as $file) {
         $name = basename($file, '.php');
 
-        // Skip manually loaded files or specific configurations
-        if (in_array($name, ['theme-options', 'page-options'])) {
+        // Skip manually loaded or specific files
+        if (in_array($name, ['theme-options', 'page-options', 'sections'])) {
+            continue;
+        }
+
+        // Only load section-specific files if they are registered
+        if (($dir_name === 'options' || $dir_name === 'output') && !in_array($name, $registered)) {
             continue;
         }
 
@@ -26,7 +37,8 @@ $mthan_autoload_incs = function($dir) use (&$mthan_autoload_incs) {
     }
 
     foreach (glob($dir . '/*', GLOB_ONLYDIR) as $subdir) {
-        if (basename($subdir) === 'codestar') {
+        $sub_name = basename($subdir);
+        if (in_array($sub_name, ['codestar'])) {
             continue;
         }
         $mthan_autoload_incs($subdir);
