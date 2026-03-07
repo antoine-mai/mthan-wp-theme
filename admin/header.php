@@ -298,7 +298,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'id'          => 'header_2_menu_color',
                             'type'        => 'color',
                             'title'       => 'Menu Text Color',
-                            'default'     => '#24a77e',
+                            'default'     => '#132728',
                             'output'      => '.main-header.header-style-two .main-menu .navigation > li > a',
                             'output_mode' => 'color',
                         ],
@@ -306,7 +306,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'id'          => 'header_2_menu_hover_color',
                             'type'        => 'color',
                             'title'       => 'Menu Hover/Active Color',
-                            'default'     => '#132728',
+                            'default'     => '#24a77e',
                             'output'      => [
                                 '.main-header.header-style-two .main-menu .navigation > li:hover > a',
                                 '.main-header.header-style-two .main-menu .navigation > li.current > a'
