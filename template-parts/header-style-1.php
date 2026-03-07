@@ -144,14 +144,20 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                                     $li_class = $has_submenu ? 'dropdown' : '';
                                 ?>
                                 <li class="<?php echo esc_attr($li_class); ?>">
-                                    <a href="<?php echo esc_url($item['url'] ?? '#'); ?>" target="<?php echo esc_attr($item['target'] ?? '_self'); ?>">
+                                    <?php 
+                                    $url = !empty($item['url']) ? (is_numeric($item['url']) ? get_permalink($item['url']) : $item['url']) : '#';
+                                    ?>
+                                    <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($item['target'] ?? '_self'); ?>">
                                         <?php echo esc_html($item['title'] ?? ''); ?>
                                     </a>
                                     <?php if ($has_submenu) : ?>
                                     <ul>
                                         <?php foreach ($item['submenu'] as $sub) : ?>
                                         <li>
-                                            <a href="<?php echo esc_url($sub['url'] ?? '#'); ?>" target="<?php echo esc_attr($sub['target'] ?? '_self'); ?>">
+                                            <?php 
+                                            $sub_url = !empty($sub['url']) ? (is_numeric($sub['url']) ? get_permalink($sub['url']) : $sub['url']) : '#';
+                                            ?>
+                                            <a href="<?php echo esc_url($sub_url); ?>" target="<?php echo esc_attr($sub['target'] ?? '_self'); ?>">
                                                 <?php echo esc_html($sub['title'] ?? ''); ?>
                                             </a>
                                         </li>

@@ -57,12 +57,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                     'type'  => 'text',
                                     'title' => 'Title',
                                 ],
-                                [
-                                    'id'    => 'url',
-                                    'type'  => 'text',
-                                    'title' => 'URL',
+                                mthan_page_select_field('url', 'Select Page / Post', [
                                     'default' => '#',
-                                ],
+                                    'desc'    => 'Choose a page/post or enter a custom link below',
+                                ]),
                                 [
                                     'id'    => 'target',
                                     'type'  => 'select',
@@ -85,12 +83,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                             'type'  => 'text',
                                             'title' => 'Title',
                                         ],
-                                        [
-                                            'id'    => 'url',
-                                            'type'  => 'text',
-                                            'title' => 'URL',
+                                        mthan_page_select_field('url', 'Select Page / Post', [
                                             'default' => '#',
-                                        ],
+                                        ]),
                                         [
                                             'id'    => 'target',
                                             'type'  => 'select',
