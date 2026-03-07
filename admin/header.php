@@ -22,6 +22,13 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
             'default' => 'style-1',
         ],
         [
+            'id' => 'header_menu',
+            'type' => 'select',
+            'title' => 'Select Header Menu',
+            'options' => 'menus',
+            'placeholder' => '— Default —',
+        ],
+        [
             'id' => 'header_logo',
             'type' => 'media',
             'title' => 'Header Logo',

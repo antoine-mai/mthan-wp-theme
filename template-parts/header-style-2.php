@@ -74,8 +74,9 @@ $theme_options = get_option('mthan_theme_options');
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <?php 
+                                $menu_id = !empty($theme_options['header_menu']) ? $theme_options['header_menu'] : '';
                                 wp_nav_menu(array(
-                                    'theme_location' => 'primary-menu',
+                                    'menu' => $menu_id,
                                     'container' => false,
                                     'menu_class' => 'navigation clearfix',
                                     'fallback_cb' => false
