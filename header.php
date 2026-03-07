@@ -21,7 +21,9 @@ if (!empty($theme_options['favicon']['url'])) {
     <div class="page-wrapper">
         <?php
         $theme_options = get_option('mthan_theme_options');
-        $enable_preloader = isset($theme_options['preloader']) ? $theme_options['preloader'] : true;
+        $layouts_tabs  = !empty($theme_options['layouts_tabs']) ? $theme_options['layouts_tabs'] : [];
+        $enable_preloader = isset($layouts_tabs['preloader']) ? $layouts_tabs['preloader'] : true;
+        
         if ($enable_preloader) :
         ?>
         <!-- Preloader -->
