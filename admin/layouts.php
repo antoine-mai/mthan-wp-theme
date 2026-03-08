@@ -188,6 +188,56 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     ],
                 ],
                 [
+                    'title'  => 'Shop Layout',
+                    'icon'   => 'fas fa-shopping-cart',
+                    'fields' => [
+                        [
+                            'type'    => 'subheading',
+                            'content' => 'Shop Settings',
+                        ],
+                        [
+                            'id'      => 'shop_sidebar',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Sidebar on Shop',
+                            'default' => true,
+                        ],
+                        [
+                            'type'    => 'subheading',
+                            'content' => 'Content Sections',
+                        ],
+                        [
+                            'id'           => 'shop_before_content',
+                            'type'         => 'group',
+                            'title'        => 'Before Shop Content',
+                            'button_title' => 'Add Section',
+                            'fields'       => [
+                                [
+                                    'id'      => 'section',
+                                    'type'    => 'select',
+                                    'title'   => 'Select Section',
+                                    'options' => $sections_list,
+                                    'chosen'  => true,
+                                ],
+                            ],
+                        ],
+                        [
+                            'id'           => 'shop_after_content',
+                            'type'         => 'group',
+                            'title'        => 'After Shop Content',
+                            'button_title' => 'Add Section',
+                            'fields'       => [
+                                [
+                                    'id'      => 'section',
+                                    'type'    => 'select',
+                                    'title'   => 'Select Section',
+                                    'options' => $sections_list,
+                                    'chosen'  => true,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
                     'title'  => 'Settings',
                     'icon'   => 'fas fa-cog',
                     'fields' => [

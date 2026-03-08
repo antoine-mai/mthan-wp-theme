@@ -30,6 +30,8 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
         $key = ($position === 'before') ? 'page_before_content' : 'page_after_content';
     } elseif (is_singular('service')) {
         $key = ($position === 'before') ? 'service_before_content' : 'service_after_content';
+    } elseif (function_exists('is_woocommerce') && (is_woocommerce() || is_cart() || is_checkout())) {
+        $key = ($position === 'before') ? 'shop_before_content' : 'shop_after_content';
     } elseif (is_singular('post') || is_home() || is_archive() || is_search()) {
         // "Post Layout" applies to blog index, archives, search, and single posts.
         $key = ($position === 'before') ? 'post_before_content' : 'post_after_content';
