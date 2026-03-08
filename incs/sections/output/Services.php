@@ -15,6 +15,8 @@ function mthan_section_Services_html($section_data) { ?>
 
     $count = mthan_get_section_val($slug, $section_data, 'count', -1);
 
+    $read_more = mthan_get_section_val($slug, $section_data, 'read_more_text', 'Read More');
+
     $args = array(
         'post_type'      => 'mthan_service',
         'posts_per_page' => $count,
@@ -62,7 +64,7 @@ function mthan_section_Services_html($section_data) { ?>
                         <?php } ?>
                         <div class="more-link">
                             <a href="<?php echo esc_url($lnk); ?>">
-                                <?php esc_html_e('Read More', 'mthan'); ?> <i class="icon fa fa-caret-right"></i>
+                                <?php echo esc_html($read_more); ?> <i class="icon fa fa-caret-right"></i>
                             </a>
                         </div>
                     </div>
