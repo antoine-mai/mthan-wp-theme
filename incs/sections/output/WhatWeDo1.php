@@ -11,14 +11,14 @@ function mthan_section_WhatWeDo1_html($section_data) { ?>
     $title_icon = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
     $subtitle   = mthan_get_section_val($slug, $section_data, 'subtitle');
     $title      = mthan_get_section_val($slug, $section_data, 'title');
-    $interval   = mthan_get_section_val($slug, $section_data, 'auto_slide_interval', '3000');
+    $speed      = mthan_get_section_val($slug, $section_data, 'speed', '3000');
     $tabs       = mthan_get_section_val($slug, $section_data, 'tabs', array());
 
     $styles = mthan_section_styles($slug, $section_data);
     if (empty($tabs)) return;
 ?>
 <section class="what-we-do <?php echo esc_attr($styles['class']); ?>" <?php echo $styles['style']; ?>>
-    <div class="tabs-box service-tabs" data-interval="<?php echo esc_attr($interval); ?>">
+    <div class="tabs-box service-tabs" data-speed="<?php echo esc_attr($speed); ?>">
         <div class="upper-box">
             <div class="pattern-layer"></div>
 
