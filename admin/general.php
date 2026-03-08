@@ -70,12 +70,11 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'title' => 'Icon Image',
                     'preview' => false,
                 ],
-                [
-                    'id' => 'url',
-                    'type' => 'link',
-                    'title' => 'URL',
-                    'default' => '#',
-                ],
+                mthan_page_select_field('url', 'URL', [
+                    'default' => [
+                        'url' => '#'
+                    ]
+                ]),
             ],
         ],
     ]

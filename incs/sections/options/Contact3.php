@@ -53,7 +53,11 @@ function mthan_section_Contact3_options() {
             'title' => 'Map Link Text',
             'default' => 'Find On Map',
         ),
-        mthan_page_select_field('map_url', 'Map URL'),
+        mthan_page_select_field('map_url', 'Map URL', [
+            'default' => [
+                'url' => 'https://www.google.com/maps'
+            ]
+        ]),
         // Info Blocks (Phones, Email, Hours)
         array(
             'id'    => 'info_items',
