@@ -16460,19 +16460,28 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: space-between !important;
-         height: 60px !important;
-         min-height: 60px !important;
+         height: 70px !important;
+         min-height: 70px !important;
          padding: 0 15px !important;
          position: relative !important;
          background: #132728;
+         overflow: visible;
      }
      
-     /* Remove dashed frame on mobile */
+     /* Restored and perfected dashed frame */
      .main-header.header-style-one .header-lower .inner:before {
-         display: none !important;
+         content: '' !important;
+         position: absolute !important;
+         left: 10px !important;
+         right: 10px !important;
+         top: 10px !important;
+         bottom: 10px !important;
+         border: 1px dashed rgba(255, 255, 255, 0.25) !important;
+         z-index: 1 !important;
+         display: block !important;
+         pointer-events: none;
      }
      
-     /* Reset containers to be simple flex-centerers */
      .main-header.header-style-one .header-lower .nav-outer,
      .main-header.header-style-one .header-lower .more-links {
          float: none !important;
@@ -16487,21 +16496,23 @@ img.lazy-image.loaded {
      .main-header.header-style-one .header-lower .more-links .quote-btn {
          display: block !important;
          margin: 0 !important;
-         padding: 0 !important;
      }
      
      .main-header.header-style-one .header-lower .more-links .quote-btn a {
          background: #24a77e !important;
          color: #ffffff !important;
-         padding: 8px 10px !important;
+         padding: 0 15px !important;
+         height: 40px !important; /* In a 50px frame, this leaves 5px top/bottom gap */
+         line-height: 40px !important;
+         display: flex !important;
+         align-items: center !important;
+         justify-content: center !important;
          border-radius: 5px !important;
          font-size: 13px !important;
          font-weight: 600 !important;
-         line-height: 20px !important;
-         display: inline-block !important;
          text-transform: uppercase;
          text-decoration: none !important;
-         margin: 0 !important;
+         margin-right: 5px !important; /* Offset from 10px dashed right border = 15px total from edge */
      }
      
      .main-header.header-style-one .more-links .quote-btn a i {
@@ -16512,13 +16523,10 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: center !important;
-         margin: 0 !important;
-         padding: 0 !important;
+         margin-left: 5px !important; /* Offset from 10px dashed left border */
          font-size: 28px !important;
          color: #ffffff !important;
-         line-height: 1 !important;
          height: 100% !important;
          cursor: pointer !important;
-         position: relative !important;
      }
  }
