@@ -40,7 +40,7 @@ $mthan_autoload_incs = function($dir) use (&$mthan_autoload_incs) {
 
     foreach (glob($dir . '/*', GLOB_ONLYDIR) as $subdir) {
         $sub_name = basename($subdir);
-        if (in_array($sub_name, ['codestar'])) {
+        if (in_array($sub_name, ['codestar', 'contents'])) {
             continue;
         }
         $mthan_autoload_incs($subdir);
