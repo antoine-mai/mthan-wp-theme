@@ -152,6 +152,16 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'default' => true,
                         ],
                         [
+                            'id'      => 'service_spacing',
+                            'type'    => 'spacing',
+                            'title'   => 'Service Content Spacing',
+                            'default' => [
+                                'top'    => '100',
+                                'bottom' => '100',
+                                'unit'   => 'px',
+                            ],
+                        ],
+                        [
                             'type'    => 'subheading',
                             'content' => 'Content Sections',
                         ],

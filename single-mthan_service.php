@@ -7,8 +7,18 @@ get_header();
 // Render global sections (Page Banner, etc.)
 mthan_render_global_sections('before', 'service');
 ?>
+<?php
+$theme_options = get_option(MTHAN_THEME_OPTIONS);
+$spacing = !empty($theme_options['service_spacing']) ? $theme_options['service_spacing'] : ['top' => '100', 'bottom' => '100', 'unit' => 'px'];
+$sec_style = '';
+if (!empty($spacing)) {
+    $unit = !empty($spacing['unit']) ? $spacing['unit'] : 'px';
+    if (isset($spacing['top'])) $sec_style .= 'padding-top:' . $spacing['top'] . $unit . ';';
+    if (isset($spacing['bottom'])) $sec_style .= 'padding-bottom:' . $spacing['bottom'] . $unit . ';';
+}
+?>
 
-<section class="services-page-section">
+<section class="services-page-section" <?php if ($sec_style) echo 'style="' . esc_attr($sec_style) . '"'; ?>>
     <div class="auto-container">
         <div class="row clearfix">
             
