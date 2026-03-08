@@ -1,5 +1,14 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); 
 $theme_options = get_option('mthan_theme_options');
+$footer_tabs   = $theme_options['footer_tabs'] ?? [];
+
+$footer_logo_url   = mthan_get_img_url($footer_tabs['footer_logo'] ?? '', get_template_directory_uri() . '/assets/images/footer-logo-two.png');
+$about_text        = $footer_tabs['footer_about_text'] ?? '';
+$about_btn_text    = $footer_tabs['footer_about_btn_text'] ?? '';
+$about_btn_url     = $footer_tabs['footer_about_btn_url'] ?? '#';
+$newsletter_title  = $footer_tabs['footer_newsletter_title'] ?? 'Subscribe Us';
+$newsletter_desc   = $footer_tabs['footer_2_newsletter_text'] ?? '';
+$copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.';
 ?>
     <!-- Main Footer -->
     <footer class="main-footer footer-two">
@@ -16,17 +25,14 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-4 col-lg-6 col-md-12 col-sm-12">
                             <div class="footer-widget about">
                                 <div class="logo">
-                                    <?php 
-                                    $footer_logo_url = mthan_get_img_url($theme_options['footer_logo'] ?? '', get_template_directory_uri() . '/assets/images/footer-logo-two.png');
-                                    ?>
                                     <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php bloginfo('name'); ?>"></a>
                                 </div>
                                 <div class="text-box">
-                                    <?php if (!empty($theme_options['footer_about_text'])) : ?>
-                                    <div class="text"><?php echo esc_html($theme_options['footer_about_text']); ?></div>
+                                    <?php if (!empty($about_text)) : ?>
+                                    <div class="text"><?php echo esc_html($about_text); ?></div>
                                     <?php endif; ?>
-                                    <?php if (!empty($theme_options['footer_about_btn_text'])) : ?>
-                                    <div class="link"><a href="<?php echo esc_url($theme_options['footer_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a></div>
+                                    <?php if (!empty($about_btn_text)) : ?>
+                                    <div class="link"><a href="<?php echo esc_url($about_btn_url); ?>" class="theme-btn"><?php echo esc_html($about_btn_text); ?> <i class="arrow flaticon-play-button-1"></i></a></div>
                                     <?php endif; ?>
                                 </div>
                                 <?php if (!empty($theme_options['contact_hours'])) : ?>
@@ -75,11 +81,11 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-4 col-lg-6 col-md-12 col-sm-12">
                             <div class="footer-widget newsletter-box">
                                 <div class="widget-title">
-                                    <h4><?php echo esc_html($theme_options['footer_newsletter_title'] ?? 'Subscribe Us'); ?></h4>
+                                    <h4><?php echo esc_html($newsletter_title); ?></h4>
                                 </div>
                                 <div class="subscribe-box">
-                                    <?php if (!empty($theme_options['footer_2_newsletter_text'])) : ?>
-                                    <div class="text"><?php echo esc_html($theme_options['footer_2_newsletter_text']); ?></div>
+                                    <?php if (!empty($newsletter_desc)) : ?>
+                                    <div class="text"><?php echo esc_html($newsletter_desc); ?></div>
                                     <?php endif; ?>
                                     <!--Newsletter-->
                                     <div class="newsletter">
@@ -115,7 +121,7 @@ $theme_options = get_option('mthan_theme_options');
         <div class="footer-bottom">
             <div class="auto-container">
                 <div class="inner clearfix">
-                    <div class="copyright"><?php echo wp_kses_post($theme_options['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.'); ?></div>
+                    <div class="copyright"><?php echo wp_kses_post($copyright_text); ?></div>
                     <div class="bottom-links">
                         <ul class="clearfix">
                             <li><a href="#">Terms of Service</a></li>

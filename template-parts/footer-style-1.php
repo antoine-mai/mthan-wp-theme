@@ -1,20 +1,32 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); 
 $theme_options = get_option('mthan_theme_options');
+$footer_tabs   = $theme_options['footer_tabs'] ?? [];
+
+$bg_left_url       = mthan_get_img_url($footer_tabs['footer_1_bg_left'] ?? '');
+$bg_right_url      = mthan_get_img_url($footer_tabs['footer_1_bg_right'] ?? '');
+$footer_logo_url   = mthan_get_img_url($footer_tabs['footer_logo'] ?? '', get_template_directory_uri() . '/assets/images/footer-logo.png');
+$about_text        = $footer_tabs['footer_about_text'] ?? '';
+$about_btn_text    = $footer_tabs['footer_about_btn_text'] ?? '';
+$about_btn_url     = $footer_tabs['footer_about_btn_url'] ?? '#';
+$newsletter_title  = $footer_tabs['footer_newsletter_title'] ?? 'Subscribe Us';
+$services_title    = $footer_tabs['footer_1_services_title'] ?? 'Main Services';
+$services_items    = $footer_tabs['footer_1_services'] ?? [];
+$copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.';
 ?>
     <!-- Main Footer -->
     <footer class="main-footer">
 
         <!--Upper Section-->
         <div class="upper-section">
-            <?php 
-            $bg_left_url = mthan_get_img_url($theme_options['footer_1_bg_left'] ?? '');
-            $bg_right_url = mthan_get_img_url($theme_options['footer_1_bg_right'] ?? '');
-            ?>
             <?php if (!empty($bg_left_url)) : ?>
-            <div class="left-image"><img src="<?php echo esc_url($bg_left_url); ?>" alt=""></div>
+            <div class="left-image">
+                <img src="<?php echo esc_url($bg_left_url); ?>" alt="">
+            </div>
             <?php endif; ?>
             <?php if (!empty($bg_right_url)) : ?>
-            <div class="right-image"><img src="<?php echo esc_url($bg_right_url); ?>" alt=""></div>
+            <div class="right-image">
+                <img src="<?php echo esc_url($bg_right_url); ?>" alt="">
+            </div>
             <?php endif; ?>
             
             <div class="auto-container">
@@ -22,17 +34,14 @@ $theme_options = get_option('mthan_theme_options');
                 <div class="upper">
                     <div class="inner">
                         <div class="logo">
-                            <?php 
-                            $footer_logo_url = mthan_get_img_url($theme_options['footer_logo'] ?? '', get_template_directory_uri() . '/assets/images/footer-logo.png');
-                            ?>
                             <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php bloginfo('name'); ?>"></a>
                         </div>
                         <div class="clearfix">
                             <div class="text-box">
-                                <?php if (!empty($theme_options['footer_about_text'])) : ?>
-                                <div class="text"><?php echo esc_html($theme_options['footer_about_text']); ?> 
-                                    <?php if (!empty($theme_options['footer_about_btn_text'])) : ?>
-                                    <a href="<?php echo esc_url($theme_options['footer_about_btn_url'] ?? '#'); ?>" class="theme-btn"><?php echo esc_html($theme_options['footer_about_btn_text']); ?> <i class="arrow flaticon-play-button-1"></i></a>
+                                <?php if (!empty($about_text)) : ?>
+                                <div class="text"><?php echo esc_html($about_text); ?> 
+                                    <?php if (!empty($about_btn_text)) : ?>
+                                    <a href="<?php echo esc_url($about_btn_url); ?>" class="theme-btn"><?php echo esc_html($about_btn_text); ?> <i class="arrow flaticon-play-button-1"></i></a>
                                     <?php endif; ?>
                                 </div>
                                 <?php endif; ?>
@@ -87,16 +96,16 @@ $theme_options = get_option('mthan_theme_options');
                         <div class="column col-xl-6 col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-widget services-widget">
                                 <div class="widget-title">
-                                    <h4><?php echo esc_html($theme_options['footer_1_services_title'] ?? 'Main Services'); ?></h4>
+                                    <h4><?php echo esc_html($services_title); ?></h4>
                                 </div>
                                 <div class="widget-content">
-                                    <?php if (!empty($theme_options['footer_1_services']) && is_array($theme_options['footer_1_services'])) : ?>
+                                    <?php if (!empty($services_items) && is_array($services_items)) : ?>
                                     <div class="row clearfix">
                                         <?php 
-                                        $services_count = count($theme_options['footer_1_services']);
+                                        $services_count = count($services_items);
                                         $half = ceil($services_count / 2);
-                                        $col1 = array_slice($theme_options['footer_1_services'], 0, $half);
-                                        $col2 = array_slice($theme_options['footer_1_services'], $half);
+                                        $col1 = array_slice($services_items, 0, $half);
+                                        $col2 = array_slice($services_items, $half);
                                         ?>
                                         <div class="col-xl-6 col-lg-12 col-md-6 col-sm-12">
                                             <ul>
@@ -154,7 +163,7 @@ $theme_options = get_option('mthan_theme_options');
                             <div class="form-group clearfix">
                                 <input type="text" name="name" value="" placeholder="Your Name *" required>
                                 <input type="email" name="email" value="" placeholder="Email Address *" required>
-                                <button type="submit" class="theme-btn btn-style-three"><span class="btn-title"><?php echo esc_html($theme_options['footer_newsletter_title'] ?? 'Subscribe Us'); ?> <i class="arrow flaticon-play-button-1"></i></span></button>
+                                <button type="submit" class="theme-btn btn-style-three"><span class="btn-title"><?php echo esc_html($newsletter_title); ?> <i class="arrow flaticon-play-button-1"></i></span></button>
                             </div>
                         </form>
                     </div>
@@ -167,7 +176,7 @@ $theme_options = get_option('mthan_theme_options');
         <div class="footer-bottom">
             <div class="auto-container">
                 <div class="inner clearfix">
-                    <div class="copyright"><?php echo wp_kses_post($theme_options['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.'); ?></div>
+                    <div class="copyright"><?php echo wp_kses_post($copyright_text); ?></div>
                     <div class="bottom-links">
                         <ul class="clearfix">
                             <li><a href="#">Terms of Service</a></li>
