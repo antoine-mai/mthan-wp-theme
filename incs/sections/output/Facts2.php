@@ -9,6 +9,7 @@ function mthan_section_Facts2_html($section_data) { ?>
 <?php
     $slug = 'Facts2';
     $items = mthan_get_section_val($slug, $section_data, 'items', array());
+    $global_speed = mthan_get_section_val($slug, $section_data, 'speed', '1000');
 
     if (empty($items)) return;
 ?>
@@ -20,7 +21,7 @@ function mthan_section_Facts2_html($section_data) { ?>
                 $icon     = isset($item['icon']) ? $item['icon'] : '';
                 $count    = isset($item['count']) ? $item['count'] : '0';
                 $suffix   = isset($item['suffix']) ? $item['suffix'] : '';
-                $speed    = isset($item['speed']) ? $item['speed'] : '2000';
+                $speed    = !empty($item['speed']) ? $item['speed'] : $global_speed;
                 $title    = isset($item['title']) ? $item['title'] : '';
                 $subtitle = isset($item['subtitle']) ? $item['subtitle'] : '';
             ?>

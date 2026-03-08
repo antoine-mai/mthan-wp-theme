@@ -13,7 +13,7 @@ function mthan_section_Facts2_options() {
                 array(
                     'icon'  => 'flaticon-gardener',
                     'count' => '84',
-                    'speed' => '3000',
+                    'speed' => '1000',
                     'title' => 'Specialist',
                     'subtitle' => 'Professional Designers',
                 ),
@@ -73,6 +73,13 @@ function mthan_section_Facts2_options() {
                     'title' => 'Subtitle',
                 ),
             ),
+        ),
+        array(
+            'id'    => 'speed',
+            'type'  => 'text',
+            'title' => 'Global Animation Speed (ms)',
+            'default' => '1000',
+            'help'    => 'Default speed for count animations if not set per item.',
         ),
     );
 }

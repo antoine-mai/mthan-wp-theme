@@ -28,6 +28,13 @@ function mthan_section_WhatWeDo1_options() {
             'default' => 'Services We Provide',
         ),
         array(
+            'id'    => 'auto_slide_interval',
+            'type'  => 'text',
+            'title' => 'Auto Slide Interval (ms)',
+            'default' => '5000',
+            'help'    => 'Set 0 to disable auto-slide.',
+        ),
+        array(
             'id'    => 'tabs',
             'type'  => 'group',
             'title' => 'Service Tabs',

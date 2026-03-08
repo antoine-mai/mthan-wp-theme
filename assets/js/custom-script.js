@@ -423,8 +423,12 @@
 			$('.service-tabs').each(function() {
 				var $tabsBox = $(this);
 				var $buttons = $tabsBox.find('.tab-btn');
-				var interval = 5000;
+				var interval = parseInt($tabsBox.attr('data-interval'), 10);
 				var timer;
+
+				if (interval <= 0 || isNaN(interval)) {
+					return;
+				}
 
 				function autoPlay() {
 					timer = setInterval(function() {
