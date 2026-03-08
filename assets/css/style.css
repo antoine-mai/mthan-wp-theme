@@ -16458,62 +16458,77 @@ img.lazy-image.loaded {
  @media only screen and (max-width: 991px) {
      .main-header.header-style-one .header-lower .inner {
          display: flex !important;
-         align-items: center;
+         align-items: center !important;
          justify-content: space-between !important;
-         min-height: 70px;
-         padding-left: 15px !important;
-         padding-right: 15px !important;
-         position: relative;
+         height: 70px !important;
+         min-height: 70px !important;
+         padding: 0 15px !important;
+         position: relative !important;
+         overflow: visible;
+         background: #132728;
      }
-     /* Force dashed frame to be consistent on mobile */
+     
+     /* Perfect dashed frame within the bar */
      .main-header.header-style-one .header-lower .inner:before {
+         content: '' !important;
+         position: absolute !important;
          left: 10px !important;
          right: 10px !important;
          top: 10px !important;
          bottom: 10px !important;
-         z-index: 0;
+         border: 1px dashed rgba(255, 255, 255, 0.25) !important;
+         z-index: 1 !important;
          display: block !important;
+         pointer-events: none;
      }
-     .main-header.header-style-one .header-lower .nav-outer {
-         float: none !important;
-         margin: 0 !important;
-         width: auto !important;
-         text-align: left !important;
-         position: relative;
-         z-index: 2;
-     }
+     
+     /* Reset containers to be simple flex-centerers */
+     .main-header.header-style-one .header-lower .nav-outer,
      .main-header.header-style-one .header-lower .more-links {
-         display: block !important;
          float: none !important;
          margin: 0 !important;
-         position: relative;
-         z-index: 2;
+         padding: 0 !important;
+         height: 100% !important;
+         display: flex !important;
+         align-items: center !important;
+         z-index: 2 !important;
      }
+     
      .main-header.header-style-one .header-lower .more-links .quote-btn {
          display: block !important;
+         margin: 0 !important;
          padding: 0 !important;
      }
+     
      .main-header.header-style-one .header-lower .more-links .quote-btn a {
-         padding: 8px 15px !important;
+         background: #24a77e !important;
+         color: #ffffff !important;
+         padding: 9px 15px !important; /* Total height ~38px in 50px frame */
+         border-radius: 5px !important;
          font-size: 13px !important;
+         font-weight: 600 !important;
          line-height: 20px !important;
-         background: #24a77e;
-         border-radius: 5px;
-         margin-right: 5px; /* Offset to center within the 10px dashed border gap */
-         display: inline-block;
-         vertical-align: middle;
+         display: inline-block !important;
+         text-transform: uppercase;
+         text-decoration: none !important;
+         margin-right: 5px !important; /* Offset from 10px frame border */
      }
-     .main-header.header-style-one .header-lower .more-links .quote-btn a i {
-         display: none;
+     
+     .main-header.header-style-one .more-links .quote-btn a i {
+         display: none !important;
      }
+     
      .main-header.header-style-one .nav-outer .mobile-nav-toggler {
-         margin-left: 5px !important; /* Offset to center within the 10px dashed border gap */
+         display: flex !important;
+         align-items: center !important;
+         justify-content: center !important;
+         margin: 0 0 0 5px !important; /* Offset from left dashed gap */
          padding: 0 !important;
-         display: block !important;
-         float: left !important;
-         line-height: normal !important;
-         color: #ffffff;
-         position: relative;
-         z-index: 2;
+         font-size: 28px !important;
+         color: #ffffff !important;
+         line-height: 1 !important;
+         height: 100% !important;
+         cursor: pointer !important;
+         position: relative !important;
      }
  }
