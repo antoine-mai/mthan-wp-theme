@@ -15,9 +15,9 @@ CSF::createMetabox(MTHAN_SERVICE_OPTIONS, [
 // ── Sections Data ───────────────────────────────────────────────────
 $available_sections = array_merge(['' => '— Select Template —'], mthan_get_sections());
 $section_fields     = mthan_get_section_fields();
-
 // ── Helper to create section group ──
 $mthan_gen_section_group = function($id) use ($available_sections, $section_fields) {
+    $icon_path = get_template_directory_uri() . '/assets/images/icons/';
     return [
         [
             'id'                     => $id,
@@ -53,7 +53,7 @@ CSF::createSection(MTHAN_SERVICE_OPTIONS, [
                 'type'  => 'upload',
                 'title' => 'Service Icon',
                 'help'  => 'Upload an icon image. If empty, the default font icon will be used.',
-                'default' => 'flaticon-hedge'
+                'default' => $icon_path . 'leaf-two.png'
             ],
         ],
         $mthan_gen_section_group('service_sections')
