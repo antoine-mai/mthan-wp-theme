@@ -73,25 +73,25 @@ function mthan_section_Services_html($section_data) { ?>
 
         <?php if ($query->max_num_pages > 1) : ?>
         <div class="pagination-box text-center">
+            <style>.styled-pagination { padding: 0 !important; }</style>
             <?php
             $links = paginate_links(array(
                 'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
                 'format'       => '?paged=%#%',
                 'current'      => max(1, $paged),
                 'total'        => $query->max_num_pages,
-                'prev_text'    => '<span class="fa fa-angle-left"></span>',
-                'next_text'    => '<span class="fa fa-angle-right"></span>',
+                'prev_text'    => '<span class="fa fa-caret-left"></span>',
+                'next_text'    => '<span class="fa fa-caret-right"></span>',
                 'type'         => 'list',
             ));
             
             // Fix for theme style: 
-            // 1. Replace default list class
             $links = str_replace('page-numbers', 'styled-pagination', $links);
-            // 2. Wrap current page span with active anchor
-            $links = preg_replace('/<span aria-current=["\']page["\'] class=["\']styled-pagination current["\']>([0-9]+)<\/span>/', '<a href="#" class="active">$1</a>', $links);
-            // 3. Mark prev/next with 'control' class if needed (based on CSS)
-            $links = str_replace('prev styled-pagination', 'prev styled-pagination control', $links);
-            $links = str_replace('next styled-pagination', 'next styled-pagination control', $links);
+            // Robust replacement for current page span
+            $links = preg_replace('/<span[^>]*class=["\'][^"\']*current[^"\']*["\'][^>]*>([0-9]+)<\/span>/', '<a href="#" class="active">$1</a>', $links);
+            // Mark prev/next with 'control' class
+            $links = str_replace('class="prev styled-pagination"', 'class="prev styled-pagination control"', $links);
+            $links = str_replace('class="next styled-pagination"', 'class="next styled-pagination control"', $links);
             
             echo $links;
             ?>
