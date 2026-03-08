@@ -16464,8 +16464,9 @@ img.lazy-image.loaded {
          min-height: 70px !important;
          padding: 0 15px !important;
          position: relative !important;
-         background: #132728 !important; /* Force dark background */
+         background: #132728 !important;
          overflow: visible;
+         width: 100% !important;
      }
      
      /* Dashed frame centered at 10px offset */
@@ -16480,10 +16481,9 @@ img.lazy-image.loaded {
          z-index: 1 !important;
          display: block !important;
          pointer-events: none;
-         background: none !important; /* Ensure it's just a frame */
+         background: none !important; 
      }
      
-     /* Hide the theme's full-height green block */
      .main-header.header-style-one .header-lower .more-links:before {
          display: none !important;
      }
@@ -16493,11 +16493,14 @@ img.lazy-image.loaded {
          float: none !important;
          margin: 0 !important;
          padding: 0 !important;
+         width: auto !important;
+         min-width: 0 !important;
+         flex: 0 0 auto !important;
          height: 100% !important;
          display: flex !important;
          align-items: center !important;
          z-index: 2 !important;
-         background: none !important; /* Must be transparent */
+         background: none !important;
      }
      
      .main-header.header-style-one .header-lower .more-links .quote-btn {
@@ -16512,7 +16515,7 @@ img.lazy-image.loaded {
          background: #24a77e !important;
          color: #ffffff !important;
          height: 40px !important; 
-         padding: 0 12px !important;
+         padding: 0 15px !important;
          line-height: 40px !important;
          display: flex !important;
          align-items: center !important;
@@ -16521,9 +16524,8 @@ img.lazy-image.loaded {
          font-size: 13px !important;
          font-weight: 600 !important;
          text-transform: uppercase;
-         margin-right: 5px !important; /* Distance from 10px dashed right frame = 15px total from edge */
+         margin-right: 5px !important; /* Pushes button to right edge of dashed line (10+5=15px from edge) */
          z-index: 3 !important;
-         box-shadow: none !important;
      }
      
      .main-header.header-style-one .more-links .quote-btn a i {
@@ -16534,11 +16536,15 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: center !important;
-         margin-left: 5px !important; /* Distance from 10px dashed left frame */
+         margin: 0 0 0 5px !important; /* Distance from left dashed frame */
+         padding: 0 !important;
          font-size: 26px !important;
          color: #ffffff !important;
-         height: 100% !important;
+         line-height: 1 !important;
+         height: 26px !important; /* Cố định chiều cao icon để tránh bị kéo dãn hoặc lệch */
          cursor: pointer !important;
          z-index: 3 !important;
+         position: relative !important;
+         background: none !important;
      }
  }
