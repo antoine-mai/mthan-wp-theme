@@ -11,7 +11,6 @@ function mthan_section_Projects2_html($section_data) { ?>
     $title_icon = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
     $subtitle   = mthan_get_section_val($slug, $section_data, 'subtitle');
     $title      = mthan_get_section_val($slug, $section_data, 'title');
-    $items      = mthan_get_section_val($slug, $section_data, 'items', array());
     $btn_text   = mthan_get_section_val($slug, $section_data, 'btn_text');
     $btn_link   = mthan_get_link(mthan_get_section_val($slug, $section_data, 'btn_link'));
 
@@ -27,7 +26,6 @@ function mthan_section_Projects2_html($section_data) { ?>
     );
 
     $styles = mthan_section_styles($slug, $section_data);
-    if (empty($items)) return;
 ?>
 <section class="projects-two <?php echo esc_attr($styles['class']); ?>" <?php echo $styles['style']; ?>>
     <div class="auto-container">
@@ -59,19 +57,14 @@ function mthan_section_Projects2_html($section_data) { ?>
                 <div class="column-width col-lg-3 col-md-6 col-sm-12" style="height: 0; padding: 0; margin: 0; visibility: hidden;"></div>
 
                 <?php 
-                $i = 0;
-                foreach ($items as $item) { 
-                    $i++;
-                    
-                    $tit    = isset($item['title']) ? $item['title'] : '';
-                    $img    = mthan_sec_img(isset($item['image']) ? $item['image'] : '');
-                    $link   = mthan_get_link(isset($item['link']) ? $item['link'] : '#');
-                    $cat    = isset($item['category']) ? $item['category'] : '';
+                for ($i = 1; $i <= 7; $i++) { 
+                    $tit    = mthan_get_section_val($slug, $section_data, 'item_' . $i . '_title');
+                    $img    = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'item_' . $i . '_image'));
+                    $link   = mthan_get_link(mthan_get_section_val($slug, $section_data, 'item_' . $i . '_link'));
+                    $cat    = mthan_get_section_val($slug, $section_data, 'item_' . $i . '_category');
                     $cat_l  = '#';
                     
-                    // Cycle through configs if more than 7
-                    $config_idx = (($i - 1) % 7) + 1;
-                    $class  = $item_configs[$config_idx]['class'];
+                    $class  = $item_configs[$i]['class'];
                 ?>
                 <!--Project Block-->
                 <div class="project-block-two masonry-item <?php echo esc_attr($class); ?>">
