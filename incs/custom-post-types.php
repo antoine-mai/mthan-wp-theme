@@ -17,7 +17,7 @@ function mthan_register_custom_post_types() {
         'menu_icon'   => 'dashicons-hammer',
         'show_in_menu' => 'mthan-admin',
         'supports'    => array('title', 'thumbnail'),
-        'rewrite'     => array('slug' => 'service', 'with_front' => false),
+        'rewrite'     => array('slug' => 'dich-vu', 'with_front' => false),
     ));
 
     // ── Mthan Project ──────────────────────────────────────────────────
@@ -31,7 +31,7 @@ function mthan_register_custom_post_types() {
         'menu_icon'   => 'dashicons-portfolio',
         'show_in_menu' => 'mthan-admin',
         'supports'    => array('title', 'thumbnail'),
-        'rewrite'     => array('slug' => 'project', 'with_front' => false),
+        'rewrite'     => array('slug' => 'du-an', 'with_front' => false),
     ));
 }
 add_action('init', 'mthan_register_custom_post_types');
