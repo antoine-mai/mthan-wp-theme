@@ -44,11 +44,7 @@ function mthan_section_Team1_options() {
             'title' => 'Button Text',
             'default' => 'All Members',
         ),
-        array(
-            'id'    => 'btn_link',
-            'type'  => 'link',
-            'title' => 'Button Link',
-        ),
+        mthan_page_select_field('btn_link', 'Button Link'),
         array(
             'id'    => 'items',
             'type'  => 'group',
@@ -95,11 +91,7 @@ function mthan_section_Team1_options() {
                     'title' => 'Member Image',
                     'help'  => 'Recommended size: 270x300px',
                 ),
-                array(
-                    'id'    => 'link',
-                    'type'  => 'link',
-                    'title' => 'Member Link',
-                ),
+                mthan_page_select_field('link', 'Member Link'),
             ),
         ),
     );

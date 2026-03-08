@@ -31,11 +31,7 @@ function mthan_section_Blog_options() {
             'title' => 'View More Button Text',
             'default' => 'View More Blog',
         ),
-        array(
-            'id'    => 'btn_link',
-            'type'  => 'link',
-            'title' => 'View More Button Link',
-        ),
+        mthan_page_select_field('btn_link', 'View More Button Link'),
         array(
             'id'    => 'count',
             'type'  => 'number',

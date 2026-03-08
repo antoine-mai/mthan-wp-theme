@@ -23,11 +23,7 @@ function mthan_section_Sponsors_options() {
                     'type'  => 'upload',
                     'title' => 'Sponsor Logo',
                 ),
-                array(
-                    'id'    => 'link',
-                    'type'  => 'link',
-                    'title' => 'Sponsor Link',
-                ),
+                mthan_page_select_field('link', 'Sponsor Link'),
             ),
         ),
     );

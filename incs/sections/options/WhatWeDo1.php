@@ -187,11 +187,7 @@ function mthan_section_WhatWeDo1_options() {
                     'type'  => 'text',
                     'title' => 'Brochure Link Text',
                 ),
-                array(
-                    'id'    => 'brochure_link_url',
-                    'type'  => 'text',
-                    'title' => 'Brochure Link URL',
-                ),
+                mthan_page_select_field('brochure_link_url', 'Brochure Link URL'),
                 array(
                     'id'    => 'more_link_text',
                     'type'  => 'text',

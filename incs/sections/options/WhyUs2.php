@@ -68,11 +68,7 @@ function mthan_section_WhyUs2_options() {
             'title' => 'Button Text',
             'default' => 'How We Work',
         ),
-        array(
-            'id'    => 'btn_link',
-            'type'  => 'link',
-            'title' => 'Button Link',
-        ),
+        mthan_page_select_field('btn_link', 'Button Link'),
         array(
             'id'    => 'items',
             'type'  => 'group',
@@ -115,11 +111,7 @@ function mthan_section_WhyUs2_options() {
                     'type'  => 'textarea',
                     'title' => 'Text',
                 ),
-                array(
-                    'id'    => 'link',
-                    'type'  => 'link',
-                    'title' => 'Link',
-                ),
+                mthan_page_select_field('link', 'Link'),
             ),
         ),
     );

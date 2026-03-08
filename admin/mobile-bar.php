@@ -28,12 +28,9 @@ CSF::createSection(MTHAN_THEME_OPTIONS, array(
                     'type' => 'text',
                     'title' => 'Title',
                 ),
-                array(
-                    'id' => 'url',
-                    'type' => 'text',
-                    'title' => 'URL',
+                mthan_page_select_field('url', 'URL', [
                     'default' => '#',
-                ),
+                ]),
                 array(
                     'id' => 'icon',
                     'type' => 'upload',

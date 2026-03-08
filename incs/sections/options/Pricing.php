@@ -98,11 +98,7 @@ function mthan_section_Pricing_options() {
                     'type'  => 'text',
                     'title' => 'Button Text',
                 ),
-                array(
-                    'id'    => 'btn_link',
-                    'type'  => 'link',
-                    'title' => 'Button Link',
-                ),
+                mthan_page_select_field('btn_link', 'Button Link'),
             ),
         ),
     );

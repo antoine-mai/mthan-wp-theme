@@ -25,21 +25,13 @@ function mthan_section_CallToAction2_options() {
             'title' => 'Button 1 Text',
             'default' => 'Commercial',
         ),
-        array(
-            'id'    => 'btn1_link',
-            'type'  => 'link',
-            'title' => 'Button 1 Link',
-        ),
+        mthan_page_select_field('btn1_link', 'Button 1 Link'),
         array(
             'id'    => 'btn2_text',
             'type'  => 'text',
             'title' => 'Button 2 Text',
             'default' => 'Residential',
         ),
-        array(
-            'id'    => 'btn2_link',
-            'type'  => 'link',
-            'title' => 'Button 2 Link',
-        ),
+        mthan_page_select_field('btn2_link', 'Button 2 Link'),
     );
 }

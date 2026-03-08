@@ -88,11 +88,7 @@ function mthan_section_Team2_options() {
                     'title' => 'Member Image',
                     'help'  => 'Recommended size: 270x300px',
                 ),
-                array(
-                    'id'    => 'link',
-                    'type'  => 'link',
-                    'title' => 'Member Link',
-                ),
+                mthan_page_select_field('link', 'Member Link'),
                 array(
                     'id'    => 'socials',
                     'type'  => 'group',
