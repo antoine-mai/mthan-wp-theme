@@ -11,7 +11,7 @@ function mthan_section_WhatWeDo1_html($section_data) { ?>
     $title_icon = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
     $subtitle   = mthan_get_section_val($slug, $section_data, 'subtitle');
     $title      = mthan_get_section_val($slug, $section_data, 'title');
-    $interval   = mthan_get_section_val($slug, $section_data, 'auto_slide_interval', '5000');
+    $interval   = mthan_get_section_val($slug, $section_data, 'auto_slide_interval', '3000');
     $tabs       = mthan_get_section_val($slug, $section_data, 'tabs', array());
 
     $styles = mthan_section_styles($slug, $section_data);

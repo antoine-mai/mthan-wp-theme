@@ -31,7 +31,7 @@ function mthan_section_WhatWeDo1_options() {
             'id'    => 'auto_slide_interval',
             'type'  => 'text',
             'title' => 'Auto Slide Interval (ms)',
-            'default' => '5000',
+            'default' => '3000',
             'help'    => 'Set 0 to disable auto-slide.',
         ),
         array(
