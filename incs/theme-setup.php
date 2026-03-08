@@ -86,3 +86,17 @@ function mthan_get_img_url($field_value, $default_url = '')
     }
     return $field_value;
 }
+
+/**
+ * Adjust the number of posts displayed on the blog archive.
+ */
+function mthan_adjust_blog_posts_per_page($query) {
+    if (!is_admin() && $query->is_main_query() && (is_home() || is_archive() || is_search()) && !is_post_type_archive(array('mthan_service', 'mthan_project'))) {
+        $options = get_option('mthan_theme_options');
+        $layouts = !empty($options['layouts_tabs']) ? $options['layouts_tabs'] : [];
+        $count   = !empty($layouts['blog_posts_per_page']) ? $layouts['blog_posts_per_page'] : 10;
+        
+        $query->set('posts_per_page', $count);
+    }
+}
+add_action('pre_get_posts', 'mthan_adjust_blog_posts_per_page');
