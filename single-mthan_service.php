@@ -8,12 +8,12 @@ get_header();
 mthan_render_global_sections('before', 'service');
 ?>
 
-<div class="sidebar-page-container services-page">
+<section class="services-page-section">
     <div class="auto-container">
         <div class="row clearfix">
             
             <!--Content Side-->
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+            <div class="content-side col-lg-12 col-md-12 col-sm-12">
                 <div class="service-details">
                     <?php if (have_posts()) : while (have_posts()) : the_post(); 
                         $icon = get_post_meta(get_the_ID(), 'project_icon', true); // Check project_icon too
@@ -38,14 +38,9 @@ mthan_render_global_sections('before', 'service');
                 </div>
             </div>
 
-            <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-                <?php get_template_part('template-parts/sidebar', 'service'); ?>
-            </div>
-
         </div>
     </div>
-</div>
+</section>
 
 <?php
 // Render footer sections
