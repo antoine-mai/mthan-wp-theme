@@ -15,6 +15,24 @@ if (class_exists('CSF')) {
             get_template_directory_uri() . '/assets/images/mthan-logo.png', 
             2
         );
+        
+        add_submenu_page(
+            'mthan-admin',
+            'About',
+            'About',
+            'manage_options',
+            'mthan-about',
+            function() {
+                ?>
+                <div class="wrap">
+                    <h1>About MTHAN Theme</h1>
+                    <p>MTHAN is a premium WordPress theme designed for Landscaping and Gardening businesses.</p>
+                    <p>Version: 1.0.0</p>
+                    <p>Author: mthan.net</p>
+                </div>
+                <?php
+            }
+        );
     });
 
     // ── Create Single Options Instance as Submenu ──────────────────────────
