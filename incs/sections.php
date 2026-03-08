@@ -263,6 +263,10 @@ function mthan_render_post_sections($position = 'before') {
             $meta_key = MTHAN_PAGE_OPTIONS;
             $data_key = ($position === 'after') ? 'page_after_sections' : 'page_before_sections';
             break;
+        case 'post':
+            $meta_key = MTHAN_PAGE_OPTIONS;
+            $data_key = ($position === 'after') ? 'page_after_sections' : 'page_before_sections';
+            break;
         case 'mthan_service':
             $meta_key = MTHAN_SERVICE_OPTIONS;
             $data_key = 'service_sections'; // Consolidated to just 1 group
@@ -294,7 +298,7 @@ function mthan_render_post_sections($position = 'before') {
     }
 
     foreach ($sections as $section) {
-        $template = isset($section['template']) ? $section['template'] : '';
+        $template = !empty($section['template']) ? $section['template'] : (!empty($section['section']) ? $section['section'] : '');
         if (empty($template)) {
             continue;
         }

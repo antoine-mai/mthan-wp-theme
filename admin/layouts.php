@@ -20,23 +20,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'fields' => [
                         [
                             'type'    => 'subheading',
-                            'content' => 'Banner Settings',
-                        ],
-                        [
-                            'id'      => 'global_page_banner_enable',
-                            'type'    => 'switcher',
-                            'title'   => 'Enable Global Banner',
-                            'default' => true,
-                        ],
-                        [
-                            'id'      => 'global_page_banner_bg',
-                            'type'    => 'upload',
-                            'title'   => 'Global Banner Background',
-                            'default' => get_template_directory_uri() . '/assets/images/background/banner-image-1.jpg',
-                            'dependency' => ['global_page_banner_enable', '==', 'true'],
-                        ],
-                        [
-                            'type'    => 'subheading',
                             'content' => 'Content Sections',
                         ],
                         [
@@ -46,11 +29,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -61,11 +43,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -112,11 +93,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -127,11 +107,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -172,11 +151,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -187,11 +165,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -222,11 +199,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -237,11 +213,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -272,11 +247,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],
@@ -287,11 +261,10 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'button_title' => 'Add Section',
                             'fields'       => [
                                 [
-                                    'id'      => 'section',
+                                    'id'      => 'template',
                                     'type'    => 'select',
                                     'title'   => 'Select Section',
                                     'options' => $sections_list,
-                                    'chosen'  => true,
                                 ],
                             ],
                         ],

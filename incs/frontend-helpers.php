@@ -25,20 +25,9 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
 
     $layouts = !empty($options['layouts_tabs']) ? $options['layouts_tabs'] : [];
     
-    // 1. Render Global Page Banner (Page Layout specific)
-    if ($position === 'before' && is_page() && !is_front_page()) {
-        $enable_banner = isset($layouts['global_page_banner_enable']) ? $layouts['global_page_banner_enable'] : true;
-        if ($enable_banner && function_exists('mthan_section_PageBanner_html')) {
-            $banner_data = [
-                'PageBanner_bg_image' => !empty($layouts['global_page_banner_bg']) ? $layouts['global_page_banner_bg'] : ''
-            ];
-            mthan_section_PageBanner_html($banner_data);
-        }
-    }
-
     $key = '';
     
-    // 2. Determine context (Page vs Post)
+    // 1. Determine context (Page vs Post vs Service etc)
     if (is_page()) {
         $key = ($position === 'before') ? 'page_before_content' : 'page_after_content';
     } elseif (is_singular('mthan_service')) {
@@ -48,18 +37,18 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
     } elseif (function_exists('is_woocommerce') && (is_woocommerce() || is_cart() || is_checkout())) {
         $key = ($position === 'before') ? 'shop_before_content' : 'shop_after_content';
     } elseif (is_singular('post') || is_home() || is_archive() || is_search()) {
-        // "Post Layout" applies to blog index, archives, search, and single posts.
         $key = ($position === 'before') ? 'post_before_content' : 'post_after_content';
     }
 
-    // 3. Validate key and data in nested layouts array
+    // 2. Validate key and data in nested layouts array
     if (empty($key) || empty($layouts[$key]) || !is_array($layouts[$key])) {
         return;
     }
 
-    // 4. Render each selected section
+    // 3. Render each selected section
     foreach ($layouts[$key] as $item) {
-        $slug = !empty($item['section']) ? $item['section'] : '';
+        // Support both 'template' (new) and 'section' (old)
+        $slug = !empty($item['template']) ? $item['template'] : (!empty($item['section']) ? $item['section'] : '');
         
         if (empty($slug)) {
             continue;
@@ -67,7 +56,7 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
 
         $func = 'mthan_section_' . $slug . '_html';
         if (function_exists($func)) {
-             // Pass empty array so it uses the defaults from the section options file
+             // Pass the item data to the renderer
              $func($item);
         }
     }
