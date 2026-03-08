@@ -41,8 +41,9 @@ if (!empty($spacing)) {
                                 <?php if (has_post_thumbnail($prev_service->ID)) {
                                     echo get_the_post_thumbnail($prev_service->ID, 'thumbnail');
                                 } ?>
-                                <div class="upper-title"><span class="icon fa fa-caret-left"></span>&ensp; <?php esc_html_e('Prev Service', 'mthan'); ?></div>
-                                <span class="txt"><?php echo esc_html(get_the_title($prev_service->ID)); ?></span>
+                                <div class="upper-title">
+                                    <span class="icon fa fa-caret-left"></span>&ensp; <?php echo esc_html(get_the_title($prev_service->ID)); ?>
+                                </div>
                             </a>
                         </div>
                     <?php endif; ?>
@@ -52,8 +53,9 @@ if (!empty($spacing)) {
                                 <?php if (has_post_thumbnail($next_service->ID)) {
                                     echo get_the_post_thumbnail($next_service->ID, 'thumbnail');
                                 } ?>
-                                <div class="upper-title"><?php esc_html_e('Next Service', 'mthan'); ?> &ensp;<span class="icon fa fa-caret-right"></span></div>
-                                <span class="txt"><?php echo esc_html(get_the_title($next_service->ID)); ?></span>
+                                <div class="upper-title">
+                                    <?php echo esc_html(get_the_title($next_service->ID)); ?> &ensp;<span class="icon fa fa-caret-right"></span>
+                                </div>
                             </a>
                         </div>
                     <?php endif; ?>
