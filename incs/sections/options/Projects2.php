@@ -44,13 +44,13 @@ function mthan_section_Projects2_options() {
             'title' => 'Project Items (Exactly 7 recommended)',
             'max'   => 7,
             'default' => array(
-                array( 'image' => $gal_path . '18.jpg', 'title' => 'Sprinkler Irrigation', 'category' => 'Lawn Care' ),
-                array( 'image' => $gal_path . '19.jpg', 'title' => 'Garden Care', 'category' => 'Garden' ),
-                array( 'image' => $gal_path . '20.jpg', 'title' => 'Plants Planting', 'category' => 'Landscaping' ),
-                array( 'image' => $gal_path . '21.jpg', 'title' => 'Hard Scaping', 'category' => 'Gardening' ),
-                array( 'image' => $gal_path . '22.jpg', 'title' => 'Spring Cleanup', 'category' => 'Lawn Care' ),
-                array( 'image' => $gal_path . '24.jpg', 'title' => 'Water Fountain', 'category' => 'Garden' ),
-                array( 'image' => $gal_path . '23.jpg', 'title' => 'Lawn Maintenance', 'category' => 'Lawn Care' ),
+                array( 'image' => $gal_path . '1.jpg', 'title' => 'Communual Garden', 'category' => 'Garden Care' ),
+                array( 'image' => $gal_path . '2.jpg', 'title' => 'Outdoor Living', 'category' => 'Landscape' ),
+                array( 'image' => $gal_path . '3.jpg', 'title' => 'Outdoor Living', 'category' => 'Garden Care' ),
+                array( 'image' => $gal_path . '4.jpg', 'title' => 'Outdoor Living', 'category' => 'Landscape' ),
+                array( 'image' => $gal_path . '6.jpg', 'title' => 'Outdoor Living', 'category' => 'Garden Care' ),
+                array( 'image' => $gal_path . '7.jpg', 'title' => 'Outdoor Living', 'category' => 'Garden Care' ),
+                array( 'image' => $gal_path . '5.jpg', 'title' => 'Outdoor Living', 'category' => 'Garden Care' ),
             ),
             'fields' => array(
                 array(

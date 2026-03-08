@@ -15,15 +15,15 @@ function mthan_section_Projects2_html($section_data) { ?>
     $btn_text   = mthan_get_section_val($slug, $section_data, 'btn_text');
     $btn_link   = mthan_get_link(mthan_get_section_val($slug, $section_data, 'btn_link'));
 
-    // Fixed configuration for each item to maintain Masonry layout
+    // Fixed configuration for each item to maintain Masonry layout according to html/sections/projects-2.html
     $item_configs = array(
         1 => array('class' => 'col-lg-6 col-md-12 col-sm-12'),
-        2 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
-        3 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
-        4 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
-        5 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
-        6 => array('class' => 'col-lg-6 col-md-12 col-sm-12'),
-        7 => array('class' => 'col-lg-3 col-md-6 col-sm-12'),
+        2 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        3 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        4 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        5 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
+        6 => array('class' => 'column-width col-lg-6 col-md-12 col-sm-12'),
+        7 => array('class' => 'column-width col-lg-3 col-md-6 col-sm-12'),
     );
 
     $styles = mthan_section_styles($slug, $section_data);
@@ -67,7 +67,7 @@ function mthan_section_Projects2_html($section_data) { ?>
                     $img    = mthan_sec_img(isset($item['image']) ? $item['image'] : '');
                     $link   = mthan_get_link(isset($item['link']) ? $item['link'] : '#');
                     $cat    = isset($item['category']) ? $item['category'] : '';
-                    $cat_l  = '#'; // Category link usually placeholder here
+                    $cat_l  = '#';
                     
                     // Cycle through configs if more than 7
                     $config_idx = (($i - 1) % 7) + 1;
