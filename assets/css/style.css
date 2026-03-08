@@ -16489,7 +16489,7 @@ img.lazy-image.loaded {
      
      .main-header.header-style-one .header-lower .nav-outer {
          float: none !important;
-         margin: 0 !important;
+         margin: 0 0 0 16px !important;
          padding: 0 !important;
          width: auto !important;
          display: flex !important;
