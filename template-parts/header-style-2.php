@@ -17,7 +17,7 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                     <div class="quote-link">
                         <?php echo esc_html($header_tabs['header_2_quote_text']); ?> 
                         <?php if (!empty($header_tabs['header_2_quote_btn_text'])) { 
-                             $quote_btn_url = !empty($header_tabs['header_2_quote_btn_url']) ? (is_numeric($header_tabs['header_2_quote_btn_url']) ? get_permalink($header_tabs['header_2_quote_btn_url']) : $header_tabs['header_2_quote_btn_url']) : '#';
+                             $quote_btn_url = mthan_get_link($header_tabs['header_2_quote_btn_url'] ?? '#');
                         ?>
                         <a href="<?php echo esc_url($quote_btn_url); ?>">
                             <?php echo esc_html($header_tabs['header_2_quote_btn_text']); ?>
@@ -135,9 +135,9 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                                 ?>
                                 <li class="<?php echo esc_attr($li_class); ?>">
                                     <?php 
-                                    $url = !empty($item['url']) ? (is_numeric($item['url']) ? get_permalink($item['url']) : $item['url']) : '#';
+                                    $url = mthan_get_link($item['url'] ?? '#');
                                     ?>
-                                    <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($item['target'] ?? '_self'); ?>">
+                                    <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($item['target'] ?? (is_array($item['url'] ?? null) ? ($item['url']['target'] ?? '_self') : '_self')); ?>">
                                         <?php echo esc_html($item['title'] ?? ''); ?>
                                     </a>
                                     <?php if ($has_submenu) : ?>
@@ -145,9 +145,9 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                                         <?php foreach ($item['submenu'] as $sub) : ?>
                                         <li>
                                             <?php 
-                                            $sub_url = !empty($sub['url']) ? (is_numeric($sub['url']) ? get_permalink($sub['url']) : $sub['url']) : '#';
+                                            $sub_url = mthan_get_link($sub['url'] ?? '#');
                                             ?>
-                                            <a href="<?php echo esc_url($sub_url); ?>" target="<?php echo esc_attr($sub['target'] ?? '_self'); ?>">
+                                            <a href="<?php echo esc_url($sub_url); ?>" target="<?php echo esc_attr($sub['target'] ?? (is_array($sub['url'] ?? null) ? ($sub['url']['target'] ?? '_self') : '_self')); ?>">
                                                 <?php echo esc_html($sub['title'] ?? ''); ?>
                                             </a>
                                         </li>
@@ -212,7 +212,7 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                 <!--Contact Btn-->
                 <div class="contact-link">
                     <?php 
-                    $quote_btn_url = !empty($header_tabs['header_2_quote_btn_url']) ? (is_numeric($header_tabs['header_2_quote_btn_url']) ? get_permalink($header_tabs['header_2_quote_btn_url']) : $header_tabs['header_2_quote_btn_url']) : '#';
+                    $quote_btn_url = mthan_get_link($header_tabs['header_2_quote_btn_url'] ?? '#');
                     ?>
                     <a href="<?php echo esc_url($quote_btn_url); ?>" class="theme-btn btn-style-three">
                         <span class="btn-title">
@@ -255,37 +255,20 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
-            <!--Social Links-->
             <div class="social-links">
                 <ul class="clearfix">
-                    <?php if (!empty($theme_options['social_facebook'])) { ?>
+                    <?php 
+                    $social_links = !empty($theme_options['social_links']) ? $theme_options['social_links'] : [];
+                    foreach ($social_links as $social) :
+                        if (empty($social['url']) || empty($social['icon'])) continue;
+                        $icon_url = mthan_get_img_url($social['icon']);
+                    ?>
                         <li>
-                            <a href="<?php echo esc_url($theme_options['social_facebook']); ?>">
-                                <span class="fab fa-facebook-f"></span>
+                            <a href="<?php echo esc_url($social['url']); ?>">
+                                <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($social['title'] ?? ''); ?>" style="width: 16px; height: 16px; object-fit: contain;">
                             </a>
                         </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_twitter'])) { ?>
-                        <li>
-                            <a href="<?php echo esc_url($theme_options['social_twitter']); ?>">
-                                <span class="fab fa-twitter"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_instagram'])) { ?>
-                        <li>
-                            <a href="<?php echo esc_url($theme_options['social_instagram']); ?>">
-                                <span class="fab fa-instagram"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_youtube'])) { ?>
-                        <li>
-                            <a href="<?php echo esc_url($theme_options['social_youtube']); ?>">
-                                <span class="fab fa-youtube"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </nav>

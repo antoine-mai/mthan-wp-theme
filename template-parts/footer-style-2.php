@@ -9,7 +9,7 @@ $general_logo      = $theme_options['logo'] ?? '';
 $footer_logo_url   = mthan_get_img_url($footer_tabs['footer_logo'] ?? '', mthan_get_img_url($general_logo, get_template_directory_uri() . '/assets/images/footer-logo-two.png'));
 $about_text        = $footer_tabs['footer_about_text'] ?? '';
 $about_btn_text    = $footer_tabs['footer_about_btn_text'] ?? '';
-$about_btn_url     = $footer_tabs['footer_about_btn_url'] ?? '#';
+$about_btn_url     = mthan_get_link($footer_tabs['footer_about_btn_url'] ?? '#');
 
 $opening_label     = $footer_tabs['footer_2_opening_label'] ?? 'Opening Hrs:';
 
@@ -79,7 +79,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                                         <ul class="links">
                                             <?php foreach ($links_items_1 as $li) { ?>
                                             <li>
-                                                <a href="<?php echo esc_url($li['url'] ?? '#'); ?>">
+                                                <a href="<?php echo esc_url(mthan_get_link($li['url'] ?? '#')); ?>">
                                                     <?php echo esc_html($li['title'] ?? ''); ?>
                                                 </a>
                                             </li>
@@ -92,7 +92,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                                         <ul class="links">
                                             <?php foreach ($links_items_2 as $li) { ?>
                                             <li>
-                                                <a href="<?php echo esc_url($li['url'] ?? '#'); ?>">
+                                                <a href="<?php echo esc_url(mthan_get_link($li['url'] ?? '#')); ?>">
                                                     <?php echo esc_html($li['title'] ?? ''); ?>
                                                 </a>
                                             </li>
@@ -132,7 +132,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                                         <?php 
                                         if (!empty($theme_options['social_links'])) :
                                             foreach ($theme_options['social_links'] as $social) :
-                                                $s_url   = !empty($social['url']) ? $social['url'] : '#';
+                                                $s_url   = mthan_get_link($social['url'] ?? '#');
                                                 $s_title = !empty($social['title']) ? $social['title'] : '';
                                                 $s_icon  = !empty($social['icon']) ? mthan_get_img_url($social['icon']) : '';
                                         ?>
@@ -170,7 +170,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                     <?php if (!empty($bottom_links)) : ?>
                     <ul class="clearfix">
                         <?php foreach ($bottom_links as $bl) : ?>
-                        <li><a href="<?php echo esc_url($bl['url'] ?? '#'); ?>"><?php echo esc_html($bl['title'] ?? ''); ?></a></li>
+                        <li><a href="<?php echo esc_url(mthan_get_link($bl['url'] ?? '#')); ?>"><?php echo esc_html($bl['title'] ?? ''); ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                     <?php endif; ?>

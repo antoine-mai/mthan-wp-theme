@@ -61,16 +61,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                     'desc'    => 'Choose a page/post or enter a custom link below',
                                 ]),
                                 [
-                                    'id'    => 'target',
-                                    'type'  => 'select',
-                                    'title' => 'Target',
-                                    'options' => [
-                                        '_self'  => 'Same Window',
-                                        '_blank' => 'New Window',
-                                    ],
-                                    'default' => '_self',
-                                ],
-                                [
                                     'id'    => 'mega_menu',
                                     'type'  => 'switcher',
                                     'title' => 'Mega Menu',
@@ -91,16 +81,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                         mthan_page_select_field('url', 'Select Page / Post', [
                                             'default' => '#',
                                         ]),
-                                        [
-                                            'id'    => 'target',
-                                            'type'  => 'select',
-                                            'title' => 'Target',
-                                            'options' => [
-                                                '_self'  => 'Same Window',
-                                                '_blank' => 'New Window',
-                                            ],
-                                            'default' => '_self',
-                                        ],
                                     ]
                                 ]
                             ]

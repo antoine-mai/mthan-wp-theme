@@ -95,16 +95,9 @@ add_action('admin_head', 'mthan_admin_styling');
 function mthan_page_select_field($id, $title, $args = [])
 {
     $default = [
-        'id'          => $id,
-        'type'        => 'select',
-        'title'       => $title,
-        'options'     => 'pages', // CSF auto-populates pages
-        'placeholder' => 'Select a page or enter ID/URL',
-        'chosen'      => true,
-        'ajax'        => true,
-        'settings'    => [
-            'allow_clear' => true,
-        ],
+        'id'    => $id,
+        'type'  => 'link',
+        'title' => $title,
     ];
 
     return array_merge($default, $args);

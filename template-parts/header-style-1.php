@@ -7,12 +7,12 @@ $header_tabs        = !empty($theme_options['header_tabs']) ? $theme_options['he
 $social_links       = !empty($theme_options['social_links']) ? $theme_options['social_links'] : [];
 
 // 1. Data URLs & Text
-$tip_link           = !empty($header_tabs['header_1_tip_link']) ? (is_numeric($header_tabs['header_1_tip_link']) ? get_permalink($header_tabs['header_1_tip_link']) : $header_tabs['header_1_tip_link']) : '/contact';
-$callback_url       = !empty($header_tabs['header_1_callback_url']) ? (is_numeric($header_tabs['header_1_callback_url']) ? get_permalink($header_tabs['header_1_callback_url']) : $header_tabs['header_1_callback_url']) : '/contact';
-$btn_url            = !empty($header_tabs['header_1_btn_url']) ? (is_numeric($header_tabs['header_1_btn_url']) ? get_permalink($header_tabs['header_1_btn_url']) : $header_tabs['header_1_btn_url']) : '#';
+$tip_link           = mthan_get_link($header_tabs['header_1_tip_link'] ?? '/contact');
+$callback_url       = mthan_get_link($header_tabs['header_1_callback_url'] ?? '/contact');
+$btn_url            = mthan_get_link($header_tabs['header_1_btn_url'] ?? '#');
 $btn_icon_url       = !empty($header_tabs['header_1_btn_icon']) ? mthan_get_img_url($header_tabs['header_1_btn_icon']) : '';
 $search_placeholder = !empty($theme_options['search_placeholder']) ? $theme_options['search_placeholder'] : 'Keyword ...';
-$search_action_url  = !empty($theme_options['default_search_page']) ? get_permalink($theme_options['default_search_page']) : home_url('/');
+$search_action_url  = mthan_get_link($theme_options['default_search_page'] ?? home_url('/'));
 
 // 2. Logo URLs
 $logo_url           = mthan_get_img_url($header_tabs['header_logo'] ?? '', get_template_directory_uri() . '/assets/images/logo.png');
@@ -156,9 +156,9 @@ $menu_items = !empty($header_tabs['menu_items']) ? $header_tabs['menu_items'] : 
                                 ?>
                                 <li class="<?php echo esc_attr($li_class); ?>">
                                     <?php 
-                                    $url = !empty($item['url']) ? (is_numeric($item['url']) ? get_permalink($item['url']) : $item['url']) : '#';
+                                    $url = mthan_get_link($item['url'] ?? '#');
                                     ?>
-                                    <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($item['target'] ?? '_self'); ?>">
+                                    <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($item['target'] ?? (is_array($item['url'] ?? null) ? ($item['url']['target'] ?? '_self') : '_self')); ?>">
                                         <?php echo esc_html($item['title'] ?? ''); ?>
                                     </a>
                                     <?php if ($has_submenu) : ?>
@@ -166,9 +166,9 @@ $menu_items = !empty($header_tabs['menu_items']) ? $header_tabs['menu_items'] : 
                                         <?php foreach ($item['submenu'] as $sub) : ?>
                                         <li>
                                             <?php 
-                                            $sub_url = !empty($sub['url']) ? (is_numeric($sub['url']) ? get_permalink($sub['url']) : $sub['url']) : '#';
+                                            $sub_url = mthan_get_link($sub['url'] ?? '#');
                                             ?>
-                                            <a href="<?php echo esc_url($sub_url); ?>" target="<?php echo esc_attr($sub['target'] ?? '_self'); ?>">
+                                            <a href="<?php echo esc_url($sub_url); ?>" target="<?php echo esc_attr($sub['target'] ?? (is_array($sub['url'] ?? null) ? ($sub['url']['target'] ?? '_self') : '_self')); ?>">
                                                 <?php echo esc_html($sub['title'] ?? ''); ?>
                                             </a>
                                         </li>
@@ -223,9 +223,8 @@ $menu_items = !empty($header_tabs['menu_items']) ? $header_tabs['menu_items'] : 
                 </nav><!-- Main Menu End-->
 
                 <?php if (!empty($header_tabs['header_1_btn_text'])) { ?>
-                <!--Contact Btn-->
                 <div class="contact-link">
-                    <a href="<?php echo esc_url($header_tabs['header_1_btn_url'] ?? '#'); ?>" class="theme-btn btn-style-three">
+                    <a href="<?php echo esc_url($btn_url); ?>" class="theme-btn btn-style-three">
                         <?php 
                         if ($btn_icon_url && (strpos($btn_icon_url, 'http') === 0 || strpos($btn_icon_url, '/') === 0)) : ?>
                             <img src="<?php echo esc_url($btn_icon_url); ?>" alt="">
@@ -262,34 +261,17 @@ $menu_items = !empty($header_tabs['menu_items']) ? $header_tabs['menu_items'] : 
             <!--Social Links-->
             <div class="social-links">
                 <ul class="clearfix">
-                    <?php if (!empty($theme_options['social_facebook'])) { ?>
-                    <li>
-                        <a href="<?php echo esc_url($theme_options['social_facebook']); ?>">
-                            <span class="fab fa-facebook-f"></span>
-                        </a>
-                    </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_twitter'])) { ?>
-                    <li>
-                        <a href="<?php echo esc_url($theme_options['social_twitter']); ?>">
-                            <span class="fab fa-twitter"></span>
-                        </a>
-                    </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_instagram'])) { ?>
-                    <li>
-                        <a href="<?php echo esc_url($theme_options['social_instagram']); ?>">
-                            <span class="fab fa-instagram"></span>
-                        </a>
-                    </li>
-                    <?php } ?>
-                    <?php if (!empty($theme_options['social_youtube'])) { ?>
-                    <li>
-                        <a href="<?php echo esc_url($theme_options['social_youtube']); ?>">
-                            <span class="fab fa-youtube"></span>
-                        </a>
-                    </li>
-                    <?php } ?>
+                    <?php 
+                    foreach ($social_links as $social) :
+                        if (empty($social['url']) || empty($social['icon'])) continue;
+                        $icon_url = mthan_get_img_url($social['icon']);
+                    ?>
+                        <li>
+                            <a href="<?php echo esc_url($social['url']); ?>">
+                                <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($social['title'] ?? ''); ?>" style="width: 16px; height: 16px; object-fit: contain;">
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </nav>

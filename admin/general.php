@@ -72,7 +72,7 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                 ],
                 [
                     'id' => 'url',
-                    'type' => 'text',
+                    'type' => 'link',
                     'title' => 'URL',
                     'default' => '#',
                 ],
