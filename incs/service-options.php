@@ -46,23 +46,5 @@ $mthan_gen_section_group = function($id) use ($available_sections, $section_fiel
 CSF::createSection(MTHAN_SERVICE_OPTIONS, [
     'title'  => 'Sections',
     'icon'   => 'fas fa-layer-group',
-    'fields' => array_merge(
-        [
-            [
-                'id'    => 'service_icon',
-                'type'  => 'icon',
-                'title' => 'Service Icon',
-            ],
-            [
-                'id'    => 'service_hide_title',
-                'type'  => 'switcher',
-                'title' => 'Hide Title',
-            ],
-            [
-                'type'    => 'subheading',
-                'content' => 'Layout Sections',
-            ],
-        ],
-        $mthan_gen_section_group('service_sections')
-    ),
+    'fields' => $mthan_gen_section_group('service_sections'),
 ]);
