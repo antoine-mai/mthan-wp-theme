@@ -36,26 +36,30 @@ if (!empty($spacing)) {
             <div class="post-controls" style="margin-bottom: 40px; border-bottom: none; padding-bottom: 0;">
                 <div class="inner clearfix">
                     <?php if ($prev_service) : ?>
-                        <div class="prev-post">
-                            <a href="<?php echo esc_url(get_permalink($prev_service->ID)); ?>">
-                                <?php if (has_post_thumbnail($prev_service->ID)) {
-                                    echo get_the_post_thumbnail($prev_service->ID, 'thumbnail');
-                                } ?>
-                                <div class="upper-title">
+                        <div class="prev-post" style="width: auto; max-width: 48%;">
+                            <a href="<?php echo esc_url(get_permalink($prev_service->ID)); ?>" style="display: flex; align-items: center; padding: 0;">
+                                <?php if (has_post_thumbnail($prev_service->ID)) { ?>
+                                    <div class="thumb" style="position: relative; top: 0; left: 0; margin-right: 15px; flex-shrink: 0;">
+                                        <?php echo get_the_post_thumbnail($prev_service->ID, 'thumbnail'); ?>
+                                    </div>
+                                <?php } ?>
+                                <div class="upper-title" style="position: relative; top: 0; left: 0; padding: 0; font-weight: 700; color: #132728; font-family: 'Libre Baskerville', serif;">
                                     <span class="icon fa fa-caret-left"></span>&ensp; <?php echo esc_html(get_the_title($prev_service->ID)); ?>
                                 </div>
                             </a>
                         </div>
                     <?php endif; ?>
                     <?php if ($next_service) : ?>
-                        <div class="next-post">
-                            <a href="<?php echo esc_url(get_permalink($next_service->ID)); ?>">
-                                <?php if (has_post_thumbnail($next_service->ID)) {
-                                    echo get_the_post_thumbnail($next_service->ID, 'thumbnail');
-                                } ?>
-                                <div class="upper-title">
+                        <div class="next-post" style="width: auto; max-width: 48%;">
+                            <a href="<?php echo esc_url(get_permalink($next_service->ID)); ?>" style="display: flex; align-items: center; justify-content: flex-end; padding: 0;">
+                                <div class="upper-title" style="position: relative; top: 0; right: 0; padding: 0; font-weight: 700; color: #132728; font-family: 'Libre Baskerville', serif;">
                                     <?php echo esc_html(get_the_title($next_service->ID)); ?> &ensp;<span class="icon fa fa-caret-right"></span>
                                 </div>
+                                <?php if (has_post_thumbnail($next_service->ID)) { ?>
+                                    <div class="thumb" style="position: relative; top: 0; right: 0; margin-left: 15px; flex-shrink: 0;">
+                                        <?php echo get_the_post_thumbnail($next_service->ID, 'thumbnail'); ?>
+                                    </div>
+                                <?php } ?>
                             </a>
                         </div>
                     <?php endif; ?>
