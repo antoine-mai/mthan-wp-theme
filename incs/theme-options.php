@@ -4,14 +4,26 @@ if (class_exists('CSF')) {
 
     $admin_dir = get_template_directory() . '/admin/';
 
-    // ── Create Single Options Instance ─────────────────────────────────────
+    // ── Create Top-level Mthan Menu ────────────────────────────────────────
+    add_action('admin_menu', function() {
+        add_menu_page(
+            'MTHAN', 
+            'MTHAN', 
+            'manage_options', 
+            'mthan-admin', 
+            null, 
+            get_template_directory_uri() . '/assets/images/mthan-logo.png', 
+            2
+        );
+    });
+
+    // ── Create Single Options Instance as Submenu ──────────────────────────
     CSF::createOptions(MTHAN_THEME_OPTIONS, [
-        'menu_title'         => 'MTHAN',
-        'menu_slug'          => 'mthan-admin',
-        'menu_type'          => 'menu',
-        'menu_position'      => 2,
-        'menu_icon'          => get_template_directory_uri() . '/assets/images/mthan-logo.png',
-        'show_sub_menu'      => true,
+        'menu_title'         => 'Options',
+        'menu_slug'          => 'mthan-theme-options',
+        'menu_type'          => 'submenu',
+        'menu_parent'        => 'mthan-admin',
+        'show_sub_menu'      => false,
         'show_bar_menu'      => true,
         'framework_title'    => 'MTHAN <small>Management</small>',
         'theme'              => 'dark',
