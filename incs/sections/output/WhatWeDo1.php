@@ -83,7 +83,7 @@ function mthan_section_WhatWeDo1_html($section_data) { ?>
                 $bro_img       = mthan_sec_img(isset($tab['brochure_img']) ? $tab['brochure_img'] : '');
                 $bro_title     = isset($tab['brochure_title']) ? $tab['brochure_title'] : '';
                 $bro_link_text = isset($tab['brochure_link_text']) ? $tab['brochure_link_text'] : '';
-                $bro_link_url  = isset($tab['brochure_link_url']) ? $tab['brochure_link_url'] : '#';
+                $bro_link_url  = mthan_get_link(isset($tab['brochure_link_url']) ? $tab['brochure_link_url'] : '#');
                 
                 $more_text     = isset($tab['more_link_text']) ? $tab['more_link_text'] : '';
                 $more_url      = mthan_get_link(isset($tab['more_link_url']) ? $tab['more_link_url'] : '');
