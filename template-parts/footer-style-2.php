@@ -74,7 +74,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                             </div>
                             <div class="widget-content">
                                 <div class="row clearfix">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6">
                                         <?php if (!empty($links_items_1)) { ?>
                                         <ul class="links">
                                             <?php foreach ($links_items_1 as $li) { ?>
@@ -87,7 +87,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                                         </ul>
                                         <?php } ?>
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-12">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-6">
                                         <?php if (!empty($links_items_2)) { ?>
                                         <ul class="links">
                                             <?php foreach ($links_items_2 as $li) { ?>
