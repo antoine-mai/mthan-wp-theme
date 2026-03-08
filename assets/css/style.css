@@ -16464,11 +16464,11 @@ img.lazy-image.loaded {
          min-height: 70px !important;
          padding: 0 15px !important;
          position: relative !important;
-         background: #132728;
+         background: #132728 !important; /* Force dark background */
          overflow: visible;
      }
      
-     /* Restored and perfected dashed frame */
+     /* Dashed frame centered at 10px offset */
      .main-header.header-style-one .header-lower .inner:before {
          content: '' !important;
          position: absolute !important;
@@ -16480,6 +16480,12 @@ img.lazy-image.loaded {
          z-index: 1 !important;
          display: block !important;
          pointer-events: none;
+         background: none !important; /* Ensure it's just a frame */
+     }
+     
+     /* Hide the theme's full-height green block */
+     .main-header.header-style-one .header-lower .more-links:before {
+         display: none !important;
      }
      
      .main-header.header-style-one .header-lower .nav-outer,
@@ -16491,28 +16497,33 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          z-index: 2 !important;
+         background: none !important; /* Must be transparent */
      }
      
      .main-header.header-style-one .header-lower .more-links .quote-btn {
-         display: block !important;
+         display: flex !important;
+         align-items: center !important;
          margin: 0 !important;
+         padding: 0 !important;
+         background: none !important;
      }
      
      .main-header.header-style-one .header-lower .more-links .quote-btn a {
          background: #24a77e !important;
          color: #ffffff !important;
-         padding: 0 15px !important;
-         height: 40px !important; /* In a 50px frame, this leaves 5px top/bottom gap */
+         height: 40px !important; 
+         padding: 0 12px !important;
          line-height: 40px !important;
          display: flex !important;
          align-items: center !important;
          justify-content: center !important;
-         border-radius: 5px !important;
+         border-radius: 4px !important;
          font-size: 13px !important;
          font-weight: 600 !important;
          text-transform: uppercase;
-         text-decoration: none !important;
-         margin-right: 5px !important; /* Offset from 10px dashed right border = 15px total from edge */
+         margin-right: 5px !important; /* Distance from 10px dashed right frame = 15px total from edge */
+         z-index: 3 !important;
+         box-shadow: none !important;
      }
      
      .main-header.header-style-one .more-links .quote-btn a i {
@@ -16523,10 +16534,11 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: center !important;
-         margin-left: 5px !important; /* Offset from 10px dashed left border */
-         font-size: 28px !important;
+         margin-left: 5px !important; /* Distance from 10px dashed left frame */
+         font-size: 26px !important;
          color: #ffffff !important;
          height: 100% !important;
          cursor: pointer !important;
+         z-index: 3 !important;
      }
  }
