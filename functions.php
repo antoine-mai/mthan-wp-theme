@@ -13,6 +13,7 @@ require_once get_template_directory() . '/incs/codestar/autoload.php';
 // ── Required Files (loaded manually to control order) ──────────────
 require_once get_template_directory() . '/incs/sections.php';
 require_once get_template_directory() . '/incs/custom-post-types.php';
+require_once get_template_directory() . '/incs/woocommerce-hooks.php';
 
 // ── Autoload /incs/ directory ──────────────────────────────────────
 $mthan_autoload_incs = function($dir) use (&$mthan_autoload_incs) {
