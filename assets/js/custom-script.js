@@ -417,6 +417,40 @@
 				$(target).addClass('active-tab');
 			}
 		});
+		
+		// Auto Slide for service-tabs (What We Do 1)
+		$('.tabs-box.service-tabs').each(function() {
+			var $tabsBox = $(this);
+			var $tabBtns = $tabsBox.find('.tab-buttons .tab-btn');
+			var timer;
+			var interval = 5000; // 5 seconds
+
+			function nextTab() {
+				var $activeBtn = $tabsBox.find('.tab-buttons .active-btn');
+				var index = $tabBtns.index($activeBtn);
+				var nextIndex = (index + 1) % $tabBtns.length;
+				$tabBtns.eq(nextIndex).trigger('click');
+			}
+
+			function startTimer() {
+				timer = setInterval(nextTab, interval);
+			}
+
+			function stopTimer() {
+				clearInterval(timer);
+			}
+
+			startTimer();
+
+			// Pause on Mouse Enter, Resume on Mouse Leave
+			$tabsBox.on('mouseenter', stopTimer).on('mouseleave', startTimer);
+			
+			// Reset timer on click
+			$tabBtns.on('click', function() {
+				stopTimer();
+				startTimer();
+			});
+		});
 	}
 
 	//Accordion Box
