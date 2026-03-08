@@ -11,7 +11,7 @@ function mthan_section_Services_options() {
             'id'      => 'count',
             'type'    => 'number',
             'title'   => 'Service Count',
-            'default' => 3,
+            'default' => -1,
         ),
     );
 }

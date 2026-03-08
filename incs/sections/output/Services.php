@@ -8,7 +8,7 @@
 function mthan_section_Services_html($section_data) { ?>
 <?php
     $slug = 'Services';
-    $count = mthan_get_section_val($slug, $section_data, 'count', 3);
+    $count = mthan_get_section_val($slug, $section_data, 'count', -1);
 
     $args = array(
         'post_type'      => 'mthan_service',
