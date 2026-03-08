@@ -90,9 +90,8 @@ if (!empty($spacing)) {
         mthan_render_post_sections('before');
         the_content();
     ?>
-<?php } } ?>
+    <?php } } ?>
 </main>
-
 <?php
 mthan_render_post_sections('after');
 mthan_render_global_sections('after', 'service');

@@ -170,16 +170,16 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                 <div class="more-links clearfix">
                     <!-- <div class="cart-btn"><a href="#"><span class="flaticon-shopping-bag-2"></span></a></div> WooCommerce Cart optionally -->
                     <?php if (!empty($header_tabs['header_1_btn_text'])) : ?>
-                    <div class="quote-btn">
+                    <div class="quote-btn" style="padding: 10px 0;">
                         <?php 
                         $btn_url = !empty($header_tabs['header_1_btn_url']) ? (is_numeric($header_tabs['header_1_btn_url']) ? get_permalink($header_tabs['header_1_btn_url']) : $header_tabs['header_1_btn_url']) : '#';
                         $btn_icon_url = !empty($header_tabs['header_1_btn_icon']) ? mthan_get_img_url($header_tabs['header_1_btn_icon']) : '';
                         ?>
-                        <a href="<?php echo esc_url($btn_url); ?>" style="display: flex; align-items: center; justify-content: center; flex-direction: column; line-height: 1.2; padding: 10px 15px;">
+                        <a href="<?php echo esc_url($btn_url); ?>" style="display: block; text-align: center; line-height: 1; padding: 0 20px; color: #fff;">
                             <?php if ($btn_icon_url) : ?>
-                            <img src="<?php echo esc_url($btn_icon_url); ?>" alt="" style="height: 20px; width: auto; margin-bottom: 2px;">
+                            <img src="<?php echo esc_url($btn_icon_url); ?>" alt="" style="height: 24px; width: auto; margin: 0 auto 5px auto; display: block;">
                             <?php endif; ?>
-                            <span class="btn-text" style="font-size: 13px; font-weight: 700; text-transform: uppercase;"><?php echo esc_html($header_tabs['header_1_btn_text']); ?></span> 
+                            <span class="btn-text" style="font-size: 14px; font-weight: 700; text-transform: capitalize; display: block;"><?php echo esc_html($header_tabs['header_1_btn_text']); ?></span> 
                         </a>
                     </div>
                     <?php endif; ?>
