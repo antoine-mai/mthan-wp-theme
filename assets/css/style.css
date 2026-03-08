@@ -16478,7 +16478,7 @@ img.lazy-image.loaded {
          top: 10px !important;
          bottom: 10px !important;
          border: 1px dashed rgba(255, 255, 255, 0.25) !important;
-         z-index: 1 !important;
+         z-index: 0 !important;
          display: block !important;
          pointer-events: none !important;
          background: none !important; 
