@@ -16460,26 +16460,16 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: space-between !important;
-         height: 70px !important;
-         min-height: 70px !important;
+         height: 60px !important;
+         min-height: 60px !important;
          padding: 0 15px !important;
          position: relative !important;
-         overflow: visible;
          background: #132728;
      }
      
-     /* Perfect dashed frame within the bar */
+     /* Remove dashed frame on mobile */
      .main-header.header-style-one .header-lower .inner:before {
-         content: '' !important;
-         position: absolute !important;
-         left: 10px !important;
-         right: 10px !important;
-         top: 10px !important;
-         bottom: 10px !important;
-         border: 1px dashed rgba(255, 255, 255, 0.25) !important;
-         z-index: 1 !important;
-         display: block !important;
-         pointer-events: none;
+         display: none !important;
      }
      
      /* Reset containers to be simple flex-centerers */
@@ -16503,7 +16493,7 @@ img.lazy-image.loaded {
      .main-header.header-style-one .header-lower .more-links .quote-btn a {
          background: #24a77e !important;
          color: #ffffff !important;
-         padding: 9px 15px !important; /* Total height ~38px in 50px frame */
+         padding: 8px 15px !important;
          border-radius: 5px !important;
          font-size: 13px !important;
          font-weight: 600 !important;
@@ -16511,7 +16501,7 @@ img.lazy-image.loaded {
          display: inline-block !important;
          text-transform: uppercase;
          text-decoration: none !important;
-         margin-right: 5px !important; /* Offset from 10px frame border */
+         margin: 0 !important;
      }
      
      .main-header.header-style-one .more-links .quote-btn a i {
@@ -16522,7 +16512,7 @@ img.lazy-image.loaded {
          display: flex !important;
          align-items: center !important;
          justify-content: center !important;
-         margin: 0 0 0 5px !important; /* Offset from left dashed gap */
+         margin: 0 !important;
          padding: 0 !important;
          font-size: 28px !important;
          color: #ffffff !important;
