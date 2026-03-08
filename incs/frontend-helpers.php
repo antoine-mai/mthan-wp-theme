@@ -23,9 +23,22 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
         return;
     }
 
+    $layouts = !empty($options['layouts_tabs']) ? $options['layouts_tabs'] : [];
+    
+    // 1. Render Global Page Banner (Page Layout specific)
+    if ($position === 'before' && is_page() && !is_front_page()) {
+        $enable_banner = isset($layouts['global_page_banner_enable']) ? $layouts['global_page_banner_enable'] : true;
+        if ($enable_banner && function_exists('mthan_section_PageBanner_html')) {
+            $banner_data = [
+                'PageBanner_bg_image' => !empty($layouts['global_page_banner_bg']) ? $layouts['global_page_banner_bg'] : ''
+            ];
+            mthan_section_PageBanner_html($banner_data);
+        }
+    }
+
     $key = '';
     
-    // 1. Determine context (Page vs Post)
+    // 2. Determine context (Page vs Post)
     if (is_page()) {
         $key = ($position === 'before') ? 'page_before_content' : 'page_after_content';
     } elseif (is_singular('mthan_service')) {
@@ -39,13 +52,13 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
         $key = ($position === 'before') ? 'post_before_content' : 'post_after_content';
     }
 
-    // 2. Validate key and data
-    if (empty($key) || empty($options[$key]) || !is_array($options[$key])) {
+    // 3. Validate key and data in nested layouts array
+    if (empty($key) || empty($layouts[$key]) || !is_array($layouts[$key])) {
         return;
     }
 
-    // 3. Render each selected section
-    foreach ($options[$key] as $item) {
+    // 4. Render each selected section
+    foreach ($layouts[$key] as $item) {
         $slug = !empty($item['section']) ? $item['section'] : '';
         
         if (empty($slug)) {
@@ -55,7 +68,7 @@ function mthan_render_global_sections($position = 'before', $layout = 'main') {
         $func = 'mthan_section_' . $slug . '_html';
         if (function_exists($func)) {
              // Pass empty array so it uses the defaults from the section options file
-             $func(array());
+             $func($item);
         }
     }
 }
