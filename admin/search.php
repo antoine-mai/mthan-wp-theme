@@ -10,6 +10,12 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
     'fields' => [
         mthan_page_select_field('default_search_page', 'Search Page', [
             'desc' => 'Select the page to be used for Search functionality and results.',
-        ])
+        ]),
+        array(
+            'id'    => 'search_placeholder',
+            'type'  => 'text',
+            'title' => 'Search Form Placeholder',
+            'default' => 'Keyword ...',
+        ),
     ]
 ]);

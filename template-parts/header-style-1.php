@@ -103,7 +103,8 @@ $header_tabs = !empty($theme_options['header_tabs']) ? $theme_options['header_ta
                         <form method="get" action="<?php echo esc_url(!empty($theme_options['default_search_page']) ? get_permalink($theme_options['default_search_page']) : home_url('/')); ?>">
                             <div class="form-group">
                                 <div class="field-box">
-                                    <input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Keyword ..." required="">
+                                    <?php $search_placeholder = !empty($theme_options['search_placeholder']) ? $theme_options['search_placeholder'] : 'Keyword ...'; ?>
+                                    <input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr($search_placeholder); ?>" required="">
                                 </div>
                                 <div class="btn-box"><button type="submit" class="search-btn"><span class="flaticon-search-1"></span></button></div>
                             </div>
