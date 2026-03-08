@@ -59,6 +59,27 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'title'   => 'Copyright Text',
                             'default' => 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.',
                         ],
+                        [
+                            'id'     => 'footer_bottom_links',
+                            'type'   => 'group',
+                            'title'  => 'Bottom Links',
+                            'button_title' => 'Add Link',
+                            'fields' => [
+                                [
+                                    'id'    => 'title',
+                                    'type'  => 'text',
+                                    'title' => 'Title',
+                                ],
+                                mthan_page_select_field('url', 'URL', [
+                                    'default' => '#',
+                                ]),
+                            ],
+                            'default' => [
+                                ['title' => 'Terms of Service', 'url' => '#'],
+                                ['title' => 'Privacy Policy', 'url' => '#'],
+                                ['title' => 'Sitemap', 'url' => '#'],
+                            ]
+                        ],
                     ]
                 ],
                 // 2. Style 1
@@ -77,6 +98,18 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type' => 'upload',
                             'title' => 'Background Image Right',
                             'preview' => false,
+                        ],
+                        [
+                            'id' => 'footer_1_contact_title',
+                            'type' => 'text',
+                            'title' => 'Contact Widget Title',
+                            'default' => 'Get In Touch',
+                        ],
+                        [
+                            'id' => 'footer_1_opening_label',
+                            'type' => 'text',
+                            'title' => 'Opening Hours Label',
+                            'default' => 'Opening Hrs:',
                         ],
                         [
                             'id' => 'footer_1_services_title',
@@ -118,6 +151,36 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                                 ['title' => 'Water Fountain', 'link_text' => 'Details', 'url' => '#'],
                             ],
                         ],
+                        [
+                            'id' => 'footer_1_links_title',
+                            'type' => 'text',
+                            'title' => 'Quick Links Title',
+                            'default' => 'Quick Links',
+                        ],
+                        [
+                            'id' => 'footer_1_links',
+                            'type' => 'group',
+                            'title' => 'Quick Links Items',
+                            'button_title' => 'Add Link',
+                            'fields' => [
+                                [
+                                    'id'    => 'title',
+                                    'type'  => 'text',
+                                    'title' => 'Title',
+                                ],
+                                mthan_page_select_field('url', 'URL', [
+                                    'default' => '#',
+                                ]),
+                            ],
+                            'default' => [
+                                ['title' => 'About Company', 'url' => '#'],
+                                ['title' => 'Projects', 'url' => '#'],
+                                ['title' => 'Testimonials', 'url' => '#'],
+                                ['title' => 'News & Updates', 'url' => '#'],
+                                ['title' => 'Working Process', 'url' => '#'],
+                                ['title' => 'Contact Us', 'url' => '#'],
+                            ]
+                        ],
                     ]
                 ],
                 // 3. Style 2
@@ -126,11 +189,77 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'icon'   => 'fas fa-paint-brush',
                     'fields' => [
                         [
+                            'id' => 'footer_2_opening_label',
+                            'type' => 'text',
+                            'title' => 'Opening Hours Label',
+                            'default' => 'Opening Hrs:',
+                        ],
+                        [
+                            'id' => 'footer_2_links_title',
+                            'type' => 'text',
+                            'title' => 'Quick Links Title',
+                            'default' => 'Quick Links',
+                        ],
+                        [
+                            'id' => 'footer_2_links_1',
+                            'type' => 'group',
+                            'title' => 'Quick Links Column 1',
+                            'button_title' => 'Add Link',
+                            'fields' => [
+                                [
+                                    'id'    => 'title',
+                                    'type'  => 'text',
+                                    'title' => 'Title',
+                                ],
+                                mthan_page_select_field('url', 'URL', [
+                                    'default' => '#',
+                                ]),
+                            ],
+                            'default' => [
+                                ['title' => 'Company', 'url' => '#'],
+                                ['title' => 'Projects', 'url' => '#'],
+                                ['title' => 'Testimonials', 'url' => '#'],
+                                ['title' => 'News', 'url' => '#'],
+                                ['title' => 'Process', 'url' => '#'],
+                                ['title' => 'Contact Us', 'url' => '#'],
+                            ]
+                        ],
+                        [
+                            'id' => 'footer_2_links_2',
+                            'type' => 'group',
+                            'title' => 'Quick Links Column 2',
+                            'button_title' => 'Add Link',
+                            'fields' => [
+                                [
+                                    'id'    => 'title',
+                                    'type'  => 'text',
+                                    'title' => 'Title',
+                                ],
+                                mthan_page_select_field('url', 'URL', [
+                                    'default' => '#',
+                                ]),
+                            ],
+                            'default' => [
+                                ['title' => 'Services', 'url' => '#'],
+                                ['title' => 'Awards', 'url' => '#'],
+                                ['title' => 'Pricing Plan', 'url' => '#'],
+                                ['title' => 'Faq’s', 'url' => '#'],
+                                ['title' => 'Products', 'url' => '#'],
+                                ['title' => 'Policies', 'url' => '#'],
+                            ]
+                        ],
+                        [
                             'id' => 'footer_2_newsletter_text',
                             'type' => 'textarea',
                             'title' => 'Newsletter Description',
                             'default' => 'Subscribe to our Newsletter & Event right now to be updated.',
-                        ]
+                        ],
+                        [
+                            'id' => 'footer_2_social_label',
+                            'type' => 'text',
+                            'title' => 'Social Media Label',
+                            'default' => 'Follow Us On:',
+                        ],
                     ]
                 ]
             ]

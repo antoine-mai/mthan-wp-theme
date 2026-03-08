@@ -1,7 +1,4 @@
-<?php defined('ABSPATH') or die('Cheatin\' uh?');
-/**
- * Footer Style 1
-**/
+<?php defined('ABSPATH') or die('Cheatin\' uh?'); 
 $theme_options = get_option('mthan_theme_options');
 $footer_tabs   = $theme_options['footer_tabs'] ?? [];
 
@@ -12,10 +9,20 @@ $footer_logo_url   = mthan_get_img_url($footer_tabs['footer_logo'] ?? '', mthan_
 $about_text        = $footer_tabs['footer_about_text'] ?? '';
 $about_btn_text    = $footer_tabs['footer_about_btn_text'] ?? '';
 $about_btn_url     = $footer_tabs['footer_about_btn_url'] ?? '#';
+
+$contact_title     = $footer_tabs['footer_1_contact_title'] ?? 'Get In Touch';
+$opening_label     = $footer_tabs['footer_1_opening_label'] ?? 'Opening Hrs:';
+
 $newsletter_title  = $footer_tabs['footer_newsletter_title'] ?? 'Subscribe Us';
+
 $services_title    = $footer_tabs['footer_1_services_title'] ?? 'Main Services';
 $services_items    = $footer_tabs['footer_1_services'] ?? [];
+
+$links_title       = $footer_tabs['footer_1_links_title'] ?? 'Quick Links';
+$links_items       = $footer_tabs['footer_1_links'] ?? [];
+
 $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.';
+$bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
 ?>
 <!-- Main Footer -->
 <footer class="main-footer">
@@ -70,7 +77,7 @@ $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; 
                     <div class="column col-xl-3 col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget info-widget">
                             <div class="widget-title">
-                                <h4>Get In Touch</h4>
+                                <h4><?php echo esc_html($contact_title); ?></h4>
                             </div>
                             <ul class="info">
                                 <?php if (!empty($theme_options['contact_address'])) : ?>
@@ -79,7 +86,7 @@ $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; 
                                 
                                 <?php if (!empty($theme_options['contact_hours'])) : ?>
                                 <li class="timing">
-                                    Opening Hrs: <br><?php echo nl2br(esc_html($theme_options['contact_hours'])); ?>
+                                    <?php echo esc_html($opening_label); ?> <br><?php echo nl2br(esc_html($theme_options['contact_hours'])); ?>
                                 </li>
                                 <?php endif; ?>
                                 
@@ -143,17 +150,16 @@ $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; 
                     <div class="column col-xl-3 col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget links-widget">
                             <div class="widget-title">
-                                <h4>Quick Links</h4>
+                                <h4><?php echo esc_html($links_title); ?></h4>
                             </div>
                             <div class="widget-content">
+                                <?php if (!empty($links_items)) : ?>
                                 <ul class="links">
-                                    <li><a href="#">About Company</a></li>
-                                    <li><a href="#">Projects</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">News & Updates</a></li>
-                                    <li><a href="#">Working Process</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <?php foreach ($links_items as $li) : ?>
+                                    <li><a href="<?php echo esc_url($li['url'] ?? '#'); ?>"><?php echo esc_html($li['title'] ?? ''); ?></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -182,11 +188,13 @@ $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; 
             <div class="inner clearfix">
                 <div class="copyright"><?php echo wp_kses_post($copyright_text); ?></div>
                 <div class="bottom-links">
+                    <?php if (!empty($bottom_links)) : ?>
                     <ul class="clearfix">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Sitemap</a></li>
+                        <?php foreach ($bottom_links as $bl) : ?>
+                        <li><a href="<?php echo esc_url($bl['url'] ?? '#'); ?>"><?php echo esc_html($bl['title'] ?? ''); ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
