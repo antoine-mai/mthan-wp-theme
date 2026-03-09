@@ -27,27 +27,24 @@ $global_context = ($layout_type === 'blog')
 
 mthan_render_global_sections('before', $global_context);
 mthan_render_page_sections('before');
-$wrapper_class = 'sidebar-page-container ' . $layout_class;
-if ($layout_type === 'service') {
-    $wrapper_class = 'services-page-section ' . $layout_class;
-} ?>
+?>
 
-<div class="<?php echo esc_attr($wrapper_class); ?>">
+<div class="sidebar-page-container <?php echo esc_attr($layout_class); ?>">
     <div class="auto-container">
         <div class="row clearfix">
             
             <?php if ($sidebar_enabled && $sidebar_pos == 'left') { ?>
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12" style="order: 0;">
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12" style="order: 0 !important;">
                 <?php get_template_part('template-parts/sidebar', 'blog'); ?>
             </div>
             <?php } ?>
 
-            <div class="content-side <?php echo ($sidebar_enabled) ? 'col-lg-8' : 'col-lg-12'; ?> col-md-12 col-sm-12" style="order: 1;">
+            <div class="content-side <?php echo ($sidebar_enabled) ? 'col-lg-8' : 'col-lg-12'; ?> col-md-12 col-sm-12" style="order: 1 !important;">
                 <?php get_template_part('template-parts/page-layout', $layout_type); ?>
             </div>
 
             <?php if ($sidebar_enabled && $sidebar_pos == 'right') { ?>
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12" style="order: 2;">
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12" style="order: 2 !important;">
                 <?php get_template_part('template-parts/sidebar', 'blog'); ?>
             </div>
             <?php } ?>
