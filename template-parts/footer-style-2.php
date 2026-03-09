@@ -128,27 +128,27 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
 
                                 <div class="follow">
                                     <ul class="clearfix">
-                                        <li><?php echo esc_html($social_label); ?></li>
-                                        <?php 
-                                        if (!empty($theme_options['social_links'])) :
-                                            foreach ($theme_options['social_links'] as $social) :
-                                                $s_url   = mthan_get_link($social['url'] ?? '#');
-                                                $s_title = !empty($social['title']) ? $social['title'] : '';
-                                                $s_icon  = !empty($social['icon']) ? mthan_get_img_url($social['icon']) : '';
+                                        <?php if (!empty($social_label)) { ?>
+                                        <li>
+                                            <?php echo esc_html($social_label); ?>
+                                        </li>
+                                        <?php } ?>
+                                        <?php if (!empty($theme_options['social_links'])) { foreach ($theme_options['social_links'] as $social) { ?>
+                                        <?php
+                                            $s_url   = mthan_get_link($social['url'] ?? '#');
+                                            $s_title = !empty($social['title']) ? $social['title'] : '';
+                                            $s_icon  = !empty($social['icon']) ? mthan_get_img_url($social['icon']) : '';
                                         ?>
                                         <li>
                                             <a href="<?php echo esc_url($s_url); ?>">
-                                                <?php if ($s_icon) : ?>
-                                                    <img src="<?php echo esc_url($s_icon); ?>" alt="<?php echo esc_attr($s_title); ?>" style="width: 16px; height: auto; vertical-align: middle;">
-                                                <?php else : ?>
-                                                    <span class="fab fa-<?php echo strtolower(esc_attr($s_title)); ?>"></span>
-                                                <?php endif; ?>
+                                                <?php if ($s_icon) { ?>
+                                                <img src="<?php echo esc_url($s_icon); ?>" alt="<?php echo esc_attr($s_title); ?>" style="width: 16px; height: auto; vertical-align: middle;">
+                                                <?php } else { ?>
+                                                <span class="fab fa-<?php echo strtolower(esc_attr($s_title)); ?>"></span>
+                                                <?php } ?>
                                             </a>
                                         </li>
-                                        <?php 
-                                            endforeach;
-                                        endif; 
-                                        ?>
+                                        <?php } } ?>
                                     </ul>
                                 </div>
                             </div>

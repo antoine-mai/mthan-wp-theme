@@ -7,11 +7,24 @@ mthan_render_global_sections('before', 'blog');
 mthan_render_page_sections('before');
 ?>
 
+<?php 
+$sidebar_settings = mthan_get_sidebar_settings();
+$sidebar_enabled  = $sidebar_settings['enabled'];
+$sidebar_pos      = $sidebar_settings['position'];
+?>
+
 <div class="sidebar-page-container blog-page">
     <div class="auto-container">
         <div class="row clearfix">
+            <?php if ($sidebar_enabled && $sidebar_pos == 'left') { ?>
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <?php get_template_part('template-parts/sidebar', 'blog'); ?>
+            </div>
+            <?php } ?>
+
             <!--Content Side-->
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+            <div class="content-side <?php echo ($sidebar_enabled) ? 'col-lg-8' : 'col-lg-12'; ?> col-md-12 col-sm-12">
                 <div class="blog-content">
                     <h1><?php the_archive_title(); ?></h1>
                     <?php 
@@ -52,10 +65,13 @@ mthan_render_page_sections('before');
                     </div>
                 </div>
             </div>
+
+            <?php if ($sidebar_enabled && $sidebar_pos == 'right') { ?>
             <!--Sidebar Side-->
             <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 <?php get_template_part('template-parts/sidebar', 'blog'); ?>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>

@@ -19,6 +19,30 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                     'icon'   => 'fas fa-file',
                     'fields' => [
                         [
+                            'id'      => 'page_sidebar_enable',
+                            'type'    => 'switcher',
+                            'title'   => 'Enable Sidebar',
+                            'default' => false,
+                        ],
+                        [
+                            'id'      => 'page_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'right',
+                            'dependency' => array('page_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'page_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('page_sidebar_enable', '==', true),
+                        ],
+                        [
                             'type'    => 'subheading',
                             'content' => 'Content Sections',
                         ],
@@ -78,16 +102,52 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'help'    => 'Number of posts to show on blog list pages.'
                         ],
                         [
-                            'id'      => 'blog_sidebar',
+                            'id'      => 'blog_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Blog List',
                             'default' => true
                         ],
                         [
-                            'id'      => 'blog_single_sidebar',
+                            'id'      => 'blog_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'right',
+                            'dependency' => array('blog_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'blog_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('blog_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'blog_single_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Single Post',
                             'default' => true
+                        ],
+                        [
+                            'id'      => 'blog_single_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'right',
+                            'dependency' => array('blog_single_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'blog_single_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('blog_single_sidebar_enable', '==', true),
                         ],
                         [
                             'type'    => 'subheading',
@@ -132,10 +192,28 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'Service Settings',
                         ],
                         [
-                            'id'      => 'service_sidebar',
+                            'id'      => 'service_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Services',
                             'default' => true,
+                        ],
+                        [
+                            'id'      => 'service_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'left',
+                            'dependency' => array('service_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'service_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('service_sidebar_enable', '==', true),
                         ],
                         [
                             'id'      => 'service_spacing',
@@ -190,10 +268,28 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'Shop Settings',
                         ],
                         [
-                            'id'      => 'shop_sidebar',
+                            'id'      => 'shop_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Shop',
                             'default' => true,
+                        ],
+                        [
+                            'id'      => 'shop_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'left',
+                            'dependency' => array('shop_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'shop_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('shop_sidebar_enable', '==', true),
                         ],
                         [
                             'type'    => 'subheading',
@@ -238,10 +334,28 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'Project Settings',
                         ],
                         [
-                            'id'      => 'project_sidebar',
+                            'id'      => 'project_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Projects',
                             'default' => true,
+                        ],
+                        [
+                            'id'      => 'project_sidebar_position',
+                            'type'    => 'radio',
+                            'title'   => 'Sidebar Position',
+                            'options' => array(
+                                'left'  => 'Left',
+                                'right' => 'Right',
+                            ),
+                            'default'    => 'right',
+                            'dependency' => array('project_sidebar_enable', '==', true),
+                        ],
+                        [
+                            'id'      => 'project_sidebar_select',
+                            'type'    => 'select',
+                            'title'   => 'Select Sidebar',
+                            'options' => 'sidebars',
+                            'dependency' => array('project_sidebar_enable', '==', true),
                         ],
                         [
                             'type'    => 'subheading',

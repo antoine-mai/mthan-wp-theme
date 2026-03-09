@@ -40,12 +40,25 @@ if (have_posts()) {
 <?php rewind_posts();
 }?>
 
+<?php 
+$sidebar_settings = mthan_get_sidebar_settings();
+$sidebar_enabled  = $sidebar_settings['enabled'];
+$sidebar_pos      = $sidebar_settings['position'];
+?>
+
 <div class="sidebar-page-container blog-page">
     <div class="auto-container">
         <div class="row clearfix">
 
+            <?php if ($sidebar_enabled && $sidebar_pos == 'left') { ?>
+            <!--Sidebar Side-->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <?php get_template_part('template-parts/sidebar', 'blog'); ?>
+            </div>
+            <?php } ?>
+
             <!--Content Side-->
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+            <div class="content-side <?php echo ($sidebar_enabled) ? 'col-lg-8' : 'col-lg-12'; ?> col-md-12 col-sm-12">
                 <div class="blog-content">
                     <?php if (have_posts()) {
     while (have_posts()) {
@@ -65,7 +78,7 @@ if (have_posts()) {
                                         </a>
                                     </li>
                                     <li><a href="#"><span class="icon far fa-comment"></span> Comments:
-                                            <?php echo get_comments_number(); ?>
+                                             <?php echo get_comments_number(); ?>
                                         </a></li>
                                     <li><a href="#"><span class="icon far fa-calendar"></span>
                                             <?php echo get_the_date(); ?>
@@ -130,7 +143,7 @@ if (have_posts()) {
                                     <?php $fb = get_the_author_meta('facebook');
         if ($fb): ?>
                                     <li><a href="<?php echo esc_url($fb); ?>"><span
-                                                class="fab fa-facebook-f"></span></a></li>
+                                                 class="fab fa-facebook-f"></span></a></li>
                                     <?php
         endif; ?>
                                     <?php $tw = get_the_author_meta('twitter');
@@ -197,10 +210,12 @@ if (have_posts()) {
                 </div>
             </div>
 
+            <?php if ($sidebar_enabled && $sidebar_pos == 'right') { ?>
             <!--Sidebar Side-->
             <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 <?php get_template_part('template-parts/sidebar', 'blog'); ?>
             </div>
+            <?php } ?>
 
         </div>
     </div>

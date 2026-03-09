@@ -1,9 +1,12 @@
-<?php defined('ABSPATH') or die('Cheatin\' uh?'); ?>
+<?php defined('ABSPATH') or die('Cheatin\' uh?'); 
+$sidebar_settings = mthan_get_sidebar_settings();
+$sidebar_id = !empty($sidebar_settings['id']) ? $sidebar_settings['id'] : 'blog-sidebar';
+?>
 
 <aside class="sidebar blog-sidebar">
 
-    <?php if (is_active_sidebar('blog-sidebar')): ?>
-        <?php dynamic_sidebar('blog-sidebar'); ?>
+    <?php if (is_active_sidebar($sidebar_id)): ?>
+        <?php dynamic_sidebar($sidebar_id); ?>
     <?php else: ?>
         <!-- Search Widget -->
         <div class="sidebar-widget search-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">

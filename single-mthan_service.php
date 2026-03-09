@@ -29,9 +29,11 @@ if (!empty($spacing)) {
             : 'flaticon-hedge'; // Fallback
         
         $layout_type = !empty($service_meta['service_layout']) ? $service_meta['service_layout'] : 'boxed';
-        $sidebar_enabled = !empty($service_meta['service_sidebar_enable']) ? $service_meta['service_sidebar_enable'] : false;
-        $sidebar_pos     = !empty($service_meta['service_sidebar_position']) ? $service_meta['service_sidebar_position'] : 'left';
-        $sidebar_id      = !empty($service_meta['service_sidebar_select']) ? $service_meta['service_sidebar_select'] : '';
+        
+        $sidebar_settings = mthan_get_sidebar_settings();
+        $sidebar_enabled  = $sidebar_settings['enabled'];
+        $sidebar_pos      = $sidebar_settings['position'];
+        $sidebar_id       = $sidebar_settings['id'];
 
         $prev_service = get_previous_post();
         $next_service = get_next_post();

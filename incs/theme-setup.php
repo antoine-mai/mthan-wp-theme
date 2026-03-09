@@ -129,3 +129,43 @@ function mthan_adjust_blog_posts_per_page($query) {
     }
 }
 add_action('pre_get_posts', 'mthan_adjust_blog_posts_per_page');
+/**
+ * Get sidebar settings based on context.
+ */
+function mthan_get_sidebar_settings() {
+    $options = get_option(MTHAN_THEME_OPTIONS);
+    $settings = [
+        'enabled'  => false,
+        'position' => 'right',
+        'id'       => ''
+    ];
+
+    if (is_singular('mthan_service')) {
+        $service_meta = get_post_meta(get_the_ID(), MTHAN_SERVICE_OPTIONS, true);
+        $settings['enabled']  = !empty($service_meta['service_sidebar_enable']);
+        $settings['position'] = !empty($service_meta['service_sidebar_position']) ? $service_meta['service_sidebar_position'] : 'left';
+        $settings['id']       = !empty($service_meta['service_sidebar_select']) ? $service_meta['service_sidebar_select'] : '';
+    } elseif (is_singular('mthan_project')) {
+        $settings['enabled']  = !empty($options['project_sidebar_enable']);
+        $settings['position'] = !empty($options['project_sidebar_position']) ? $options['project_sidebar_position'] : 'right';
+        $settings['id']       = !empty($options['project_sidebar_select']) ? $options['project_sidebar_select'] : '';
+    } elseif (function_exists('is_woocommerce') && (is_woocommerce() || is_cart() || is_checkout())) {
+        $settings['enabled']  = !empty($options['shop_sidebar_enable']);
+        $settings['position'] = !empty($options['shop_sidebar_position']) ? $options['shop_sidebar_position'] : 'left';
+        $settings['id']       = !empty($options['shop_sidebar_select']) ? $options['shop_sidebar_select'] : '';
+    } elseif (is_page()) {
+        $settings['enabled']  = !empty($options['page_sidebar_enable']);
+        $settings['position'] = !empty($options['page_sidebar_position']) ? $options['page_sidebar_position'] : 'right';
+        $settings['id']       = !empty($options['page_sidebar_select']) ? $options['page_sidebar_select'] : '';
+    } elseif (is_singular('post')) {
+        $settings['enabled']  = !empty($options['blog_single_sidebar_enable']);
+        $settings['position'] = !empty($options['blog_single_sidebar_position']) ? $options['blog_single_sidebar_position'] : 'right';
+        $settings['id']       = !empty($options['blog_single_sidebar_select']) ? $options['blog_single_sidebar_select'] : '';
+    } elseif (is_home() || is_archive() || is_search()) {
+        $settings['enabled']  = !empty($options['blog_sidebar_enable']);
+        $settings['position'] = !empty($options['blog_sidebar_position']) ? $options['blog_sidebar_position'] : 'right';
+        $settings['id']       = !empty($options['blog_sidebar_select']) ? $options['blog_sidebar_select'] : '';
+    }
+    
+    return $settings;
+}

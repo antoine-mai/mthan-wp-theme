@@ -102,11 +102,21 @@ function mthan_woocommerce_wrapper_start() {
 
     if (is_singular('product')) return;
 
-    $options = get_option(MTHAN_THEME_OPTIONS);
-    $sidebar_enabled = !empty($options['shop_sidebar']) ? $options['shop_sidebar'] : false;
+    $sidebar_settings = mthan_get_sidebar_settings();
+    $sidebar_enabled  = $sidebar_settings['enabled'];
+    $sidebar_pos      = $sidebar_settings['position'];
 
     if ($sidebar_enabled) {
-        echo '<div class="sidebar-page-container shop-page"><div class="auto-container"><div class="row clearfix"><div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12"><div class="our-shop">';
+        if ($sidebar_pos == 'left') {
+            echo '<div class="sidebar-page-container shop-page"><div class="auto-container"><div class="row clearfix">';
+            echo '<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">';
+            get_template_part('template-parts/sidebar', 'blog');
+            echo '</div>';
+            echo '<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12"><div class="our-shop">';
+        } else {
+            echo '<div class="sidebar-page-container shop-page"><div class="auto-container"><div class="row clearfix">';
+            echo '<div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12"><div class="our-shop">';
+        }
     } else {
         echo '<div class="auto-container py-5"><div class="our-shop">';
     }
@@ -137,20 +147,19 @@ function mthan_woocommerce_wrapper_end() {
         return;
     }
 
-    $options = get_option(MTHAN_THEME_OPTIONS);
-    $sidebar_enabled = !empty($options['shop_sidebar']) ? $options['shop_sidebar'] : false;
+    $sidebar_settings = mthan_get_sidebar_settings();
+    $sidebar_enabled  = $sidebar_settings['enabled'];
+    $sidebar_pos      = $sidebar_settings['position'];
 
     if ($sidebar_enabled) {
         echo '</div></div>'; // closes our-shop, content-side
-        echo '<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">';
-        if ( is_active_sidebar( 'shop-sidebar' ) ) {
-            echo '<aside class="sidebar shop-sidebar">';
-            dynamic_sidebar('shop-sidebar');
-            echo '</aside>';
-        } else {
+        
+        if ($sidebar_pos == 'right') {
+            echo '<div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12">';
             get_template_part('template-parts/sidebar', 'blog');
+            echo '</div>'; // closes sidebar-side
         }
-        echo '</div>'; // closes sidebar-side
+        
         echo '</div>'; // closes row
         echo '</div>'; // closes auto-container
         echo '</div>'; // closes sidebar-page-container
