@@ -4,6 +4,17 @@
  */
 
 $sections_list = mthan_get_sections();
+$section_fields = array_merge(
+    [
+        [
+            'id'      => 'template',
+            'type'    => 'select',
+            'title'   => 'Select Section',
+            'options' => $sections_list,
+        ],
+    ],
+    mthan_get_section_fields('all')
+);
 
 CSF::createSection(MTHAN_THEME_OPTIONS, [
     'id'    => 'layouts_settings',
@@ -51,28 +62,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type'         => 'group',
                             'title'        => 'Before Page Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                         [
                             'id'           => 'page_after_content',
                             'type'         => 'group',
                             'title'        => 'After Page Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                     ],
                 ],
@@ -113,28 +110,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type'         => 'group',
                             'title'        => 'Before Post Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                         [
                             'id'           => 'post_after_content',
                             'type'         => 'group',
                             'title'        => 'After Post Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                     ],
                 ],
@@ -199,28 +182,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type'         => 'group',
                             'title'        => 'Before Service Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                         [
                             'id'           => 'service_after_content',
                             'type'         => 'group',
                             'title'        => 'After Service Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                     ],
                 ],
@@ -265,28 +234,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type'         => 'group',
                             'title'        => 'Before Shop Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                         [
                             'id'           => 'shop_after_content',
                             'type'         => 'group',
                             'title'        => 'After Shop Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                     ],
                 ],
@@ -331,28 +286,14 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'type'         => 'group',
                             'title'        => 'Before Project Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                         [
                             'id'           => 'project_after_content',
                             'type'         => 'group',
                             'title'        => 'After Project Content',
                             'button_title' => 'Add Section',
-                            'fields'       => [
-                                [
-                                    'id'      => 'template',
-                                    'type'    => 'select',
-                                    'title'   => 'Select Section',
-                                    'options' => $sections_list,
-                                ],
-                            ],
+                            'fields'       => $section_fields,
                         ],
                     ],
                 ],
