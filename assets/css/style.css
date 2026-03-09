@@ -2128,7 +2128,9 @@ img {
 	opacity: 1;
 }
 
-.sticky-header .contact-link {}
+.sticky-header .contact-link {
+	padding: 0;
+}
 
 .sticky-header .contact-link .theme-btn .btn-title {
 	padding-top: 5px;
