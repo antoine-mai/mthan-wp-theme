@@ -21,31 +21,8 @@ mthan_render_page_sections('before');
                         <div class="col-lg-4 col-md-6 col-sm-12 mthan-sitemap-column">
                             <h3 class="sitemap-title"><i class="fas fa-file-alt"></i> Pages</h3>
                             <ul class="sitemap-list">
-                                <?php
-                                wp_list_pages(array(
-                                    'title_li' => '',
-                                ));
-                                ?>
+                                <?php wp_list_pages(array('title_li' => '')); ?>
                             </ul>
-                        </div>
-
-                        <!-- Posts by Category -->
-                        <div class="col-lg-4 col-md-6 col-sm-12 mthan-sitemap-column">
-                            <h3 class="sitemap-title"><i class="fas fa-newspaper"></i> Blog Posts</h3>
-                            <?php
-                            $categories = get_categories();
-                            foreach ($categories as $cat) {
-                                echo '<h4 class="sitemap-sub-title">' . esc_html($cat->name) . '</h4>';
-                                echo '<ul class="sitemap-list">';
-                                $posts = get_posts(array('category' => $cat->term_id, 'numberposts' => -1));
-                                foreach ($posts as $post) {
-                                    setup_postdata($post);
-                                    echo '<li><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></li>';
-                                }
-                                echo '</ul>';
-                                wp_reset_postdata();
-                            }
-                            ?>
                         </div>
 
                         <!-- Services & Projects -->
@@ -73,6 +50,25 @@ mthan_render_page_sections('before');
                                 ?>
                             </ul>
                             <?php endif; ?>
+                        </div>
+
+                        <!-- Posts by Category -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mthan-sitemap-column">
+                            <h3 class="sitemap-title"><i class="fas fa-newspaper"></i> Blog Posts</h3>
+                            <?php
+                            $categories = get_categories();
+                            foreach ($categories as $cat) {
+                                echo '<h4 class="sitemap-sub-title">' . esc_html($cat->name) . '</h4>';
+                                echo '<ul class="sitemap-list">';
+                                $posts = get_posts(array('category' => $cat->term_id, 'numberposts' => -1));
+                                foreach ($posts as $post) {
+                                    setup_postdata($post);
+                                    echo '<li><a href="' . get_permalink($post->ID) . '">' . get_the_title($post->ID) . '</a></li>';
+                                }
+                                echo '</ul>';
+                                wp_reset_postdata();
+                            }
+                            ?>
                         </div>
 
                     </div>
