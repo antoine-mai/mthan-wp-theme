@@ -2052,8 +2052,6 @@ img {
 	padding: 0px 0px;
 	z-index: -1;
 	background: #ffffff;
-	display: flex;
-	flex-direction: column;
 	border-bottom: 1px solid #f0f0f0;
 	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
 	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.10);
