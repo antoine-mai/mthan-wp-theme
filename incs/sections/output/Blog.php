@@ -22,6 +22,7 @@ function mthan_section_Blog_html($section_data) { ?>
     $category   = mthan_get_section_val($slug, $section_data, 'category');
     $default_thumb = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'default_thumb', get_template_directory_uri() . '/assets/images/resource/news-image-1.jpg'));
     $show_header   = mthan_get_section_val($slug, $section_data, 'show_header', true);
+    $enable_pager  = mthan_get_section_val($slug, $section_data, 'enable_pager', false);
 
     $args = [
         'post_type'      => 'post',
@@ -113,7 +114,7 @@ function mthan_section_Blog_html($section_data) { ?>
             </div>
         </div>
 
-        <?php if ($query->max_num_pages > 1) : ?>
+        <?php if ($enable_pager && $query->max_num_pages > 1) : ?>
         <div class="pagination-box text-center">
             <style>
                 .styled-pagination { padding: 0 !important; }

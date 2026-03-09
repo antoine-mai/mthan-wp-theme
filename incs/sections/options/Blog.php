@@ -14,6 +14,12 @@ function mthan_section_Blog_options() {
             'default' => true,
         ),
         array(
+            'id'    => 'enable_pager',
+            'type'  => 'switcher',
+            'title' => 'Enable Pager',
+            'default' => false,
+        ),
+        array(
             'id'    => 'title_icon',
             'type'  => 'upload',
             'title' => 'Title Icon',
