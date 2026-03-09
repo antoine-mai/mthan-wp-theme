@@ -3,18 +3,12 @@
  * Template Name: Sitemap Page
  * 
 **/
-get_header(); ?>
+get_header();
 
-<!-- Page Title Section (Assumed structure based on theme) -->
-<section class="page-title">
-    <div class="auto-container">
-        <h1><?php the_title(); ?></h1>
-        <ul class="page-breadcrumb">
-            <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
-            <li>Sitemap</li>
-        </ul>
-    </div>
-</section>
+$layout_type = mthan_get_layout_type();
+mthan_render_global_sections('before', $layout_type);
+mthan_render_page_sections('before');
+?>
 
 <div class="sidebar-page-container">
     <div class="auto-container">
@@ -139,4 +133,9 @@ get_header(); ?>
 }
 </style>
 
-<?php get_footer(); ?>
+<?php 
+mthan_render_page_sections('after');
+mthan_render_global_sections('after', $layout_type);
+get_footer(); 
+?>
+

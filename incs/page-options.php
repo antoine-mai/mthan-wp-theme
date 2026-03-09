@@ -54,16 +54,3 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
     'icon'   => 'fas fa-arrow-down',
     'fields' => $mthan_gen_section_group('page_after_sections'),
 ]);
-
-// ── Settings ──────────────────────────────────────────────────────
-CSF::createSection(MTHAN_PAGE_OPTIONS, [
-    'title'  => 'Settings',
-    'icon'   => 'fas fa-cogs',
-    'fields' => [
-        [
-            'id'    => 'page_hide_title',
-            'type'  => 'switcher',
-            'title' => 'Hide Page Title',
-        ],
-    ],
-]);
