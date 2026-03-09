@@ -195,6 +195,10 @@ function mthan_get_sidebar_settings() {
             $def_enabled = isset($layouts['shop_sidebar_enable']) ? $layouts['shop_sidebar_enable'] : true;
             $def_pos     = !empty($layouts['shop_sidebar_position']) ? $layouts['shop_sidebar_position'] : 'left';
             $def_id      = !empty($layouts['shop_sidebar_select']) ? $layouts['shop_sidebar_select'] : 'shop-sidebar';
+        } elseif ($layout_type === 'project') {
+            $def_enabled = isset($layouts['project_sidebar_enable']) ? $layouts['project_sidebar_enable'] : true;
+            $def_pos     = !empty($layouts['project_sidebar_position']) ? $layouts['project_sidebar_position'] : 'right';
+            $def_id      = !empty($layouts['project_sidebar_select']) ? $layouts['project_sidebar_select'] : 'service-sidebar';
         } else {
             $def_enabled = !empty($layouts['page_sidebar_enable']);
             $def_pos     = !empty($layouts['page_sidebar_position']) ? $layouts['page_sidebar_position'] : 'right';

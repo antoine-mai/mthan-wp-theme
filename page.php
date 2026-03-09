@@ -4,20 +4,30 @@
 **/
 get_header();
 
-$layout_type      = mthan_get_layout_type();
-$sidebar_settings = mthan_get_sidebar_settings();
-$sidebar_enabled  = $sidebar_settings['enabled'];
-$sidebar_pos      = $sidebar_settings['position'];
+    $layout_type      = mthan_get_layout_type();
+    $sidebar_settings = mthan_get_sidebar_settings();
+    $sidebar_enabled  = $sidebar_settings['enabled'];
+    $sidebar_pos      = $sidebar_settings['position'];
 
-// Determine global context based on layout type
-$global_context = ($layout_type === 'blog') ? 'post' : $layout_type;
+    // Map internal layout names to CSS classes (e.g. service -> services)
+    $layout_classes = [
+        'main'    => 'default-page',
+        'blog'    => 'blog-page',
+        'service' => 'services-page',
+        'shop'    => 'shop-page',
+        'project' => 'projects-page',
+    ];
+    $layout_class = isset($layout_classes[$layout_type]) ? $layout_classes[$layout_type] : $layout_type . '-page';
 
-mthan_render_global_sections('before', $global_context);
+    // Determine global context based on layout type
+    $global_context = ($layout_type === 'blog') ? 'post' : $layout_type;
+
+    mthan_render_global_sections('before', $global_context);
 mthan_render_page_sections('before');
 
 ?>
 
-<div class="sidebar-page-container <?php echo esc_attr($layout_type); ?>-page">
+<div class="sidebar-page-container <?php echo esc_attr($layout_class); ?>">
     <div class="auto-container">
         <div class="row clearfix">
             
