@@ -85,23 +85,6 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'content' => 'Blog Settings',
                         ],
                         [
-                            'id' => 'blog_layout',
-                            'type' => 'select',
-                            'title' => 'Blog Layout',
-                            'options' => [
-                                'list' => 'List Layout',
-                                'grid' => 'Grid Layout',
-                            ],
-                            'default' => 'list'
-                        ],
-                        [
-                            'id'      => 'blog_posts_per_page',
-                            'type'    => 'number',
-                            'title'   => 'Posts Per Page',
-                            'default' => 10,
-                            'help'    => 'Number of posts to show on blog list pages.'
-                        ],
-                        [
                             'id'      => 'blog_sidebar_enable',
                             'type'    => 'switcher',
                             'title'   => 'Enable Sidebar on Blog List',
