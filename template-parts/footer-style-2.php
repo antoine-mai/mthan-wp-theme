@@ -24,6 +24,7 @@ $social_label      = $footer_tabs['footer_2_social_label'] ?? 'Follow Us On:';
 
 $copyright_text    = $footer_tabs['footer_copyright_text'] ?? 'Copyright &copy; ' . date('Y') . ' All Rights Reserved by Pruners.';
 $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
+$newsletter_placeholder = $footer_tabs['footer_newsletter_placeholder'] ?? 'Email Address *';
 ?>
 <!-- Main Footer -->
 <footer class="main-footer footer-two">
@@ -119,7 +120,7 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                                 <div class="newsletter">
                                     <form method="post" action="#">
                                         <div class="form-group clearfix">
-                                            <input type="email" name="email" value="" placeholder="Email Address *" required>
+                                            <input type="email" name="email" value="" placeholder="<?php echo esc_attr($newsletter_placeholder); ?>" required>
                                             <span class="alt-icon far fa-envelope"></span>
                                             <button type="submit" class="theme-btn"><span class="flaticon-right-arrow-1"></span></button>
                                         </div>

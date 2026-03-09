@@ -183,12 +183,16 @@ $bottom_links      = $footer_tabs['footer_bottom_links'] ?? [];
                 </div>
             </div>
             <div class="footer-widget newsletter-widget">
+                <?php 
+                $newsletter_email_placeholder = $footer_tabs['footer_newsletter_placeholder'] ?? 'Email Address *';
+                $newsletter_name_placeholder  = $footer_tabs['footer_newsletter_name_placeholder'] ?? 'Your Name *';
+                ?>
                 <!--Newsletter-->
                 <div class="newsletter-form">
                     <form method="post" action="#">
                         <div class="form-group clearfix">
-                            <input type="text" name="name" value="" placeholder="Your Name *" required>
-                            <input type="email" name="email" value="" placeholder="Email Address *" required>
+                            <input type="text" name="name" value="" placeholder="<?php echo esc_attr($newsletter_name_placeholder); ?>" required>
+                            <input type="email" name="email" value="" placeholder="<?php echo esc_attr($newsletter_email_placeholder); ?>" required>
                             <button type="submit" class="theme-btn btn-style-three"><span class="btn-title"><?php echo esc_html($newsletter_title); ?> <i class="arrow flaticon-play-button-1"></i></span></button>
                         </div>
                     </form>

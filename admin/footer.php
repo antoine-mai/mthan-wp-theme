@@ -54,6 +54,18 @@ CSF::createSection(MTHAN_THEME_OPTIONS, [
                             'default' => 'Subscribe Us',
                         ],
                         [
+                            'id'      => 'footer_newsletter_placeholder',
+                            'type'    => 'text',
+                            'title'   => 'Newsletter Email Placeholder',
+                            'default' => 'Email Address *',
+                        ],
+                        [
+                            'id'      => 'footer_newsletter_name_placeholder',
+                            'type'    => 'text',
+                            'title'   => 'Newsletter Name Placeholder',
+                            'default' => 'Your Name *',
+                        ],
+                        [
                             'id'      => 'footer_copyright_text',
                             'type'    => 'wp_editor',
                             'title'   => 'Copyright Text',
