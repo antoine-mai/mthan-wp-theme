@@ -1888,7 +1888,7 @@ img {
 	display: none;
 }
 
-.inner-header .header-lower .more-links a:after {
+.inner-header .header-lower .more-links .quote-btn a:after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -1971,6 +1971,7 @@ img {
 	height: 100%;
 	padding: 0;
 	padding-left: 16px;
+	padding-right: 16px;
 	border: none;
 	color: #ffffff;
 	font-size: 20px;
