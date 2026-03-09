@@ -1,6 +1,6 @@
 <?php defined('ABSPATH') or die('Cheatin\' uh?'); 
 /**
- * Template Name: Header Style 2
+ * Header Style 2
  * 
  * @package Mthan
  * @since 1.0.0
