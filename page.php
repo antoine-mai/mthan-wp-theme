@@ -23,7 +23,9 @@ if (!empty($spacing)) {
     if (isset($spacing['bottom'])) $sec_style .= 'padding-bottom:' . $spacing['bottom'] . $unit . ';';
 }
 
-mthan_render_global_sections('before');
+if (empty($page_meta) || !isset($page_meta['page_global_before_sections_enable']) || $page_meta['page_global_before_sections_enable']) {
+    mthan_render_global_sections('before');
+}
 mthan_render_page_sections('before');
 if (have_posts()) {
     the_post(); ?>
@@ -56,5 +58,7 @@ if (have_posts()) {
 </div>
 <?php }
 mthan_render_page_sections('after');
-mthan_render_global_sections('after');
+if (empty($page_meta) || !isset($page_meta['page_global_after_sections_enable']) || $page_meta['page_global_after_sections_enable']) {
+    mthan_render_global_sections('after');
+}
 get_footer();

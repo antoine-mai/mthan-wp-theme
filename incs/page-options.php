@@ -121,11 +121,23 @@ CSF::createSection(MTHAN_PAGE_OPTIONS, [
             'dependency' => array('page_sidebar_enable', '==', true),
         ],
         [
-            'id'      => 'page_sidebar_select',
-            'type'    => 'select',
-            'title'   => 'Select Sidebar',
+            'id'    => 'page_sidebar_select',
+            'type'  => 'select',
+            'title' => 'Select Sidebar',
             'options' => mthan_get_sidebar_options(),
             'dependency' => array('page_sidebar_enable', '==', true),
+        ],
+        [
+            'id'      => 'page_global_before_sections_enable',
+            'type'    => 'switcher',
+            'title'   => 'Enable Global Before Sections',
+            'default' => true,
+        ],
+        [
+            'id'      => 'page_global_after_sections_enable',
+            'type'    => 'switcher',
+            'title'   => 'Enable Global After Sections',
+            'default' => true,
         ],
     ],
 ]);
