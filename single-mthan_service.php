@@ -78,7 +78,7 @@ if (!empty($spacing)) {
                     </span>
                 </div>
                 <div class="subtitle">
-                    <?php esc_html_e('Service Details', 'mthan'); ?>
+                    <?php esc_html_e('Dịch vụ', 'mthan'); ?>
                 </div>
                 <h2>
                     <?php the_title(); ?>
