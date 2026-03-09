@@ -16545,12 +16545,6 @@ img.lazy-image.loaded {
 	color: #24a77e !important;
 }
 
-/* --- Header Style 1 Alignment Fix --- */
-.main-header.header-style-one .header-lower .inner {
-	padding-right: 25px !important;
-	/* Reset 215px padding intended for absolute button */
-}
-
 
 @media only screen and (max-width: 991px) {
 	.main-header.header-style-one .header-lower .inner {
