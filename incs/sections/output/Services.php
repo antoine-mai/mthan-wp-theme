@@ -17,6 +17,10 @@ function mthan_section_Services_html($section_data) { ?>
 
     $read_more = mthan_get_section_val($slug, $section_data, 'read_more_text', 'Read More');
 
+    $title_icon = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
+    $subtitle   = mthan_get_section_val($slug, $section_data, 'subtitle');
+    $title      = mthan_get_section_val($slug, $section_data, 'title');
+
     $columns   = mthan_get_section_val($slug, $section_data, 'columns', '3');
     $col_class = 'col-lg-4 col-md-6 col-sm-12'; // Default 3 columns
 
@@ -41,6 +45,20 @@ function mthan_section_Services_html($section_data) { ?>
 ?>
 <section class="main-services <?php echo esc_attr($styles['class']); ?>" <?php echo $styles['style']; ?>>
     <div class="auto-container">
+        <?php if ($title_icon || $subtitle || $title) { ?>
+        <div class="sec-title text-center">
+            <?php if ($title_icon) { ?>
+            <div class="title-icon"><span class="icon"><img src="<?php echo esc_url($title_icon); ?>" alt="icon"></span></div>
+            <?php } ?>
+            <?php if ($subtitle) { ?>
+            <div class="subtitle"><?php echo esc_html($subtitle); ?></div>
+            <?php } ?>
+            <?php if ($title) { ?>
+            <h2><?php echo wp_kses_post($title); ?></h2>
+            <?php } ?>
+        </div>
+        <?php } ?>
+
         <div class="row clearfix">
             <?php while ($query->have_posts()) { 
                 $query->the_post();
