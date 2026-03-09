@@ -8,6 +8,11 @@
 function mthan_section_Blog_html($section_data) { ?>
 <?php
     $slug = 'Blog';
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    if (is_front_page()) {
+        $paged = (get_query_var('page')) ? get_query_var('page') : 1;
+    }
+
     $title_icon = mthan_sec_img(mthan_get_section_val($slug, $section_data, 'title_icon'));
     $subtitle   = mthan_get_section_val($slug, $section_data, 'subtitle');
     $title      = mthan_get_section_val($slug, $section_data, 'title');
@@ -20,6 +25,7 @@ function mthan_section_Blog_html($section_data) { ?>
     $args = array(
         'post_type'      => 'post',
         'posts_per_page' => $count,
+        'paged'          => $paged,
         'post_status'    => 'publish',
     );
 
@@ -104,6 +110,48 @@ function mthan_section_Blog_html($section_data) { ?>
             </div>
         </div>
 
+        <?php if ($query->max_num_pages > 1) : ?>
+        <div class="pagination-box text-center">
+            <style>
+                .styled-pagination { padding: 0 !important; }
+                .styled-pagination li { vertical-align: middle !important; }
+                .styled-pagination li a { display: flex !important; align-items: center; justify-content: center; line-height: 1 !important; }
+            </style>
+            <?php
+            $links = paginate_links(array(
+                'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+                'format'       => '?paged=%#%',
+                'current'      => max(1, $paged),
+                'total'        => $query->max_num_pages,
+                'prev_text'    => '<span class="fa fa-caret-left"></span>',
+                'next_text'    => '<span class="fa fa-caret-right"></span>',
+                'type'         => 'list',
+            ));
+            
+            if ($links) {
+                // 1. Convert span current to active link
+                $links = preg_replace('/<span[^>]*class=["\']([^"\']*current[^"\']*)["\'][^>]*>([0-9]+)<\/span>/', '<a href="#" class="active">$2</a>', $links);
+                
+                // 2. Clear out all page-numbers related classes but preserving other potential classes (prev/next)
+                $links = preg_replace('/class=["\']([^"\']*)page-numbers([^"\']*)["\']/', 'class="$1 $2"', $links);
+                
+                // 3. Set the correct class for the ul 
+                $links = preg_replace('/<ul[^>]*>/', '<ul class="styled-pagination">', $links);
+                
+                // 4. Transform prev/next to control
+                $links = str_replace('class="prev"', 'class="control prev"', $links);
+                $links = str_replace('class="next"', 'class="control next"', $links);
+                
+                // 5. Final cleanup of class spacing
+                $links = str_replace('class=" "', '', $links);
+                $links = str_replace('class="  "', '', $links);
+                $links = str_replace('  ', ' ', $links);
+                
+                echo $links;
+            }
+            ?>
+        </div>
+        <?php endif; wp_reset_postdata(); ?>
     </div>
 </section>
 <?php }
