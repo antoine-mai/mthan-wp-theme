@@ -3,12 +3,16 @@
  * Page Layout: Service List
  */
 ?>
-<div class="services-content">
-    <?php
-    if (have_posts()) :
-        while (have_posts()) : the_post();
-            the_content();
-        endwhile;
-    endif;
-    ?>
-</div>
+<section class="service-details">
+    <div class="services-content">
+        <?php
+        mthan_render_post_sections('before');
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+                the_content();
+            endwhile;
+        endif;
+        mthan_render_post_sections('after');
+        ?>
+    </div>
+</section>
