@@ -110,18 +110,6 @@ function mthan_section_GalleryGrid4_html($section_data) { ?>
             </div>
             <?php } ?>
 
-            <!-- Pagination Box -->
-            <?php if ($footer_type === 'pagination') { ?>
-            <div class="pagination-box">
-                <ul class="styled-pagination">
-                    <li><a href="#" class="control"><span class="fa fa-caret-left"></span></a></li>
-                    <li><a href="#" class="active">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#" class="control"><span class="fa fa-caret-right"></span></a></li>
-                </ul>
-            </div>
-            <?php } ?>
         </div>
     </div>
 </section>

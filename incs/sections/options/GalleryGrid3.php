@@ -106,17 +106,5 @@ function mthan_section_GalleryGrid3_options() {
                 mthan_page_select_field('link', 'Item Link'),
             ),
         ),
-        // Footer
-        array(
-            'id'    => 'footer_btn_text',
-            'type'  => 'text',
-            'title' => 'Load More Button Text',
-            'default' => 'LOAD MORE',
-        ),
-        mthan_page_select_field('footer_btn_link', 'Load More Link', [
-            'default' => [
-                'url' => '#'
-            ]
-        ]),
     );
 }

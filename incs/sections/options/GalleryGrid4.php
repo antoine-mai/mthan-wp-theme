@@ -106,17 +106,5 @@ function mthan_section_GalleryGrid4_options() {
                 mthan_page_select_field('link', 'Item Link'),
             ),
         ),
-        // Footer Switcher
-        array(
-            'id'    => 'footer_type',
-            'type'  => 'radio',
-            'title' => 'Footer Type',
-            'inline' => true,
-            'options' => array(
-                'none'       => 'None',
-                'pagination' => 'Pagination',
-            ),
-            'default' => 'pagination',
-        ),
     );
 }

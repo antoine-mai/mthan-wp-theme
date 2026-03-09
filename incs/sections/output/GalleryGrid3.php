@@ -110,15 +110,6 @@ function mthan_section_GalleryGrid3_html($section_data) { ?>
                 <?php } ?>
             </div>
             <?php } ?>
-
-            <!-- More Box -->
-            <?php if ($btn_text) { ?>
-            <div class="more-box">
-                <a class="theme-btn btn-style-four" href="<?php echo esc_url($btn_link); ?>">
-                    <span class="btn-title"><?php echo esc_html($btn_text); ?> <i class="arrow flaticon-play-button-1"></i></span>
-                </a>
-            </div>
-            <?php } ?>
         </div>
     </div>
 </section>
