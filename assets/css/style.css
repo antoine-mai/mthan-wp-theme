@@ -16501,15 +16501,16 @@ img.lazy-image.loaded {
 }
 
 /* Updated Mega Menu to span full container width */
-.main-header .header-lower .inner {
+.main-header .header-lower .inner,
+.sticky-header .auto-container {
 	position: relative !important;
 }
 
 .main-header .nav-outer,
 .main-header .main-menu,
-.main-menu .navbar-collapse,
-.main-menu .navigation,
-.main-menu .navigation>li.megamenu {
+.main-header .navbar-collapse,
+.main-header .navigation,
+.main-header .navigation>li.megamenu {
 	position: static !important;
 }
 
