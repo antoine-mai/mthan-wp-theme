@@ -2040,6 +2040,8 @@ img {
 
 .sticky-header .pull-right {
 	margin-left: auto;
+	display: inline-flex;
+	justify-content: space-between;
 }
 
 .sticky-header .auto-container {
@@ -2126,12 +2128,7 @@ img {
 	opacity: 1;
 }
 
-.sticky-header .contact-link {
-	position: relative;
-	float: left;
-	margin-left: 25px;
-	padding-top: 10px;
-}
+.sticky-header .contact-link {}
 
 .sticky-header .contact-link .theme-btn .btn-title {
 	padding-top: 5px;
