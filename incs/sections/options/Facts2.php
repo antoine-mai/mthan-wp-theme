@@ -6,6 +6,16 @@
 function mthan_section_Facts2_options() {
     return array(
         array(
+            'id'      => 'layout_type',
+            'type'    => 'radio',
+            'title'   => 'Layout Type',
+            'options' => array(
+                'boxed'    => 'Boxed',
+                'fullwide' => 'Fullwide',
+            ),
+            'default' => 'boxed',
+        ),
+        array(
             'id'    => 'items',
             'type'  => 'group',
             'title' => 'Fact Blocks',

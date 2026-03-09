@@ -8,14 +8,18 @@
 function mthan_section_Facts2_html($section_data) { ?>
 <?php
     $slug = 'Facts2';
+    $layout = mthan_get_section_val($slug, $section_data, 'layout_type', 'boxed');
+    $container = ($layout === 'fullwide') ? 'container-fluid' : 'outer-container';
+    $breakout  = ($layout === 'fullwide') ? 'mthan-fullwide-section' : '';
+    
     $items = mthan_get_section_val($slug, $section_data, 'items', array());
     $global_speed = mthan_get_section_val($slug, $section_data, 'speed', '1000');
 
     $styles = mthan_section_styles($slug, $section_data);
     if (empty($items)) return;
 ?>
-<section class="facts-two <?php echo esc_attr($styles['class']); ?>" <?php echo $styles['style']; ?>>
-    <div class="outer-container">
+<section class="facts-two <?php echo esc_attr($styles['class']); ?> <?php echo esc_attr($breakout); ?>" <?php echo $styles['style']; ?>>
+    <div class="<?php echo esc_attr($container); ?>">
         <div class="row clearfix">
             <?php foreach ($items as $item) { ?>
             <?php

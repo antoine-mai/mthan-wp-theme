@@ -8,6 +8,16 @@ function mthan_section_Facts1_options() {
 
     return array(
         array(
+            'id'      => 'layout_type',
+            'type'    => 'radio',
+            'title'   => 'Layout Type',
+            'options' => array(
+                'boxed'    => 'Boxed',
+                'fullwide' => 'Fullwide',
+            ),
+            'default' => 'boxed',
+        ),
+        array(
             'id'    => 'bg_image',
             'type'  => 'upload',
             'title' => 'Background Image',

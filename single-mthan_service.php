@@ -71,7 +71,17 @@ if (have_posts())
         <?php } ?>
 
         <?php if ($prev_service || $next_service) { ?>
-        <style>.post-controls.no-line:before { display: none !important; }</style>
+        <style>
+            .post-controls.no-line:before { display: none !important; }
+            .mthan-fullwide-section {
+                width: 100vw !important;
+                position: relative !important;
+                left: 50% !important;
+                right: 50% !important;
+                margin-left: -50vw !important;
+                margin-right: -50vw !important;
+            }
+        </style>
         <div class="post-controls no-line" style="margin-bottom: 40px; border-bottom: none; padding-bottom: 0;">
             <div class="inner clearfix">
                 <?php if ($prev_service) { ?>
