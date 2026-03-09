@@ -69,7 +69,8 @@ if (have_posts())
         </div>
 
         <?php if ($prev_service || $next_service) { ?>
-        <div class="post-controls" style="margin-bottom: 40px; border-bottom: none; padding-bottom: 0;">
+        <style>.post-controls.no-line:before { display: none !important; }</style>
+        <div class="post-controls no-line" style="margin-bottom: 40px; border-bottom: none; padding-bottom: 0;">
             <div class="inner clearfix">
                 <?php if ($prev_service) { ?>
                 <div class="prev-post" style="width: auto; max-width: 25%;">
