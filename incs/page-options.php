@@ -41,16 +41,23 @@ $mthan_gen_section_group = function($id) use ($available_sections, $section_fiel
     ];
 };
 
-// ── Before Content Sections ────────────────────────────────────────
+// ── Sections Before Content ────────────────────────────────────────
 CSF::createSection(MTHAN_PAGE_OPTIONS, [
-    'title'  => 'Before Content',
+    'title'  => 'Sections Before Content',
     'icon'   => 'fas fa-arrow-up',
     'fields' => $mthan_gen_section_group('page_before_sections'),
 ]);
 
-// ── After Content Sections ─────────────────────────────────────────
+// ── Content Sections ──────────────────────────────────────────────
 CSF::createSection(MTHAN_PAGE_OPTIONS, [
-    'title'  => 'After Content',
+    'title'  => 'Content Sections',
+    'icon'   => 'fas fa-th-list',
+    'fields' => $mthan_gen_section_group('page_content_sections'),
+]);
+
+// ── Sections After Content ─────────────────────────────────────────
+CSF::createSection(MTHAN_PAGE_OPTIONS, [
+    'title'  => 'Sections After Content',
     'icon'   => 'fas fa-arrow-down',
     'fields' => $mthan_gen_section_group('page_after_sections'),
 ]);

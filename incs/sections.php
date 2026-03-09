@@ -282,7 +282,11 @@ function mthan_render_post_sections($position = 'before') {
     switch ($post_type) {
         case 'page':
             $meta_key = MTHAN_PAGE_OPTIONS;
-            $data_key = ($position === 'after') ? 'page_after_sections' : 'page_before_sections';
+            if ($position === 'content') {
+                $data_key = 'page_content_sections';
+            } else {
+                $data_key = ($position === 'after') ? 'page_after_sections' : 'page_before_sections';
+            }
             break;
         case 'post':
             $meta_key = MTHAN_POST_OPTIONS;
