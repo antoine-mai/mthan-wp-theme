@@ -16511,10 +16511,6 @@ img.lazy-image.loaded {
 	position: static !important;
 }
 
-.main-menu .navigation>li.megamenu {
-	position: static !important;
-}
-
 .main-menu .navigation>li.megamenu>ul {
 	width: 100% !important;
 	left: 0 !important;
