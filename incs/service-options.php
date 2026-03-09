@@ -80,6 +80,12 @@ CSF::createSection(MTHAN_SERVICE_OPTIONS, [
             'default' => false,
         ],
         [
+            'id'    => 'service_hide_heading',
+            'type'  => 'switcher',
+            'title' => 'Hide Heading',
+            'default' => false,
+        ],
+        [
             'id'      => 'service_sidebar_position',
             'type'    => 'radio',
             'title'   => 'Sidebar Position',

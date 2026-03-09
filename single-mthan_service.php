@@ -54,6 +54,7 @@ if (have_posts())
 
     <div class="<?php echo esc_attr($container_class); ?>">
         
+        <?php if (empty($service_meta['service_hide_heading'])) { ?>
         <div class="sec-title">
             <div class="title-icon">
                 <span class="icon">
@@ -67,6 +68,7 @@ if (have_posts())
                 <?php the_title(); ?>
             </h2>
         </div>
+        <?php } ?>
 
         <?php if ($prev_service || $next_service) { ?>
         <style>.post-controls.no-line:before { display: none !important; }</style>
